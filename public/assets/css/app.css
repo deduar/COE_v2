@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    color: #B0BEC5;
+    display: table;
+    font-weight: normal;
+    font-family: 'Lato';
+}
+
+.navbar {
+    margin-bottom: 0px !important;
+}
+.navbar-default {
+    padding-left: 65px;
+    padding-right: 65px;
+    border: 0px solid #fff !important;
+}
+
+a.menu {
+    padding-top: 27px !important;
+}
+
+a.menu:hover {
+    color: #337ab7 !important;
+}
+
+.login_box{
+	background-image: url('../images/carousel_02.jpg');
+	-webkit-border-radius: 50px 10px;
+  	-moz-border-radius: 50px 10px;
+  	border-radius: 50px 10px;
+	margin-top: 30px;
+	padding: 30px;
+	color: #000;
+}
+
+.register_box{
+	background-image: url('../images/carousel_02.jpg');
+	-webkit-border-radius: 50px 10px;
+  	-moz-border-radius: 50px 10px;
+  	border-radius: 50px 10px;
+	margin-top: 30px;
+	padding: 30px;
+	color: #000;		
+}
+
+button#user.menu{
+	margin-top: 23px;
+}
+
+a.menu_profile{
+	font-size: 0.7em;
+}
+
+
+.footer{
+	margin-top: 20px;
+    color: #F4F3EE;
+    background: #000;
+}
