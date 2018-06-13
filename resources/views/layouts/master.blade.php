@@ -1,4 +1,4 @@
-<html>
+    <html>
     <head>
         <title>@yield('title')</title>
         {!! Html::style('assets/css/bootstrap.css') !!}
@@ -42,27 +42,71 @@
                     <ul class="dropdown-menu" aria-labelledby="user">                        
                         <li>
                             <a class="menu_profile" href="{{ route('edit_profile') }}" />
-                                <i class="fa fa-btn fa-user"></i>{{ trans("welcome.edit_profile") }}
+                                <i class="fa fa-btn fa-user"></i>{{ trans("welcome.profile") }}
                             </a>
                         </li>
                         <li>
-                            <a class="menu_profile" href="{{ route('edit_password') }}" />
-                                {{ trans("welcome.change_passwd") }}
+                            <a class="menu_profile" href="{{ route('messages') }}" />
+                                <i class="fa fa-btn fa-user"></i>{{ trans("welcome.messages") }}
                             </a>
                         </li>
-                        <li role="separator" class="divider"></li>
-                        @if ($user->group == 'Guide')
-                        <li>
-                            <a class="menu_profile" href="{{ route('my_experience') }}" />
-                                {{ trans("welcome.experiences") }}
-                            </a>
-                        </li>
-                        @endif
                         <li>
                             <a class="menu_profile" href="{{ route('reservation') }}" />
                                 {{ trans("welcome.reservation") }}
                             </a>
                         </li>
+                        <li>
+                            <a class="menu_profile" href="{{ route('collection') }}" />
+                                {{ trans("welcome.my_collections") }}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu_profile" href="{{ route('transaction_log') }}" />
+                                {{ trans("welcome.my_trans_history") }}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu_profile" href="{{ route('invite_friend') }}" />
+                                {{ trans("welcome.invite_friend") }}
+                            </a>
+                        </li>
+                        <!--li>
+                            <a class="menu_profile" href="{{ route('edit_password') }}" />
+                                {{ trans("welcome.change_passwd") }}
+                            </a>
+                        </li-->
+                        <!--li role="separator" class="divider"></li-->
+
+                        @if ($user->group == 'Guide')
+                        <li class="navbarpadding">
+                            {{ trans("welcome.insiders") }}
+                        </li>
+                        <li>
+                            <a class="menu_profile" href="{{ route('my_experience') }}" />
+                                {{ trans("welcome.experiences") }}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu_profile" href="{{ route('my_experience') }}" />
+                                {{ trans("welcome.exp_reserve_list") }}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu_profile" href="{{ route('my_experience') }}" />
+                                {{ trans("welcome.payout_settings") }}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu_profile" href="{{ route('my_experience') }}" />
+                                {{ trans("welcome.transacctional_history") }}
+                            </a>
+                        </li>
+                        @endif
+                        <!--li>
+                            <a class="menu_profile" href="{{ route('reservation') }}" />
+                                {{ trans("welcome.reservation") }}
+                            </a>
+                        </li-->
                         <li role="separator" class="divider"></li>
                         <li>
                             <a class="menu_profile" href="{{ route('logout') }}" />
@@ -84,7 +128,7 @@
                 @endif
                 </li>
                 <li>
-                    <a href="{{ route('welcome') }}" />
+                    <a href="{{ route('experience_index') }}" />
                         <button type="button" class="btn btn-primary navbar-btn">
                             {{trans('welcome.find_exp') }}
                         </button>

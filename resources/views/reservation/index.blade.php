@@ -4,18 +4,19 @@
 
 @section('content')
 
-  <h1>My Reservations</h1>
+  <h1>My Reservations<h5>{{ \Carbon\Carbon::parse($now)->format('d/m/Y H:m:s') }}</h5></h1>
+
 
 <table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">Experience</th>
-      <th scope="col">Date</th>
+      <th scope="col">Reservation Date</th>
       <th scope="col">Guide email</th>
       <th scope="col">Guide Name</th>
       <th scope="col">Guide</th>
       <th scope="col">Status</th>
-      <th scope="col">Actions</th>
+      <th scope="col" style="text-align: center;">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -30,8 +31,17 @@
   		echo "<th scope='col'>"?>
 				<img src={{asset('uploads/avatars/'.$res->avatar)}} height="40px" style="border-radius: 50%">
   		<?php "</th>";
+      ?> @if($res->status === "Waiting") <?php
   		echo "<th scope='col'><button class='btn btn-success'>$res->status</button</th>";
-      echo "<th scope='col'><button class='btn btn-danger'>Cancel</button</th>";
+      echo "<th scope='col'>
+        <button class='btn btn-danger'><a style='text-decoration:none; color:fff;' href='./reservation/cancel/$res->res_id'>Cancel</a></button>
+        <button class='btn btn-info'>Pay Transfer</button>
+        <button class='btn btn-info'>Pay PayPal</button>
+      </th>";
+      ?> @else <?php
+      echo "<th scope='col'><button class='btn btn-warning'>$res->status</button</th>";
+      echo "<th></th>"
+      ?> @endif <?php
   		echo "</tr>";
       ?> @endif <?php
   	}

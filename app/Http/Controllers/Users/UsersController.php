@@ -148,6 +148,12 @@ class UsersController extends Controller
         \Session::flash('resend_message','A mail with instructions was sent to you email.');
 
         return view('user.verify', array('user'=>Auth::user()));
-	}	
+	}
+
+	public function inviteFriend()
+    {
+        $user = Auth::user();
+        return view('user.inviteFriend', array('user'=>$user = Auth::user()));   
+    }
 
 }

@@ -11,6 +11,7 @@ use App;
 use Auth;
 
 use App\Reservation;
+use Carbon;
 
 use Illuminate\Support\Facades\DB;
 
@@ -29,10 +30,57 @@ class ReservationController extends Controller
             ->join('users','users.id','=','experience.exp_guide_id')
             ->select('experience.id', 'experience.exp_name as exp_name','users.name as user_name',
                     'users.lastName','users.email','users.avatar','reservation.status', 
-                    'reservation.res_exp_id', 'reservation.res_user_id', 'reservation.res_guide_id',
-                    'reservation.res_date')
+                    'reservation.id as res_id','reservation.res_exp_id', 'reservation.res_user_id', 'reservation.res_guide_id',
+                    'reservation.created_at','reservation.res_date')
             ->get();
-        return view('reservation.index', array('user'=>$user, 'myreservations'=>$myreservations));
+        $now = Carbon\Carbon::now();
+        foreach ($myreservations as $key => $reservation) {
+            if($reservation->status == "Waiting"){
+                $res_date = Carbon\Carbon::parse($reservation->res_date);
+                $created_at = Carbon\Carbon::parse($reservation->created_at);
+                if ($now->gt($res_date)){
+                    //echo $reservation->res_id. "Canceled Res > Now <br>";
+                    $this->Canceled($reservation->res_id);
+                }
+                if ($now->diff($created_at)->d > 3){
+                    //echo $reservation->res_id. "Canceled Creat > 3D <br>";
+                    $this->Canceled($reservation->res_id);
+                }
+            }
+        }
+        return view('reservation.index', array('user'=>$user, 'myreservations'=>$myreservations, 'now'=>$now));
+    }
+
+    public function Canceled($id)
+    {
+        $res = Reservation::find($id);
+        $res->status = "Canceled";
+        $res->update();
+    }
+
+    public function Rejected($id)
+    {
+        $res = Reservation::find($id);
+        $res->status = "Rejected";
+        $res->update();
+    }
+
+    public function Cancel($id)
+    {
+        $user = Auth::user();
+        $res = Reservation::find($id);
+        $res->status = "Canceled";
+        $res->update();
+        return redirect()->route('reservation');
+    }
+
+    public function Reject($id)
+    {
+        $user = Auth::user();
+        $res = Reservation::find($id);
+        $res->status = "Rejected";
+        $res->update();
+        return redirect()->route('reservation_waiting');
     }
 
     /**
@@ -69,8 +117,18 @@ class ReservationController extends Controller
         $myreservations = DB::table('reservation')
             ->join('experience','reservation.res_exp_id','=','experience.id')
             ->join('users','users.id','=','experience.exp_guide_id')
+            ->select('experience.id', 'experience.exp_name as exp_name','users.name as user_name',
+                    'users.lastName','users.email','users.avatar','reservation.status', 
+                    'reservation.id as res_id','reservation.res_exp_id', 'reservation.res_user_id', 'reservation.res_guide_id',
+                    'reservation.created_at','reservation.res_date')
             ->get();
-        return view('reservation.index', array('user'=>$user, 'myreservations'=>$myreservations));
+        $now = Carbon\Carbon::now();
+        return view('reservation.index', array('user'=>$user, 'myreservations'=>$myreservations, 'now'=>$now));
+//        $myreservations = DB::table('reservation')
+//            ->join('experience','reservation.res_exp_id','=','experience.id')
+//            ->join('users','users.id','=','experience.exp_guide_id')
+//            ->get();
+//        return view('reservation.index', array('user'=>$user, 'myreservations'=>$myreservations));
         //return view('experience.index', array('user'=>Auth::user(), 'myexps'=>$myexps, 'users'=>$users));
     }
 
@@ -122,11 +180,49 @@ class ReservationController extends Controller
     public function waiting()
     {
         $user = Auth::user();
-        $reservations = DB::table('reservation')
+/*        $reservations = DB::table('reservation')
             ->join('experience', 'experience.id','=','reservation.res_exp_id')
             ->join('users','users.id','=','reservation.res_user_id')
+            ->get(); */
+
+        $reservations = DB::table('reservation')
+            ->join('experience','reservation.res_exp_id','=','experience.id')
+            ->join('users','users.id','=','reservation.res_user_id')
+            ->select('experience.id', 'experience.exp_name as exp_name','users.name as user_name',
+                    'users.lastName','users.email','users.avatar','reservation.status', 
+                    'reservation.id as res_id','reservation.res_exp_id', 'reservation.res_user_id', 'reservation.res_guide_id',
+                    'reservation.created_at','reservation.res_date')
             ->get();
-        return view('reservation.waiting', array('user'=>$user, 'reservations'=>$reservations));
+        
+        $now = Carbon\Carbon::now();
+        foreach ($reservations as $key => $reservation) {
+            if($reservation->status == "Waiting"){
+                $res_date = Carbon\Carbon::parse($reservation->res_date);
+                $created_at = Carbon\Carbon::parse($reservation->created_at);
+                if ($now->gt($res_date)){
+                    //echo $reservation->res_id. "Canceled Res > Now <br>";
+                    $this->Rejected($reservation->res_id);
+                }
+                if ($now->diff($created_at)->d > 3){
+                    //echo $reservation->res_id. "Canceled Creat > 3D <br>";
+                    $this->Rejected($reservation->res_id);
+                }
+            }
+        }
+
+        return view('reservation.waiting', array('user'=>$user, 'reservations'=>$reservations, 'now'=>$now));
+    }
+
+    public function collection()
+    {
+        $user = Auth::user();
+        return view('reservation.collection', array('user'=>$user = Auth::user()));   
+    }
+
+    public function transactionLog()
+    {
+        $user = Auth::user();
+        return view('reservation.trans_log', array('user'=>$user = Auth::user()));   
     }
 
 }
