@@ -73,14 +73,14 @@ class ExperiencesController extends Controller
         $user = Auth::user();
         $exp = new Experiences;
         $exp->exp_name = $request->exp_name;
-        $exp->user_id = $user->id;
+        $exp->exp_guide_id = $user->id;
         $exp->save();
         if ($user->guide != 'Guide') {
             $user->group = "Guide";
             $user->update();
         }
         $experiences = DB::table('users')
-            ->join('experience','users.id','=','experience.user_id')
+            ->join('experience','users.id','=','experience.exp_guide_id')
             ->where('users.group','Guide')
             ->get();
         return view('experience.index', array('user'=>Auth::user(), 'experiences'=>$experiences));
