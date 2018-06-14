@@ -24,7 +24,7 @@
   	foreach ($myreservations as $res) { 
       ?> @if($res->res_user_id === $user->id) <?php
   		echo "<tr>";
-  		echo "<th scope='col'>$res->exp_name $res->res_user_id $user->id $res->res_guide_id</th>";
+  		echo "<th scope='col'>$res->exp_name $res->id $res->res_user_id $user->id $res->res_guide_id</th>";
   		echo "<th scope='col'>$res->res_date</th>";
   		echo "<th scope='col'>$res->email</th>";
   		echo "<th scope='col'>$res->user_name $res->lastName</th>";
@@ -35,11 +35,16 @@
   		echo "<th scope='col'><button class='btn btn-success'>$res->status</button</th>";
       echo "<th scope='col'>
         <button class='btn btn-danger'><a style='text-decoration:none; color:fff;' href='./reservation/cancel/$res->res_id'>Cancel</a></button>
-        <button class='btn btn-info'>Pay Transfer</button>
+        <button class='btn btn-info'><a style='text-decoration:none; color:fff;' href='./reservation/pay_tansfer/$res->res_id'>Pay Transfer</a></button>
         <button class='btn btn-info'>Pay PayPal</button>
       </th>";
-      ?> @else <?php
-      echo "<th scope='col'><button class='btn btn-warning'>$res->status</button</th>";
+      ?> @endif <?php
+      ?> @if($res->status === "Canceled") <?php
+      echo "<th scope='col'><button class='btn btn-danger'>$res->status</button</th>";
+      echo "<th></th>"
+      ?> @endif <?php
+      ?> @if($res->status === "Waiting Pay") <?php
+      echo "<th scope='col'><button class='btn btn-primary'>$res->status</button</th>";
       echo "<th></th>"
       ?> @endif <?php
   		echo "</tr>";

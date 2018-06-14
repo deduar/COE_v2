@@ -20,7 +20,7 @@
 
   @foreach ($experiences as $exp)
     <tr>
-      <th  scope='col'>{{ $exp->exp_name }}</th>
+      <th  scope='col'>{{ $exp->exp_name }} {{ $exp->id }}</th>
       <th  scope='col'>{{ $exp->email }}</th>
       <th  scope='col'>{{ $exp->name }} {{ $exp->lastName }}</th>
       <th  scope='col'>

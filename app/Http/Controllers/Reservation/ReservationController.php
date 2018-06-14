@@ -83,6 +83,24 @@ class ReservationController extends Controller
         return redirect()->route('reservation_waiting');
     }
 
+    public function Accept($id)
+    {
+        $user = Auth::user();
+        $res = Reservation::find($id);
+        $res->status = "Accepted";
+        $res->update();
+        return redirect()->route('reservation_waiting');
+    }
+
+    public function PayTransfer($id)
+    {
+        $user = Auth::user();
+        $res = Reservation::find($id);
+        $res->status = "Waiting Pay";
+        $res->update();
+        return redirect()->route('reservation');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -123,7 +141,8 @@ class ReservationController extends Controller
                     'reservation.created_at','reservation.res_date')
             ->get();
         $now = Carbon\Carbon::now();
-        return view('reservation.index', array('user'=>$user, 'myreservations'=>$myreservations, 'now'=>$now));
+        //return view('reservation.index', array('user'=>$user, 'myreservations'=>$myreservations, 'now'=>$now));
+        return redirect()->route('reservation');
 //        $myreservations = DB::table('reservation')
 //            ->join('experience','reservation.res_exp_id','=','experience.id')
 //            ->join('users','users.id','=','experience.exp_guide_id')

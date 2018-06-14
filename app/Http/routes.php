@@ -77,6 +77,8 @@ Route::get('/reservation/collection/0', 'Reservation\ReservationController@colle
 Route::get('/reservation/transacionLog/0', 'Reservation\ReservationController@transactionLog')->name('transaction_log');
 Route::get('/reservation/cancel/{id}', 'Reservation\ReservationController@Cancel')->name('reservation_canceed');
 Route::get('/reservation/reject/{id}', 'Reservation\ReservationController@Reject')->name('reservation_rejected');
+Route::get('/reservation/accept/{id}', 'Reservation\ReservationController@Accept')->name('reservation_accepted');
+Route::get('/reservation/pay_tansfer/{id}', 'Reservation\ReservationController@PayTransfer')->name('reservation_payTransfer');
 
 // Messages
 Route::get('/messages', 'Messages\MessagesController@index')->name('messages');
