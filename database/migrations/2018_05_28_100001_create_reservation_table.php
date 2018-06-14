@@ -19,7 +19,7 @@ class CreateReservationTable extends Migration
             $table->integer('res_exp_id');
             $table->integer('res_user_id');
             $table->integer('res_guide_id');
-            $table->enum('status', ['Waiting', 'Rejected', 'Canceled', 'Defered'])->default('Waiting');
+            $table->enum('status', ['Waiting', 'Rejected', 'Canceled', 'Defered', 'Accepted', 'Waiting Pay'])->default('Waiting');
         });
 
         Schema::table('reservation', function ($table) {
