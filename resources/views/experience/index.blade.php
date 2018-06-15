@@ -6,7 +6,7 @@
 
   <h1>All Experiences</h1>
 
-<table class="table table-striped">
+<!--table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">Experience</th>
@@ -35,7 +35,24 @@
   @endforeach
 
   </tbody>
-</table>
+</table-->
+
+<div clas="row">
+  @foreach($experiences as $exp)
+    <div class="col-md-4" style="padding: 20px; margin: 10px; height: 380px; width: 30%; border: solid 1px #2cbde8;  box-shadow: 2px 5px; border-radius: 10px; padding-bottom: 10px; ">
+      <img src={{asset('uploads/avatars/'.$exp->avatar)}} height="40px;" style="border-radius: 50%;">
+      <span style="padding-left: 30px;">{{ $exp->exp_name }}</span>
+      <hr>
+      {{ $exp->name }} {{ $exp->lastName }} <br>
+      {{ $exp->email }} 
+      @if($exp->exp_guide_id != $user->id)  
+        <img src={{asset('uploads/avatars/'.$exp->avatar)}} height="40px;" style="border-radius: 50%;">
+        <a class="btn btn-success" style="float: right;" href="{{ route('reservation_create',array('id'=>$exp->id)) }}">{{ trans('experience.reservation') }}</a>
+      @endif
+    </div>
+  @endforeach
+</div> 
+
 
 
 @endsection
