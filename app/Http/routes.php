@@ -83,4 +83,8 @@ Route::get('/reservation/pay_tansfer/{id}', 'Reservation\ReservationController@P
 // Messages
 Route::get('/messages', 'Messages\MessagesController@index')->name('messages');
 
-
+// Admin (backend)
+Route::get('/admin', 'Admin\AdminController@index')->name('admin');
+Route::get('/admin/users', 'Admin\AdminController@users')->name('admin_users');
+Route::get('/admin/promoveAdmin/{id}', 'Admin\AdminController@promoveAdmin')->name('promove_admin');
+Route::get('/admin/changeStatus/{id}', 'Admin\AdminController@changeStatus')->name('change_active');

@@ -108,6 +108,13 @@
                             </a>
                         </li-->
                         <li role="separator" class="divider"></li>
+                        @if ($user->admin)
+                            <li>
+                            <a class="menu_profile" href="{{ route('admin') }}" />
+                                {{ trans("welcome.admin") }}
+                            </a>
+                        </li>
+                        @endif
                         <li>
                             <a class="menu_profile" href="{{ route('logout') }}" />
                                 {{ trans("welcome.logout") }}

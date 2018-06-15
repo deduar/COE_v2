@@ -4,6 +4,38 @@
 		"selected_items":
 		[
 			[
+				"widt",
+				"width\tproperty"
+			],
+			[
+				"border",
+				"border-left\tproperty"
+			],
+			[
+				"pa",
+				"padding-left\tproperty"
+			],
+			[
+				"marg",
+				"margin-right\tproperty"
+			],
+			[
+				"pad",
+				"padding-top\tproperty"
+			],
+			[
+				"p",
+				"padding\tproperty"
+			],
+			[
+				"bor",
+				"border-radius\tproperty"
+			],
+			[
+				"bac",
+				"background-color\tproperty"
+			],
+			[
 				"sta",
 				"status"
 			],
@@ -116,14 +148,6 @@
 				"text-align\tproperty"
 			],
 			[
-				"bac",
-				"background-image\tproperty"
-			],
-			[
-				"marg",
-				"margin-top\tproperty"
-			],
-			[
 				"login",
 				"login_box"
 			],
@@ -158,10 +182,6 @@
 			[
 				"bord",
 				"border-radius"
-			],
-			[
-				"bor",
-				"border"
 			],
 			[
 				"d",
@@ -272,10 +292,6 @@
 				"padding-right"
 			],
 			[
-				"pad",
-				"padding"
-			],
-			[
 				"set",
 				"setlocale"
 			],
@@ -326,10 +342,6 @@
 			[
 				"ac",
 				"action\tAttr"
-			],
-			[
-				"pa",
-				"padding-top"
 			],
 			[
 				"booking",
@@ -502,18 +514,6 @@
 			[
 				"cit",
 				"city_List"
-			],
-			[
-				"key",
-				"keyword"
-			],
-			[
-				"resu",
-				"result"
-			],
-			[
-				"whi",
-				"width"
 			]
 		]
 	},
@@ -529,28 +529,10 @@
 			}
 		},
 		{
-			"file": "app/Http/Controllers/Reservation/ReservationController.php",
-			"settings":
-			{
-				"buffer_size": 8333,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/reservation/index.blade.php",
-			"settings":
-			{
-				"buffer_size": 2269,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "resources/views/reservation/waiting.blade.php",
 			"settings":
 			{
-				"buffer_size": 2286,
+				"buffer_size": 2465,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -623,6 +605,8 @@
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Reservation",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Users",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Middleware",
+		"/home/deduar/Projects/Coexperiences_v-2.0/public",
+		"/home/deduar/Projects/Coexperiences_v-2.0/public/assets",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience",
@@ -633,15 +617,16 @@
 	],
 	"file_history":
 	[
-		"/home/deduar/Projects/Coexperiences_v-2.0/database/migrations/2018_05_28_100001_create_reservation_table.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/index.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/layouts/master_mdb.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/reservation/waiting.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/reservation/index.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Reservation/ReservationController.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/database/migrations/2018_05_28_100001_create_reservation_table.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/en/experience.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/es/experience.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/myexps.blade.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/reservation/index.blade.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/index.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Experiences/ExperiencesController.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Reservation/ReservationController.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/layouts/master.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Users/UsersController.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/user/inviteFriend.blade.php",
@@ -759,12 +744,11 @@
 		"/home/deduar/Projects/PulsarTec_Odoo_SPA/resources/views/layouts/app.blade.php",
 		"/home/deduar/Projects/PulsarTec_Odoo_SPA/.env",
 		"/home/deduar/Projects/PulsarTec_Odoo_SPA/config/database.php",
-		"/home/deduar/Projects/PulsarTec_Odoo_SPA/resources/lang/es/auth.php",
-		"/home/deduar/Projects/PulsarTec_Odoo_SPA/resources/lang/en/welcome.php"
+		"/home/deduar/Projects/PulsarTec_Odoo_SPA/resources/lang/es/auth.php"
 	],
 	"find":
 	{
-		"height": 38.0
+		"height": 22.0
 	},
 	"find_in_files":
 	{
@@ -982,93 +966,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 532.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/Http/Controllers/Reservation/ReservationController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8333,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3170,
-								3170
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 766.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "resources/views/reservation/index.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2269,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1937,
-								1937
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 130.0,
+						"translation.y": 467.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 1,
 					"file": "resources/views/reservation/waiting.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2286,
+						"buffer_size": 2465,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1262,
-								1262
+								999,
+								999
 							]
 						],
 						"settings":
@@ -1081,10 +999,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 168.0,
+						"translation.y": 155.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -1179,7 +1097,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 210.0,
+	"side_bar_width": 231.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

@@ -28,7 +28,6 @@
       echo "<th scope='col'>$res->user_name $res->lastName</th>";
       echo "<th scope='col'>$res->email</th>";
       echo "<th scope='col'>"?>
-        {{ $res->status }}
         <img src={{asset('uploads/avatars/'.$res->avatar)}} height="40px" style="border-radius: 50%">
       <?php "</th>";
       ?> @if($res->status === "Waiting" or $res->status === "Waiting Pay") <?php

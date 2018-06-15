@@ -53,6 +53,6 @@
   @endforeach
 </div> 
 
-
+{!! $experiences->render() !!}
 
 @endsection

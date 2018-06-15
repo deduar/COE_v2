@@ -90,6 +90,7 @@ class UsersController extends Controller
 		$user->update($request->all());
 		return view('user.profile', array('user'=>Auth::user()));
 	}
+	
 	public function uploadAvatar(Request $request)
 	{
 		App::setLocale(Session::get('locale'));

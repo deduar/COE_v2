@@ -33,7 +33,8 @@ class ExperiencesController extends Controller
             $experiences = DB::table('users')
                 ->join('experience','users.id','=','experience.exp_guide_id')
                 ->where('users.group','Guide')
-                ->get();
+                ->paginate(6);
+                //->get();
             return view('experience.index', array('user'=>Auth::user(), 'experiences'=>$experiences));
             } else {
                 return redirect('auth/login');
@@ -82,7 +83,8 @@ class ExperiencesController extends Controller
         $experiences = DB::table('users')
             ->join('experience','users.id','=','experience.exp_guide_id')
             ->where('users.group','Guide')
-            ->get();
+            ->paginate(6);
+            //->get();
         return view('experience.index', array('user'=>Auth::user(), 'experiences'=>$experiences));
 
 /*        $myexps = App\Experiences::all();
