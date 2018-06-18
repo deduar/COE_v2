@@ -8,17 +8,17 @@
 
 <div clas="row">
   @foreach($experiences as $exp)
-    <div class="col-md-4" style="padding: 20px; margin: 10px; height: 400px; width: 30%; border: solid 1px #2cbde8;  box-shadow: 2px 5px; border-radius: 10px; padding-bottom: 10px; ">
+    <div class="col-md-4" style="padding: 20px; margin: 10px; height: 410px; width: 30%; border: solid 1px #2cbde8;  box-shadow: 2px 5px; border-radius: 10px; padding-bottom: 10px; ">
       <img src={{asset('uploads/exp/'.$exp->exp_photo)}} height="210px;" width="310px;" style="display: block; margin-left: auto; margin-right: auto;">
       <br>
       <span style="padding-left: 30px;">{{ $exp->exp_name }}</span>
       <hr>
-      {{ $exp->name }} {{ $exp->lastName }} <br>
-      {{ $exp->email }} 
       <img src={{asset('uploads/avatars/'.$exp->avatar)}} height="40px;" style="float: right; border-radius: 50%;">
+      {{ $exp->name }} {{ $exp->lastName }} <br>
+      {{ $exp->email }}
+      <span><br>${{ $exp->exp_price }} US</span>
       @if($exp->exp_guide_id != $user->id)
         <div>
-          ${{ $exp->exp_price }} US
           <a class="btn btn-success" style="float: right;" href="{{ route('reservation_create',array('id'=>$exp->id)) }}">{{ trans('experience.reservation') }}</a>
         </div>
       @endif
