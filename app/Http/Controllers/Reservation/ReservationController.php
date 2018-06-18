@@ -32,6 +32,7 @@ class ReservationController extends Controller
                     'users.lastName','users.email','users.avatar','reservation.status', 
                     'reservation.id as res_id','reservation.res_exp_id', 'reservation.res_user_id', 'reservation.res_guide_id',
                     'reservation.created_at','reservation.res_date')
+            ->orderBy('reservation.res_date', 'desc')
             ->paginate(4);
             //->get();
         $now = Carbon\Carbon::now();
@@ -125,7 +126,11 @@ class ReservationController extends Controller
     {
         $user = Auth::user();
         $reservation = new Reservation();
-        $reservation->res_date = $request->res_date;
+/*        var_dump($request->res_date);
+        var_dump($request->res_time);
+        var_dump($request->res_date.' '.$request->res_time);
+        die(); */
+        $reservation->res_date = Carbon\Carbon::parse($request->res_date.' '.$request->res_time)->format('Y-m-d H:i');
         $reservation->res_exp_id = $request->res_exp_id;
         $reservation->res_user_id = $user->id;
         $reservation->res_guide_id = $request->res_guide_id;

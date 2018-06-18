@@ -17,6 +17,7 @@
     </div>
     <div class="col-md-4">
     {!! Form::date('res_date', \Carbon\Carbon::now()) !!}
+    {!! Form::time('res_time', \Carbon\Carbon::now()->format('H:i')) !!}
     {!! Form::hidden('res_exp_id',$exp->id) !!}
     {!! Form::hidden('res_guide_id',$exp->exp_guide_id) !!}
     {!! Form::submit(Lang::get('reservation.save')) !!}
