@@ -2,5 +2,8 @@
 
 return [
 	'users' => 'Users',
-	'experiences' => 'Experiences'
+	'experiences' => 'Experiences',
+	'currency' => 'Currency',
+	'active' => 'Enable',
+	'inactive' => 'Disable'
 ];

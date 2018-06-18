@@ -45,7 +45,7 @@
     </div>
     <div class="form-group">
       {!! Form::label('exp_category', trans('experience.exp_category')) !!}
-      {!! Form::text('exp_category') !!}
+      {!! Form::number('exp_category') !!}
     </div>
     <div class="form-group">
       {!! Form::label('exp_private_notes', trans('experience.exp_private_notes')) !!}

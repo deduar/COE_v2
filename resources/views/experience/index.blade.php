@@ -8,8 +8,8 @@
 
 <div clas="row">
   @foreach($experiences as $exp)
-    <div class="col-md-4" style="padding: 20px; margin: 10px; height: 410px; width: 30%; border: solid 1px #2cbde8;  box-shadow: 2px 5px; border-radius: 10px; padding-bottom: 10px; ">
-      <img src={{asset('uploads/exp/'.$exp->exp_photo)}} height="210px;" width="310px;" style="display: block; margin-left: auto; margin-right: auto;">
+    <div class="col-md-4" style="padding: 20px; margin: 10px; height: 410px; width: 30%; border: solid 1px #ebeae6; padding-bottom: 10px; background: #fff; ">
+      <img src={{asset('uploads/exp/'.$exp->exp_photo)}} height="180px;" width="100%;" style="display: block; margin-left: auto; margin-right: auto;">
       <br>
       <span style="padding-left: 30px;">{{ $exp->exp_name }}</span>
       <hr>

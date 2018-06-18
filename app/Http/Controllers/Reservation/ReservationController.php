@@ -33,7 +33,7 @@ class ReservationController extends Controller
                     'reservation.id as res_id','reservation.res_exp_id', 'reservation.res_user_id', 'reservation.res_guide_id',
                     'reservation.created_at','reservation.res_date')
             ->orderBy('reservation.res_date', 'desc')
-            ->paginate(4);
+            ->paginate(10);
             //->get();
         $now = Carbon\Carbon::now();
         foreach ($myreservations as $key => $reservation) {

@@ -151,7 +151,7 @@
         @section('sidebar')
         @show
 
-        <div class="container">
+        <div class="container" style="background: #F4F3EE;">
             @yield('content')
         </div>
 

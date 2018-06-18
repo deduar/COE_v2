@@ -38,7 +38,7 @@ class CreateUsersTable extends Migration
             $table->string('country',255)->nullable();
             $table->enum('language',['en','es'])->default('es');
             $table->text('biography')->nullable();
-            $table->boolean('admin')->default('false');
+            $table->boolean('admin')->default(0);
         });
     }
 

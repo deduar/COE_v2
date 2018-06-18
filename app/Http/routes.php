@@ -89,3 +89,6 @@ Route::get('/admin/users', 'Admin\AdminController@users')->name('admin_users');
 Route::get('/admin/promoveAdmin/{id}', 'Admin\AdminController@promoveAdmin')->name('promove_admin');
 Route::get('/admin/changeStatus/{id}', 'Admin\AdminController@changeStatus')->name('change_active');
 Route::get('/admin/experiences', 'Admin\AdminController@experiences')->name('admin_experiences');
+
+Route::get('/admin/currency', 'Admin\CurrencyController@index')->name('admin_currency');
+Route::get('/admin/currency/changeStatus/{id}', 'Admin\CurrencyController@changeStatusCurrency')->name('change_cur_active');
