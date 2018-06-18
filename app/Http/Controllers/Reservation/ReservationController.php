@@ -32,7 +32,8 @@ class ReservationController extends Controller
                     'users.lastName','users.email','users.avatar','reservation.status', 
                     'reservation.id as res_id','reservation.res_exp_id', 'reservation.res_user_id', 'reservation.res_guide_id',
                     'reservation.created_at','reservation.res_date')
-            ->get();
+            ->paginate(4);
+            //->get();
         $now = Carbon\Carbon::now();
         foreach ($myreservations as $key => $reservation) {
             if($reservation->status == "Waiting"){
@@ -211,7 +212,8 @@ class ReservationController extends Controller
                     'users.lastName','users.email','users.avatar','reservation.status', 
                     'reservation.id as res_id','reservation.res_exp_id', 'reservation.res_user_id', 'reservation.res_guide_id',
                     'reservation.created_at','reservation.res_date')
-            ->get();
+            ->paginate(5);
+            //->get();
         
         $now = Carbon\Carbon::now();
         foreach ($reservations as $key => $reservation) {

@@ -16,5 +16,6 @@ return [
     'invite_friend' => 'Invitar un Amigo',
     'exp_reserve_list'=> 'Exp Reserve List',
     'payout_settings' => 'Configuracion Mecanismos de Pago',
-    'transacctional_history' => 'Historico de Transacciones'
+    'transacctional_history' => 'Historico de Transacciones',
+    'admin' => 'Administración'
 ];

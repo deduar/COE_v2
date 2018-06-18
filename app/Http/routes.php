@@ -88,3 +88,4 @@ Route::get('/admin', 'Admin\AdminController@index')->name('admin');
 Route::get('/admin/users', 'Admin\AdminController@users')->name('admin_users');
 Route::get('/admin/promoveAdmin/{id}', 'Admin\AdminController@promoveAdmin')->name('promove_admin');
 Route::get('/admin/changeStatus/{id}', 'Admin\AdminController@changeStatus')->name('change_active');
+Route::get('/admin/experiences', 'Admin\AdminController@experiences')->name('admin_experiences');

@@ -16,5 +16,6 @@ return [
     'invite_friend' => 'Invite a Frined',
     'exp_reserve_list'=> 'Exp Reserve List',
     'payout_settings' => 'PayOut Settings',
-    'transacctional_history' => 'Transactional History'
+    'transacctional_history' => 'Transactional History',
+    'admin' => 'Admin Backend'
 ];

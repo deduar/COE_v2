@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"exp",
+				"exp_photo"
+			],
+			[
+				"Se",
+				"Session"
+			],
+			[
+				"bor",
+				"border-right\tproperty"
+			],
+			[
+				"boo",
+				"boolean"
+			],
+			[
 				"widt",
 				"width\tproperty"
 			],
@@ -26,10 +42,6 @@
 			[
 				"p",
 				"padding\tproperty"
-			],
-			[
-				"bor",
-				"border-radius\tproperty"
 			],
 			[
 				"bac",
@@ -376,10 +388,6 @@
 				"inbox"
 			],
 			[
-				"exp",
-				"exp_id"
-			],
-			[
 				"guide_",
 				"guide_inbox"
 			],
@@ -460,10 +468,6 @@
 				"BookingID"
 			],
 			[
-				"boo",
-				"BookingID"
-			],
-			[
 				"tot",
 				"totalAmount"
 			],
@@ -510,10 +514,6 @@
 			[
 				"st",
 				"style\tTag"
-			],
-			[
-				"cit",
-				"city_List"
 			]
 		]
 	},
@@ -523,16 +523,34 @@
 			"file": "app/Http/routes.php",
 			"settings":
 			{
-				"buffer_size": 4387,
+				"buffer_size": 4852,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "resources/views/reservation/waiting.blade.php",
+			"file": "app/Experiences.php",
 			"settings":
 			{
-				"buffer_size": 2465,
+				"buffer_size": 679,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/experience/create.blade.php",
+			"settings":
+			{
+				"buffer_size": 2166,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/Experiences/ExperiencesController.php",
+			"settings":
+			{
+				"buffer_size": 4024,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -600,15 +618,18 @@
 		"/home/deduar/Projects/Coexperiences_v-2.0/app",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers",
+		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Admin",
+		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Auth",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Experiences",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Messages",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Reservation",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Users",
-		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Middleware",
-		"/home/deduar/Projects/Coexperiences_v-2.0/public",
-		"/home/deduar/Projects/Coexperiences_v-2.0/public/assets",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/en",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/es",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/admin",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/layouts",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/messages",
@@ -617,36 +638,42 @@
 	],
 	"file_history":
 	[
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/index.blade.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/layouts/master_mdb.blade.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/reservation/waiting.blade.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/reservation/index.blade.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Reservation/ReservationController.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/database/migrations/2018_05_28_100001_create_reservation_table.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/en/experience.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/es/experience.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/reservation/waiting.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Reservation/ReservationController.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/myexps.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/reservation/index.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Admin/AdminController.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Experiences/ExperiencesController.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/layouts/master.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/admin/index.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/admin/experiences.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/admin/users.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/en/admin.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/es/admin.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/index.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/en/welcome.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/es/welcome.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/database/migrations/2018_05_28_100001_create_reservation_table.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/app/Reservation.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/database/migrations/2018_05_26_100001_create_experience_table.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/app/Experiences.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/app/User.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Users/UsersController.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/layouts/master.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/database/migrations/2014_10_12_000000_create_users_table.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/layouts/master_mdb.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/user/inviteFriend.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Messages/MessagesController.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/es/welcome.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/en/welcome.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/app/Reservation.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Auth/AuthController.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/database/migrations/2018_05_26_100001_create_experience_table.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/reservation/create.blade.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/app/Experiences.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/user/editProfile.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/user/profile.blade.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/app/User.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/welcome.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/database/migrations/2018_05_26_000000_create_experience_table.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/database/migrations/2014_10_12_000000_create_users_table.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/.env",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/es/profile.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/en/profile.php",
@@ -738,17 +765,11 @@
 		"/home/deduar/Projects/PulsarTec_Odoo_SPA/app/User.php",
 		"/home/deduar/Projects/PulsarTec_Odoo_SPA/app/paypal_transactions.php",
 		"/home/deduar/Projects/PulsarTec_Odoo_SPA/resources/lang/es/endDate.php",
-		"/home/deduar/Projects/PulsarTec_Odoo_SPA/resources/lang/en/endDate.php",
-		"/home/deduar/Projects/PulsarTec_Odoo_SPA/PayPal.log",
-		"/home/deduar/Projects/PulsarTec_Odoo_SPA/public/css/pulsar.css",
-		"/home/deduar/Projects/PulsarTec_Odoo_SPA/resources/views/layouts/app.blade.php",
-		"/home/deduar/Projects/PulsarTec_Odoo_SPA/.env",
-		"/home/deduar/Projects/PulsarTec_Odoo_SPA/config/database.php",
-		"/home/deduar/Projects/PulsarTec_Odoo_SPA/resources/lang/es/auth.php"
+		"/home/deduar/Projects/PulsarTec_Odoo_SPA/resources/lang/en/endDate.php"
 	],
 	"find":
 	{
-		"height": 22.0
+		"height": 38.0
 	},
 	"find_in_files":
 	{
@@ -762,6 +783,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"waitin",
+			"experience",
+			"$us",
+			"us",
+			"admin",
+			"DB",
 			"transacctional_history",
 			"experie",
 			";",
@@ -883,13 +910,7 @@
 			"paymentType",
 			"creditCard",
 			"Credit",
-			"Authorize",
-			"PayPal",
-			"PayPal Autorized",
-			"Autorized",
-			"order",
-			"dataArr",
-			"flip4"
+			"Authorize"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -897,6 +918,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"$exp",
+			"exp",
 			"calendario",
 			"calendarios",
 			"calendario",
@@ -937,7 +960,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -946,15 +969,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4387,
+						"buffer_size": 4852,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4201,
-								4201
+								3285,
+								3285
 							]
 						],
 						"settings":
@@ -966,27 +989,60 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 467.0,
+						"translation.y": 637.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "resources/views/reservation/waiting.blade.php",
+					"file": "app/Experiences.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2465,
+						"buffer_size": 679,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								999,
-								999
+								510,
+								510
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "resources/views/experience/create.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2166,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								409,
+								417
 							]
 						],
 						"settings":
@@ -999,10 +1055,43 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 155.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/Http/Controllers/Experiences/ExperiencesController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4024,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2491,
+								2491
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 831.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]

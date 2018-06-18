@@ -38,4 +38,6 @@
 
 <a class="btn btn-success" href="{{ route('experience_create') }}" style="float: right;"><span class="glyphicon glyphicon-plus-sign"></span>  {{ trans('profile.create_experience') }}</a>
 
+{!! $myexps->render() !!}
+
 @endsection

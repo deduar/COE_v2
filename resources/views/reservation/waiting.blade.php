@@ -61,4 +61,6 @@
 
 <a class="btn btn-info" href="{{ route('reservation') }}" style="float: right;"></span>  {{ trans('experience.my_reservations') }}</a>
 
+{!! $reservations->render() !!}
+
 @endsection

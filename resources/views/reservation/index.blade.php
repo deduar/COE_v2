@@ -58,5 +58,6 @@
   <a class="btn btn-info" href="{{ route('reservation_waiting') }}" style="float: right;"></span>  {{ trans('experience.waiting') }}</a>
 @endif
 
+{!! $myreservations->render() !!}
 
 @endsection

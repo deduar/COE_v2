@@ -8,10 +8,19 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\User;
+use App\Experiences;
 use Auth;
+use DB;
+use App;
+use Session;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        App::setLocale(Session::get('locale'));
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -96,7 +105,7 @@ class AdminController extends Controller
 
     public function users()
     {
-        $users = User::all();
+        $users = DB::table('users')->paginate(3);
         return view ('admin.users', array('user'=>Auth::user(),'users'=>$users));
     }
 
@@ -122,6 +131,16 @@ class AdminController extends Controller
         }
         $user->save();
         return redirect()->route('admin_users');
+    }
+
+    public function experiences()
+    {
+        $experiences = DB::table('users')
+                ->join('experience','users.id','=','experience.exp_guide_id')
+                ->paginate(3);
+                //->get();
+        //$experiences = Experiences::all();
+        return view ('admin.experiences', array('user'=>Auth::user(),'experiences'=>$experiences));
     }
 
 }

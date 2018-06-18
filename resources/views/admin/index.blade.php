@@ -9,7 +9,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-2">
-        <a class="btn btn-default" href="{{ route('admin_users') }}"> {{ trans('admin.users') }}</a>
+        <a class="btn btn-default" href="{{ route('admin_users') }}"> {{ trans('admin.users') }}</a><br>
+        <a class="btn btn-default" href="{{ route('admin_experiences') }}"> {{ trans('admin.experiences') }}</a>
       </div>
       <div style="border-left: 1px solid #000;" class="col-md-10">
         Content
