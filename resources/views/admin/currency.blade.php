@@ -44,8 +44,12 @@
             </tbody>
           </table>
 
+          <a class="btn btn-success" href="{{ route('admin_currency_create') }}" style="float: right;"><span class="glyphicon glyphicon-plus-sign"></span>  {{ trans('admin.create_currency') }}</a>
+
       </div>
     </div>
   </div>
+
+{!! $currencies->render() !!}
 
 @endsection

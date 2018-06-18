@@ -92,3 +92,5 @@ Route::get('/admin/experiences', 'Admin\AdminController@experiences')->name('adm
 
 Route::get('/admin/currency', 'Admin\CurrencyController@index')->name('admin_currency');
 Route::get('/admin/currency/changeStatus/{id}', 'Admin\CurrencyController@changeStatusCurrency')->name('change_cur_active');
+Route::get('/admin/currency/create', 'Admin\CurrencyController@create')->name('admin_currency_create');
+Route::post('/admin/currency/store', 'Admin\CurrencyController@store')->name('admin_currency_store');

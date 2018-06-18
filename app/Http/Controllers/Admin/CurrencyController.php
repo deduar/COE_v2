@@ -40,7 +40,8 @@ class CurrencyController extends Controller
      */
     public function create()
     {
-        //
+        $user = Auth::user();
+        return view('admin.currency_create', array('user'=>Auth::user()));
     }
 
     /**
@@ -51,7 +52,15 @@ class CurrencyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cur = new Currency;
+        
+        $cur->cur_name = $request->cur_name;
+        $cur->cur_simbol = $request->cur_simbol;
+        $cur->cur_exchange = $request->cur_exchange;
+        $cur->cur_status = "1";
+        $cur->save();        
+        
+        return redirect()->route('admin_currency');
     }
 
     /**
@@ -111,16 +120,4 @@ class CurrencyController extends Controller
         return redirect()->route('admin_currency'); 
     }
 
-
-    public function changeStatus($id)
-    {
-        $user = User::find($id);
-        if ($user->status == "Active") {
-            $user->status = "Inactive";
-        } else {
-            $user->status = "Active";
-        }
-        $user->save();
-        return redirect()->route('admin_users');
-    }
 }
