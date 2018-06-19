@@ -5,5 +5,7 @@ return [
 	'experiences' => 'Experiences',
 	'currency' => 'Currency',
 	'active' => 'Enable',
-	'inactive' => 'Disable'
+	'inactive' => 'Disable',
+	'create_currency' => 'Create Currency',
+	'edit' => 'Edit'
 ];

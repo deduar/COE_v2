@@ -126,8 +126,6 @@ class UsersController extends Controller
 	public function updatePassword(Request $request)
 	{
 	  	$user = Auth::user();
-	  	var_dump($request->all());
-	  	die();
 		$user->update($request->all());
 		return view('user.profile', array('user'=>Auth::user()));
 	}

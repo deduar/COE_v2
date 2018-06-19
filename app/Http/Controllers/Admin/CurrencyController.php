@@ -82,7 +82,9 @@ class CurrencyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = Auth::user();
+        $currency = Currency::find($id);
+        return view('admin.currency_edit', array('user'=>Auth::user(), 'currency'=>$currency));
     }
 
     /**
@@ -92,9 +94,11 @@ class CurrencyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $currency = Currency::find($request->id);
+        $currency->update($request->all());
+        return redirect()->route('admin_currency');
     }
 
     /**

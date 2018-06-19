@@ -33,6 +33,7 @@ class ExperiencesController extends Controller
             $user = Auth::user();
             $experiences = DB::table('users')
                 ->join('experience','users.id','=','experience.exp_guide_id')
+                ->join('currency','experience.exp_currency','=','currency.id')
                 ->where('users.group','Guide')
                 ->paginate(6);
                 //->get();
@@ -61,7 +62,8 @@ class ExperiencesController extends Controller
     {
         $user = Auth::user();
         $myexp = App\Experiences::all();
-        return view('experience.create', array('user'=>Auth::user()));
+        $currencies = App\Currency::all(['id','cur_name']);
+        return view('experience.create', array('user'=>Auth::user(),'currencies'=>$currencies));
     }
 
     /**
@@ -86,6 +88,7 @@ class ExperiencesController extends Controller
         $exp->exp_duration = $request->exp_duration;
         $exp->exp_duration_h = $request->exp_duration_h;
         $exp->exp_price = $request->exp_price;
+        $exp->exp_currency = $request->exp_currency;
         $exp->exp_category = $request->exp_category;
         $exp->exp_private_notes = $request->exp_private_notes;
 

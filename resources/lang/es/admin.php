@@ -5,5 +5,7 @@ return [
 	'experiences' => 'Experiencias',
 	'currency' => 'Monedas',
 	'active' => 'Habilitado',
-	'inactive' => 'Deshabilitado'
+	'inactive' => 'Deshabilitado',
+	'create_currency' => 'Crear Moneda',
+	'edit' => 'Modificar'
 ];

@@ -39,6 +39,8 @@
                   <a class="btn btn-danger" href="{{ route('change_cur_active',array('id'=>$cur->id)) }}">{{ trans('admin.inactive') }}</a> 
                 @endif
                 <th>
+                  <a class="btn btn-primary" href="{{ route('admin_currency_edit',array('id'=>$cur->id)) }}">{{ trans('admin.edit') }}</a> 
+                </th>
               </tr>
             @endforeach
             </tbody>

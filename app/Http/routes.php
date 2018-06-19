@@ -94,3 +94,5 @@ Route::get('/admin/currency', 'Admin\CurrencyController@index')->name('admin_cur
 Route::get('/admin/currency/changeStatus/{id}', 'Admin\CurrencyController@changeStatusCurrency')->name('change_cur_active');
 Route::get('/admin/currency/create', 'Admin\CurrencyController@create')->name('admin_currency_create');
 Route::post('/admin/currency/store', 'Admin\CurrencyController@store')->name('admin_currency_store');
+Route::get('/admin/currency/edit/{id}', 'Admin\CurrencyController@edit')->name('admin_currency_edit');
+Route::post('/admin/currency/update', 'Admin\CurrencyController@update')->name('admin_currency_update');

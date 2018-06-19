@@ -18,7 +18,7 @@ class Currency extends Model
      *
      * @var array
      */
-    protected $fillable = ['cur_name', 'cur_exchange'];
+    protected $fillable = ['cur_name','cur_simbol','cur_exchange'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -30,4 +30,9 @@ class Currency extends Model
     /**
      * Relations
      */
+
+    public function experiences()
+    {
+        return $this->hasMany('App\Experiences');
+    }
 }

@@ -37,11 +37,20 @@
     <div class="form-group">
       {!! Form::label('exp_duration', trans('experience.exp_duration')) !!}
       {!! Form::number('exp_duration') !!}
-      {!! Form::number('exp_duration_h') !!}
+      <select name="exp_duration_h">
+          <option value="Days">trans('experience.days'))</option>
+          <option value="Hours">trans('experience.hours'))</option>
+          <option value="Minutes">trans('experience.minutes'))</option>
+      </select>
     </div>
     <div class="form-group">
       {!! Form::label('exp_price', trans('experience.exp_price')) !!}
       {!! Form::number('exp_price', null, ['step' => '0.01']) !!}
+      <select name="exp_currency">
+        @foreach($currencies as $cur)
+          <option value="{{$cur->id}}">{{$cur->cur_name}}</option>
+        @endforeach
+      </select>
     </div>
     <div class="form-group">
       {!! Form::label('exp_category', trans('experience.exp_category')) !!}
