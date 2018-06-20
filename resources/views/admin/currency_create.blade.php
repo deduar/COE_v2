@@ -29,7 +29,7 @@
         </div>
         <div class="form-group">
           {!! Form::label('cur_exchange', trans('admin.cur_exchange')) !!}
-          {!! Form::number('cur_exchange') !!}
+          {!! Form::number('cur_exchange',null,array('step'=>'any')) !!}
         </div>
         
         {!! Form::submit(Lang::get('admin.cur_save')) !!}

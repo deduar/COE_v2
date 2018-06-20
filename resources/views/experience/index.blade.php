@@ -17,7 +17,7 @@
       {{ $exp->name }} {{ $exp->lastName }} <br>
       {{ $exp->email }}
       <span><br>{{ number_format($exp->exp_price, 2, '.', ',') }} {{ $exp->cur_simbol }} ({{ $exp->cur_name }})</span>
-      <span><br>{{ number_format($exp->exp_price/$exp->cur_exchange, 2, '.', ',') }} US$ (American Dollar))</span>
+      <span><br>{{ number_format($exp->exp_price/$exp->cur_exchange, 2, '.', ',') }} US$ (American Dollar)</span>
       @if($exp->exp_guide_id != $user->id)
         <div>
           <a class="btn btn-success" style="float: right;" href="{{ route('reservation_create',array('id'=>$exp->id)) }}">{{ trans('experience.reservation') }}</a>
