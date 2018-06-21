@@ -7,5 +7,9 @@ return [
 	'active' => 'Enable',
 	'inactive' => 'Disable',
 	'create_currency' => 'Create Currency',
-	'edit' => 'Edit'
+	'edit' => 'Edit',
+	'cur_name' => 'Currency Name',
+	'cur_simbol' => 'Currency Simbol',
+	'cur_exchange' => 'Currency Exchange',
+	'cur_update' => 'Update'
 ];

@@ -9,7 +9,9 @@
 <div clas="row">
   @foreach($experiences as $exp)
     <div class="col-md-4" style="padding: 20px; margin: 10px; height: 410px; width: 30%; border: solid 1px #ebeae6; padding-bottom: 10px; background: #fff; ">
-      <img src={{asset('uploads/exp/'.$exp->exp_photo)}} height="180px;" width="100%;" style="display: block; margin-left: auto; margin-right: auto;">
+      <a href="{{route('experience_show',array('id'=>$exp->exp_id))}}">
+        <img src={{asset('uploads/exp/'.$exp->exp_photo)}} height="180px;" width="100%;" style="display: block; margin-left: auto; margin-right: auto;">
+      </a>
       <br>
       <span style="padding-left: 30px;">{{ $exp->exp_name }}</span>
       <hr>
@@ -20,7 +22,7 @@
       <span><br>{{ number_format($exp->exp_price/$exp->cur_exchange, 2, '.', ',') }} US$ (American Dollar)</span>
       @if($exp->exp_guide_id != $user->id)
         <div>
-          <a class="btn btn-success" style="float: right;" href="{{ route('reservation_create',array('id'=>$exp->id)) }}">{{ trans('experience.reservation') }}</a>
+          <a class="btn btn-success" style="float: right;" href="{{ route('reservation_create',array('id'=>$exp->exp_id)) }}">{{ trans('experience.reservation') }}</a>
         </div>
       @endif
     </div>

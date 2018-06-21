@@ -31,10 +31,12 @@ class ExperiencesController extends Controller
     {   
         if (Auth::check()){
             $user = Auth::user();
-            $experiences = DB::table('users')
-                ->join('experience','users.id','=','experience.exp_guide_id')
+            $experiences = DB::table('experience')
+                ->join('users','users.id','=','experience.exp_guide_id')
                 ->join('currency','experience.exp_currency','=','currency.id')
+                ->select('experience.id as exp_id', 'exp_photo', 'exp_name', 'avatar', 'name', 'lastName', 'email', 'exp_price', 'cur_simbol', 'cur_name', 'cur_exchange', 'exp_guide_id')
                 ->where('users.group','Guide')
+                ->orderBy('experience.created_at','desc')
                 ->paginate(6);
                 //->get();
             return view('experience.index', array('user'=>Auth::user(), 'experiences'=>$experiences));
@@ -46,7 +48,7 @@ class ExperiencesController extends Controller
     public function myexps()
     {
         if (Auth::check()){
-            $myexps = App\Experiences::where('exp_guide_id', Auth::user()->id)->paginate(6);
+            $myexps = App\Experiences::where('exp_guide_id', Auth::user()->id)->orderBy('experience.created_at','desc')->paginate(6);
             return view('experience.myexps', array('user'=>Auth::user(), 'myexps'=>$myexps));
         } else {
             return redirect('auth/login');
@@ -116,7 +118,8 @@ class ExperiencesController extends Controller
      */
     public function show($id)
     {
-        //
+        var_dump($id);
+        die("show");
     }
 
     /**

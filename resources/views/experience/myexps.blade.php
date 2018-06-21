@@ -21,7 +21,7 @@
 
   @foreach ($myexps as $exp)
     <tr>
-    	<th>{{ $exp->exp_name }} {{ $exp->id }}</th>
+    	<th>{{ $exp->exp_name }}</th>
     	<th>{{ $user->email }}</th>
     	<th>{{ $user->name }} {{ $user->lastName }}</th>
     	<th  scope='col'>

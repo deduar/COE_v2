@@ -67,6 +67,7 @@ Route::get('/experience', 'Experiences\ExperiencesController@myexps')->name('my_
 Route::get('/experience/create', 'Experiences\ExperiencesController@create')->name('experience_create');
 Route::post('/experience/create', 'Experiences\ExperiencesController@store')->name('experience_store');
 Route::get('/experience/edit/{id}', 'Experiences\ExperiencesController@edit')->name('experience_edit');
+Route::get('/experience/{id}', 'Experiences\ExperiencesController@show')->name('experience_show');
 
 // Reservation
 Route::get('/reservation', 'Reservation\ReservationController@index')->name('reservation');

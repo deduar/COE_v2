@@ -23,7 +23,7 @@
     foreach ($reservations as $res) {
       ?>@if($res->res_guide_id === $user->id)<?php
       echo "<tr>";
-      echo "<th scope='col'>$res->exp_name $res->id $res->res_user_id $res->res_guide_id $user->id</th>";
+      echo "<th scope='col'>$res->exp_name</th>";
       echo "<th scope='col'>$res->res_date</th>";
       echo "<th scope='col'>$res->user_name $res->lastName</th>";
       echo "<th scope='col'>$res->email</th>";

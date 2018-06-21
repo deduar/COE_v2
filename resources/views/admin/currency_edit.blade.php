@@ -22,7 +22,7 @@
         {!! Form::hidden('id', $currency->id) !!}
         <div class="form-group">
           {!! Form::label('cur_name', trans('admin.cur_name')) !!}
-          {!! Form::text('cur_name', $currency->cur_name, array('class' => 'form-control')) !!}
+          {!! Form::text('cur_name', $currency->cur_name) !!}
         </div>
         <div class="form-group">
           {!! Form::label('cur_simbol', trans('admin.cur_simbol')) !!}
@@ -30,7 +30,7 @@
         </div>
         <div class="form-group">
           {!! Form::label('cur_exchange', trans('admin.cur_exchange')) !!}
-          {!! Form::number('cur_exchange', $currency->cur_exchange ) !!}
+          {!! Form::number('cur_exchange', $currency->cur_exchange, array('step'=>'0.01') ) !!}
         </div>
         
         {!! Form::submit(Lang::get('admin.cur_update')) !!}
