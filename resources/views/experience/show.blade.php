@@ -13,7 +13,9 @@
       <br>
       <span style="padding-left: 30px;">{{ $exp->exp_name }}</span>
       <hr>
-      <img src={{asset('uploads/avatars/'.$exp->avatar)}} height="40px;" style="float: right; border-radius: 50%;">
+      <a href="{{ route('user_show',array('id'=>$exp->exp_guide_id)) }}">
+        <img src={{asset('uploads/avatars/'.$exp->avatar)}} height="40px;" style="float: right; border-radius: 50%;">
+      </a>
       {{ $exp->name }} {{ $exp->lastName }} <br>
       {{ $exp->email }}
       <hr>
