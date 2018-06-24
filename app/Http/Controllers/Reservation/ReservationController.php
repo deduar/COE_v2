@@ -136,25 +136,7 @@ class ReservationController extends Controller
         $reservation->res_guide_id = $request->res_guide_id;
         $reservation->status = "Waiting";
         $reservation->save();
-//        $myexps = App\Experiences::all();
-//        $users = App\User::where('group', 'Guide')->get();
-        $myreservations = DB::table('reservation')
-            ->join('experience','reservation.res_exp_id','=','experience.id')
-            ->join('users','users.id','=','experience.exp_guide_id')
-            ->select('experience.id', 'experience.exp_name as exp_name','users.name as user_name',
-                    'users.lastName','users.email','users.avatar','reservation.status', 
-                    'reservation.id as res_id','reservation.res_exp_id', 'reservation.res_user_id', 'reservation.res_guide_id',
-                    'reservation.created_at','reservation.res_date')
-            ->get();
-        $now = Carbon\Carbon::now();
-        //return view('reservation.index', array('user'=>$user, 'myreservations'=>$myreservations, 'now'=>$now));
         return redirect()->route('reservation');
-//        $myreservations = DB::table('reservation')
-//            ->join('experience','reservation.res_exp_id','=','experience.id')
-//            ->join('users','users.id','=','experience.exp_guide_id')
-//            ->get();
-//        return view('reservation.index', array('user'=>$user, 'myreservations'=>$myreservations));
-        //return view('experience.index', array('user'=>Auth::user(), 'myexps'=>$myexps, 'users'=>$users));
     }
 
     /**
@@ -205,11 +187,6 @@ class ReservationController extends Controller
     public function waiting()
     {
         $user = Auth::user();
-/*        $reservations = DB::table('reservation')
-            ->join('experience', 'experience.id','=','reservation.res_exp_id')
-            ->join('users','users.id','=','reservation.res_user_id')
-            ->get(); */
-
         $reservations = DB::table('reservation')
             ->join('experience','reservation.res_exp_id','=','experience.id')
             ->join('users','users.id','=','reservation.res_user_id')
@@ -218,7 +195,6 @@ class ReservationController extends Controller
                     'reservation.id as res_id','reservation.res_exp_id', 'reservation.res_user_id', 'reservation.res_guide_id',
                     'reservation.created_at','reservation.res_date')
             ->paginate(5);
-            //->get();
         
         $now = Carbon\Carbon::now();
         foreach ($reservations as $key => $reservation) {

@@ -101,13 +101,7 @@ class ExperiencesController extends Controller
             $user->update();
         }
         
-        $experiences = DB::table('users')
-            ->join('experience','users.id','=','experience.exp_guide_id')
-            ->where('users.group','Guide')
-            ->paginate(6);
-            //->get();
         return redirect()->route('my_experience');
-        //return view('experience.index', array('user'=>Auth::user(), 'experiences'=>$experiences));
     }
 
     /**
