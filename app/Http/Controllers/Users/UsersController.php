@@ -84,6 +84,14 @@ class UsersController extends Controller
 		}
 		
 	}
+
+	public function show($id)
+	{
+		$user = Auth::user();
+		$us_prof = App\User::find($id);
+		return view('user.show', array('user'=>Auth::user(),'us_prof'=>$us_prof));
+	}
+
 	public function updateProfile(Request $request)
 	{
 	  	$user = Auth::user();

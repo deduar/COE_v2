@@ -57,9 +57,9 @@ Route::post('/user/uploadAvatar', 'Users\UsersController@uploadAvatar')->name('u
 Route::get('/user/changePassword','Users\UsersController@editPassword')->name('edit_password');
 Route::post('/user/changePassword','Users\UsersController@updatePassword')->name('update_password');
 Route::get('/user/inviteFriend', 'Users\UsersController@inviteFriend')->name('invite_friend');
-
 Route::get('/user/resend', 'Users\UsersController@resend')->name('resend');
 Route::get('/user/verify/{register_code}', 'Users\UsersController@verify')->name('verify');
+Route::get('/user/show/{id}', 'Users\UsersController@show')->name('user_show');
 
 // Experience
 Route::get('/experiences', 'Experiences\ExperiencesController@index')->name('experience_index');
