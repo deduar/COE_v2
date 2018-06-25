@@ -5,7 +5,7 @@
         {!! Html::style('assets/css/bootstrap.css') !!}
         <!--link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'-->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-
+        <link rel="shortcut icon" type="image/x-icon" href="assets/images/Favicon.png">
         
 
         <style>
