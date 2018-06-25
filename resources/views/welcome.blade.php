@@ -3,9 +3,13 @@
         <title>Coexperiences</title>
         
         {!! Html::style('assets/css/bootstrap.css') !!}
-        <link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+        <!--link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'-->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+
+        
 
         <style>
+
             body {
                 margin: 0;
                 padding: 0;
@@ -14,7 +18,7 @@
                 color: #B0BEC5;
                 display: table;
                 font-weight: 100;
-                font-family: 'Lato';
+                font-family: 'Lato','OpenSansSemibold';
             }
 
             .container {
@@ -46,6 +50,24 @@
                 padding-left: 65px;
                 padding-right: 65px;
                 border: 0px solid #fff !important;
+                background-color: #fff;
+            }
+
+            .btn-primary{
+                background-color: #47bbcc;
+                border-color: #47bbcc;
+                color: #fff;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+            .navbar-default .navbar-nav > li > a {
+                color: #000;
+                font-family: 'Lato','OpenSansSemibold';
+                font-size: 13px;
+                font-weight: bold;
+                padding: 12px;
+                text-transform: uppercase;
             }
 
             a.menu {
@@ -102,7 +124,7 @@
             <ul class="nav navbar-nav">
                 <li>
                     <a class="navbar-brand" href="{{ route('welcome') }}">
-                        {!! Html::image('assets/images/logo.png', 'Coexperiences' ,array('width'=>'120px')) !!}
+                        {!! Html::image('assets/images/logo.png', 'Coexperiences' ,array('width'=>'185px')) !!}
                     </a>
                 </li>
             </ul>
