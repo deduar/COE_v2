@@ -282,10 +282,38 @@
                 <div style="margin-top: 20px;" class="col-md-offset-5 col-md-2 btn btn-primary">LOAD MORE</div>    
             </div>
 
+            <div style="margin-top: 30px; margin-bottom: 30px;">
+                <div class="container-fluid" style="color:#000; font-weight: bold;">
+                    <div class="col-md-6">
+                        <div class="col-md-1 col-md-offset-1"><img src={{asset('assets/images/quote.png')}}></div>
+                        <div class="col-md-6" style="margin-left: 20px;"><span>Exotic food, fantastic beaches and unbelievable hospitality. An unforgettable experience!</span></div>
+                        <div class="col-md-1"><img src={{asset('uploads/avatars/default_avatar.png')}} width="80px" style="border-radius: 30px"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-1 col-md-offset-1"><img src={{asset('assets/images/quote.png')}}></div>
+                        <div class="col-md-6" style="margin-left: 20px;"><span>Exotic food, fantastic beaches and unbelievable hospitality. An unforgettable experience!</span></div>
+                        <div class="col-md-1"><img src={{asset('uploads/avatars/default_avatar.png')}} width="80px" style="border-radius: 30px"></div>
+                    </div>
+                </div>
+            </div>
 
-            
-
-
+            <div style="margin-top: 30px; margin-bottom: 0px;">
+                <div class="container-fluid" style="color:#000; font-weight: bold; background: url(assets/images/colombia.png) no-repeat scroll 50% 0px #1e3039; height: 665px;">
+                    <h1 style="color: #FFF; text-align: center; padding-top: 60px;">INSIDER GUIDES TO YOUR FAVORITE DESTINATIONS.</h1>
+                    <div class="container-fluid">
+                        <div style="color: #FFF;font-size: 18px;" class="col-md-2 col-md-offset-4">SAN ANDRÉS</div>
+                        <div style="color: #FFF;font-size: 18px;" class="col-md-2 col-md-offset-1">SAN GIL</div>
+                        <br>
+                        <br>
+                        <div style="color: #FFF;font-size: 18px;" class="col-md-2 col-md-offset-4">SALENTO</div>
+                        <div style="color: #FFF;font-size: 18px;" class="col-md-2 col-md-offset-1">BARRANQUILLA</div>
+                        <br>
+                        <br>
+                        <div style="color: #FFF;font-size: 18px;" class="col-md-2 col-md-offset-4">TAGANGA</div>
+                        <div style="color: #FFF;font-size: 18px;" class="col-md-2 col-md-offset-1">BAHÏA SOLANO</div>
+                    </div>
+                </div>
+            </div>
 
             <div class="footer">
                 <br>
