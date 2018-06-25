@@ -22,6 +22,18 @@ class ExperiencesController extends Controller
         App::setLocale(Session::get('locale'));
     }
 
+    public function welcome()
+    {
+        $experiences = DB::table('experience')
+                ->join('users','users.id','=','experience.exp_guide_id')
+                ->join('currency','experience.exp_currency','=','currency.id')
+                ->select('experience.id as exp_id', 'users.id as user_id','exp_photo', 'exp_name', 'avatar', 'name', 'lastName', 'email', 'exp_price', 'cur_simbol', 'cur_name', 'cur_exchange', 'exp_guide_id')
+                ->where('users.group','Guide')
+                ->orderBy('experience.created_at','desc')
+                ->paginate(6);
+        return view('welcome', array('experiences'=>$experiences));
+    }
+
     /**
      * Display a listing of the resource.
      *

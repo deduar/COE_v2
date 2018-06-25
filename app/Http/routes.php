@@ -17,10 +17,12 @@ Route::get('setLocale/{locale}', function($locale){
 	return back();
 })->name('setLocale');
 
+/*
 Route::get('/', function () {
 	App::setLocale(Session::get('locale'));
     return view('welcome');
 })->name('welcome');
+*/
 
 Route::get('home', function(){
 	App::setLocale(Session::get('locale'));
@@ -31,6 +33,8 @@ Route::get('home', function(){
 		return Redirect::to('experiences');
 	}
 })->name('home');
+
+Route::get('/', 'Experiences\ExperiencesController@welcome')->name('welcome');
 
 // Authentication routes... Auth
 Route::get('auth/login', 'Auth\AuthController@getLogin')->name('login');

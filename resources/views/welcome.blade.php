@@ -99,13 +99,27 @@
                 padding-bottom: 80px;
             }
 
+            h1.activity {
+                margin: 0px;
+                padding: 0px;
+                padding-bottom: 20px;
+                text-align: center;
+            }
+
             h1{
                 margin-bottom: 30px;
+                color: #000;
             }
 
             .footer{
                 color: #F4F3EE;
                 background: #000;
+            }
+
+            p.text_container{
+                color: #000;
+                font-size: 16px;
+                font-weight: 330;
             }
 
 
@@ -189,106 +203,86 @@
                     <div class="col-md-2">
                         <div class="row">
                             <div class="col-md-12">
-                                {!! Html::image('assets/images/maleta.png', 'Find & Reserve' ,array('width'=>'80px')) !!}
+                                {!! Html::image('assets/images/maleta.png', 'Find & Reserve' ,array('width'=>'96px', 'height'=>'96px', 'style'=>'margin-bottom: 10px')) !!}
                             </div>
-                            <div class="col-md-12 title-home">
+                            <div class="col-md-12 title-home" style="height: 60px;">
                                 FIND AND RESERVE YOUR EXPERIENCES
                             </div>
                             <div class="col-md-12">
-                                <p>Choose from a selection of tours and adventure activities, sports, ecotourism or cultural exchange activities like Spanish or salsa classes</p>
+                                <p class="text_container">Choose from a selection of tours and adventure activities, sports, ecotourism or cultural exchange activities like Spanish or salsa classes</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="row">
                             <div class="col-md-12">
-                                {!! Html::image('assets/images/global.png', 'Colombia & Caribbean' ,array('width'=>'80px')) !!}
+                                {!! Html::image('assets/images/global.png', 'Colombia & Caribbean' ,array('width'=>'96px', 'height'=>'96px', 'style'=>'margin-bottom: 10px')) !!}
                             </div>
-                            <div class="col-md-12 title-home">
+                            <div class="col-md-12 title-home" style="height: 60px;">
                                 SPECIALIZED IN COLOMBIA AND THE CARIBBEAN
                             </div>
                             <div class="col-md-12">
-                                <p>Choose from a selection of tours and adventure activities, sports, ecotourism or cultural exchange activities like Spanish or salsa classes</p>
+                                <p class="text_container">Choose from a selection of tours and adventure activities, sports, ecotourism or cultural exchange activities like Spanish or salsa classes</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="row">
                             <div class="col-md-12">
-                                {!! Html::image('assets/images/usuarios.png', 'Users' ,array('width'=>'80px')) !!}
+                                {!! Html::image('assets/images/usuarios.png', 'Users' ,array('width'=>'96px', 'height'=>'96px', 'style'=>'margin-bottom: 10px')) !!}
                             </div>
-                            <div class="col-md-12 title-home">
+                            <div class="col-md-12 title-home" style="height: 60px;">
                                 LIVE EXPERIENCES AT THE BEST PRICE
                             </div>
                             <div class="col-md-12">
-                                <p>Choose from a selection of tours and adventure activities, sports, ecotourism or cultural exchange activities like Spanish or salsa classes</p>
+                                <p class="text_container">Choose from a selection of tours and adventure activities, sports, ecotourism or cultural exchange activities like Spanish or salsa classes</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="row">
                             <div class="col-md-12">
-                                {!! Html::image('assets/images/bloquear.png', 'Safety' ,array('width'=>'80px')) !!}
+                                {!! Html::image('assets/images/bloquear.png', 'Safety' ,array('width'=>'96px', 'height'=>'96px', 'style'=>'margin-bottom: 10px')) !!}
                             </div>
-                            <div class="col-md-12 title-home">
+                            <div class="col-md-12 title-home" style="height: 60px;">
                                 TRUST AND SAFETY
                             </div>
                             <div class="col-md-12">
-                                <p>Choose from a selection of tours and adventure activities, sports, ecotourism or cultural exchange activities like Spanish or salsa classes</p>
+                                <p class="text_container">Choose from a selection of tours and adventure activities, sports, ecotourism or cultural exchange activities like Spanish or salsa classes</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-2"></div>
                 </div>
-            </div>
+            </div>            
 
-            
-            
-
-            <div class="activity content container-fluid">
-                <h1>Best Activities And Tours Of Colombia</h1>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="row">
-                            <div class="col-md-10 col-md-offset-2">
-                                {!! Html::image('assets/images/maleta.png', 'Find & Reserve' ,array('width'=>'80px')) !!}
-                            </div>
-                            <div class="col-md-10 col-md-offset-2 title-home">
-                                FIND AND RESERVE YOUR EXPERIENCES
-                            </div>
-                            <div class="col-md-10 col-md-offset-2">
-                                <p>Choose from a selection of tours and adventure activities, sports, ecotourism or cultural exchange activities like Spanish or salsa classes</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="row">
-                            <div class="col-md-10 col-md-offset-1">
-                                {!! Html::image('assets/images/global.png', 'Colombia & Caribbean' ,array('width'=>'80px')) !!}
-                            </div>
-                            <div class="col-md-10 col-md-offset-1 title-home">
-                                SPECIALIZED IN COLOMBIA AND THE CARIBBEAN
-                            </div>
-                            <div class="col-md-10 col-md-offset-1">
-                                <p>Choose from a selection of tours and adventure activities, sports, ecotourism or cultural exchange activities like Spanish or salsa classes</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="row">
-                            <div class="col-md-10">
-                                {!! Html::image('assets/images/usuarios.png', 'Users' ,array('width'=>'80px')) !!}
-                            </div>
-                            <div class="col-md-10 title-home">
-                                LIVE EXPERIENCES AT THE BEST PRICE
-                            </div>
-                            <div class="col-md-10">
-                                <p>Choose from a selection of tours and adventure activities, sports, ecotourism or cultural exchange activities like Spanish or salsa classes</p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="activity container-fluid" style="color: #000; font-weight: normal;">
+                <h1 class="activity">Best Activities And Tours Of Colombia</h1>
+                @foreach($experiences as $exp)
+                <div class="col-md-4" style="padding: 20px; margin: 10px; height: 410px; width: 31%; border: solid 1px #ebeae6; padding-bottom: 10px; background: #fff; ">
+                  <a href="{{route('experience_show',array('id'=>$exp->exp_id))}}">
+                    <img src={{asset('uploads/exp/'.$exp->exp_photo)}} height="180px;" width="100%;" style="display: block; margin-left: auto; margin-right: auto;">
+                  </a>
+                  <br>
+                  <span style="padding-left: 30px;">{{ $exp->exp_name }}</span>
+                  <hr>
+                  <a href="{{ route('user_show',array('id'=>$exp->user_id)) }}">
+                    <img src={{asset('uploads/avatars/'.$exp->avatar)}} height="40px;" style="float: right; border-radius: 50%;">
+                  </a>
+                  {{ $exp->name }} {{ $exp->lastName }} <br>
+                  {{ $exp->email }}
+                  <span><br>{{ number_format($exp->exp_price, 2, '.', ',') }} {{ $exp->cur_simbol }} ({{ $exp->cur_name }})</span>
+                  <span><br>{{ number_format($exp->exp_price/$exp->cur_exchange, 2, '.', ',') }} US$ (American Dollar)</span>
+                  
+                    <div>
+                      <a class="btn btn-success" style="float: right;" href="{{ route('reservation_create',array('id'=>$exp->exp_id)) }}">{{ trans('experience.reservation') }}</a>
+                    </div>              
                 </div>
+                @endforeach
+                <div style="margin-top: 20px;" class="col-md-offset-5 col-md-2 btn btn-primary">LOAD MORE</div>    
             </div>
+
+
             
 
 
