@@ -76,8 +76,12 @@ class ExperiencesController extends Controller
     {
         $user = Auth::user();
         $myexp = App\Experiences::all();
-        $currencies = App\Currency::all(['id','cur_name']);
-        return view('experience.create', array('user'=>Auth::user(),'currencies'=>$currencies));
+        $currencies = App\Currency::all(['id','cur_name','cur_simbol']);
+        $cur = [];
+        foreach($currencies as $currency){
+           $cur[$currency->id] = $currency->cur_name.' ['.$currency->cur_simbol.']';
+        }
+        return view('experience.create', array('user'=>Auth::user(),'cur'=>$cur));
     }
 
     /**
@@ -93,9 +97,11 @@ class ExperiencesController extends Controller
         
         $exp->exp_name = $request->exp_name;
         $exp->exp_guide_id = $user->id;
-        $filename = time().'.'.$request->file('exp_photo')->getClientOriginalExtension();
-        Image::make($request->file('exp_photo'))->resize(300,300)->save( public_path('uploads/exp/'.$filename));
-        $exp->exp_photo = $filename;
+        if ($request->file('exp_photo')){
+            $filename = time().'.'.$request->file('exp_photo')->getClientOriginalExtension();
+            Image::make($request->file('exp_photo'))->resize(300,300)->save( public_path('uploads/exp/'.$filename));
+            $exp->exp_photo = $filename;
+        }
         $exp->exp_location = $request->exp_location;
         $exp->exp_min_people = $request->exp_min_people;
         $exp->exp_max_people = $request->exp_max_people;

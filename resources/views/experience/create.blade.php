@@ -43,30 +43,31 @@
 
     <div class="form-group">
       {!! Form::label('exp_people', trans('experience.exp_min_people')) !!}
-      {!! Form::number('exp_min_people', null, array('class'=>'form-control')) !!}
+      {!! Form::number('exp_min_people', null, array('class'=>'form-control','style'=>'width: 20%')) !!}
       {!! Form::label('exp_min_people', trans('experience.exp_min_people')) !!}
-      {!! Form::number('exp_max_people', null, array('class'=>'form-control')) !!}
+      {!! Form::number('exp_max_people', null, array('class'=>'form-control','style'=>'width: 20%')) !!}
       {!! Form::label('exp_max_people', trans('experience.exp_max_people')) !!}
     </div>
 
     <div class="form-group">
       {!! Form::label('exp_duration', trans('experience.exp_duration')) !!}
-      {!! Form::number('exp_duration', null, array('class'=>'form-control')) !!}
-      <select name="exp_duration_h">
-          <option value="Days">trans('experience.days'))</option>
-          <option value="Hours">trans('experience.hours'))</option>
-          <option value="Minutes">trans('experience.minutes'))</option>
-      </select>
+      {!! Form::number('exp_duration', null, array('class'=>'form-control','style'=>'width: 20%')) !!}
+      {!! Form::select('exp_duration_h', 
+          array(
+            'Days' => trans('experience.exp_days'),
+            'Hours' => trans('experience.exp_hours'),
+            'Minutes' => trans('experience.exp_minutes'))
+            ,null, array('class'=>'form-control','style'=>'width: 20%'))
+      !!}
     </div>
 
     <div class="form-group">
       {!! Form::label('exp_price', trans('experience.exp_price')) !!}
       {!! Form::number('exp_price', null, array('class'=>'form-control','step' => '0.01')) !!}
-      <select name="exp_currency">
-        @foreach($currencies as $cur)
-          <option value="{{$cur->id}}">{{$cur->cur_name}}</option>
-        @endforeach
-      </select>
+
+
+      {!! Form::select('exp_currency', $cur, null, ['class'=>'form-control']) !!}
+
     </div>
 
     <div class="form-group">
@@ -79,8 +80,8 @@
       {!! Form::text('exp_private_notes', null, array('class'=>'form-control')) !!}
     </div>
 
-    <div class="form-group">
-      {!! Form::submit(Lang::get('experience.save'), ['class' => 'btn btn-success']) !!}
+    <div class="form-group" style="background: #fbfbfb; padding: 10px; color:#000; margin-top: 0px; margin-bottom: 0px; margin-left: -15px; margin-right: -15px; height: 90px; padding-top: 30px;">
+      {!! Form::submit(Lang::get('experience.save'), array('class' => 'btn btn-success')) !!}
     </div>
 
     </div>
