@@ -41,9 +41,11 @@ class ExperiencesController extends Controller
      */
     public function index()
     {   
-//        if (Auth::check()){
-            //$user = Auth::user();
-            $user = App\User::find(1);
+        if (Auth::check()){
+            $user = Auth::user();
+        } else {
+            $user = App\User::first();
+        }            
             $experiences = DB::table('experience')
                 ->join('users','users.id','=','experience.exp_guide_id')
                 ->join('currency','experience.exp_currency','=','currency.id')
@@ -53,9 +55,6 @@ class ExperiencesController extends Controller
                 ->paginate(6);
                 //->get();
             return view('experience.index', array('user'=>$user, 'experiences'=>$experiences));
-//            } else {
-//                return redirect('auth/login');
-//        }
     }
 
     public function myexps()

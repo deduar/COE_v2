@@ -31,7 +31,7 @@
             {!! Form::label('password', trans('login.password')) !!}
         </div>
         <div class="form-group">
-            {!! Form::email('password') !!}
+            {!! Form::password('password') !!}
         </div>
         <div class="form-group">
             {!! Form::label('remember', trans('login.remember')) !!}

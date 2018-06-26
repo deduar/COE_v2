@@ -3,47 +3,60 @@
 @section('title', 'Coexperienes: Register')
 
 @section('content')
-<div class="row register_box">
-<div class="col-md-5 col-md-offset-7">    
-<form method="POST" action="{{ route('register') }}">
-    {!! csrf_field() !!}
 
-    <div class="row">
-        <div class="col-md-3" style="text-align: right;">First Name</div>
-        <div class="col-md-6">
-            <input type="text" name="name" value="{{ old('name') }}">
-        </div>
+<style type="text/css">
+    .container{
+        padding-bottom: 0px !important;
+    }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="row login_box" style="height: 650px;">
+    <div class="col-md-5 col-md-offset-6" style="background: #FFF; opacity: .75; padding-top: 30px; padding-bottom: 30px;">
+    {!! Form::open(['route' => 'register', 'files' => true]) !!}
+        {!! Form::token(); !!}
+    <h4>Facebook SingUp</h4>
+    <div class="btn btn-primary" style="font-weight: bold; background: #074587;"><i class="fa fa-facebook-f" style="font-size: 20px; margin-right: 8px;"></i>  Login with Facebbok</div>
+    <hr>
+    <h4>Standard SingUp</h4>
+
+    <div class="form-group">
+        {!! Form::label('name', trans('login.name')) !!}
     </div>
-    <div class="row">
-        <div class="col-md-3" style="text-align: right;">Last Name</div>
-        <div class="col-md-6">
-            <input type="text" name="lastName" value="{{ old('lastName') }}">
-        </div>
+    <div class="form-group">
+        {!! Form::text('name') !!}
     </div>
-    <div class="row">
-        <div class="col-md-3" style="text-align: right;">Email</div>
-        <div class="col-md-6">
-            <input type="email" name="email" value="{{ old('email') }}">
-        </div>
+
+    <div class="form-group">
+        {!! Form::label('lastName', trans('login.lastName')) !!}
     </div>
-    <div class="row">
-        <div class="col-md-3" style="text-align: right;">Password</div>
-        <div class="col-md-6">
-            <input type="password" name="password">
-        </div>
+    <div class="form-group">
+        {!! Form::text('lastName') !!}
     </div>
-    <div class="row">
-        <div class="col-md-3" style="text-align: right;">Confirm Password</div>
-        <div class="col-md-6">
-            <input type="password" name="password_confirmation">
-        </div>
+
+    <div class="form-group">
+        {!! Form::label('email', trans('login.email')) !!}
+        <p>This email is used to receive booking request. Make sure it is your most frequently checked email address</p>
     </div>
-    <div class="row">
-        <div class="col-md-2 col-md-offset-3">
-            <button type="submit">Register</button>
-        </div>
+    <div class="form-group">
+        {!! Form::email('email') !!}
     </div>
-</form>
+
+    <div class="form-group">
+        {!! Form::label('password', trans('login.password')) !!}
+        {!! Form::password('password') !!}
+    </div>
+    <div class="form-group">
+        {!! Form::label('password_confirmation', trans('login.password_confirmation')) !!}
+        {!! Form::password('password_confirmation') !!}
+    </div>
+    
+    <div class="form-group">
+        {!! Form::submit(Lang::get('login.register'), ['class' => 'btn btn-primary']) !!}
+    </div>
+
+    {!! Form::close() !!}
+
 </div>
 </div>
 @endsection
