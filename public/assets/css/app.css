@@ -12,11 +12,12 @@ body {
 .navbar {
     margin-bottom: 0px !important;
 }
+
 .navbar-default {
     padding-left: 65px;
     padding-right: 65px;
     border: 0px solid #fff !important;
-    background-color: #000;
+    background-color: #fff;
 }
 
 a.menu {
@@ -28,11 +29,11 @@ a.menu:hover {
 }
 
 .login_box{
-	background-image: url('../images/carousel_02.jpg');
-	-webkit-border-radius: 50px 10px;
+	background-image: url('../images/login.jpg');
+	/*-webkit-border-radius: 50px 10px;
   	-moz-border-radius: 50px 10px;
   	border-radius: 50px 10px;
-	margin-top: 30px;
+	margin-top: 30px;*/
 	padding: 30px;
 	color: #000;
 }
@@ -57,7 +58,6 @@ a.menu_profile{
 
 
 .footer{
-	margin-top: 20px;
     color: #F4F3EE;
     background: #000;
 }

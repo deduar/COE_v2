@@ -159,7 +159,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('welcome') }}" />
+                    <a href="{{ route('experience_index') }}" />
                         <button type="button" class="btn btn-primary navbar-btn">
                             {{ trans('welcome.find_exp') }}
                         </button>

@@ -6,9 +6,10 @@
 
   <h1>All Experiences</h1>
 
-<div clas="row">
+<div class="row">
+  <div class="col-md-offset-1 col-md-9">
   @foreach($experiences as $exp)
-    <div class="col-md-4" style="padding: 20px; margin: 10px; height: 410px; width: 30%; border: solid 1px #ebeae6; padding-bottom: 10px; background: #fff; ">
+    <div class="col-md-offset-1 col-md-3" style="padding: 20px; margin-top: 10px; height: 410px; border: solid 1px #ebeae6; padding-bottom: 10px; background: #fff; ">
       <a href="{{route('experience_show',array('id'=>$exp->exp_id))}}">
         <img src={{asset('uploads/exp/'.$exp->exp_photo)}} height="180px;" width="100%;" style="display: block; margin-left: auto; margin-right: auto;">
       </a>
@@ -29,6 +30,7 @@
       @endif
     </div>
   @endforeach
+  </div>
 </div> 
 
 {!! $experiences->render() !!}
