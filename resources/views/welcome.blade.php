@@ -315,10 +315,30 @@
                 </div>
             </div>
 
-            <div class="footer">
-                <br>
-                <p style="text-align: center;">Footer</p>
-                <br>
+            <div class="footer" style="background-color: #000;">
+                <div class="container-fluid" style="padding-top: 50px; padding-bottom: 10px;">
+                    <div class="col-md-2 col-md-offset-2" style="color: #FFF; font-weight: normal; font-size: 11px; text-align: center;">ALL ABOUT USER-HOST</div>
+                    <div class="col-md-2" style="color: #FFF; font-weight: normal; font-size: 11px; text-align: center;">LEGAL NOTICE</div>
+                    <div class="col-md-2" style="color: #FFF; font-weight: normal; font-size: 11px; text-align: center;">PRIVACY & COOKIES POLICY</div>
+                    <div class="col-md-2" style="color: #FFF; font-weight: normal; font-size: 11px; text-align: center;">TERMS & CONDITIONS OF USE</div>
+                </div>
+                <div style="text-align: center; color: #FFF; font-weight: normal; font-size: 11px; padding-bottom: 20px;">WHO WE ARE</div>
+                <div class="container-fluid" style="padding-top: 10px; padding-bottom: 10px;">
+                    <div class="col-md-3 col-md-offset-3" style="color: #FFF; font-weight: normal; font-size: 11px; text-align: center;">
+                        <div class="btn btn-default" style="width: 120px; background: #d3ccbf; font-weight: bold;">Language</div>
+                        <div class="btn btn-default" style="width: 120px; background: #d3ccbf; font-weight: bold;">Currency</div>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="assets/images/facebook.png" width="40px" style="margin: 0px 5px;">
+                        <img src="assets/images/twitter.png" width="40px" style="margin: 0px 5px;">
+                        <img src="assets/images/instagram.png" width="40px" style="margin: 0px 5px;">
+                        <img src="assets/images/googleplus.png" width="40px" style="margin: 0px 5px;">
+                        <img src="assets/images/youtube.png" width="40px" style="margin: 0px 5px;">
+                    </div>
+                </div>
+                <div style="margin-top: 30px;">
+                    <p style="font-size: 12px; color: #fff; font-weight: normal; padding: 50px 180px; text-align: center;">En desarrollo de lo dispuesto en el artículo 17 de la ley 679 de 2001, la plataforma Coexperiences advierte a los turistas que la explotación y el abuso sexual de los menores de edad en el país son sancionados penal y administrativamente.</p>
+                </div>
             </div>
         </div>
 
