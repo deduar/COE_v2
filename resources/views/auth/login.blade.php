@@ -15,12 +15,12 @@
     <div class="col-md-5 col-md-offset-6" style="background: #FFF; opacity: .75; padding-top: 30px; padding-bottom: 30px;">
     {!! Form::open(['route' => 'login', 'files' => true]) !!}
         {!! Form::token(); !!}
-        <h4>Express Login</h4>
-        <div class="btn btn-primary" style="font-weight: bold; background: #074587;"><i class="fa fa-facebook-f" style="font-size: 20px; margin-right: 8px;"></i>  Login with Facebbok</div>
+        <h4>{{trans('login.express_login')}}</h4>
+        <div class="btn btn-primary" style="font-weight: bold; background: #074587;"><i class="fa fa-facebook-f" style="font-size: 20px; margin-right: 8px;"></i>{{trans('login.express_login_f')}}</div>
         <hr>
-        <h4>Standard Logoin</h4>
-        <h5>Please enter your email address and password to log in.</h5> 
-        <h6><a href="{{route('ŕegister')}}">No COEXPERIENCES Account Yet?</a></h6>
+        <h4>{{trans('login.standard_login')}}</h4>
+        <h5>{{trans('login.login_instruction')}}</h5> 
+        <h6><a href="{{route('ŕegister')}}">{{trans('login.link_register')}}</a></h6>
         <div class="form-group">
             {!! Form::label('email', trans('login.email')) !!}
         </div>
@@ -39,7 +39,7 @@
         </div>
         <div class="form-group">
             {!! Form::submit(Lang::get('login.login'), ['class' => 'btn btn-primary']) !!}
-            <a href="{{ route('getemail') }}">    Forgot password ?</a>
+            <a href="{{ route('getemail') }}"> {{trans('login.forgot_password')}}</a>
         </div>
     {!! Form::close() !!}
     </div>

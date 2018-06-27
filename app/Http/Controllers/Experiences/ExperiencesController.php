@@ -147,7 +147,14 @@ class ExperiencesController extends Controller
      */
     public function edit($id)
     {
-        var_dump($id);
+        $user = Auth::user();
+        $exp = App\Experiences::find($id);
+        $currencies = App\Currency::all(['id','cur_name','cur_simbol']);
+        $cur = [];
+        foreach($currencies as $currency){
+           $cur[$currency->id] = $currency->cur_name.' ['.$currency->cur_simbol.']';
+        }
+        return view ('experience.edit',array('user'=>$user,'exp'=>$exp, 'cur'=>$cur));
     }
 
     /**
@@ -157,9 +164,11 @@ class ExperiencesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $exp = App\Experiences::find($request->id);
+        $exp->update($request->all());
+        return redirect()->route('my_experience');
     }
 
     /**

@@ -7,7 +7,7 @@
         <!-- Fonts -->
         <!--link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'-->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-        <link rel="shortcut icon" type="image/x-icon" href="assets/images/Favicon.png">
+        <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/images/Favicon.png')}}">
 
 
     </head>
@@ -173,11 +173,11 @@
                     <div class="btn btn-default" style="width: 120px; background: #d3ccbf; font-weight: bold;">Currency</div>
                 </div>
                 <div class="col-md-6">
-                    <img src="../assets/images/facebook.png" width="40px" style="margin: 0px 5px;">
-                    <img src="../assets/images/twitter.png" width="40px" style="margin: 0px 5px;">
-                    <img src="../assets/images/instagram.png" width="40px" style="margin: 0px 5px;">
-                    <img src="../assets/images/googleplus.png" width="40px" style="margin: 0px 5px;">
-                    <img src="../assets/images/youtube.png" width="40px" style="margin: 0px 5px;">
+                    <img src="{{asset('assets/images/facebook.png')}}" width="40px" style="margin: 0px 5px;">
+                    <img src="{{asset('assets/images/twitter.png')}}" width="40px" style="margin: 0px 5px;">
+                    <img src="{{asset('assets/images/instagram.png')}}" width="40px" style="margin: 0px 5px;">
+                    <img src="{{asset('assets/images/googleplus.png')}}" width="40px" style="margin: 0px 5px;">
+                    <img src="{{asset('assets/images/youtube.png')}}" width="40px" style="margin: 0px 5px;">
                 </div>
             </div>
             <div style="margin-top: 30px;">
