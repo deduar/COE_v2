@@ -84,6 +84,12 @@ class ExperiencesController extends Controller
         return view('experience.create', array('user'=>Auth::user(),'cur'=>$cur));
     }
 
+    public function create_photo($id)
+    {
+        var_dump($id);
+        die("create photo");
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -119,7 +125,14 @@ class ExperiencesController extends Controller
             $user->update();
         }
         
-        return redirect()->route('my_experience');
+        //return redirect()->route('my_experience');
+
+        $currencies = App\Currency::all(['id','cur_name','cur_simbol']);
+        $cur = [];
+        foreach($currencies as $currency){
+           $cur[$currency->id] = $currency->cur_name.' ['.$currency->cur_simbol.']';
+        }
+        return view('experience.create_photo', array('user'=>Auth::user(),'id'=>$exp->id, 'cur'=>$cur));
     }
 
     /**
