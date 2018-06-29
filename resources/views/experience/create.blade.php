@@ -4,6 +4,20 @@
 
 @section('content')
 
+
+@if(count($errors))
+  <div class="alert alert-danger">
+    <strong>Whoops!</strong> There were some problems with your input.
+    <br/>
+    <ul>
+      @foreach($errors->all() as $error)
+      <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+
+
 <hr>
 
 <style type="text/css">
@@ -18,26 +32,22 @@
 <div class="row">
   <div class="col-md-offset-2 col-md-8" style="padding-left: 0px; padding-right: 0px;">
   <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#basic">The Basic</a></li>
-    <li><a data-toggle="tab" href="#photos">Photos</a></li>
-    <li><a data-toggle="tab" href="#scheduler">Scheduler</a></li>
-    <li><a data-toggle="tab" href="#profile">Profile</a></li>
-    <!--li role="basic" class="active"><a href="{{route('experience_create')}}" style="color: #000; background: #fbfbfb; font-weight: bold;">The Basic</a></li>
-    <li role="photos" ><a href="#">Photos</a></li>
-    <li role="scheduler" class="disabled"><a href="#">Scheduler</a></li>
-    <li role="profile" class="disabled"><a href="#">Profile</a></li>
-    <li role="payment" class="disabled"><a href="#">Payment</a></li>
-    <li role="publish" class="disabled"><a href="#">Publish</a></li-->
+    <li class="active"><a  href="#basic" data-toggle="tab">Basic</a></li>
+    <li><a href="#photos" data-toggle="tab">Photos</a></li>
+    <li><a href="#scheduler" data-toggle="tab">Scheduler</a></li>
+    <li><a href="#profile" data-toggle="tab">Profile</a></li>
+    <li><a href="#payment" data-toggle="tab">Payment</a></li>
+    <li><a href="#publis" data-toggle="tab">Publish</a></li>
   </ul>
-  <br>
   <hr style="margin-bottom: 0px;">
 
-  
-  {!! Form::open(['route' => 'experience_store', 'files' => true]) !!}
-		{!! Form::token(); !!}
+{!! Form::open(['route' => 'experience_store', 'files' => true]) !!}
+    {!! Form::token(); !!}
 
-    <div id="basic" class="tab-pane fade in active">
-      <h1 style="background: #fbfbfb; padding: 10px; color:#000; margin-top: 0px; margin-bottom: 0px; height: 90px; padding-top: 30px;">The Basic</h1>
+  <div class="tab-content clearfix">
+  <div class="tab-pane active" id="basic">
+
+    <h1 style="background: #fbfbfb; padding: 10px; color:#000; margin-top: 0px; margin-bottom: 0px; height: 90px; padding-top: 30px;">The Basic</h1>
 
     <div class="container-fluid" style="margin-top: 0px; border:1px solid #ddd;">
     <br><br>
@@ -49,8 +59,6 @@
     	 {!! Form::text('exp_name', null, array('class'=>'form-control','required' => 'required')) !!}
       </div>
     </div>
-
-    
 
     <div class="form-group">
       <div class="col-md-2 col-md-offset-1">
@@ -118,7 +126,6 @@
       <div class="col-md-4">
         {!! Form::select('exp_currency', $cur, null, array('class'=>'form-control','required' => 'required')) !!}
       </div>
-
     </div>
 
     <div class="form-group">
@@ -141,26 +148,27 @@
 
     <div class="row"></div>
 
-    </div>
-
+    </div>    
+  
   </div>
 
-  <div id="photos" class="tab-pane fade in active">
+  <div id="photos" class="tab-pane">
     <h1 style="background: #fbfbfb; padding: 10px; color:#000; margin-top: 0px; margin-bottom: 0px; height: 90px; padding-top: 30px;">Photos</h1>
+    <div class="container-fluid" style="margin-top: 0px; border:1px solid #ddd;">
     <div class="form-group">
       {!! Form::label('exp_photo', trans('experience.exp_photo')) !!}
       {!! Form::file('exp_photo', null) !!}
     </div>  
+    </div>
   </div>
 
-  <div class="form-group" style="background: #fbfbfb; padding: 10px; color:#000; margin-top: 0px; margin-bottom: 0px; margin-left: -15px; margin-right: -15px; height: 90px; padding-top: 30px;">
+  <div class="form-group" style="background: #fbfbfb; padding: 10px; color:#000; margin-top: 0px; margin-bottom: 0px; height: 90px; padding-top: 30px;">
       {!! Form::submit(Lang::get('experience.save'), array('class' => 'btn btn-success','style'=>'width: 180px;')) !!}
     </div>
 
-  {!! Form::close() !!}
+</div>
 
-
-  
+{!! Form::close() !!}
 
   </div>
 </div>
