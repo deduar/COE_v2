@@ -84,12 +84,6 @@ class ExperiencesController extends Controller
         return view('experience.create', array('user'=>Auth::user(),'cur'=>$cur));
     }
 
-    public function create_photo($id)
-    {
-        var_dump($id);
-        die("create photo");
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -98,6 +92,16 @@ class ExperiencesController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = $this->validate($request,
+            array(
+                'exp_name'=>'required',
+                'exp_location'=>'required',
+                'exp_summary'=>'required'
+            ),
+            array(
+            )
+        );
+
         $user = Auth::user();
         $exp = new Experiences;
         
@@ -109,6 +113,7 @@ class ExperiencesController extends Controller
             $exp->exp_photo = $filename;
         }
         $exp->exp_location = $request->exp_location;
+        $exp->exp_summary = $request->exp_summary;
         $exp->exp_min_people = $request->exp_min_people;
         $exp->exp_max_people = $request->exp_max_people;
         $exp->exp_duration = $request->exp_duration;
@@ -118,6 +123,7 @@ class ExperiencesController extends Controller
         $exp->exp_category = $request->exp_category;
         $exp->exp_private_notes = $request->exp_private_notes;
 
+
         $exp->save();        
         
         if ($user->guide != 'Guide') {
@@ -125,14 +131,7 @@ class ExperiencesController extends Controller
             $user->update();
         }
         
-        //return redirect()->route('my_experience');
-
-        $currencies = App\Currency::all(['id','cur_name','cur_simbol']);
-        $cur = [];
-        foreach($currencies as $currency){
-           $cur[$currency->id] = $currency->cur_name.' ['.$currency->cur_simbol.']';
-        }
-        return view('experience.create_photo', array('user'=>Auth::user(),'id'=>$exp->id, 'cur'=>$cur));
+        return redirect()->route('my_experience');
     }
 
     /**

@@ -20,4 +20,5 @@ return [
 	'exp_price' => 'Precio',
 	'exp_category' =>'Categoria',
 	'exp_private_notes' => 'Notas Privadas',
+	'form_error' => 'Verique los campos obligatorios'
 ];

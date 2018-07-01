@@ -9,11 +9,7 @@
   <div class="alert alert-danger">
     <strong>Whoops!</strong> There were some problems with your input.
     <br/>
-    <ul>
-      @foreach($errors->all() as $error)
-      <li>{{ $error }}</li>
-      @endforeach
-    </ul>
+    <h3> {{ trans('experience.form_error') }}</h3>
   </div>
 @endif
 
@@ -51,12 +47,12 @@
 
     <div class="container-fluid" style="margin-top: 0px; border:1px solid #ddd;">
     <br><br>
-    <div class="form-group">
+    <div class="form-group {{ $errors->has('exp_name') ? 'has-error' : '' }}">
       <div class="col-md-2 col-md-offset-1">
-		    {!! Form::label('exp_name', trans('experience.exp_name')) !!}
+		    {!! Form::label('exp_name', trans('experience.exp_name' )) !!}
       </div>
       <div class="col-md-8">
-    	 {!! Form::text('exp_name', null, array('class'=>'form-control','required' => 'required')) !!}
+    	 {!! Form::text('exp_name', null, array('class'=>'form-control')) !!}
       </div>
     </div>
 
@@ -65,7 +61,7 @@
         {!! Form::label('exp_location', trans('experience.exp_location')) !!}
       </div>
       <div class="col-md-8">
-        {!! Form::text('exp_location', null, array('class'=>'form-control','required' => 'required')) !!}
+        {!! Form::text('exp_location', null , array('class'=>'form-control')) !!}
       </div>
     </div>
 
@@ -74,7 +70,7 @@
         {!! Form::label('exp_summary', trans('experience.exp_summary')) !!}
       </div>
       <div class="col-md-8" style="margin-bottom: 20px;">
-        {!! Form::textarea('exp_summary', null, array('class'=>'form-control','required' => 'required')) !!}
+        {!! Form::textarea('exp_summary', null, array('class'=>'form-control')) !!}
       </div>
     </div>
 
@@ -85,13 +81,13 @@
         {!! Form::label('exp_people', trans('experience.exp_people')) !!}
       </div>
       <div class="col-md-2">
-        {!! Form::number('exp_min_people', null, array('class'=>'form-control','required' => 'required')) !!}
+        {!! Form::number('exp_min_people', null, array('class'=>'form-control')) !!}
       </div>
       <div class="col-md-2">
         {!! Form::label('exp_min_people', trans('experience.exp_min_people')) !!}
       </div>
       <div class="col-md-2">
-        {!! Form::number('exp_max_people', null, array('class'=>'form-control','required' => 'required')) !!}
+        {!! Form::number('exp_max_people', null, array('class'=>'form-control')) !!}
       </div>
       <div class="col-md-2">
         {!! Form::label('exp_max_people', trans('experience.exp_max_people')) !!}
@@ -103,7 +99,7 @@
         {!! Form::label('exp_duration', trans('experience.exp_duration')) !!}
       </div>
       <div class="col-md-4">
-        {!! Form::number('exp_duration', null, array('class'=>'form-control','required' => 'required')) !!}
+        {!! Form::number('exp_duration', null, array('class'=>'form-control')) !!}
       </div>
       <div class="col-md-4">
       {!! Form::select('exp_duration_h', 
@@ -121,10 +117,10 @@
         {!! Form::label('exp_price', trans('experience.exp_price')) !!}
       </div>
       <div class="col-md-2">
-        {!! Form::number('exp_price', null, array('class'=>'form-control','step' => '0.01','required' => 'required')) !!}
+        {!! Form::number('exp_price', null, array('class'=>'form-control','step' => '0.01')) !!}
       </div>
       <div class="col-md-4">
-        {!! Form::select('exp_currency', $cur, null, array('class'=>'form-control','required' => 'required')) !!}
+        {!! Form::select('exp_currency', $cur, null, array('class'=>'form-control')) !!}
       </div>
     </div>
 

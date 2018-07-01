@@ -20,4 +20,5 @@ return [
 	'exp_price' => 'Price',
 	'exp_category' =>'Category',
 	'exp_private_motes' => 'Private Notes',
+	'form_error' => 'Check the required fields'
 ];
