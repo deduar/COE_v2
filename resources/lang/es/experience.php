@@ -20,5 +20,6 @@ return [
 	'exp_price' => 'Precio',
 	'exp_category' =>'Categoria',
 	'exp_private_notes' => 'Notas Privadas',
-	'form_error' => 'Verique los campos obligatorios'
+	'form_error' => 'Verique los campos obligatorios',
+	'exp_name_placeHolder' => 'Titulo descriptivo de la Experiencia'
 ];

@@ -49,28 +49,28 @@
     <br><br>
     <div class="form-group {{ $errors->has('exp_name') ? 'has-error' : '' }}">
       <div class="col-md-2 col-md-offset-1">
-		    {!! Form::label('exp_name', trans('experience.exp_name' )) !!}
+		    {!! Form::label('exp_name', trans('experience.exp_name' )).' <span class="glyphicon glyphicon-info-sign" style="color: red" title="OBLIGATORIO/REQUIRED"></span>' !!}
       </div>
       <div class="col-md-8">
-    	 {!! Form::text('exp_name', null, array('class'=>'form-control')) !!}
+       {!! Form::text('exp_name', Input::old('exp_name'), array('placeholder'=>trans('experience.exp_name_placeHolder'), 'class'=>'form-control')) !!}
       </div>
     </div>
 
     <div class="form-group">
       <div class="col-md-2 col-md-offset-1">
-        {!! Form::label('exp_location', trans('experience.exp_location')) !!}
+        {!! Form::label('exp_location', trans('experience.exp_location')).' <span class="glyphicon glyphicon-info-sign" style="color: red" title="OBLIGATORIO/REQUIRED"></span>' !!}
       </div>
       <div class="col-md-8">
-        {!! Form::text('exp_location', null , array('class'=>'form-control')) !!}
+        {!! Form::text('exp_location', Input::old('exp_location'), array('placeholder'=>trans('experience.exp_location_placeHolder'), 'class'=>'form-control')) !!}
       </div>
     </div>
 
     <div class="form-group">
       <div class="col-md-2 col-md-offset-1">
-        {!! Form::label('exp_summary', trans('experience.exp_summary')) !!}
+        {!! Form::label('exp_summary', trans('experience.exp_summary')).' <span class="glyphicon glyphicon-info-sign" style="color: red" title="OBLIGATORIO/REQUIRED"></span>' !!}
       </div>
       <div class="col-md-8" style="margin-bottom: 20px;">
-        {!! Form::textarea('exp_summary', null, array('class'=>'form-control')) !!}
+        {!! Form::textarea('exp_summary', Input::old('exp_summary'), array('placeholder'=>trans('experience.exp_summary_placeHolder'), 'class'=>'form-control')) !!}
       </div>
     </div>
 
@@ -78,30 +78,30 @@
 
     <div class="form-group">
       <div class="col-md-2 col-md-offset-1">
-        {!! Form::label('exp_people', trans('experience.exp_people')) !!}
+        {!! Form::label('exp_people', trans('experience.exp_people')).' <span class="glyphicon glyphicon-info-sign" style="color: red" title="OBLIGATORIO/REQUIRED"></span>' !!}
       </div>
       <div class="col-md-2">
-        {!! Form::number('exp_min_people', null, array('class'=>'form-control')) !!}
+        {!! Form::number('exp_min_people', Input::old('exp_min_people'), array('placeholder'=>trans('experience.exp_min_people_placeHolder'), 'class'=>'form-control')) !!}
       </div>
       <div class="col-md-2">
-        {!! Form::label('exp_min_people', trans('experience.exp_min_people')) !!}
+        {!! Form::label('exp_min_people', trans('experience.exp_min_people')).' <span class="glyphicon glyphicon-info-sign" style="color: red" title="OBLIGATORIO/REQUIRED"></span>' !!}
       </div>
       <div class="col-md-2">
-        {!! Form::number('exp_max_people', null, array('class'=>'form-control')) !!}
+        {!! Form::number('exp_max_people', Input::old('exp_max_people'), array('placeholder'=>trans('experience.exp_max_people_placeHolder'), 'class'=>'form-control')) !!}
       </div>
       <div class="col-md-2">
-        {!! Form::label('exp_max_people', trans('experience.exp_max_people')) !!}
+        {!! Form::label('exp_max_people', trans('experience.exp_max_people')).' <span class="glyphicon glyphicon-info-sign" style="color: red" title="OBLIGATORIO/REQUIRED"></span>' !!}
       </div>
     </div>
 
     <div class="form-group">
       <div class="col-md-2 col-md-offset-1">
-        {!! Form::label('exp_duration', trans('experience.exp_duration')) !!}
+        {!! Form::label('exp_duration', trans('experience.exp_duration')).' <span class="glyphicon glyphicon-info-sign" style="color: red" title="OBLIGATORIO/REQUIRED"></span>' !!}
       </div>
       <div class="col-md-4">
-        {!! Form::number('exp_duration', null, array('class'=>'form-control')) !!}
+        {!! Form::number('exp_duration', Input::old('exp_duration'), array('placeholder'=>trans('experience.exp_duration_placeHolder'), 'class'=>'form-control')) !!}
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
       {!! Form::select('exp_duration_h', 
           array(
             'Days' => trans('experience.exp_days'),
@@ -114,10 +114,10 @@
 
     <div class="form-group">
       <div class="col-md-2 col-md-offset-1">
-        {!! Form::label('exp_price', trans('experience.exp_price')) !!}
+        {!! Form::label('exp_price', trans('experience.exp_price')).' <span class="glyphicon glyphicon-info-sign" style="color: red" title="OBLIGATORIO/REQUIRED"></span>' !!}
       </div>
-      <div class="col-md-2">
-        {!! Form::number('exp_price', null, array('class'=>'form-control','step' => '0.01')) !!}
+      <div class="col-md-3">
+        {!! Form::number('exp_price', Input::old('exp_price'), array('placeholder'=>trans('experience.exp_price_placeHolder'), 'class'=>'form-control','step' => '0.01','min'=>'0')) !!}
       </div>
       <div class="col-md-4">
         {!! Form::select('exp_currency', $cur, null, array('class'=>'form-control')) !!}
@@ -138,7 +138,7 @@
         {!! Form::label('exp_private_notes', trans('experience.exp_private_notes')) !!}
       </div>
       <div class="col-md-8" style="margin-bottom: 20px;">
-        {!! Form::textarea('exp_private_notes', null, array('class'=>'form-control')) !!}
+        {!! Form::textarea('exp_private_notes', Input::old('exp_private_notes'), array('placeholder'=>trans('experience.exp_private_notes_placeHolder'), 'class'=>'form-control')) !!}
       </div>
     </div>
 
@@ -152,7 +152,7 @@
     <h1 style="background: #fbfbfb; padding: 10px; color:#000; margin-top: 0px; margin-bottom: 0px; height: 90px; padding-top: 30px;">Photos</h1>
     <div class="container-fluid" style="margin-top: 0px; border:1px solid #ddd;">
     <div class="form-group">
-      {!! Form::label('exp_photo', trans('experience.exp_photo')) !!}
+      {!! Form::label('exp_photo', trans('experience.exp_photo')).' <span class="glyphicon glyphicon-info-sign" style="color: red" title="OBLIGATORIO/REQUIRED"></span>' !!}
       {!! Form::file('exp_photo', null) !!}
     </div>  
     </div>
