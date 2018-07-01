@@ -21,5 +21,7 @@ return [
 	'exp_category' =>'Categoria',
 	'exp_private_notes' => 'Notas Privadas',
 	'form_error' => 'Verique los campos obligatorios',
-	'exp_name_placeHolder' => 'Titulo descriptivo de la Experiencia'
+	'exp_name_placeHolder' => 'Titulo descriptivo de la Experiencia',
+	'exp_more_potos' => 'Selecciones, de forma simultanea, todas las imagenes a subir',
+	'exp_more_photos_label' => 'Galería de Fotos'
 ];

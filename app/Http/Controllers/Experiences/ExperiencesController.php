@@ -11,6 +11,7 @@ use App;
 use Session;
 use App\User;
 use App\Experiences;
+use App\ExperiencesPhotos;
 use Image;
 use Auth;
 use DB;
@@ -106,7 +107,8 @@ class ExperiencesController extends Controller
                 'exp_price'=>'required',
                 'exp_currency'=>'required',
                 'exp_category',
-                'exp_private_note'
+                'exp_private_note',
+                'exp_video',
             ),
             array(
             )
@@ -117,11 +119,13 @@ class ExperiencesController extends Controller
         
         $exp->exp_name = $request->exp_name;
         $exp->exp_guide_id = $user->id;
+        
         if ($request->file('exp_photo')){
             $filename = time().'.'.$request->file('exp_photo')->getClientOriginalExtension();
             Image::make($request->file('exp_photo'))->resize(300,300)->save( public_path('uploads/exp/'.$filename));
             $exp->exp_photo = $filename;
         }
+
         $exp->exp_location = $request->exp_location;
         $exp->exp_summary = $request->exp_summary;
         $exp->exp_min_people = $request->exp_min_people;
@@ -132,9 +136,22 @@ class ExperiencesController extends Controller
         $exp->exp_currency = $request->exp_currency;
         $exp->exp_category = $request->exp_category;
         $exp->exp_private_notes = $request->exp_private_notes;
+        $exp->exp_video = $request->exp_video;
 
+        $exp->save();
 
-        $exp->save();        
+        if($request->hasFile('file'))
+        {
+            $files = $request->file('file');
+            foreach ($files as $file) {
+                $exp_photo = new ExperiencesPhotos;
+                $exp_photo->exp_id = $exp->id;
+                $filename = time().'.'.$file->getClientOriginalExtension();
+                $file->move(public_path().'/uploads/exp/', $filename);
+                $exp_photo->exp_photo = $filename;
+                $exp_photo->save();
+            }
+        }
         
         if ($user->guide != 'Guide') {
             $user->group = "Guide";

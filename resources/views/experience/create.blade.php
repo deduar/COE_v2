@@ -153,9 +153,41 @@
     <div class="container-fluid" style="margin-top: 0px; border:1px solid #ddd;">
     <div class="form-group">
       {!! Form::label('exp_photo', trans('experience.exp_photo')).' <span class="glyphicon glyphicon-info-sign" style="color: red" title="OBLIGATORIO/REQUIRED"></span>' !!}
-      {!! Form::file('exp_photo', null) !!}
-    </div>  
+      {!! Form::file('exp_photo', null, array('class'=>'form-control')) !!}
     </div>
+     <div class="form-group">
+      {!! Form::label('exp_photo', trans('experience.exp_video')) !!}
+      {!! Form::text('exp_video', Input::old('exp_video'), array('placeholder'=>trans('experience.exp_video_placeHolder'), 'class'=>'form-control')) !!}
+    </div>
+
+    {!! Form::label('exp_more_photo_label', trans('experience.exp_more_photos_label')) !!}
+    <div class="form-group">  
+      <div class="col-md-4">
+        {!! Form::label('exp_more_photo', trans('experience.exp_more_potos')) !!}
+      </div>
+      <div class="col-md-3">
+        <input type="file" name="file[]" multiple>
+      </div>
+    </div>
+
+    </div>
+
+  </div>
+
+  <div id="scheduler" class="tab-pane">
+
+  </div>
+
+  <div id="profile" class="tab-pane">
+
+  </div>
+
+  <div id="payment" class="tab-pane">
+
+  </div>
+
+  <div id="Publish" class="tab-pane">
+
   </div>
 
   <div class="form-group" style="background: #fbfbfb; padding: 10px; color:#000; margin-top: 0px; margin-bottom: 0px; height: 90px; padding-top: 30px;">
