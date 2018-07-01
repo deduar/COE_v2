@@ -96,7 +96,17 @@ class ExperiencesController extends Controller
             array(
                 'exp_name'=>'required',
                 'exp_location'=>'required',
-                'exp_summary'=>'required'
+                'exp_summary'=>'required',
+                'exp_photo'=>'required',
+                'exp_summary'=>'required',
+                'exp_min_people'=>'required',
+                'exp_max_people'=>'required',
+                'exp_duration'=>'required',
+                'exp_duration_h'=>'required',
+                'exp_price'=>'required',
+                'exp_currency'=>'required',
+                'exp_category',
+                'exp_private_note'
             ),
             array(
             )
