@@ -157,6 +157,8 @@ class ExperiencesController extends Controller
             $user->group = "Guide";
             $user->update();
         }
+
+        
         
         return redirect()->route('my_experience');
     }

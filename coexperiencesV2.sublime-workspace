@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"publi",
+				"Publish"
+			],
+			[
+				"re",
+				"request"
+			],
+			[
+				"col",
+				"color\tproperty"
+			],
+			[
+				"font",
+				"font-size\tproperty"
+			],
+			[
 				"pad",
 				"padding\tproperty"
 			],
@@ -50,10 +66,6 @@
 			[
 				"fon",
 				"font-size\tproperty"
-			],
-			[
-				"font",
-				"font-weight\tproperty"
 			],
 			[
 				"foint",
@@ -232,10 +244,6 @@
 				"config"
 			],
 			[
-				"col",
-				"col-md-offset-3"
-			],
-			[
 				"text",
 				"text-align\tproperty"
 			],
@@ -310,10 +318,6 @@
 			[
 				"_a",
 				"_baseUrl"
-			],
-			[
-				"re",
-				"renew"
 			],
 			[
 				"headers",
@@ -510,10 +514,6 @@
 			[
 				"trans",
 				"transactionId"
-			],
-			[
-				"tran",
-				"transactionId"
 			]
 		]
 	},
@@ -523,16 +523,8 @@
 			"file": "app/Http/routes.php",
 			"settings":
 			{
-				"buffer_size": 5976,
+				"buffer_size": 5852,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/Experiences.php",
-			"settings":
-			{
-				"buffer_size": 710,
 				"line_ending": "Unix"
 			}
 		},
@@ -540,7 +532,7 @@
 			"file": "app/Http/Controllers/Experiences/ExperiencesController.php",
 			"settings":
 			{
-				"buffer_size": 6981,
+				"buffer_size": 7577,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -549,7 +541,7 @@
 			"file": "resources/views/experience/create.blade.php",
 			"settings":
 			{
-				"buffer_size": 5663,
+				"buffer_size": 8112,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -641,8 +633,11 @@
 	],
 	"file_history":
 	[
+		"/home/deduar/Projects/Coexperiences_v-2.0/app/Experiences.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/app/ExperiencesPhotos.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/en/experience.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/es/experience.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/app/ExperiencesPhotos_old.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/es/validation.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create_photo.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/public/assets/css/app.css",
@@ -670,7 +665,6 @@
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/admin/currency_create.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/en/admin.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/es/admin.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/app/Experiences.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Currency.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/User.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/admin/currency.blade.php",
@@ -766,13 +760,11 @@
 		"/home/deduar/Projects/PulsarTec_Odoo_SPA/app/Http/Controllers/Auth/RegisterController.php",
 		"/home/deduar/Projects/PulsarTec_Odoo_SPA/resources/views/welcome.blade.php",
 		"/home/deduar/Projects/PulsarTec_Odoo_SPA/resources/views/emails/register.blade.php",
-		"/home/deduar/Projects/PulsarTec_Odoo_SPA/vendor/laravel/framework/src/Illuminate/Contracts/Mail/Mailer.php",
-		"/home/deduar/Projects/PulsarTec_Odoo_SPA/vendor/laravel/framework/src/Illuminate/Support/Facades/Mail.php",
-		"/home/deduar/Projects/PulsarTec_Odoo_SPA/vendor/laravel/framework/src/Illuminate/Mail/Mailer.php"
+		"/home/deduar/Projects/PulsarTec_Odoo_SPA/vendor/laravel/framework/src/Illuminate/Contracts/Mail/Mailer.php"
 	],
 	"find":
 	{
-		"height": 22.0
+		"height": 38.0
 	},
 	"find_in_files":
 	{
@@ -786,6 +778,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"create",
+			"')). ",
+			"!!}\n",
 			"',\n",
 			"required",
 			"Whoops",
@@ -910,10 +905,7 @@
 			"Replys",
 			"panel5",
 			"flip5",
-			"panel5",
-			"flip5",
-			"flip4",
-			"autor-detail3"
+			"panel5"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -964,7 +956,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -973,15 +965,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5976,
+						"buffer_size": 5852,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3345,
-								3345
+								3121,
+								3121
 							]
 						],
 						"settings":
@@ -993,27 +985,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 681.0,
+						"translation.y": 616.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "app/Experiences.php",
+					"file": "app/Http/Controllers/Experiences/ExperiencesController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 710,
+						"buffer_size": 7577,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								542,
-								542
+								5332,
+								5332
 							]
 						],
 						"settings":
@@ -1026,7 +1018,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1715.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -1034,52 +1026,19 @@
 				},
 				{
 					"buffer": 2,
-					"file": "app/Http/Controllers/Experiences/ExperiencesController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6981,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3722,
-								3722
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1092.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
 					"file": "resources/views/experience/create.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5663,
+						"buffer_size": 8112,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1053,
-								1053
+								7738,
+								7738
 							]
 						],
 						"settings":
@@ -1092,7 +1051,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 234.0,
+						"translation.y": 2131.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,

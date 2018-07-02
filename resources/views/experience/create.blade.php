@@ -175,7 +175,40 @@
   </div>
 
   <div id="scheduler" class="tab-pane">
-
+    <h1 style="background: #fbfbfb; padding: 10px; color:#000; margin-top: 0px; margin-bottom: 0px; height: 90px; padding-top: 30px;">Schedule</h1>
+    <div class="container-fluid" style="margin-top: 0px; border:1px solid #ddd;">
+    <br><br>
+    <div class="form-group {{ $errors->has('exp_name') ? 'has-error' : '' }}">
+      <div class="col-md-2 col-md-offset-1">
+        {!! Form::label('exp_schedule_type', trans('experience.schedule_type')) !!}
+      </div>
+      <div class="col-md-8">
+        {!! Form::select('exp_schedule_type',
+              array(
+                'Unavaible' => trans('experience.unavaible'),
+                'InstanBook' => trans('experience.instan_book')),
+              null, array('class'=>'form-control')
+            )
+        !!}
+      </div>
+    </div>
+    <div class="form-group {{ $errors->has('exp_name') ? 'has-error' : '' }}">
+      <div class="col-md-2 col-md-offset-1">
+        {!! Form::label('exp_begin_date', trans('experience.schedule_begin' )) !!}
+      </div>
+      <div class="col-md-8">
+       {!! Form::datetime('exp_begin_date', \Carbon\Carbon::now()->format('d/m/Y H:i'), Input::old('exp_begin_date'), array('placeholder'=>trans('experience.exp_begin_schedule_placeHolder'), 'class'=>'form-control')) !!}
+      </div>
+    </div>
+    <div class="form-group {{ $errors->has('exp_name') ? 'has-error' : '' }}">
+      <div class="col-md-2 col-md-offset-1">
+        {!! Form::label('exp_end_date', trans('experience.schedule_end' )) !!}
+      </div>
+      <div class="col-md-8">
+       {!! Form::datetime('exp_end_date', \Carbon\Carbon::now()->format('d/m/Y H:i'), Input::old('exp_end_date'), array('placeholder'=>trans('experience.exp_end_schedule_placeHolder'), 'class'=>'form-control')) !!}
+      </div>
+    </div>
+    </div>
   </div>
 
   <div id="profile" class="tab-pane">

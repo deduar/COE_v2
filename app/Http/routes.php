@@ -69,7 +69,6 @@ Route::get('/user/show/{id}', 'Users\UsersController@show')->name('user_show');
 Route::get('/experiences', 'Experiences\ExperiencesController@index')->name('experience_index');
 Route::get('/experience', 'Experiences\ExperiencesController@myexps')->name('my_experience');
 Route::get('/experience/create', 'Experiences\ExperiencesController@create')->name('experience_create');
-//Route::post('/experience/validate', 'Experiences\ExperiencesController@experienceValidate')->name('experience_validate');
 Route::post('/experience/create', 'Experiences\ExperiencesController@store')->name('experience_store');
 Route::get('/experience/edit/{id}', 'Experiences\ExperiencesController@edit')->name('experience_edit');
 Route::get('/experience/{id}', 'Experiences\ExperiencesController@show')->name('experience_show');
