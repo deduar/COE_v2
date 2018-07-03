@@ -22,5 +22,6 @@ return [
 	'exp_private_motes' => 'Private Notes',
 	'form_error' => 'Check the required fields',
 	'exp_more_potos' => 'select all files for Upload at same time',
-	'exp_more_photos_label' => 'Photo Gallery'
+	'exp_more_photos_label' => 'Photo Gallery',
+	'add_schedule' => 'Add other Schedule'
 ];

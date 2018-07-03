@@ -63,7 +63,7 @@ Route::post('/user/changePassword','Users\UsersController@updatePassword')->name
 Route::get('/user/inviteFriend', 'Users\UsersController@inviteFriend')->name('invite_friend');
 Route::get('/user/resend', 'Users\UsersController@resend')->name('resend');
 Route::get('/user/verify/{register_code}', 'Users\UsersController@verify')->name('verify');
-Route::get('/user/show/{id}', 'Users\UsersController@show')->name('user_show');
+Route::get('/user/show', 'Users\UsersController@show')->name('user_show');
 
 // Experience
 Route::get('/experiences', 'Experiences\ExperiencesController@index')->name('experience_index');

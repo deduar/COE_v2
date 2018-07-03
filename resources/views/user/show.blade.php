@@ -6,81 +6,82 @@
 @endsection
 
 @section('content')
-    <div class="container-fluid" style="margin-top: 20px;">
-        <div class="col-md-2">
-		{!! Form::label('name', 'First Name') !!}
-        </div>
-        <div class="col-md-4">
-    	{!! Form::text('name', $us_prof['name']) !!}
-        </div>
-        <div class="col-md-2">
-    	{!! Form::label('lastName', 'Last Name') !!}
-        </div>
-        <div class="col-md-4">
-    	{!! Form::text('lastName', $us_prof['lastName']) !!}
-        </div>
-        <div class="col-md-2">
-    	{!! Form::label('address', 'Address') !!}
-        </div>
-        <div class="col-md-4">
-    	{!! Form::text('address', $us_prof['address']) !!}
-        </div>
-        <div class="col-md-2">
-        {!! Form::label('age', 'Age') !!}
-        </div>
-        <div class="col-md-4">
-        {!! Form::text('age', $us_prof['age']) !!}
-        </div>
-        <div class="col-md-2">
-        {!! Form::label('phone', 'Phone') !!}
-        </div>
-        <div class="col-md-4">
-        {!! Form::text('phone', $us_prof['phone']) !!}
-        </div>
-        <div class="col-md-2">
-        {!! Form::label('nationality', 'Nationality') !!}
-        </div>
-        <div class="col-md-4">
-        {!! Form::text('nationality', $us_prof['nationality']) !!}
-        </div>
-        <div class="col-md-2">
-        {!! Form::label('job', 'Job') !!}
-        </div>
-        <div class="col-md-4">
-        {!! Form::text('job', $us_prof['job']) !!}
-        </div>
-        <div class="col-md-2">
-        {!! Form::label('postalCode', 'Postal Code') !!}
-        </div>
-        <div class="col-md-4">
-        {!! Form::text('postalCode', $us_prof['postalCode']) !!}
-        </div>
-        <div class="col-md-2">
-        {!! Form::label('city', 'City') !!}
-        </div>
-        <div class="col-md-4">
-        {!! Form::text('city', $us_prof['city']) !!}
-        </div>
-        <div class="col-md-2">
-        {!! Form::label('country', 'Country') !!}
-        </div>
-        <div class="col-md-4">
-        {!! Form::text('country', $us_prof['country']) !!}
-        </div>
-        <div class="col-md-2">
-        {!! Form::label('language', 'Language') !!}
-        </div>
-        <div class="col-md-4">
-        {!! Form::text('language', $us_prof['language']) !!}
-        </div>
-        <div class="col-md-2">
-        {!! Form::label('biography', 'Biography') !!}
-        </div>
-        <div class="col-md-4">
-        {!! Form::text('biography', $us_prof['biography']) !!}
-        </div>
-        <div class="col-md-4">
-    </div>
-    
 
+<style type="text/css">
+  .container{
+    background: #fff !important;
+  }
+  .form-group{
+    padding-bottom: 40px;
+  }
+
+  .half {
+    position:relative;
+  }
+  .half:after {
+    content:'';
+    position:absolute;
+    z-index:1;
+    background:#fff;
+    width: 50%;
+    height: 100%;
+    left: 47%;
+  }
+</style>
+
+
+<div class="row" style="margin-bottom: 30px;">
+  <div class="col-md-offset-2 col-md-8" style="padding-left: 0px; padding-right: 0px;">
+
+    <div class="container-fluid" style="margin-top: 20px;">
+        <div class="col-md-3 col-md-offset-1" style="border: 1px solid #000; padding-top: 10px; padding-bottom: 10px;">
+        <img src={{ asset('uploads/avatars/'.$user->avatar)}} height="170px;">
+        <hr>
+        <h4 style="color: #000; font-weight: bold;">{{ $user->name }} {{ $user->lastName }}</h4>
+        <h5>
+            <span class="glyphicon glyphicon-star-empty"></span>
+            <span class="glyphicon glyphicon-star-empty"></span>
+            <span class="glyphicon glyphicon-star-empty"></span>
+            <span class="glyphicon glyphicon-star-empty half"></span>
+        </h5>
+        <div class="btn btn-primary" style="width: 100%">{{trans('user.myexperiences')}}</div>
+        </div>
+        <div class="col-md-6">
+            <div class="col-md-12">
+                <h4>{{trans('user.biography')}}</h4>
+                <span style="border: 1px solid #000; height: 90%; width: 90%;">{{$user->biography}}</span>
+                <hr>
+            </div>
+            <div class="col-md-12">
+                <h4>{{trans('user.review')}}</h4>
+                <hr>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" style="margin-top: 20px;">
+        @foreach ($myexps as $exp)
+        <div class="col-md-12" style="border: 1px solid #ccc; width: 90%;height: 120px; margin-top: 10px; padding-top: 10px; margin-left: 10px;">
+            <div class="col-md-3">
+                <img src={{asset('uploads/exp/'.$exp->exp_photo)}} height="85px;">
+            </div>
+            <div class="col-md-9">
+                <div class="col-md-6"><h4>{{$exp->exp_name}}</h4></div>
+                <div class="col-md-6"><h5>{{$exp->cur_simbol}} {{$exp->exp_price}} {{$exp->cur_name}}</h5></div>
+                <div class="btn btn-default" style="float:right;">{{trans('exp.detail')}}</div>
+            </div>
+            <h5>
+                <span style="background: #ccc; padding: 3px; color: #000;">{{trans('user.reviews')}}</span>
+                <span class="glyphicon glyphicon-star-empty"></span>
+                <span class="glyphicon glyphicon-star-empty"></span>
+                <span class="glyphicon glyphicon-star-empty"></span>
+                <span class="glyphicon glyphicon-star-empty half"></span>
+            </h5>
+        </div>
+        @endforeach
+    </div>
+
+  </div>
+</div>
+{!! $myexps->render() !!}
 @endsection

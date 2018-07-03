@@ -82,7 +82,14 @@ class ExperiencesController extends Controller
         foreach($currencies as $currency){
            $cur[$currency->id] = $currency->cur_name.' ['.$currency->cur_simbol.']';
         }
-        return view('experience.create', array('user'=>Auth::user(),'cur'=>$cur));
+
+        $myexps = DB::table('experience')
+            ->join('currency','experience.exp_currency','=','currency.id')
+            ->where('experience.exp_guide_id',$user->id)
+            ->orderBy('experience.created_at','desc')
+            ->paginate(4);
+
+        return view('experience.create', array('user'=>Auth::user(),'cur'=>$cur,'myexps'=>$myexps));
     }
 
     /**

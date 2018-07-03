@@ -17,6 +17,9 @@ use Config;
 use App;
 use Session;
 
+use App\Experiences;
+use DB;
+
 class UsersController extends Controller
 {
 
@@ -85,11 +88,16 @@ class UsersController extends Controller
 		
 	}
 
-	public function show($id)
+	public function show()
 	{
 		$user = Auth::user();
-		$us_prof = App\User::find($id);
-		return view('user.show', array('user'=>Auth::user(),'us_prof'=>$us_prof));
+		//$myexps = App\Experiences::where('exp_guide_id', Auth::user()->id)->orderBy('experience.created_at','desc')->paginate(4);
+		$myexps = DB::table('experience')
+			->join('currency','experience.exp_currency','=','currency.id')
+			->where('experience.exp_guide_id',$user->id)
+			->orderBy('experience.created_at','desc')
+			->paginate(4);
+		return view('user.show', array('user'=>Auth::user(),'myexps'=>$myexps));
 	}
 
 	public function updateProfile(Request $request)

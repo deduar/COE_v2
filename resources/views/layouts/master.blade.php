@@ -43,7 +43,7 @@
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="user">                        
                         <li>
-                            <a class="menu_profile" href="{{ route('edit_profile') }}" />
+                            <a class="menu_profile" href="{{ route('user_show') }}" />
                                 <i class="fa fa-btn fa-user"></i>{{ trans("welcome.profile") }}
                             </a>
                         </li>

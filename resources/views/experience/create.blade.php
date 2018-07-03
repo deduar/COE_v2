@@ -208,11 +208,72 @@
        {!! Form::datetime('exp_end_date', \Carbon\Carbon::now()->format('d/m/Y H:i'), Input::old('exp_end_date'), array('placeholder'=>trans('experience.exp_end_schedule_placeHolder'), 'class'=>'form-control')) !!}
       </div>
     </div>
+    <div class="form-group">
+      <div class="btn btn-success glyphicon glyphicon-plus-sign" style="float: right;">
+        <a style="text-decoration: none; color:#fff;" ref="#">
+          {{trans('experience.add_schedule')}}
+        </a>
+      </div>
+    </div>
     </div>
   </div>
 
   <div id="profile" class="tab-pane">
+    <h1 style="background: #fbfbfb; padding: 10px; color:#000; margin-top: 0px; margin-bottom: 0px; height: 90px; padding-top: 30px;">Profile</h1>
+    <div class="row" style="margin-bottom: 30px;">
+      <div class="col-md-12" style="padding-left: 0px; padding-right: 0px;">
 
+        <div class="container-fluid" style="margin-top: 20px;">
+            <div class="col-md-3 col-md-offset-1" style="border: 1px solid #000; padding-top: 10px; padding-bottom: 10px;">
+            <img src={{ asset('uploads/avatars/'.$user->avatar)}} height="170px;">
+            <hr>
+            <h4 style="color: #000; font-weight: bold;">{{ $user->name }} {{ $user->lastName }}</h4>
+            <h5>
+                <span class="glyphicon glyphicon-star-empty"></span>
+                <span class="glyphicon glyphicon-star-empty"></span>
+                <span class="glyphicon glyphicon-star-empty"></span>
+                <span class="glyphicon glyphicon-star-empty half"></span>
+            </h5>
+            <div class="btn btn-primary" style="width: 100%">{{trans('user.myexperiences')}}</div>
+            </div>
+            <div class="col-md-6">
+                <div class="col-md-12">
+                    <h4>{{trans('user.biography')}}</h4>
+                    <span style="border: 1px solid #000; height: 90%; width: 90%;">{{$user->biography}}</span>
+                    <hr>
+                </div>
+                <div class="col-md-12">
+                    <h4>{{trans('user.review')}}</h4>
+                    <hr>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid" style="margin-top: 20px;">
+            @foreach ($myexps as $exp)
+            <div class="col-md-12" style="border: 1px solid #ccc; width: 90%;height: 120px; margin-top: 10px; padding-top: 10px; margin-left: 10px;">
+                <div class="col-md-3">
+                    <img src={{asset('uploads/exp/'.$exp->exp_photo)}} height="85px;">
+                </div>
+                <div class="col-md-9">
+                    <div class="col-md-6"><h4>{{$exp->exp_name}}</h4></div>
+                    <div class="col-md-6"><h5>{{$exp->cur_simbol}} {{$exp->exp_price}} {{$exp->cur_name}}</h5></div>
+                    <div class="btn btn-default" style="float:right;">{{trans('exp.detail')}}</div>
+                </div>
+                <h5>
+                    <span style="background: #ccc; padding: 3px; color: #000;">{{trans('user.reviews')}}</span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                    <span class="glyphicon glyphicon-star-empty half"></span>
+                </h5>
+            </div>
+            @endforeach
+        </div>
+
+      </div>
+    </div>
+    {!! $myexps->render() !!}
   </div>
 
   <div id="payment" class="tab-pane">
@@ -225,7 +286,7 @@
 
   <div class="form-group" style="background: #fbfbfb; padding: 10px; color:#000; margin-top: 0px; margin-bottom: 0px; height: 90px; padding-top: 30px;">
       {!! Form::submit(Lang::get('experience.save'), array('class' => 'btn btn-success','style'=>'width: 180px;')) !!}
-    </div>
+  </div>
 
 </div>
 

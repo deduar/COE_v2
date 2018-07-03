@@ -23,5 +23,6 @@ return [
 	'form_error' => 'Verique los campos obligatorios',
 	'exp_name_placeHolder' => 'Titulo descriptivo de la Experiencia',
 	'exp_more_potos' => 'Selecciones, de forma simultanea, todas las imagenes a subir',
-	'exp_more_photos_label' => 'Galería de Fotos'
+	'exp_more_photos_label' => 'Galería de Fotos',
+	'add_schedule' => 'Agregar otro esquema de tiempo'
 ];
