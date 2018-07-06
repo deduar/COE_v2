@@ -104,7 +104,12 @@ class UsersController extends Controller
 	{
 	  	$user = Auth::user();
 		$user->update($request->all());
-		return view('user.profile', array('user'=>Auth::user()));
+		$myexps = DB::table('experience')
+			->join('currency','experience.exp_currency','=','currency.id')
+			->where('experience.exp_guide_id',$user->id)
+			->orderBy('experience.created_at','desc')
+			->paginate(4);
+		return view('user.show', array('user'=>Auth::user(),'myexps'=>$myexps));
 	}
 	
 	public function uploadAvatar(Request $request)

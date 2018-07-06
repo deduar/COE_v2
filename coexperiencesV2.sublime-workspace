@@ -4,16 +4,24 @@
 		"selected_items":
 		[
 			[
-				"padd",
-				"padding\tproperty"
+				"padin",
+				"padding-bottom\tproperty"
+			],
+			[
+				"mar",
+				"margin-top\tproperty"
 			],
 			[
 				"marg",
 				"margin-bottom\tproperty"
 			],
 			[
-				"mar",
-				"margin-left\tproperty"
+				"for",
+				"form-group"
+			],
+			[
+				"padd",
+				"padding\tproperty"
 			],
 			[
 				"col",
@@ -230,10 +238,6 @@
 			[
 				"user_",
 				"user_id"
-			],
-			[
-				"for",
-				"foreach\tforeach …"
 			],
 			[
 				"myexp",
@@ -510,10 +514,6 @@
 			[
 				"get",
 				"getCapture"
-			],
-			[
-				"tr",
-				"transaction"
 			]
 		]
 	},
@@ -529,37 +529,10 @@
 			}
 		},
 		{
-			"file": "app/Http/Controllers/Users/UsersController.php",
-			"settings":
-			{
-				"buffer_size": 4694,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/Http/Controllers/Experiences/ExperiencesController.php",
-			"settings":
-			{
-				"buffer_size": 7862,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "resources/views/user/show.blade.php",
 			"settings":
 			{
-				"buffer_size": 3101,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/experience/create.blade.php",
-			"settings":
-			{
-				"buffer_size": 13031,
+				"buffer_size": 3148,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -568,7 +541,61 @@
 			"file": "resources/views/user/editProfile.blade.php",
 			"settings":
 			{
-				"buffer_size": 2408,
+				"buffer_size": 9366,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/admin/index.blade.php",
+			"settings":
+			{
+				"buffer_size": 893,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/experience/index.blade.php",
+			"settings":
+			{
+				"buffer_size": 1558,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/welcome.blade.php",
+			"settings":
+			{
+				"buffer_size": 17321,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/layouts/master.blade.php",
+			"settings":
+			{
+				"buffer_size": 10083,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/experience/create.blade.php",
+			"settings":
+			{
+				"buffer_size": 13086,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/User.php",
+			"settings":
+			{
+				"buffer_size": 1302,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -646,6 +673,8 @@
 		"/home/deduar/Projects/Coexperiences_v-2.0/database/migrations",
 		"/home/deduar/Projects/Coexperiences_v-2.0/public",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/en",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/admin",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/auth",
@@ -657,10 +686,17 @@
 	],
 	"file_history":
 	[
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create.blade.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/layouts/master.blade.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/user/show.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/show.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/database/migrations/2014_10_12_000000_create_users_table.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Reservation/ReservationController.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Auth/AuthController.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Experiences/ExperiencesController.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Users/UsersController.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/es/user.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/user/editProfile.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/user/show.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/layouts/master.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/es/experience.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/en/experience.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/ExperiencesSchedules.php",
@@ -674,7 +710,6 @@
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/edit.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Admin/CurrencyController.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/admin/currency_edit.blade.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Users/UsersController.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/en/login.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/auth/login.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/es/login.php",
@@ -682,8 +717,6 @@
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/index.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/myexps.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/auth/register.blade.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/show.blade.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Reservation/ReservationController.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/es/reservation.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/en/reservation.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/reservation/index.blade.php",
@@ -697,7 +730,6 @@
 		"/home/deduar/Projects/Coexperiences_v-2.0/database/migrations/2018_05_26_100001_create_experience_table.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/database/migrations/2018_06_18_100001_create_currency_table.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/admin/users.blade.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/database/migrations/2014_10_12_000000_create_users_table.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/database/migrations/2018_05_28_100001_create_reservation_table.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/admin/index.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/admin/experiences.blade.php",
@@ -711,8 +743,6 @@
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Messages/MessagesController.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Auth/AuthController.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/user/editProfile.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/user/profile.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/database/migrations/2018_05_26_000000_create_experience_table.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/.env",
@@ -783,12 +813,11 @@
 		"/home/deduar/Projects/PulsarTec_Odoo_SPA/resources/views/emails/cron.blade.php",
 		"/home/deduar/Projects/PulsarTec_Odoo_SPA/resources/views/emails/welcome.blade.php",
 		"/home/deduar/Projects/PulsarTec_Odoo_SPA/app/Http/Controllers/Controller.php",
-		"/home/deduar/Projects/PulsarTec_Odoo_SPA/app/Http/Controllers/Auth/RegisterController.php",
-		"/home/deduar/Projects/PulsarTec_Odoo_SPA/resources/views/welcome.blade.php"
+		"/home/deduar/Projects/PulsarTec_Odoo_SPA/app/Http/Controllers/Auth/RegisterController.php"
 	],
 	"find":
 	{
-		"height": 22.0
+		"height": 38.0
 	},
 	"find_in_files":
 	{
@@ -802,6 +831,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"last",
+			"age",
+			"update",
+			"hr",
+			"        <hr/>",
+			"edit_profile",
 			"Profile",
 			"border",
 			"myexp",
@@ -923,13 +958,7 @@
 			"tab2default",
 			"instant_pay",
 			"glyph",
-			"round",
-			"glyp",
-			"glyphicon",
-			"echo",
-			"reviewresult",
-			"overview",
-			"Reply"
+			"round"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -980,7 +1009,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 6,
 			"sheets":
 			[
 				{
@@ -996,8 +1025,8 @@
 						"selection":
 						[
 							[
-								2752,
-								2752
+								2156,
+								2156
 							]
 						],
 						"settings":
@@ -1009,27 +1038,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 512.0,
+						"translation.y": 453.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "app/Http/Controllers/Users/UsersController.php",
+					"file": "resources/views/user/show.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4694,
+						"buffer_size": 3148,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2633,
-								2633
+								1538,
+								1538
 							]
 						],
 						"settings":
@@ -1037,96 +1066,65 @@
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 936.0,
+						"translation.y": 369.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "resources/views/user/editProfile.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9366,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8670,
+								8670
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1741.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "app/Http/Controllers/Experiences/ExperiencesController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7862,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3189,
-								3189
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 936.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
 					"buffer": 3,
-					"file": "resources/views/user/show.blade.php",
+					"file": "resources/views/admin/index.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3101,
+						"buffer_size": 893,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1862,
-								1862
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 702.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "resources/views/experience/create.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 13031,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								12970,
-								12970
+								741,
+								741
 							]
 						],
 						"settings":
@@ -1139,27 +1137,60 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3900.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "resources/views/user/editProfile.blade.php",
+					"buffer": 4,
+					"file": "resources/views/experience/index.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2408,
+						"buffer_size": 1558,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								729,
-								729
+								950,
+								950
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "resources/views/welcome.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 17321,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11346,
+								11346
 							]
 						],
 						"settings":
@@ -1172,10 +1203,109 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 78.0,
+						"translation.y": 3567.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "resources/views/layouts/master.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10083,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1825,
+								1825
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "resources/views/experience/create.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13086,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								12924,
+								12924
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3957.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/User.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1302,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								986,
+								986
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -1270,7 +1400,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 216.0,
+	"side_bar_width": 215.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

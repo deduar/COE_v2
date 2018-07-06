@@ -41,8 +41,8 @@
                 {!! Form::text('name', $user->name, array('class'=>'form-control')) !!}
               </div>
               <div class="col-md-6" style="margin-top: 10px; margin-bottom: 10px;">
-                {!! Form::label('lastName', trans('user.lastName')).' <span class="glyphicon glyphicon-info-sign" style="color: red;" title="OBLIGATORIO/REQUIRED"></span>' !!}
-                {!! Form::text('lastName', $user->lastName, array('class'=>'form-control')) !!}
+                {!! Form::label('last_name', trans('user.lastName')).' <span class="glyphicon glyphicon-info-sign" style="color: red;" title="OBLIGATORIO/REQUIRED"></span>' !!}
+                {!! Form::text('last_name', $user->last_name, array('class'=>'form-control')) !!}
               </div>              
             </div>
 
@@ -53,7 +53,7 @@
               </div>
               <div class="col-md-4" style="margin-top: 10px; margin-bottom: 10px;">
                 {!! Form::label('age', trans('user.age')) !!}
-                {!! Form::number('age', $user->age, array('class'=>'form-control','min'=>0, 'step'=>1)) !!}
+                {!! Form::number('age', $user->age, array('class'=>'form-control','min'=>18, 'step'=>1)) !!}
               </div>              
             </div>
 
@@ -102,15 +102,15 @@
             {!! Form::text('address', $user->address, array('class'=>'form-control')) !!}
           </div>
           <div class="col-md-4" style="margin-top: 10px; margin-bottom: 10px;">
-            {!! Form::label('postalCode', trans('user.company')) !!}
-            {!! Form::text('postalCode', $user->postalCode, array('class'=>'form-control')) !!}
+            {!! Form::label('postal_code', trans('user.postal_code')) !!}
+            {!! Form::text('postal_code', $user->postal_code, array('class'=>'form-control')) !!}
           </div>
         </div>
 
         <div class="form-group">
           <div class="col-md-8" style="margin-top: 10px; margin-bottom: 10px;">
             {!! Form::label('city', trans('user.city')).' <span class="glyphicon glyphicon-info-sign" style="color: red;" title="OBLIGATORIO/REQUIRED"></span>' !!}
-            {!! Form::text('city', $user->address, array('class'=>'form-control')) !!}
+            {!! Form::text('city', $user->city, array('class'=>'form-control')) !!}
           </div>
           <div class="col-md-4" style="margin-top: 10px; margin-bottom: 10px;">
             {!! Form::label('country', trans('user.country')).' <span class="glyphicon glyphicon-info-sign" style="color: red;" title="OBLIGATORIO/REQUIRED"></span>' !!}
@@ -124,15 +124,13 @@
             {!! Form::text('language', $user->language, array('class'=>'form-control')) !!}
           </div>
           <div class="col-md-4" style="margin-top: 10px; margin-bottom: 10px;">
-            {!! Form::label('otheLanguage', trans('user.other_language')) !!}
-            {!! Form::text('otherLanguage', $user->otherLanguage, array('class'=>'form-control')) !!}
+            {!! Form::label('othe_language', trans('user.other_language')) !!}
+            {!! Form::text('other_language', $user->other_language, array('class'=>'form-control')) !!}
           </div>
         </div>
-
-        
-
     </div>
-    <h1 style="background: #fbfbfb; padding: 10px; color:#000; margin-top: 0px; margin-bottom: 0px; height: 90px; padding-top: 30px;">Paiment Detail</h1>
+
+    <h1 style="background: #fbfbfb; padding: 10px; color:#000; margin-top: 0px; margin-bottom: 0px; height: 90px; padding-top: 30px;">Payment Detail</h1>
     <div class="form-group">
         <div class="col-md-12" style="margin-top: 10px; margin-bottom: 10px;">
             {!! Form::label('paypal', trans('user.paypal')) !!}
@@ -141,32 +139,29 @@
     </div>
     <div class="form-group">
         <div class="col-md-12" style="margin-top: 10px; margin-bottom: 10px;">
-            {!! Form::label('bankName', trans('user.bankName')) !!}
-            {!! Form::text('bankName', $user->bankName, array('class'=>'form-control')) !!}
+            {!! Form::label('bank_name', trans('user.bank_name')) !!}
+            {!! Form::text('bank_name', $user->bank_name, array('class'=>'form-control')) !!}
         </div>
         <div class="col-md-12" style="margin-top: 10px; margin-bottom: 10px;">
             {!! Form::label('beneficiary', trans('user.beneficiary')) !!}
             {!! Form::text('beneficiary', $user->beneficiary, array('class'=>'form-control')) !!}
         </div>
         <div class="col-md-12" style="margin-top: 10px; margin-bottom: 10px;">
-            {!! Form::label('accountNumber', trans('user.accountNumber')) !!}
-            {!! Form::text('accountNumber', $user->accountNumber, array('class'=>'form-control')) !!}
+            {!! Form::label('account_number', trans('user.account_number')) !!}
+            {!! Form::text('account_number', $user->account_number, array('class'=>'form-control')) !!}
         </div>
         <div class="col-md-6" style="margin-top: 10px; margin-bottom: 10px;">
-            {!! Form::label('documentType', trans('user.documentType')) !!}
-            {!! Form::text('documentType', $user->documenType, array('class'=>'form-control')) !!}
+            {!! Form::label('document_type', trans('user.document_type')) !!}
+            {!! Form::text('document_type', $user->document_type, array('class'=>'form-control')) !!}
         </div>
         <div class="col-md-6" style="margin-top: 10px; margin-bottom: 10px;">
-            {!! Form::label('documentNumber', trans('user.documentNumber')) !!}
-            {!! Form::text('documentNumber', $user->documentNumber, array('class'=>'form-control')) !!}
+            {!! Form::label('document_number', trans('user.document_number')) !!}
+            {!! Form::text('document_number', $user->document_number, array('class'=>'form-control')) !!}
         </div>
-
-        
     </div>
 
-    
+
     </div>
-        
 
     <div class="form-group" style="background: #fbfbfb; padding: 10px; color:#000; margin-top: 0px; margin-bottom: 0px; height: 90px; padding-top: 30px;">
       {!! Form::submit(Lang::get('experience.save'), array('class' => 'btn btn-success','style'=>'width: 180px;')) !!}

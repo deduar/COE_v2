@@ -29,7 +29,7 @@ class ReservationController extends Controller
             ->join('experience','reservation.res_exp_id','=','experience.id')
             ->join('users','users.id','=','experience.exp_guide_id')
             ->select('experience.id', 'experience.exp_name as exp_name','users.name as user_name',
-                    'users.lastName','users.email','users.avatar','reservation.status', 
+                    'users.last_name','users.email','users.avatar','reservation.status', 
                     'reservation.id as res_id','reservation.res_exp_id', 'reservation.res_user_id', 'reservation.res_guide_id',
                     'reservation.created_at','reservation.res_date')
             ->orderBy('reservation.res_date', 'desc')
@@ -191,7 +191,7 @@ class ReservationController extends Controller
             ->join('experience','reservation.res_exp_id','=','experience.id')
             ->join('users','users.id','=','reservation.res_user_id')
             ->select('experience.id', 'experience.exp_name as exp_name','users.name as user_name',
-                    'users.lastName','users.email','users.avatar','reservation.status', 
+                    'users.last_name','users.email','users.avatar','reservation.status', 
                     'reservation.id as res_id','reservation.res_exp_id', 'reservation.res_user_id', 'reservation.res_guide_id',
                     'reservation.created_at','reservation.res_date')
             ->paginate(5);

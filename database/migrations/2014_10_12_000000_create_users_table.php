@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->enum('group', ['User', 'Guide'])->default('User');
             $table->enum('status', ['Active', 'Inactive'])->default('Active');
             $table->boolean('confirmed')->default(false);
-            $table->string('lastName')->nullable();
+            $table->string('last_name')->nullable();
             $table->string('avatar')->default('default_avatar.png');
             $table->integer('age')->nullable();
             $table->string('phone', 12)->nullable();

@@ -38,7 +38,7 @@
                 <li>
                 @if(Auth::check())
                     <button class="menu btn btn-default dropdown-toggle" type="button" id="user" data-toggle="dropdown">
-                    {{ $user['name']}} {{ $user['lastName']}}
+                    {{ $user['name']}} {{ $user['last_name']}}
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="user">                        

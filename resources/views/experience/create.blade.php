@@ -237,10 +237,10 @@
           <div class="btn btn-primary" style="width: 100%">{{trans('user.mycollection')}}</div>
           </div>
           <div class="col-md-6">
-              <div class="btn btn-default" style="float:right;">{{trans('exp.edit')}}</div>
+              <div class="btn btn-default" style="float:right;"><a style="text-decoration: none;" href="{{route('edit_profile')}}">{{trans('exp.profile_edit')}}</a></div>
               <div class="col-md-12">
                   <h4>{{trans('user.biography')}}</h4>
-                  <span style="border: 1px solid #000; height: 90%; width: 90%;">{{$user->biography}}</span>
+                  <span style="height: 90%; width: 90%;">{{$user->biography}}</span>
                   <hr>
               </div>
               <div class="col-md-12">

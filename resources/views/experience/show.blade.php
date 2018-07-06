@@ -14,7 +14,7 @@
   <a href="{{ route('user_show',array('id'=>$exp->exp_guide_id)) }}">
     <img src={{asset('uploads/avatars/'.$exp->avatar)}} height="40px;" style="float: right; border-radius: 50%;">
   </a>
-  {{ $exp->name }} {{ $exp->lastName }} <br>
+  {{ $exp->name }} {{ $exp->last_name }} <br>
   {{ $exp->email }}
   <hr>
   Summary: {{ $exp->exp_summary }}
