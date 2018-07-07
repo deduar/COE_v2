@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('setLocale/{locale}', function($locale){
 	Session::put('locale', $locale);
 	App::setLocale($locale);
@@ -24,15 +25,16 @@ Route::get('/', function () {
 })->name('welcome');
 */
 
+/*
 Route::get('home', function(){
 	App::setLocale(Session::get('locale'));
 	if(Auth::guest()){
 		return Redirect::to('auth/login');
 	} else {
-		//return Redirect::to('user/profile');
 		return Redirect::to('experiences');
 	}
 })->name('home');
+*/
 
 Route::get('/', 'Experiences\ExperiencesController@welcome')->name('welcome');
 

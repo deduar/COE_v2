@@ -21,11 +21,17 @@
   <br><span> Price: {{ number_format($exp->exp_price, 2, '.', ',') }} {{ $exp->cur_simbol }} ({{ $exp->cur_name }})</span>
   <span><br>{{ number_format($exp->exp_price/$exp->cur_exchange, 2, '.', ',') }} US$ (American Dollar)</span>
   <hr>
-  @if($exp->exp_guide_id != $user->id)
-    <div>
-      <a class="btn btn-success" style="float: right;" href="{{ route('reservation_create',array('id'=>$exp->exp_id)) }}">{{ trans('experience.reservation') }}</a>
-    </div>
-  @endif
+  @if ($user == null)
+        <div>
+          <a class="btn btn-success" style="float: right;" href="{{ route('reservation_create',array('id'=>$exp->exp_id)) }}">{{ trans('experience.reservation') }}</a>
+        </div>
+      @else
+        @if($exp->exp_guide_id != $user->id)
+          <div>
+            <a class="btn btn-success" style="float: right;" href="{{ route('reservation_create',array('id'=>$exp->exp_id)) }}">{{ trans('experience.reservation') }}</a>
+          </div>
+        @endif
+      @endif
   <hr>
   <h2> Reviews here ....</h2>
 </div> 

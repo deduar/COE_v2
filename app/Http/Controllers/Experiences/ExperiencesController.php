@@ -25,6 +25,11 @@ class ExperiencesController extends Controller
 
     public function welcome()
     {
+        if(Auth::guest()){
+            $user = null;
+        } else {
+            $user = Auth::user();
+        }
         $experiences = DB::table('experience')
                 ->join('users','users.id','=','experience.exp_guide_id')
                 ->join('currency','experience.exp_currency','=','currency.id')
@@ -32,7 +37,7 @@ class ExperiencesController extends Controller
                 ->where('users.group','Guide')
                 ->orderBy('experience.created_at','desc')
                 ->paginate(6);
-        return view('welcome', array('experiences'=>$experiences));
+        return view('welcome', array('user'=>$user,'experiences'=>$experiences));
     }
 
     /**
@@ -42,20 +47,19 @@ class ExperiencesController extends Controller
      */
     public function index()
     {   
-        if (Auth::check()){
-            $user = Auth::user();
+        if(Auth::guest()){
+            $user = null;
         } else {
-            $user = App\User::first();
-        }            
-            $experiences = DB::table('experience')
-                ->join('users','users.id','=','experience.exp_guide_id')
-                ->join('currency','experience.exp_currency','=','currency.id')
-                ->select('experience.id as exp_id', 'users.id as user_id','exp_photo', 'exp_name', 'avatar', 'name', 'last_name', 'email', 'exp_price', 'cur_simbol', 'cur_name', 'cur_exchange', 'exp_guide_id')
-                ->where('users.group','Guide')
-                ->orderBy('experience.created_at','desc')
-                ->paginate(6);
-                //->get();
-            return view('experience.index', array('user'=>$user, 'experiences'=>$experiences));
+            $user = Auth::user();
+        }
+        $experiences = DB::table('experience')
+            ->join('users','users.id','=','experience.exp_guide_id')
+            ->join('currency','experience.exp_currency','=','currency.id')
+            ->select('experience.id as exp_id', 'users.id as user_id','exp_photo', 'exp_name', 'avatar', 'name', 'last_name', 'email', 'exp_price', 'cur_simbol', 'cur_name', 'cur_exchange', 'exp_guide_id')
+            ->where('users.group','Guide')
+            ->orderBy('experience.created_at','desc')
+            ->paginate(6);
+        return view('experience.index', array('user'=>$user, 'experiences'=>$experiences));
     }
 
     public function myexps()
@@ -164,9 +168,7 @@ class ExperiencesController extends Controller
             $user->group = "Guide";
             $user->update();
         }
-
-        
-        
+                
         return redirect()->route('my_experience');
     }
 
@@ -178,13 +180,18 @@ class ExperiencesController extends Controller
      */
     public function show($id)
     {
+        if(Auth::guest()){
+            $user = null;
+        } else {
+            $user = Auth::user();
+        } 
         $exp = DB::table('experience')
                 ->join('users','users.id','=','experience.exp_guide_id')
                 ->join('currency','experience.exp_currency','=','currency.id')
                 ->select('experience.id as exp_id', 'exp_photo', 'exp_name', 'exp_location','exp_summary','exp_min_people','exp_max_people','exp_duration','exp_duration_h','exp_category','avatar', 'name', 'last_name', 'email', 'exp_price', 'cur_simbol', 'cur_name', 'cur_exchange', 'exp_guide_id')
                 ->where('experience.id',$id)
                 ->first();
-        return view('experience.show', array('user'=>Auth::user(),'exp'=>$exp));
+        return view('experience.show', array('user'=>$user,'exp'=>$exp));
     }
 
     /**

@@ -144,6 +144,119 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
+                    <a class="menu" href="{{ route('my_experience') }}" />
+                        {{ trans('welcome.list_exp') }}
+                    </a>
+                </li>
+                <li>
+                @if(Auth::check())
+                    <button class="menu btn btn-default dropdown-toggle" type="button" id="user" data-toggle="dropdown">
+                    {{ $user['name']}} {{ $user['last_name']}}
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="user">                        
+                        <li>
+                            <a class="menu_profile" href="{{ route('user_show') }}" />
+                                <i class="fa fa-btn fa-user"></i>{{ trans("welcome.profile") }}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu_profile" href="{{ route('messages') }}" />
+                                <i class="fa fa-btn fa-user"></i>{{ trans("welcome.messages") }}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu_profile" href="{{ route('reservation') }}" />
+                                {{ trans("welcome.reservation") }}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu_profile" href="{{ route('collection') }}" />
+                                {{ trans("welcome.my_collections") }}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu_profile" href="{{ route('transaction_log') }}" />
+                                {{ trans("welcome.my_trans_history") }}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu_profile" href="{{ route('invite_friend') }}" />
+                                {{ trans("welcome.invite_friend") }}
+                            </a>
+                        </li>
+                        <!--li>
+                            <a class="menu_profile" href="{{ route('edit_password') }}" />
+                                {{ trans("welcome.change_passwd") }}
+                            </a>
+                        </li-->
+                        <!--li role="separator" class="divider"></li-->
+
+                        @if ($user->group == 'Guide')
+                        <li class="navbarpadding">
+                            {{ trans("welcome.insiders") }}
+                        </li>
+                        <li>
+                            <a class="menu_profile" href="{{ route('my_experience') }}" />
+                                {{ trans("welcome.experiences") }}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu_profile" href="{{ route('my_experience') }}" />
+                                {{ trans("welcome.exp_reserve_list") }}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu_profile" href="{{ route('my_experience') }}" />
+                                {{ trans("welcome.payout_settings") }}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu_profile" href="{{ route('my_experience') }}" />
+                                {{ trans("welcome.transacctional_history") }}
+                            </a>
+                        </li>
+                        @endif
+                        <!--li>
+                            <a class="menu_profile" href="{{ route('reservation') }}" />
+                                {{ trans("welcome.reservation") }}
+                            </a>
+                        </li-->
+                        <li role="separator" class="divider"></li>
+                        @if ($user->admin)
+                            <li>
+                            <a class="menu_profile" href="{{ route('admin') }}" />
+                                {{ trans("welcome.admin") }}
+                            </a>
+                        </li>
+                        @endif
+                        <li>
+                            <a class="menu_profile" href="{{ route('logout') }}" />
+                                {{ trans("welcome.logout") }}
+                            </a>
+                        </li>
+                    </ul>
+                @else
+                    <li>
+                        <a class="menu" href="{{ route('login') }}" />
+                            {{ trans("welcome.login") }}
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu" href="{{ route('register') }}" />
+                            {{ trans('welcome.singUp') }}
+                        </a>
+                    </li>
+                @endif
+                </li>
+                <li>
+                    <a href="{{ route('experience_index') }}" />
+                        <button type="button" class="btn btn-primary navbar-btn">
+                            {{trans('welcome.find_exp') }}
+                        </button>
+                    </a>
+                </li>
+                <!--li>
                     <a class="menu" href="{{ route('experience_index') }}" />
                         {{ trans("welcome.list_exp") }}
                     </a>
@@ -164,7 +277,7 @@
                             {{ trans('welcome.find_exp') }}
                         </button>
                     </a>
-                </li>
+                </li-->
                 <li style="margin-top: 15px;"><a href="{{ route('setLocale','es') }}"><img class="img-rounded" src={{ asset('assets/images/es.png') }} alt="Español"></a></li>
                 <li style="margin-top: 15px;"><a href="{{ route('setLocale','en') }}"><img class="img-rounded" src={{ asset('assets/images/us.png') }} alt="English"></a></li>
             </ul>
@@ -273,10 +386,17 @@
                   {{ $exp->email }}
                   <span><br>{{ number_format($exp->exp_price, 2, '.', ',') }} {{ $exp->cur_simbol }} ({{ $exp->cur_name }})</span>
                   <span><br>{{ number_format($exp->exp_price/$exp->cur_exchange, 2, '.', ',') }} US$ (American Dollar)</span>
-                  
+                  @if ($user == null)
                     <div>
                       <a class="btn btn-success" style="float: right;" href="{{ route('reservation_create',array('id'=>$exp->exp_id)) }}">{{ trans('experience.reservation') }}</a>
-                    </div>              
+                    </div>
+                  @else
+                    @if($exp->exp_guide_id != $user->id)
+                      <div>
+                        <a class="btn btn-success" style="float: right;" href="{{ route('reservation_create',array('id'=>$exp->exp_id)) }}">{{ trans('experience.reservation') }}</a>
+                      </div>
+                    @endif
+                  @endif   
                 </div>
                 @endforeach
                 <div style="margin-top: 20px;" class="col-md-offset-5 col-md-2 btn btn-primary">LOAD MORE</div>    
