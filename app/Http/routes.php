@@ -17,13 +17,6 @@ Route::get('setLocale/{locale}', function($locale){
 	return back();
 })->name('setLocale');
 
-
-Route::get('/welc', function(){
-		$user = App\Users::find(1);
-		return view('welcome_orig','user'->$user);
-	}
-);
-
 Route::get('/', 'Experiences\ExperiencesController@welcome')->name('welcome');
 
 // Authentication routes... Auth

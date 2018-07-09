@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"mar",
+				"margin-top\tproperty"
+			],
+			[
 				"use",
 				"user"
 			],
@@ -22,10 +26,6 @@
 			[
 				"padin",
 				"padding-bottom\tproperty"
-			],
-			[
-				"mar",
-				"margin-top\tproperty"
 			],
 			[
 				"marg",
@@ -523,16 +523,17 @@
 			"file": "app/Http/routes.php",
 			"settings":
 			{
-				"buffer_size": 5595,
+				"buffer_size": 5480,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/Http/Controllers/Experiences/ExperiencesController.php",
+			"file": "resources/views/layouts/master.blade.php",
 			"settings":
 			{
-				"buffer_size": 8014,
+				"buffer_size": 10003,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
@@ -540,7 +541,7 @@
 			"file": "resources/views/welcome.blade.php",
 			"settings":
 			{
-				"buffer_size": 8357,
+				"buffer_size": 8401,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -774,6 +775,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"background",
 			"reser",
 			"home",
 			"user",
@@ -900,8 +902,7 @@
 			"('",
 			"experience()",
 			"experience",
-			"experience()",
-			"order"
+			"experience()"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -961,15 +962,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5595,
+						"buffer_size": 5480,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								593,
-								593
+								545,
+								545
 							]
 						],
 						"settings":
@@ -989,19 +990,19 @@
 				},
 				{
 					"buffer": 1,
-					"file": "app/Http/Controllers/Experiences/ExperiencesController.php",
-					"semi_transient": true,
+					"file": "resources/views/layouts/master.blade.php",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8014,
+						"buffer_size": 10003,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7106,
-								7106
+								1631,
+								1631
 							]
 						],
 						"settings":
@@ -1014,7 +1015,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2488.0,
+						"translation.y": 382.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -1026,15 +1027,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8357,
+						"buffer_size": 8401,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8338,
-								8338
+								316,
+								316
 							]
 						],
 						"settings":
@@ -1047,7 +1048,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1929.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
