@@ -38,7 +38,7 @@
                 <li>
                 @if(Auth::check())
                     <button class="menu btn btn-default dropdown-toggle" type="button" id="user" data-toggle="dropdown">
-                    {{ $user['name']}} {{ $user['last_name']}}
+                        {{ $user['name']}} {{ $user['last_name']}}
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="user">                        
@@ -153,7 +153,7 @@
         @section('sidebar')
         @show
 
-        <div class="container" style="background: #F4F3EE; width: 100%; margin-bottom: 0px; padding-bottom: 30px;">
+        <div class="container">
             @yield('content')
         </div>
 

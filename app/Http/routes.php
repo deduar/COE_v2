@@ -11,30 +11,18 @@
 |
 */
 
-
 Route::get('setLocale/{locale}', function($locale){
 	Session::put('locale', $locale);
 	App::setLocale($locale);
 	return back();
 })->name('setLocale');
 
-/*
-Route::get('/', function () {
-	App::setLocale(Session::get('locale'));
-    return view('welcome');
-})->name('welcome');
-*/
 
-/*
-Route::get('home', function(){
-	App::setLocale(Session::get('locale'));
-	if(Auth::guest()){
-		return Redirect::to('auth/login');
-	} else {
-		return Redirect::to('experiences');
+Route::get('/welc', function(){
+		$user = App\Users::find(1);
+		return view('welcome_orig','user'->$user);
 	}
-})->name('home');
-*/
+);
 
 Route::get('/', 'Experiences\ExperiencesController@welcome')->name('welcome');
 
