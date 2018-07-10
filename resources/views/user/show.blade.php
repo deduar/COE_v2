@@ -37,7 +37,7 @@
         <div class="col-md-3 col-md-offset-1" style="border: 1px solid #000; padding-top: 10px; padding-bottom: 10px;">
         <img src={{ asset('uploads/avatars/'.$user->avatar)}} height="170px;">
         <hr>
-        <h4 style="color: #000; font-weight: bold;">{{ $user->name }} {{ $user->lastName }}</h4>
+        <h4 style="color: #000; font-weight: bold;">{{ $user->name }} {{ $user->last_name }}</h4>
         <h5>
             <span class="glyphicon glyphicon-star-empty"></span>
             <span class="glyphicon glyphicon-star-empty"></span>

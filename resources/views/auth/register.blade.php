@@ -28,10 +28,10 @@
     </div>
 
     <div class="form-group">
-        {!! Form::label('lastName', trans('login.lastName')) !!}
+        {!! Form::label('last_name', trans('login.last_name')) !!}
     </div>
     <div class="form-group">
-        {!! Form::text('lastName') !!}
+        {!! Form::text('last_name') !!}
     </div>
 
     <div class="form-group">

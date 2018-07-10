@@ -25,7 +25,7 @@
       echo "<tr>";
       echo "<th scope='col'>$res->exp_name</th>";
       echo "<th scope='col'>$res->res_date</th>";
-      echo "<th scope='col'>$res->user_name $res->lastName</th>";
+      echo "<th scope='col'>$res->user_name $res->last_name</th>";
       echo "<th scope='col'>$res->email</th>";
       echo "<th scope='col'>"?>
         <img src={{asset('uploads/avatars/'.$res->avatar)}} height="40px" style="border-radius: 50%">

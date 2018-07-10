@@ -23,7 +23,7 @@
     <tr>
     	<th>{{ $exp->exp_name }}</th>
     	<th>{{ $user->email }}</th>
-    	<th>{{ $user->name }} {{ $user->lastName }}</th>
+    	<th>{{ $user->name }} {{ $user->last_name }}</th>
     	<th  scope='col'>
         	<img src={{asset('uploads/avatars/'.$user->avatar)}} height="40px;" style="border-radius: 50%;">
       	</th>

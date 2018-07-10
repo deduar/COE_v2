@@ -81,7 +81,7 @@ trait AuthenticatesUsers
         if (method_exists($this, 'authenticated')) {
             return $this->authenticated($request, Auth::user());
         }
-
+        
         return redirect()->intended($this->redirectPath());
     }
 

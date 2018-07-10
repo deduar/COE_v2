@@ -29,7 +29,7 @@
 
             @foreach ($users as $us)
               <tr>
-                <th  scope='col'>{{ $us->name }} {{ $us->lastName }}</th>
+                <th  scope='col'>{{ $us->name }} {{ $us->last_name }}</th>
                 <th  scope='col'>{{ $us->email }}</th>
                 <th  scope='col'>
                   <a href="editProfile/{{$us->id}}">

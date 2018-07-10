@@ -41,7 +41,7 @@
                 {!! Form::text('name', $user->name, array('class'=>'form-control')) !!}
               </div>
               <div class="col-md-6" style="margin-top: 10px; margin-bottom: 10px;">
-                {!! Form::label('last_name', trans('user.lastName')).' <span class="glyphicon glyphicon-info-sign" style="color: red;" title="OBLIGATORIO/REQUIRED"></span>' !!}
+                {!! Form::label('last_name', trans('user.last_name')).' <span class="glyphicon glyphicon-info-sign" style="color: red;" title="OBLIGATORIO/REQUIRED"></span>' !!}
                 {!! Form::text('last_name', $user->last_name, array('class'=>'form-control')) !!}
               </div>              
             </div>

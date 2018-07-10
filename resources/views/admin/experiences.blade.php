@@ -32,20 +32,13 @@
               <tr>
                 <th  scope='col'>{{ $exp->exp_name }}</th>
                 <th></th>
-                <th  scope='col'>{{ $exp->name }} {{ $exp->lastName }}</th>
+                <th  scope='col'>{{ $exp->name }} {{ $exp->last_name }}</th>
                 <th  scope='col'>{{ $exp->email }}</th>
                 <th  scope='col'>
                   <a href="editProfile/{{$exp->id}}">
                     <img src={{asset('uploads/avatars/'.$exp->avatar)}} height="40px;" style="border-radius: 50%;">
                   </a>
                 </th>
-                <!--th>
-                  @if ($exp->status == "Active") 
-                    <a class="btn btn-success" href="{{ route('change_active',array('id'=>$exp->id)) }}">{{ trans('admin.active') }}</span></a> 
-                  @else
-                    <a class="btn btn-danger" href="{{ route('change_active',array('id'=>$exp->id)) }}">{{ trans('admin.inactive') }}</a> 
-                  @endif
-                </th-->
               </tr>
             @endforeach
 

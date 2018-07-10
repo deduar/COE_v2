@@ -124,19 +124,19 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        $user = Auth::user();
-        $reservation = new Reservation();
-/*        var_dump($request->res_date);
-        var_dump($request->res_time);
-        var_dump($request->res_date.' '.$request->res_time);
-        die(); */
-        $reservation->res_date = Carbon\Carbon::parse($request->res_date.' '.$request->res_time)->format('Y-m-d H:i');
-        $reservation->res_exp_id = $request->res_exp_id;
-        $reservation->res_user_id = $user->id;
-        $reservation->res_guide_id = $request->res_guide_id;
-        $reservation->status = "Waiting";
-        $reservation->save();
-        return redirect()->route('reservation');
+        if (Auth::user()){
+            $user = Auth::user();
+            $reservation = new Reservation();
+            $reservation->res_date = Carbon\Carbon::parse($request->res_date.' '.$request->res_time)->format('Y-m-d H:i');
+            $reservation->res_exp_id = $request->res_exp_id;
+            $reservation->res_user_id = $user->id;
+            $reservation->res_guide_id = $request->res_guide_id;
+            $reservation->status = "Waiting";
+            $reservation->save();
+            return redirect()->route('reservation');
+        } else {
+            return redirect('auth/login');
+        }
     }
 
     /**

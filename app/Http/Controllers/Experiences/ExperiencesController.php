@@ -68,6 +68,7 @@ class ExperiencesController extends Controller
             $myexps = App\Experiences::where('exp_guide_id', Auth::user()->id)->orderBy('experience.created_at','desc')->paginate(6);
             return view('experience.myexps', array('user'=>Auth::user(), 'myexps'=>$myexps));
         } else {
+            //return redirect()->route('login');
             return redirect('auth/login');
         }
     }
