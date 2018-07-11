@@ -6,14 +6,15 @@
 
 <h1>All Experiences</h1>
 
-<div class="row">
-  <div class="col-md-offset-1 col-md-9">
+<div class="container-fluid" style="margin-bottom: 20px;">
+  <div class="col-md-offset-1 col-md-10" style="padding: 0px;">
   @foreach($experiences as $exp)
-    <div class="col-md-offset-1 col-md-3" style="padding: 20px; margin-top: 10px; height: 410px; border: solid 1px #ebeae6; padding-bottom: 10px; background: #fff; ">
+    <div class="col-sm-8 col-md-4" style="background: #fff; height: 540px;">
+    
       <a href="{{route('experience_show',array('id'=>$exp->exp_id))}}">
-        <img src={{asset('uploads/exp/'.$exp->exp_photo)}} height="180px;" width="100%;" style="display: block; margin-left: auto; margin-right: auto;">
+        <img style="display: block; width: 100%; height: 300px; margin-left: auto; margin-right: auto;" src={{asset('uploads/exp/'.$exp->exp_photo)}} >
       </a>
-      <br>
+      <div style="border: 1px solid #000; padding: 5px;">  
       <span style="padding-left: 30px;">{{ $exp->exp_name }}</span>
       <hr>
       <a href="{{ route('user_show',array('id'=>$exp->user_id)) }}">
@@ -25,19 +26,20 @@
       <span><br>{{ number_format($exp->exp_price/$exp->cur_exchange, 2, '.', ',') }} US$ (American Dollar)</span>
       @if ($user == null)
         <div>
-          <a class="btn btn-success" style="float: right;" href="{{ route('reservation_create',array('id'=>$exp->exp_id)) }}">{{ trans('experience.reservation') }}</a>
+          <a class="btn btn-success" style="float: right; margin-top: 12px;" href="{{ route('reservation_create',array('id'=>$exp->exp_id)) }}">{{ trans('experience.reservation') }}</a>
         </div>
       @else
         @if($exp->exp_guide_id != $user->id)
           <div>
-            <a class="btn btn-success" style="float: right;" href="{{ route('reservation_create',array('id'=>$exp->exp_id)) }}">{{ trans('experience.reservation') }}</a>
+            <a class="btn btn-success" style="float: right" href="{{ route('reservation_create',array('id'=>$exp->exp_id)) }}">{{ trans('experience.reservation') }}</a>
           </div>
         @endif
       @endif
+      </div>
     </div>
   @endforeach
   </div>
-</div> 
+</div>
 
 {!! $experiences->render() !!}
 
