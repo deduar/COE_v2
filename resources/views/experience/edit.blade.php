@@ -168,9 +168,13 @@
     </div>
 
     @if($exp_photos)
-      <h1>Lista de fotos</h1>
+      @foreach($exp_photos as $e_p)
+        <img src={{asset('uploads/exp/'.$e_p->exp_photo)}} height="200px;">
+        {{ $e_p->id }} Delete
+      @endforeach
     @endif
-
+  
+    <br>
     {!! Form::label('exp_more_photo_label', trans('experience.exp_more_photos_label')) !!}
     <div class="form-group">  
       <div class="col-md-4">

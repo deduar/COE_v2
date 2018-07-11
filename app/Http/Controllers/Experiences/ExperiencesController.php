@@ -203,6 +203,7 @@ class ExperiencesController extends Controller
      */
     public function edit($id)
     {
+        if (Auth::check()){
         $user = Auth::user();
         $exp = App\Experiences::find($id);
         $currencies = App\Currency::all(['id','cur_name','cur_simbol']);
@@ -217,9 +218,14 @@ class ExperiencesController extends Controller
             ->orderBy('experience.created_at','desc')
             ->paginate(4);
 
-        $exp_photos = App\ExperiencesPhotos::find($exp->id);
+        $exp_photos = DB::table('experience_photos')
+            ->where('exp_id',$id)
+            ->get();
 
         return view('experience.edit', array('user'=>Auth::user(),'exp'=>$exp,'cur'=>$cur,'myexps'=>$myexps, 'exp_photos'=>$exp_photos));
+        } else {
+            return redirect('auth/login');
+        }
     }
 
     /**
@@ -241,6 +247,18 @@ class ExperiencesController extends Controller
             $exp->exp_photo = $filename;
             $exp->save();
         }
+
+        if($request->hasFile('file')){
+            foreach ($request->file('file') as $key=>$file) {
+                $filename = time()+($key).'.'.$file->getClientOriginalExtension();
+                Image::make($file)->resize(300,300)->save( public_path('uploads/exp/'.$filename));
+                $file_pho = new ExperiencesPhotos();
+                $file_pho->exp_id = $exp->id;
+                $file_pho->exp_photo = $filename;
+                $file_pho->save();
+            }
+        }
+
         return redirect()->route('my_experience');
     }
 
