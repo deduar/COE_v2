@@ -14,7 +14,7 @@
       <a href="{{route('experience_show',array('id'=>$exp->exp_id))}}">
         <img style="display: block; width: 100%; height: 300px; margin-left: auto; margin-right: auto;" src={{asset('uploads/exp/'.$exp->exp_photo)}} >
       </a>
-      <div style="border: 1px solid #000; padding: 5px;">  
+      <div style="border: 1px solid #bfbfbf; padding: 5px;">  
       <span style="padding-left: 30px;">{{ $exp->exp_name }}</span>
       <hr>
       <a href="{{ route('user_show',array('id'=>$exp->user_id)) }}">
