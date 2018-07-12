@@ -272,4 +272,12 @@ class ExperiencesController extends Controller
     {
         //
     }
+
+    public function remove_img($id)
+    {
+        $exp_img = DB::table('experience_photos')
+            ->where('id',$id)
+            ->delete();
+        return back()->withInput(['tab-pane'=>'photos']);
+    }
 }

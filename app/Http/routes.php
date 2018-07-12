@@ -56,6 +56,7 @@ Route::post('/experience/create', 'Experiences\ExperiencesController@store')->na
 Route::get('/experience/edit/{id}', 'Experiences\ExperiencesController@edit')->name('experience_edit');
 Route::get('/experience/{id}', 'Experiences\ExperiencesController@show')->name('experience_show');
 Route::post('/experience/update', 'Experiences\ExperiencesController@update')->name('experience_update');
+Route::get('/experience/remove_img/{id}', 'Experiences\ExperiencesController@remove_img')->name('remove_img');
 
 // Reservation
 Route::get('/reservation', 'Reservation\ReservationController@index')->name('reservation');

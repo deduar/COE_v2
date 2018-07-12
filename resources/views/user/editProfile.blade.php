@@ -28,13 +28,13 @@
     <h1 style="background: #fbfbfb; padding: 10px; color:#000; margin-top: 0px; margin-bottom: 0px; height: 90px; padding-top: 30px;">Edit Profile</h1>
     <div class="row" style="border: solid 1px #f2f2f2; margin-left: -15px;">
     <div class="container-fluid" style="margin-top: 20px;">
-        <div class="col-md-3 col-md-offset-1" style="border: 1px solid #000; padding-top: 10px; padding-bottom: 10px;">
+        <div class="col-md-3" style="padding-top: 10px; padding-bottom: 10px;">
             <img src={{ asset('uploads/avatars/'.$user->avatar)}} height="170px;"/>
             <br><br>
             <div class="btn btn-primary" style="width: 100%">{{trans('user.change_avatar')}}</div>
         </div>
 
-        <div class="col-md-8" style="margin-top: 20px; margin-bottom: 30px;">
+        <div class="col-md-9" style="margin-top: 10px; margin-bottom: 20px;">
             <div class="form-group">
               <div class="col-md-6" style="margin-top: 10px; margin-bottom: 10px;">
                 {!! Form::label('name', trans('user.name')).' <span class="glyphicon glyphicon-info-sign" style="color: red;" title="OBLIGATORIO/REQUIRED"></span>' !!}

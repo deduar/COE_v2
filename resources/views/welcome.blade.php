@@ -4,10 +4,18 @@
 
 @section('content')
 
-<div clas="container">
+<style type="text/css">
+  .container {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+  }
+</style>
+
+<div class="container">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Wrapper for slides -->
-    <div class="carousel-inner" style="height: 400px; margin-bottom: 30px; margin-top: 20px;">
+    <div class="carousel-inner" style="height: 400px; margin-bottom: 30px;">
       <div class="item active">
         {!! Html::image('assets/images/carousel_01.jpeg', 'Coexperiences' ,array('heigth'=>'200px', 'width'=>'100%')) !!}
       </div>
@@ -32,56 +40,55 @@
 
   <div class="content container-fluid">
       <div class="row">
-          <div class="col-md-2"></div>
-          <div class="col-md-2">
-              <div class="row">
+          <div class="col-md-3">
+              <div class="row" style="width: 70%;margin-left: 15%; text-align: center;">
                   <div class="col-md-12">
-                      {!! Html::image('assets/images/maleta.png', 'Find & Reserve' ,array('width'=>'96px', 'height'=>'96px', 'style'=>'margin-bottom: 10px')) !!}
+                      {!! Html::image('assets/images/maleta.png', 'Find & Reserve' ,array('width'=>'96px', 'height'=>'96px', 'style'=>'margin-bottom: 10px;')) !!}
                   </div>
-                  <div class="col-md-12 title-home" style="height: 60px;">
+                  <div class="col-md-12" style="height: 60px; color: #000; font-weight: bold;">
                       FIND AND RESERVE YOUR EXPERIENCES
                   </div>
                   <div class="col-md-12">
-                      <p class="text_container">Choose from a selection of tours and adventure activities, sports, ecotourism or cultural exchange activities like Spanish or salsa classes</p>
+                      <p style="color: #333;">Choose from a selection of tours and adventure activities, sports, ecotourism or cultural exchange activities like Spanish or salsa classes</p>
                   </div>
               </div>
           </div>
-          <div class="col-md-2">
-              <div class="row">
+          <div class="col-md-3">
+              <div class="row" style="width: 70%;margin-left: 15%; text-align: center;">
                   <div class="col-md-12">
                       {!! Html::image('assets/images/global.png', 'Colombia & Caribbean' ,array('width'=>'96px', 'height'=>'96px', 'style'=>'margin-bottom: 10px')) !!}
                   </div>
-                  <div class="col-md-12 title-home" style="height: 60px;">
+                  <div class="col-md-12" style="height: 60px; color: #000; font-weight: bold;">
                       SPECIALIZED IN COLOMBIA AND THE CARIBBEAN
                   </div>
                   <div class="col-md-12">
-                      <p class="text_container">Choose from a selection of tours and adventure activities, sports, ecotourism or cultural exchange activities like Spanish or salsa classes</p>
+                      <p style="color: #333;">Choose from a selection of tours and adventure activities, sports, ecotourism or cultural exchange activities like Spanish or salsa classes</p>
                   </div>
               </div>
           </div>
-          <div class="col-md-2">
-              <div class="row">
+          <div class="col-md-3">
+              <div class="row" style="width: 70%;margin-left: 15%; text-align: center;">
                   <div class="col-md-12">
                       {!! Html::image('assets/images/usuarios.png', 'Users' ,array('width'=>'96px', 'height'=>'96px', 'style'=>'margin-bottom: 10px')) !!}
                   </div>
-                  <div class="col-md-12 title-home" style="height: 60px;">
+                  <div class="col-md-12" style="height: 60px; color: #000; font-weight: bold;">
                       LIVE EXPERIENCES AT THE BEST PRICE
                   </div>
                   <div class="col-md-12">
-                      <p class="text_container">Choose from a selection of tours and adventure activities, sports, ecotourism or cultural exchange activities like Spanish or salsa classes</p>
+                      <p style="color: #333;">Choose from a selection of tours and adventure activities, sports, ecotourism or cultural exchange activities like Spanish or salsa classes</p>
                   </div>
               </div>
           </div>
-          <div class="col-md-2">
-              <div class="row">
+          <div class="col-md-3">
+              <div class="row" style="width: 70%;margin-left: 15%; text-align: center;">
                   <div class="col-md-12">
                       {!! Html::image('assets/images/bloquear.png', 'Safety' ,array('width'=>'96px', 'height'=>'96px', 'style'=>'margin-bottom: 10px')) !!}
                   </div>
-                  <div class="col-md-12 title-home" style="height: 60px;">
+                  <div class="col-md-12" style="height: 60px; color: #000; font-weight: bold;">
                       TRUST AND SAFETY
                   </div>
                   <div class="col-md-12">
-                      <p class="text_container">Choose from a selection of tours and adventure activities, sports, ecotourism or cultural exchange activities like Spanish or salsa classes</p>
+                      <p style="color: #333;">Choose from a selection of tours and adventure activities, sports, ecotourism or cultural exchange activities like Spanish or salsa classes</p>
                   </div>
               </div>
           </div>
@@ -89,37 +96,52 @@
       </div>
   </div>            
 
-  <div class="activity container-fluid" style="color: #000; font-weight: normal;">
-      <h1 class="activity">Best Activities And Tours Of Colombia</h1>
+  <div class="activity container-fluid" style="color: #000; font-weight: normal; background: #eaeaea;">
+      <h1 style="text-align: center; margin-top: 40px; margin-bottom: 40px;">Best Activities And Tours Of Colombia</h1>
       @foreach($experiences as $exp)
-      <div class="col-md-4" style="padding: 20px; margin: 10px; height: 410px; width: 31%; border: solid 1px #ebeae6; padding-bottom: 10px; background: #fff; ">
-        <a href="{{route('experience_show',array('id'=>$exp->exp_id))}}">
-          <img src={{asset('uploads/exp/'.$exp->exp_photo)}} height="180px;" width="100%;" style="display: block; margin-left: auto; margin-right: auto;">
-        </a>
-        <br>
-        <span style="padding-left: 30px;">{{ $exp->exp_name }}</span>
-        <hr>
-        <a href="{{ route('user_show',array('id'=>$exp->user_id)) }}">
-          <img src={{asset('uploads/avatars/'.$exp->avatar)}} height="40px;" style="float: right; border-radius: 50%;">
-        </a>
-        {{ $exp->name }} {{ $exp->last_name }} <br>
-        {{ $exp->email }}
-        <span><br>{{ number_format($exp->exp_price, 2, '.', ',') }} {{ $exp->cur_simbol }} ({{ $exp->cur_name }})</span>
-        <span><br>{{ number_format($exp->exp_price/$exp->cur_exchange, 2, '.', ',') }} US$ (American Dollar)</span>
-        @if ($user == null)
-          <div>
-            <a class="btn btn-success" style="float: right;" href="{{ route('reservation_create',array('id'=>$exp->exp_id)) }}">{{ trans('experience.reservation') }}</a>
+      <div class="col-md-4" style="margin-bottom: 30px;">
+        <div class="row" style="margin-right: 30px; margin-left: 30px;">
+          <div class="col-md-12" style="padding: 0px;">
+            <a href="{{route('experience_show',array('id'=>$exp->exp_id))}}">
+              <img width="100%" height="300px;" src={{asset('uploads/exp/'.$exp->exp_photo)}} >
+            </a>
           </div>
-        @else
-          @if($exp->exp_guide_id != $user->id)
-            <div>
+          
+          <div class="col-md-10" style="background: #fff;">
+            <h4 style="font-weight: bold;">{{ strtoupper($exp->exp_name) }}</h4>
+          </div>
+          <div class="col-md-2" style="background: #fff;">
+            <a href="{{ route('user_show',array('id'=>$exp->user_id)) }}">
+              <img src={{asset('uploads/avatars/'.$exp->avatar)}} height="40px;" style="float: right; border-radius: 50%;">
+            </a>
+          </div>
+
+          <div class="col-md-12" style="background: #fff;">
+            {{ $exp->name }} {{ $exp->last_name }} <br>
+            {{ $exp->email }}
+            <span><br>{{ number_format($exp->exp_price, 2, '.', ',') }} {{ $exp->cur_simbol }} ({{ $exp->cur_name }})</span>
+            <span><br>{{ number_format($exp->exp_price/$exp->cur_exchange, 2, '.', ',') }} US$ (American Dollar)</span>
+          </div>
+
+            @if ($user == null)
+            <div class="col-md-12" style="background: #fff; padding-bottom: 12px;">
               <a class="btn btn-success" style="float: right;" href="{{ route('reservation_create',array('id'=>$exp->exp_id)) }}">{{ trans('experience.reservation') }}</a>
             </div>
-          @endif
-        @endif   
+            @else
+              @if($exp->exp_guide_id != $user->id)
+              <div class="col-md-12" style="background: #fff; padding-bottom: 12px;">
+                <a class="btn btn-success" style="float: right;" href="{{ route('reservation_create',array('id'=>$exp->exp_id)) }}">{{ trans('experience.reservation') }}</a>
+              </div>
+              @endif
+            @endif
+
+        </div>
       </div>
       @endforeach
-      <div style="margin-top: 20px;" class="col-md-offset-5 col-md-2 btn btn-primary">LOAD MORE</div>    
+
+      <div class="col-md-offset-5 col-md-1">
+        <div class="btn btn-primary" style="margin-top: 30px; margin-bottom: 30px; height: 40px; width: 180px; font-size: 16px; font-weight: bold;">LOAD MORE</div>
+      </div>
   </div>
 
   <div style="margin-top: 30px; margin-bottom: 30px;">

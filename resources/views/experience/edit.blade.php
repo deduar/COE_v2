@@ -168,10 +168,16 @@
     </div>
 
     @if($exp_photos)
+      <div class="row">
       @foreach($exp_photos as $e_p)
-        <img src={{asset('uploads/exp/'.$e_p->exp_photo)}} height="200px;">
-        {{ $e_p->id }} Delete
+        <div class="col-md-4" style="margin-bottom: 15px;">
+          <div class="col-md-12 text-center">
+            <div class="btn btn-success"><a href="{{route('remove_img', array('id'=>$e_p->id))}}" style="text-decoration: none; color: #fff;">{{ trans('experience.delete_exp') }} <span class="glyphicon glyphicon-remove-circle"></span></a></div>
+            <img src={{asset('uploads/exp/'.$e_p->exp_photo)}} height="180px;">
+          </div>
+        </div>
       @endforeach
+      </div>
     @endif
   
     <br>

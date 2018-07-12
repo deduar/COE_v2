@@ -36,7 +36,7 @@
                 </li>
                 <li>
                 @if(Auth::check())
-                    <button class="menu btn btn-default dropdown-toggle" type="button" id="user" data-toggle="dropdown">
+                    <button class="menu btn btn-default dropdown-toggle" type="button" id="user" data-toggle="dropdown" style="font-family: Lato; font-size: 13px; font-weight: 700; color:#000;" >
                         {{ $user['name']}} {{ $user['last_name']}}
                         <span class="caret"></span>
                     </button>
