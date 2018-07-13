@@ -31,7 +31,7 @@
         <div class="col-md-3" style="padding-top: 10px; padding-bottom: 10px;">
             <img src={{ asset('uploads/avatars/'.$user->avatar)}} height="170px;"/>
             <br><br>
-            <div class="btn btn-primary" style="width: 100%">{{trans('user.change_avatar')}}</div>
+            <div class="btn btn-primary" style="width: 100%; background: #47bbcc; border: 0px;"><a href="{{route('user_profile')}}" style="text-decoration: none; color: #fff;">{{trans('user.change_avatar')}}</a></div>
         </div>
 
         <div class="col-md-9" style="margin-top: 10px; margin-bottom: 20px;">

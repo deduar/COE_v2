@@ -35,7 +35,7 @@
 
     <div class="container-fluid" style="margin-top: 20px;">
         <div class="col-md-3 col-md-offset-1" style="padding-top: 10px; padding-bottom: 10px;">
-        <img src={{ asset('uploads/avatars/'.$user->avatar)}} height="170px;">
+        <img src={{ asset('uploads/avatars/'.$user->avatar)}} style="width: 150px; height: 150px; float: left; border-radius: 50%; margin-right: 25px;">
         <hr>
         <h4 style="color: #000; font-weight: bold;">{{ $user->name }} {{ $user->last_name }}</h4>
         <h5>
