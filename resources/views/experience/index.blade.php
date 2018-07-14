@@ -20,8 +20,7 @@
         <h3 style="color: #000; margin-top: 0px;">{{ strtoupper($exp->exp_name) }}</h3>
       </div>
       <div class="col-md-12">
-        {{ $exp->name }} {{ $exp->last_name }} <br>
-        {{ $exp->email }}
+        {{ $exp->name }} {{ $exp->last_name }}
         <span><br>{{ number_format($exp->exp_price, 2, '.', ',') }} {{ $exp->cur_simbol }} ({{ $exp->cur_name }})</span>
         <span><br>{{ number_format($exp->exp_price/$exp->cur_exchange, 2, '.', ',') }} US$ (American Dollar)</span>
       </div>
