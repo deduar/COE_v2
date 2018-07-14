@@ -26,12 +26,18 @@
         <span><br>{{ number_format($exp->exp_price/$exp->cur_exchange, 2, '.', ',') }} US$ (American Dollar)</span>
       </div>
       <div class="col-md-12">
-        <a href="{{ route('user_show',array('id'=>$exp->user_id)) }}">
-          <img src={{asset('uploads/avatars/'.$exp->avatar)}} height="40px;" style="float: right; border-radius: 50%;">
-        </a>
-        @if($exp->exp_guide_id != $user->id)
-          <div>
-            <a class="btn btn-success" href="{{route('reservation_create',array('id'=>$exp->exp_id)) }}">{{ trans('experience.reservation') }}</a>
+        @if(Auth::user())
+          <a href="{{ route('user_show',array('id'=>$exp->user_id)) }}">
+            <img src={{asset('uploads/avatars/'.$exp->avatar)}} height="40px;" style="float: right; border-radius: 50%;">
+          </a>
+          @if($exp->exp_guide_id != $user->id)
+            <div>
+              <a class="btn btn-success" href="{{route('reservation_create',array('id'=>$exp->exp_id)) }}">{{ trans('experience.reservation') }}</a>
+            </div>
+          @endif
+        @else
+          <div class="btn btn-success">
+            <a style="text-decoration: none; color: #fff; font-size: 14px; font-weight: bold;" href="{{route('reservation_create',array('id'=>$exp->exp_id))}}">{{trans('experience.reservation') }}</a>
           </div>
         @endif
       </div>
