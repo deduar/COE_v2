@@ -44,10 +44,10 @@
             <span class="glyphicon glyphicon-star-empty"></span>
             <span class="glyphicon glyphicon-star-empty half"></span>
         </h5>
-        <div class="btn btn-primary" style="width: 100%">{{trans('user.mycollection')}}</div>
+        <div class="btn btn-default" style="width: 100%">{{trans('user.my_collection')}}</div>
         </div>
         <div class="col-md-6">
-            <div class="btn btn-default" style="float:right;"><a style="text-decoration: none;" href="{{route('edit_profile')}}">{{trans('exp.edit')}}</a></div>
+            <div class="btn btn-default" style="float:right;"><a style="text-decoration: none;" href="{{route('edit_profile')}}">{{trans('user.profile_edit')}}</a></div>
             <div class="col-md-12">
                 <h4>{{trans('user.biography')}}</h4><hr>
                 <div style="text-align: justify;">{{$user->biography}}</div>
@@ -57,15 +57,20 @@
 
     <div class="container-fluid" style="margin-top: 20px;">
         @foreach ($myexps as $exp)
-        <div class="col-md-12" style="border: 1px solid #ccc; width: 90%;height: 120px; margin-top: 10px; padding-top: 10px; margin-left: 10px;">
+        <div class="col-md-12" style="border: 1px solid #ccc; width: 90%;height: 145px; margin-top: 10px; padding-top: 10px; margin-left: 10px;">
             <div class="row">
             <div class="col-md-2">
                 <img src={{asset('uploads/exp/'.$exp->exp_photo)}} height="85px;">
             </div>
             <div class="col-md-10">
-                <div class="col-md-8"><h4>{{$exp->exp_name}}</h4></div>
-                <div class="col-md-2"><h5>{{$exp->cur_simbol}} {{$exp->exp_price}} {{$exp->cur_name}}</h5></div>
-                <div class="col-md-2"><div class="btn btn-default" style="float:right;">{{trans('exp.detail')}}</div></div>
+                <div class="col-md-8">
+                    <h4 style="color: #000;">{{strtoupper($exp->exp_name)}}</h4>
+                    <h6>{{trans('experience.exp_location')}}: {{$exp->exp_location}}</h6> 
+                    <h6>{{trans('experience.exp_min_people')}}: {{$exp->exp_min_people}} {{trans('experience.exp_max_people')}}: {{$exp->exp_max_people}} {{trans('experience.people')}} </h6>
+                    <h6>{{trans('experience.duration')}}: {{$exp->exp_duration}} {{$exp->exp_duration_h}}</h6>
+                </div>
+                <div class="col-md-2"><h5>{{$exp->cur_simbol}} {{$exp->exp_price}} <h6>{{$exp->cur_name}}</h6></h5></div>
+                <div class="col-md-2"><div class="btn btn-default" style="float:right;"><a style="text-decoration: none;" href="{{route('experience_show',array('id'=>$exp->exp_id))}}">{{trans('user.exp_detail')}}</a></div></div>
             </div>
             <div class="col-md-3">
                 <span style="background: #ccc; padding: 3px; color: #000;">{{trans('user.reviews')}}</span>

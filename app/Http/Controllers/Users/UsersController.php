@@ -91,9 +91,9 @@ class UsersController extends Controller
 	public function show()
 	{
 		$user = Auth::user();
-		//$myexps = App\Experiences::where('exp_guide_id', Auth::user()->id)->orderBy('experience.created_at','desc')->paginate(4);
 		$myexps = DB::table('experience')
 			->join('currency','experience.exp_currency','=','currency.id')
+			->select('experience.id as exp_id', 'exp_name','exp_photo','exp_price','cur_name','cur_simbol','exp_location','exp_min_people','exp_max_people','exp_duration','exp_duration_h')
 			->where('experience.exp_guide_id',$user->id)
 			->orderBy('experience.created_at','desc')
 			->paginate(4);
