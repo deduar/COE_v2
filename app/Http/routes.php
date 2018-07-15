@@ -75,14 +75,24 @@ Route::get('/messages', 'Messages\MessagesController@index')->name('messages');
 
 // Admin (backend)
 Route::get('/admin', 'Admin\AdminController@index')->name('admin');
+// Admin (backend) - USERS
 Route::get('/admin/users', 'Admin\AdminController@users')->name('admin_users');
 Route::get('/admin/promoveAdmin/{id}', 'Admin\AdminController@promoveAdmin')->name('promove_admin');
 Route::get('/admin/changeStatus/{id}', 'Admin\AdminController@changeStatus')->name('change_active');
 Route::get('/admin/experiences', 'Admin\AdminController@experiences')->name('admin_experiences');
 
+// Admin (backend) - CURRENCIES
 Route::get('/admin/currency', 'Admin\CurrencyController@index')->name('admin_currency');
 Route::get('/admin/currency/changeStatus/{id}', 'Admin\CurrencyController@changeStatusCurrency')->name('change_cur_active');
 Route::get('/admin/currency/create', 'Admin\CurrencyController@create')->name('admin_currency_create');
 Route::post('/admin/currency/store', 'Admin\CurrencyController@store')->name('admin_currency_store');
 Route::get('/admin/currency/edit/{id}', 'Admin\CurrencyController@edit')->name('admin_currency_edit');
 Route::post('/admin/currency/update', 'Admin\CurrencyController@update')->name('admin_currency_update');
+
+// Admin (backend) - DOCUMENT_TYPES
+Route::get('/admin/documentType', 'Admin\DocumentTypeController@index')->name('admin_document_type');
+Route::get('/admin/documentType/create', 'Admin\DocumentTypeController@create')->name('admin_createDocumentType');
+Route::post('/admin/documentType/store', 'Admin\DocumentTypeController@store')->name('admin_storeDocumentType');
+Route::get('/admin/documentType/changeStatus/{id}', 'Admin\DocumentTypeController@changeStatusDocumentType')->name('change_statusDocumentType');
+Route::get('/admin/documentType/edit/{id}', 'Admin\DocumentTypeController@edit')->name('admin_editDocumentType');
+Route::post('/admin/documentType/update', 'Admin\DocumentTypeController@update')->name('admin_updateDocumentType');

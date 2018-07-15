@@ -8,29 +8,25 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\User;
-use App\Experiences;
+use App\DocumentType;
 use Auth;
 use DB;
 use App;
 use Session;
 
-class AdminController extends Controller
+class DocumentTypeController extends Controller
 {
-    public function __construct()
-    {
-        App::setLocale(Session::get('locale'));
-    }
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         $user = Auth::user();
         if ($user->admin) {
-            return view('admin.index', array('user'=>Auth::user()));
+            $documentTypes = DB::table('document_type')->paginate(3);
+            return view('admin.documentType', array('user'=>Auth::user(),'documentTypes'=>$documentTypes));
         } else {
             return view('experiences.index', array('user'=>Auth::user()));
         }
@@ -43,7 +39,8 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        $user = Auth::user();
+        return view('admin.documentType_create', array('user'=>Auth::user()));
     }
 
     /**
@@ -54,7 +51,11 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $documentType = new DocumentType;        
+        $documentType->documentType_name = $request->documentType_name;
+        $documentType->save();        
+        
+        return redirect()->route('admin_document_type');
     }
 
     /**
@@ -76,7 +77,9 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = Auth::user();
+        $documentType = DocumentType::find($id);
+        return view('admin.documentType_edit', array('user'=>Auth::user(), 'documentType'=>$documentType));
     }
 
     /**
@@ -86,9 +89,11 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $documentType = DocumentType::find($request->id);
+        $documentType->update($request->all());
+        return redirect()->route('admin_document_type');
     }
 
     /**
@@ -102,44 +107,16 @@ class AdminController extends Controller
         //
     }
 
-    public function users()
+    public function changeStatusDocumentType($id)
     {
-        $users = DB::table('users')->paginate(3);
-        return view ('admin.users', array('user'=>Auth::user(),'users'=>$users));
-    }
-
-    public function promoveAdmin($id)
-    {
-        $user = User::find($id);
-        if ($user->admin) {
-            $user->admin = false;
+        $docType = DocumentType::find($id);
+        if ($docType->documentType_status == "Active"){
+            $docType->documentType_status = "Inactive";
         } else {
-            $user->admin = true;
+            $docType->documentType_status = "Active";
         }
-        $user->save();
-        return redirect()->route('admin_users');
-    }
-
-    public function changeStatus($id)
-    {
-        $user = User::find($id);
-        if ($user->status == "Active") {
-            $user->status = "Inactive";
-        } else {
-            $user->status = "Active";
-        }
-        $user->save();
-        return redirect()->route('admin_users');
-    }
-
-    public function experiences()
-    {
-        $experiences = DB::table('users')
-                ->join('experience','users.id','=','experience.exp_guide_id')
-                ->paginate(3);
-                //->get();
-        //$experiences = Experiences::all();
-        return view ('admin.experiences', array('user'=>Auth::user(),'experiences'=>$experiences));
+        $docType->save();
+        return redirect()->route('admin_document_type'); 
     }
 
 }
