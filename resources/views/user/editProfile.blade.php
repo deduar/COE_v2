@@ -29,10 +29,13 @@
     <div class="row" style="border: solid 1px #f2f2f2; margin-left: -15px;">
     <div class="container-fluid" style="margin-top: 20px;">
         <div class="col-md-3" style="padding-top: 10px; padding-bottom: 10px;">
-            <img src={{ asset('uploads/avatars/'.$user->avatar)}} height="170px;"/>
+            <img src={{ asset('uploads/avatars/'.$user->avatar)}} height="130px;"/>
             <br><br>
             <div class="btn btn-primary" style="width: 100%; background: #47bbcc; border: 0px;"><a href="{{route('user_profile')}}" style="text-decoration: none; color: #fff;">{{trans('user.change_avatar')}}</a></div>
+            <br><br>
+            <div class="btn btn-danger" style="width: 100%; border: 0px;"><a href="{{route('edit_password')}}" style="text-decoration: none; color: #fff;">{{trans('user.change_password')}}</a></div>
         </div>
+
 
         <div class="col-md-9" style="margin-top: 10px; margin-bottom: 20px;">
             <div class="form-group">
@@ -152,7 +155,7 @@
         </div>
         <div class="col-md-6" style="margin-top: 10px; margin-bottom: 10px;">
             {!! Form::label('document_type', trans('user.document_type')) !!}
-            {!! Form::text('document_type', $user->document_type, array('class'=>'form-control')) !!}
+            {!! Form::select('document_type', $documentTypes, $user->document_type, array('class'=>'form-control')) !!}
         </div>
         <div class="col-md-6" style="margin-top: 10px; margin-bottom: 10px;">
             {!! Form::label('document_number', trans('user.document_number')) !!}

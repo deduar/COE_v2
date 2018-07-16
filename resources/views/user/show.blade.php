@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Coesperiences: ChangePassword')
+@section('title', 'Coesperiences: Show Profile')
 
 @section('sidebar')
 @endsection

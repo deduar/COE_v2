@@ -79,7 +79,12 @@ class UsersController extends Controller
 		} else {
 			if (Auth::user()->confirmed != false) {
 				$user = Auth::user();
-				return view('user.editProfile', array('user'=>Auth::user()));
+				$docTypes = App\DocumentType::all(['id','documentType_name']);
+				$documentTypes = [];
+        		foreach($docTypes as $docType){
+           			$documentTypes[$docType->id] = $docType->documentType_name;
+        		}
+				return view('user.editProfile', array('user'=>Auth::user(),'documentTypes'=>$documentTypes));
 			} else{
 				$user = Auth::user();
 				return view('user.verify', array('user'=>Auth::user()));
@@ -106,6 +111,7 @@ class UsersController extends Controller
 		$user->update($request->all());
 		$myexps = DB::table('experience')
 			->join('currency','experience.exp_currency','=','currency.id')
+			->select('experience.id as exp_id', 'exp_name','exp_photo','exp_price','cur_name','cur_simbol','exp_location','exp_min_people','exp_max_people','exp_duration','exp_duration_h')
 			->where('experience.exp_guide_id',$user->id)
 			->orderBy('experience.created_at','desc')
 			->paginate(4);
@@ -154,7 +160,8 @@ class UsersController extends Controller
 	{
 	  	$user = Auth::user();
 		$user->update($request->all());
-		return view('user.profile', array('user'=>Auth::user()));
+		return redirect('user/show');
+		//return view('user.profile', array('user'=>Auth::user()));
 	}
 
 	
