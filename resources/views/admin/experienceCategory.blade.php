@@ -4,7 +4,7 @@
 
 @section('content')
 
-  <h1>Admin ID Type</h1>
+  <h1>Admin Experience Category</h1>
 
 
   <div class="container">
@@ -21,35 +21,35 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th scope="col">Document Type</th>
-                <th scope="col">Currency Status</th>
-                <th scope="col">Currency Action</th>
+                <th scope="col">Experience Category</th>
+                <th scope="col">Experience Category Status</th>
+                <th scope="col">Experience Category Action</th>
               </tr>
             </thead>
             <tbody>
-            @foreach ($documentTypes as $docType)
+            @foreach ($experienceCategories as $experienceCategory)
               <tr>
-                <th  scope='col'>{{ $docType->documentType_name }}</th>
+                <th  scope='col'>{{ $experienceCategory->category_name }}</th>
                 <th>
-                @if ($docType->documentType_status == "Active")
-                  <a class="btn btn-success" href="{{ route('change_statusDocumentType',array('id'=>$docType->id)) }}">{{ trans('admin.active') }}</span></a> 
+                @if ($experienceCategory->category_status == "Active")
+                  <a class="btn btn-success" href="{{ route('change_statusExperienceCategory',array('id'=>$experienceCategory->id)) }}">{{ trans('admin.active') }}</span></a> 
                 @else
-                  <a class="btn btn-danger" href="{{ route('change_statusDocumentType',array('id'=>$docType->id)) }}">{{ trans('admin.inactive') }}</a> 
+                  <a class="btn btn-danger" href="{{ route('change_statusExperienceCategory',array('id'=>$experienceCategory->id)) }}">{{ trans('admin.inactive') }}</a> 
                 @endif
                 <th>
-                  <a class="btn btn-primary" href="{{ route('admin_editDocumentType',array('id'=>$docType->id)) }}">{{ trans('admin.documentType_edit') }}</a> 
+                  <a class="btn btn-primary" href="{{ route('admin_editExperienceCategory',array('id'=>$experienceCategory->id)) }}">{{ trans('admin.edit_experienceCategory') }}</a> 
                 </th>
               </tr>
             @endforeach
             </tbody>
           </table>
 
-          <a class="btn btn-success" href="{{ route('admin_createDocumentType') }}" style="float: right;"><span class="glyphicon glyphicon-plus-sign"></span>  {{ trans('admin.create_documentType') }}</a>
+          <a class="btn btn-success" href="{{ route('admin_createExperienceCategory') }}" style="float: right;"><span class="glyphicon glyphicon-plus-sign"></span>  {{ trans('admin.create_experienceCategory') }}</a>
 
       </div>
     </div>
   </div>
 
-{!! $documentTypes->render() !!}
+{!! $experienceCategories->render() !!}
 
 @endsection

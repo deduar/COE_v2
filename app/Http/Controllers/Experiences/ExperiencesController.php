@@ -33,7 +33,7 @@ class ExperiencesController extends Controller
         $experiences = DB::table('experience')
                 ->join('users','users.id','=','experience.exp_guide_id')
                 ->join('currency','experience.exp_currency','=','currency.id')
-                ->select('experience.id as exp_id', 'users.id as user_id','exp_photo', 'exp_name', 'avatar', 'name', 'last_name', 'email', 'exp_price', 'cur_simbol', 'cur_name', 'cur_exchange', 'exp_guide_id')
+                ->select('experience.id as exp_id', 'users.id as user_id','exp_photo', 'exp_name', 'avatar', 'name', 'last_name', 'email', 'exp_location','exp_price', 'cur_simbol', 'cur_name', 'cur_exchange', 'exp_guide_id')
                 ->where('users.group','Guide')
                 ->orderBy('experience.created_at','desc')
                 ->paginate(6);

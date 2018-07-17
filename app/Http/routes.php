@@ -60,11 +60,11 @@ Route::get('/experience/remove_img/{id}', 'Experiences\ExperiencesController@rem
 
 // Reservation
 Route::get('/reservation', 'Reservation\ReservationController@index')->name('reservation');
-Route::get('/reservation/{id}', 'Reservation\ReservationController@create')->name('reservation_create');
+Route::get('/reservation/add/{id}', 'Reservation\ReservationController@create')->name('reservation_create');
 Route::post('/reservation/store', 'Reservation\ReservationController@store')->name('reservation_store');
-Route::get('/reservation/waiting/0', 'Reservation\ReservationController@waiting')->name('reservation_waiting');
-Route::get('/reservation/collection/0', 'Reservation\ReservationController@collection')->name('collection');
-Route::get('/reservation/transacionLog/0', 'Reservation\ReservationController@transactionLog')->name('transaction_log');
+Route::get('/reservation/waiting', 'Reservation\ReservationController@waiting')->name('reservation_waiting');
+Route::get('/reservation/collection', 'Reservation\ReservationController@collection')->name('collection');
+Route::get('/reservation/transacionLog', 'Reservation\ReservationController@transactionLog')->name('transaction_log');
 Route::get('/reservation/cancel/{id}', 'Reservation\ReservationController@Cancel')->name('reservation_canceed');
 Route::get('/reservation/reject/{id}', 'Reservation\ReservationController@Reject')->name('reservation_rejected');
 Route::get('/reservation/accept/{id}', 'Reservation\ReservationController@Accept')->name('reservation_accepted');
@@ -96,3 +96,13 @@ Route::post('/admin/documentType/store', 'Admin\DocumentTypeController@store')->
 Route::get('/admin/documentType/changeStatus/{id}', 'Admin\DocumentTypeController@changeStatusDocumentType')->name('change_statusDocumentType');
 Route::get('/admin/documentType/edit/{id}', 'Admin\DocumentTypeController@edit')->name('admin_editDocumentType');
 Route::post('/admin/documentType/update', 'Admin\DocumentTypeController@update')->name('admin_updateDocumentType');
+
+
+// Admin (backend) - EXPERIENCE_CATEGORIES
+Route::get('/admin/experienceCategory', 'Admin\ExperienceCategoryController@index')->name('admin_experience_category');
+Route::get('/admin/experienceCategory/create', 'Admin\ExperienceCategoryController@create')->name('admin_createExperienceCategory');
+Route::post('/admin/experienceCategory/store', 'Admin\ExperienceCategoryController@store')->name('admin_storeExperienceCategory');
+Route::get('/admin/experienceCategory/changeStatus/{id}', 'Admin\ExperienceCategoryController@changeStatusExperienceCategory')->name('change_statusExperienceCategory');
+Route::get('/admin/experienceCategory/edit/{id}', 'Admin\ExperienceCategoryController@edit')->name('admin_editExperienceCategory');
+Route::post('/admin/experienceCategory/update', 'Admin\ExperienceCategoryController@update')->name('admin_updateExperienceCategory');
+

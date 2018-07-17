@@ -4,7 +4,7 @@
 
 @section('content')
 
-  <h1>Admin Cretae Currency</h1>
+  <h1>Admin Cretae Experience Category</h1>
 
 
   <div class="container">
@@ -19,23 +19,14 @@
       <div style="border-left: 1px solid #000;" class="col-md-10">
 
       <div class="container-fluid" style="margin-top: 20px;">
-      {!! Form::open(['route' => 'admin_currency_update', 'files' => true]) !!}      
+      {!! Form::open(['route' => 'admin_storeExperienceCategory', 'files' => true]) !!}      
       {!! Form::token(); !!}
-        {!! Form::hidden('id', $currency->id) !!}
         <div class="form-group">
-          {!! Form::label('cur_name', trans('admin.cur_name')) !!}
-          {!! Form::text('cur_name', $currency->cur_name) !!}
-        </div>
-        <div class="form-group">
-          {!! Form::label('cur_simbol', trans('admin.cur_simbol')) !!}
-          {!! Form::text('cur_simbol', $currency->cur_simbol) !!}
-        </div>
-        <div class="form-group">
-          {!! Form::label('cur_exchange', trans('admin.cur_exchange')) !!}
-          {!! Form::number('cur_exchange', $currency->cur_exchange, array('step'=>'0.01') ) !!}
+          {!! Form::label('category_name', trans('admin.category_name')) !!}
+          {!! Form::text('category_name') !!}
         </div>
         
-        {!! Form::submit(Lang::get('admin.cur_update')) !!}
+        {!! Form::submit(Lang::get('admin.category_save')) !!}
 
       {!! Form::close() !!}
       </div>

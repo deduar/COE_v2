@@ -9,7 +9,25 @@
     width: 100%;
     margin: 0px;
     padding: 0px;
+    background: #fff !important;
   }
+  .form-group{
+    padding-bottom: 40px;
+  }
+
+  .half {
+    position:relative;
+  }
+  .half:after {
+    content:'';
+    position:absolute;
+    z-index:1;
+    background:#fff;
+    width: 50%;
+    height: 100%;
+    left: 47%;
+  }
+
 </style>
 
 <div class="container">
@@ -107,32 +125,21 @@
             </a>
           </div>
           
-          <div class="col-md-10" style="background: #fff;">
+          <div class="col-md-12" style="background: #fff;">
             <h4 style="font-weight: bold;">{{ strtoupper($exp->exp_name) }}</h4>
           </div>
-          <div class="col-md-2" style="background: #fff;">
-            <a href="{{ route('user_show',array('id'=>$exp->user_id)) }}">
-              <img src={{asset('uploads/avatars/'.$exp->avatar)}} height="40px;" style="float: right; border-radius: 50%;">
-            </a>
+
+          <div class="col-md-12" style="background: #fff; padding-top: 10px; padding-bottom: 15px;">
+            with {{ $exp->name }} {{ $exp->last_name }} in {{ $exp->exp_location }}
+            <br>
+            <span style="background: #ccc; padding: 3px; color: #000;">{{trans('user.reviews')}}</span>
+            <span class="glyphicon glyphicon-star-empty"></span>
+            <span class="glyphicon glyphicon-star-empty"></span>
+            <span class="glyphicon glyphicon-star-empty"></span>
+            <span class="glyphicon glyphicon-star-empty half"></span>
           </div>
 
-          <div class="col-md-12" style="background: #fff;">
-            {{ $exp->name }} {{ $exp->last_name }} 
-            <span><br>{{ number_format($exp->exp_price, 2, '.', ',') }} {{ $exp->cur_simbol }} ({{ $exp->cur_name }})</span>
-            <span><br>{{ number_format($exp->exp_price/$exp->cur_exchange, 2, '.', ',') }} US$ (American Dollar)</span>
-          </div>
-
-            @if ($user == null)
-            <div class="col-md-12" style="background: #fff; padding-bottom: 12px;">
-              <a class="btn btn-success" style="float: right;" href="{{ route('reservation_create',array('id'=>$exp->exp_id)) }}">{{ trans('experience.reservation') }}</a>
-            </div>
-            @else
-              @if($exp->exp_guide_id != $user->id)
-              <div class="col-md-12" style="background: #fff; padding-bottom: 12px;">
-                <a class="btn btn-success" style="float: right;" href="{{ route('reservation_create',array('id'=>$exp->exp_id)) }}">{{ trans('experience.reservation') }}</a>
-              </div>
-              @endif
-            @endif
+          
 
         </div>
       </div>
