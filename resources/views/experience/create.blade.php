@@ -129,7 +129,7 @@
         {!! Form::label('exp_category', trans('experience.exp_category')) !!}
       </div>
       <div class="col-md-8">
-        {!! Form::number('exp_category', null, array('class'=>'form-control')) !!}
+        {!! Form::select('exp_currency', $cat, null, array('class'=>'form-control')) !!}
       </div>
     </div>
 

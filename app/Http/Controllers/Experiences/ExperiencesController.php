@@ -87,6 +87,12 @@ class ExperiencesController extends Controller
         foreach($currencies as $currency){
            $cur[$currency->id] = $currency->cur_name.' ['.$currency->cur_simbol.']';
         }
+        
+        $experienceCategory = App\ExperiencesCategories::all(['id','category_name']);        
+        $cat = [];
+        foreach($experienceCategory as $category){
+           $cat[$category->id] = $category->category_name;
+        }
 
         $myexps = DB::table('experience')
             ->join('currency','experience.exp_currency','=','currency.id')
@@ -94,7 +100,7 @@ class ExperiencesController extends Controller
             ->orderBy('experience.created_at','desc')
             ->paginate(4);
 
-        return view('experience.create', array('user'=>Auth::user(),'cur'=>$cur,'myexps'=>$myexps));
+        return view('experience.create', array('user'=>Auth::user(),'cur'=>$cur,'myexps'=>$myexps,'cat'=>$cat));
     }
 
     /**
@@ -206,10 +212,17 @@ class ExperiencesController extends Controller
         if (Auth::check()){
         $user = Auth::user();
         $exp = App\Experiences::find($id);
+
         $currencies = App\Currency::all(['id','cur_name','cur_simbol']);
         $cur = [];
         foreach($currencies as $currency){
            $cur[$currency->id] = $currency->cur_name.' ['.$currency->cur_simbol.']';
+        }
+
+        $experienceCategory = App\ExperiencesCategories::all(['id','category_name']);        
+        $cat = [];
+        foreach($experienceCategory as $category){
+           $cat[$category->id] = $category->category_name;
         }
 
         $myexps = DB::table('experience')
@@ -222,7 +235,7 @@ class ExperiencesController extends Controller
             ->where('exp_id',$id)
             ->get();
 
-        return view('experience.edit', array('user'=>Auth::user(),'exp'=>$exp,'cur'=>$cur,'myexps'=>$myexps, 'exp_photos'=>$exp_photos));
+        return view('experience.edit', array('user'=>Auth::user(),'exp'=>$exp,'cur'=>$cur,'cat'=>$cat,'myexps'=>$myexps, 'exp_photos'=>$exp_photos));
         } else {
             return redirect('auth/login');
         }
