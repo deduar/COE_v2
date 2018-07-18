@@ -198,7 +198,12 @@ class ExperiencesController extends Controller
                 ->select('experience.id as exp_id', 'exp_photo', 'exp_name', 'exp_location','exp_summary','exp_min_people','exp_max_people','exp_duration','exp_duration_h','exp_category','avatar', 'name', 'last_name', 'email', 'exp_price', 'cur_simbol', 'cur_name', 'cur_exchange', 'exp_guide_id')
                 ->where('experience.id',$id)
                 ->first();
-        return view('experience.show', array('user'=>$user,'exp'=>$exp));
+
+        $exp_galleries = DB::table('experience_photos')
+                ->where('experience_photos.exp_id',$id)
+                ->get();
+
+        return view('experience.show', array('user'=>$user,'exp'=>$exp,'exp_galleries'=>$exp_galleries));
     }
 
     /**
