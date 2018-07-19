@@ -65,10 +65,14 @@ class ExperiencesController extends Controller
     public function myexps()
     {
         if (Auth::check()){
-            $myexps = App\Experiences::where('exp_guide_id', Auth::user()->id)->orderBy('experience.created_at','desc')->paginate(6);
-            return view('experience.myexps', array('user'=>Auth::user(), 'myexps'=>$myexps));
+            $user = Auth::user();   
+            $myexps = DB::table('experience')
+                ->join('currency','experience.exp_currency','=','currency.id')
+                ->where('experience.exp_guide_id',$user->id)
+                ->orderBy('experience.created_at','desc')
+                ->paginate(6);
+            return view('experience.myexps', array('user'=>$user, 'myexps'=>$myexps));
         } else {
-            //return redirect()->route('login');
             return redirect('auth/login');
         }
     }
