@@ -25,8 +25,13 @@ class CreateExperienceTable extends Migration
             $table->integer('exp_duration');
             $table->enum('exp_duration_h', ['Days', 'Hours', 'Minutes']);
             $table->decimal('exp_price',10,2);
+            $table->integer('exp_currency');
             $table->integer('exp_category');
             $table->text('exp_private_notes');
+            $table->string('exp_video',255);
+            $table->enum('exp_status', ['Active', 'Inactive']->default('Active'));
+            $table->enum('exp_published', ['Active', 'Inactive']->default('Active'));
+            $table->tinyInteger('exp_flat');
         });
 
         Schema::table('experience', function ($table) {

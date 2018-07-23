@@ -117,7 +117,7 @@
   <div class="activity container-fluid" style="color: #000; font-weight: normal; background: #eaeaea;">
       <h1 style="text-align: center; margin-top: 40px; margin-bottom: 40px;">Best Activities And Tours Of Colombia</h1>
       @foreach($experiences as $exp)
-      <div class="col-md-4" style="margin-bottom: 30px;">
+      <div class="col-md-4" style="margin-bottom: 30px; height: 440px;">
         <div class="row" style="margin-right: 30px; margin-left: 30px;">
           <div class="col-md-12" style="padding: 0px;">
             <a href="{{route('experience_show',array('id'=>$exp->exp_id))}}">

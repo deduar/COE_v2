@@ -25,7 +25,9 @@ class ExperienceCategoryController extends Controller
     {
         $user = Auth::user();
         if ($user->admin) {
-            $experienceCategories = DB::table('experience_category')->paginate(3);
+            $experienceCategories = DB::table('experience_category')
+                ->orderBy('experience_category.created_at','asc')
+                ->paginate(3);
             return view('admin.experienceCategory', array('user'=>Auth::user(),'experienceCategories'=>$experienceCategories));
         } else {
             return view('experiences.index', array('user'=>Auth::user()));

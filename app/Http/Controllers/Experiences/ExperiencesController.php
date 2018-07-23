@@ -35,6 +35,8 @@ class ExperiencesController extends Controller
                 ->join('currency','experience.exp_currency','=','currency.id')
                 ->select('experience.id as exp_id', 'users.id as user_id','exp_photo', 'exp_name', 'avatar', 'name', 'last_name', 'email', 'exp_location','exp_price', 'cur_simbol', 'cur_name', 'cur_exchange', 'exp_guide_id')
                 ->where('users.group','Guide')
+                ->where('experience.exp_status','Active')
+                ->where('experience.exp_published','Active')
                 ->orderBy('experience.created_at','desc')
                 ->paginate(6);
         return view('welcome', array('user'=>$user,'experiences'=>$experiences));
@@ -68,6 +70,7 @@ class ExperiencesController extends Controller
             $user = Auth::user();   
             $myexps = DB::table('experience')
                 ->join('currency','experience.exp_currency','=','currency.id')
+                ->select('experience.id', 'experience.exp_photo','experience.exp_name','experience.exp_location', 'experience.exp_price', 'experience.exp_status','experience.exp_published','currency.cur_name','currency.cur_simbol')
                 ->where('experience.exp_guide_id',$user->id)
                 ->orderBy('experience.created_at','desc')
                 ->paginate(6);
@@ -159,6 +162,8 @@ class ExperiencesController extends Controller
         $exp->exp_category = $request->exp_category;
         $exp->exp_private_notes = $request->exp_private_notes;
         $exp->exp_video = $request->exp_video;
+        $exp->exp_published = 'Inactive';
+        $exp->exp_flat = $request->exp_flat;
 
         $exp->save();
 
@@ -302,4 +307,29 @@ class ExperiencesController extends Controller
             ->delete();
         return back()->withInput(['tab-pane'=>'photos']);
     }
+
+    public function changeStatus($id)
+    {
+        $exp = Experiences::find($id);
+        if ($exp->exp_status == "Active"){
+            $exp->exp_status = "Inactive";
+        } else {
+            $exp->exp_status = "Active";
+        }
+        $exp->save();
+        return redirect()->route('my_experience'); 
+    }
+
+    public function changePublisehd($id)
+    {
+        $exp = Experiences::find($id);
+        if ($exp->exp_published == "Active"){
+            $exp->exp_published = "Inactive";
+        } else {
+            $exp->exp_published = "Active";
+        }
+        $exp->save();
+        return redirect()->route('admin_experiences'); 
+    }
+
 }

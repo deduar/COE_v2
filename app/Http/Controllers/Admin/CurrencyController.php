@@ -26,7 +26,9 @@ class CurrencyController extends Controller
     {
         $user = Auth::user();
         if ($user->admin) {
-            $currencies = DB::table('currency')->paginate(3);
+            $currencies = DB::table('currency')
+            ->orderBy('currency.created_at','asc')
+            ->paginate(3);
             return view('admin.currency', array('user'=>Auth::user(),'currencies'=>$currencies));
         } else {
             return view('experiences.index', array('user'=>Auth::user()));

@@ -40,10 +40,10 @@
       <div>
         <div class="row" style="margin-bottom: 2px;">
         <div class="col-md-6">
-          <div class="btn btn-info" style="width: 100px;"><span class="glyphicon glyphicon-eye-open"> View</span></div>
+          <div class="btn btn-info" style="width: 100px;"><a href="{{route('experience_show',array('id'=>$exp->id))}}"><span class="glyphicon glyphicon-eye-open"> View</span></a></div>
         </div>
         <div class="col-md-6">
-          <div class="btn btn-info" style="width: 100px;"><span class="glyphicon glyphicon-pencil"> Edit</span></div>
+          <div class="btn btn-info" style="width: 100px;"><a href="{{route('experience_edit',array('id'=>$exp->id))}}"><span class="glyphicon glyphicon-pencil"> Edit</span></a></div>
         </div>
         </div>
         <div class="row" style="margin-bottom: 2px;">
@@ -56,10 +56,22 @@
         </div>
         <div class="row" style="margin-bottom: 2px;">
         <div class="col-md-6">
-          <div class="btn btn-primary" style="width: 100px;">Active</div>
+          @if($exp->exp_status == 'Active')
+            <div class="btn btn-primary" style="width: 100px;">
+              <a style="text-decoration: none; color: #fff;" href="{{route('change_status_experience',array('id'=>$exp->id))}}">Active</a>
+            </div>
+          @else
+            <div class="btn btn-danger" style="width: 100px;">
+              <a style="text-decoration: none; color: #fff;" href="{{route('change_status_experience',array('id'=>$exp->id))}}">Inactive</a>
+            </div>
+          @endif
         </div>
         <div class="col-md-6">
-          <div class="btn btn-primary" style="width: 100px;">Pending</div>
+          @if($exp->exp_published == 'Active')
+            <div class="btn btn-primary" style="width: 100px;">Published</div>
+          @else
+            <div class="btn btn-Danger" style="width: 100px;">Pending</div>
+          @endif
         </div>
         </div>
       </div>

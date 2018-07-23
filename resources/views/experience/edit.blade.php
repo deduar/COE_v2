@@ -124,8 +124,26 @@
       <div class="col-md-3">
         {!! Form::number('exp_price', $exp->exp_price, array('placeholder'=>$exp->exp_price, 'class'=>'form-control','step' => '0.01','min'=>'0')) !!}
       </div>
-      <div class="col-md-4">
-        {!! Form::select('exp_currency', $cur, null, array('class'=>'form-control')) !!}
+      <div class="col-md-3">
+        {!! Form::select('exp_currency', $cur, null, array('class'=>'form-control','style'=>'font-size: 10px;')) !!}
+      </div>
+      <div class="col-md-2">
+        <div class="col-md-12">
+          <div class="row">
+          <div class="col-md-6">
+            {!! Form::label('exp_flat', 'Flat', array('style'=>'float: left;')) !!}
+          </div>
+          <div class="col-md-6">
+            {!! Form::label('exp_flat', 'ByPerson') !!}
+          </div>
+          <div class="col-md-6">
+            {!! Form::radio('exp_flat', 1, $exp->exp_flat, array('id'=>'exp_flat')) !!}
+          </div>
+          <div class="col-md-6">
+            {!! Form::radio('exp_flat', 0, !$exp->exp_flat, array('id'=>'exp_flat')) !!}
+          </div>
+        </div>
+      </div>
       </div>
     </div>
 

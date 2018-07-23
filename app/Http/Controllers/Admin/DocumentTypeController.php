@@ -25,7 +25,9 @@ class DocumentTypeController extends Controller
     {
         $user = Auth::user();
         if ($user->admin) {
-            $documentTypes = DB::table('document_type')->paginate(3);
+            $documentTypes = DB::table('document_type')
+            ->orderBy('document_type.created_at','asc')
+            ->paginate(3);
             return view('admin.documentType', array('user'=>Auth::user(),'documentTypes'=>$documentTypes));
         } else {
             return view('experiences.index', array('user'=>Auth::user()));

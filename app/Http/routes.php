@@ -57,6 +57,9 @@ Route::get('/experience/edit/{id}', 'Experiences\ExperiencesController@edit')->n
 Route::get('/experience/{id}', 'Experiences\ExperiencesController@show')->name('experience_show');
 Route::post('/experience/update', 'Experiences\ExperiencesController@update')->name('experience_update');
 Route::get('/experience/remove_img/{id}', 'Experiences\ExperiencesController@remove_img')->name('remove_img');
+Route::get('/experience/changeStatus/{id}', 'Experiences\ExperiencesController@changeStatus')->name('change_status_experience');
+Route::get('/experience/changePublisehd/{id}', 'Experiences\ExperiencesController@changePublisehd')->name('change_published_experience');
+
 
 // Reservation
 Route::get('/reservation', 'Reservation\ReservationController@index')->name('reservation');

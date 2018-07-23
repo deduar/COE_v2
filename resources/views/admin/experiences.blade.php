@@ -41,6 +41,17 @@
                     <img src={{asset('uploads/avatars/'.$exp->avatar)}} height="40px;" style="border-radius: 50%;">
                   </a>
                 </th>
+                <th>
+                  @if($exp->exp_published == 'Active')
+                    <div class="btn btn-primary">
+                      <a style="text-decoration: none; color: #fff;" href="{{route('change_published_experience',array('id'=>$exp->id))}}">Publisehd</a>
+                    </div>
+                  @else
+                    <div class="btn btn-danger">
+                      <a style="text-decoration: none; color: #fff;" href="{{route('change_published_experience',array('id'=>$exp->id))}}">Pending</a>
+                    </div>
+                  @endif
+                </th>
               </tr>
             @endforeach
 

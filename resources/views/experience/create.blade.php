@@ -116,11 +116,29 @@
       <div class="col-md-2 col-md-offset-1">
         {!! Form::label('exp_price', trans('experience.exp_price')).' <span class="glyphicon glyphicon-info-sign" style="color: red" title="OBLIGATORIO/REQUIRED"></span>' !!}
       </div>
-      <div class="col-md-3">
+      <div class="col-md-2">
         {!! Form::number('exp_price', Input::old('exp_price'), array('placeholder'=>trans('experience.exp_price_placeHolder'), 'class'=>'form-control','step' => '0.01','min'=>'0')) !!}
       </div>
       <div class="col-md-4">
         {!! Form::select('exp_currency', $cur, null, array('class'=>'form-control')) !!}
+      </div>
+      <div class="col-md-2">
+        <div class="col-md-12">
+          <div class="row">
+          <div class="col-md-6">
+            {!! Form::label('exp_flat', 'Flat', array('style'=>'float: left;')) !!}
+          </div>
+          <div class="col-md-6">
+            {!! Form::label('exp_flat', 'ByPerson') !!}
+          </div>
+          <div class="col-md-6">
+            {!! Form::radio('exp_flat', 1, 0, array('id'=>'exp_flat')) !!}
+          </div>
+          <div class="col-md-6">
+            {!! Form::radio('exp_flat', 0, 1, array('id'=>'exp_flat')) !!}
+          </div>
+        </div>
+      </div>
       </div>
     </div>
 
@@ -129,7 +147,7 @@
         {!! Form::label('exp_category', trans('experience.exp_category')) !!}
       </div>
       <div class="col-md-8">
-        {!! Form::select('exp_currency', $cat, null, array('class'=>'form-control')) !!}
+        {!! Form::select('exp_category', $cat, null, array('class'=>'form-control')) !!}
       </div>
     </div>
 

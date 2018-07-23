@@ -104,7 +104,9 @@ class AdminController extends Controller
 
     public function users()
     {
-        $users = DB::table('users')->paginate(3);
+        $users = DB::table('users')
+        ->orderBy('users.created_at','desc')
+        ->paginate(3);
         return view ('admin.users', array('user'=>Auth::user(),'users'=>$users));
     }
 
@@ -136,6 +138,7 @@ class AdminController extends Controller
     {
         $experiences = DB::table('users')
                 ->join('experience','users.id','=','experience.exp_guide_id')
+                ->orderBy('experience.created_at','desc')
                 ->paginate(3);
                 //->get();
         //$experiences = Experiences::all();
