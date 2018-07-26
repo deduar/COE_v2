@@ -88,7 +88,7 @@ class ExperiencesController extends Controller
     public function create()
     {
         $user = Auth::user();
-        $myexp = App\Experiences::all();
+        
         $currencies = App\Currency::all(['id','cur_name','cur_simbol']);
         $cur = [];
         foreach($currencies as $currency){
@@ -101,13 +101,7 @@ class ExperiencesController extends Controller
            $cat[$category->id] = $category->category_name;
         }
 
-        $myexps = DB::table('experience')
-            ->join('currency','experience.exp_currency','=','currency.id')
-            ->where('experience.exp_guide_id',$user->id)
-            ->orderBy('experience.created_at','desc')
-            ->paginate(4);
-
-        return view('experience.create', array('user'=>Auth::user(),'cur'=>$cur,'myexps'=>$myexps,'cat'=>$cat));
+        return view('experience.create', array('user'=>Auth::user(),'cur'=>$cur,'cat'=>$cat));
     }
 
     /**

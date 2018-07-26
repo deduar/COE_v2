@@ -48,17 +48,21 @@ Route::get('/user/resend', 'Users\UsersController@resend')->name('resend');
 Route::get('/user/verify/{register_code}', 'Users\UsersController@verify')->name('verify');
 Route::get('/user/show', 'Users\UsersController@show')->name('user_show');
 
-// Experience
+// EXPERIENCXES ********
 Route::get('/experiences', 'Experiences\ExperiencesController@index')->name('experience_index');
 Route::get('/experience', 'Experiences\ExperiencesController@myexps')->name('my_experience');
 Route::get('/experience/create', 'Experiences\ExperiencesController@create')->name('experience_create');
 Route::post('/experience/create', 'Experiences\ExperiencesController@store')->name('experience_store');
+Route::get('/experience/create_photos', 'Experiences\ExperiencesController@createPhotos')->name('experience_create_photos');
+Route::post('/experience/create_photos', 'Experiences\ExperiencesController@storePhotos')->name('experience_store_photos');
 Route::get('/experience/edit/{id}', 'Experiences\ExperiencesController@edit')->name('experience_edit');
 Route::get('/experience/{id}', 'Experiences\ExperiencesController@show')->name('experience_show');
 Route::post('/experience/update', 'Experiences\ExperiencesController@update')->name('experience_update');
 Route::get('/experience/remove_img/{id}', 'Experiences\ExperiencesController@remove_img')->name('remove_img');
 Route::get('/experience/changeStatus/{id}', 'Experiences\ExperiencesController@changeStatus')->name('change_status_experience');
 Route::get('/experience/changePublisehd/{id}', 'Experiences\ExperiencesController@changePublisehd')->name('change_published_experience');
+Route::get('/experience/create', 'Experiences\ExperiencesController@create')->name('experience_create');
+Route::post('/experience/create', 'Experiences\ExperiencesController@store')->name('experience_store');
 
 
 // Reservation

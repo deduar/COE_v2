@@ -23,17 +23,18 @@
   .form-group{
     padding-bottom: 40px;
   }
+
 </style>
 
 <div class="row">
   <div class="col-md-offset-2 col-md-8" style="padding-left: 0px; padding-right: 0px;">
   <ul class="nav nav-tabs">
     <li class="active"><a  href="#basic" data-toggle="tab">Basic</a></li>
-    <li><a href="#photos" data-toggle="tab">Photos</a></li>
-    <li><a href="#scheduler" data-toggle="tab">Scheduler</a></li>
-    <li><a href="#profile" data-toggle="tab">Profile</a></li>
-    <li><a href="#payment" data-toggle="tab">Payment</a></li>
-    <li><a href="#publis" data-toggle="tab">Publish</a></li>
+    <li class="disabled"><a href="{{route('experience_create_photos')}}">Photos</a></li>
+    <li class="disabled"><a href="#scheduler" data-toggle="tab">Scheduler</a></li>
+    <li class="disabled"><a href="#profile" data-toggle="tab">Profile</a></li>
+    <li class="disabled"><a href="#payment" data-toggle="tab">Payment</a></li>
+    <li class="disabled"><a href="#publis" data-toggle="tab">Publish</a></li>
   </ul>
   <hr style="margin-bottom: 0px;">
 
@@ -43,7 +44,7 @@
   <div class="tab-content clearfix">
   <div class="tab-pane active" id="basic">
 
-    <h1 style="background: #fbfbfb; padding: 10px; color:#000; margin-top: 0px; margin-bottom: 0px; height: 90px; padding-top: 30px;">The Basic</h1>
+    <h1 style="background: #fbfbfb; padding: 10px; color:#000; margin-top: 0px; margin-bottom: 0px; height: 90px; padding-top: 30px;">The Basic <span class="btn btn-success" style="height: 40PX; float: right; font-weight: bold;">{!! Form::submit('NEXT', array('class'=>'btn btn-success')) !!} <span class="glyphicon glyphicon-chevron-right"></span></span></h1>
 
     <div class="container-fluid" style="margin-top: 0px; border:1px solid #ddd;">
     <br><br>
@@ -166,147 +167,12 @@
   
   </div>
 
-  <div id="photos" class="tab-pane">
-    <h1 style="background: #fbfbfb; padding: 10px; color:#000; margin-top: 0px; margin-bottom: 0px; height: 90px; padding-top: 30px;">Photos</h1>
-    <div class="container-fluid" style="margin-top: 0px; border:1px solid #ddd;">
-    <div class="form-group">
-      {!! Form::label('exp_photo', trans('experience.exp_photo')).' <span class="glyphicon glyphicon-info-sign" style="color: red" title="OBLIGATORIO/REQUIRED"></span>' !!}
-      {!! Form::file('exp_photo', null, array('class'=>'form-control')) !!}
-    </div>
-     <div class="form-group">
-      {!! Form::label('exp_photo', trans('experience.exp_video')) !!}
-      {!! Form::text('exp_video', Input::old('exp_video'), array('placeholder'=>trans('experience.exp_video_placeHolder'), 'class'=>'form-control')) !!}
-    </div>
-
-    {!! Form::label('exp_more_photo_label', trans('experience.exp_more_photos_label')) !!}
-    <div class="form-group">  
-      <div class="col-md-4">
-        {!! Form::label('exp_more_photo', trans('experience.exp_more_potos')) !!}
-      </div>
-      <div class="col-md-3">
-        <input type="file" name="file[]" multiple>
-      </div>
-    </div>
-
-    </div>
-
-  </div>
-
-  <div id="scheduler" class="tab-pane">
-    <h1 style="background: #fbfbfb; padding: 10px; color:#000; margin-top: 0px; margin-bottom: 0px; height: 90px; padding-top: 30px;">Schedule</h1>
-    <div class="container-fluid" style="margin-top: 0px; border:1px solid #ddd;">
-    <br><br>
-    <div class="form-group {{ $errors->has('exp_name') ? 'has-error' : '' }}">
-      <div class="col-md-2 col-md-offset-1">
-        {!! Form::label('exp_schedule_type', trans('experience.schedule_type')) !!}
-      </div>
-      <div class="col-md-8">
-        {!! Form::select('exp_schedule_type',
-              array(
-                'Unavaible' => trans('experience.unavaible'),
-                'InstanBook' => trans('experience.instan_book')),
-              null, array('class'=>'form-control')
-            )
-        !!}
-      </div>
-    </div>
-    <div class="form-group {{ $errors->has('exp_name') ? 'has-error' : '' }}">
-      <div class="col-md-2 col-md-offset-1">
-        {!! Form::label('exp_begin_date', trans('experience.schedule_begin' )) !!}
-      </div>
-      <div class="col-md-8">
-       {!! Form::datetime('exp_begin_date', \Carbon\Carbon::now()->format('d/m/Y H:i'), Input::old('exp_begin_date'), array('placeholder'=>trans('experience.exp_begin_schedule_placeHolder'), 'class'=>'form-control')) !!}
-      </div>
-    </div>
-    <div class="form-group {{ $errors->has('exp_name') ? 'has-error' : '' }}">
-      <div class="col-md-2 col-md-offset-1">
-        {!! Form::label('exp_end_date', trans('experience.schedule_end' )) !!}
-      </div>
-      <div class="col-md-8">
-       {!! Form::datetime('exp_end_date', \Carbon\Carbon::now()->format('d/m/Y H:i'), Input::old('exp_end_date'), array('placeholder'=>trans('experience.exp_end_schedule_placeHolder'), 'class'=>'form-control')) !!}
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="btn btn-success glyphicon glyphicon-plus-sign" style="float: right;">
-        <a style="text-decoration: none; color:#fff;" ref="#">
-          {{trans('experience.add_schedule')}}
-        </a>
-      </div>
-    </div>
-    </div>
-  </div>
-
-  <div id="profile" class="tab-pane">
-    <h1 style="background: #fbfbfb; padding: 10px; color:#000; margin-top: 0px; margin-bottom: 0px; height: 90px; padding-top: 30px;">Profile</h1>
-    <div class="row" style="margin-bottom: 30px;">
-    <div class="col-md-12" style="padding-left: 0px; padding-right: 0px;">
-
-      <div class="container-fluid" style="margin-top: 20px;">
-          <div class="col-md-3 col-md-offset-1" style="border: 1px solid #000; padding-top: 10px; padding-bottom: 10px;">
-          <img src={{ asset('uploads/avatars/'.$user->avatar)}} height="170px;">
-          <hr>
-          <h4 style="color: #000; font-weight: bold;">{{ $user->name }} {{ $user->last_name }}</h4>
-          <h5>
-              <span class="glyphicon glyphicon-star-empty"></span>
-              <span class="glyphicon glyphicon-star-empty"></span>
-              <span class="glyphicon glyphicon-star-empty"></span>
-              <span class="glyphicon glyphicon-star-empty half"></span>
-          </h5>
-          <div class="btn btn-primary" style="width: 100%">{{trans('user.mycollection')}}</div>
-          </div>
-          <div class="col-md-6">
-              <div class="btn btn-default" style="float:right;"><a style="text-decoration: none;" href="{{route('edit_profile')}}">{{trans('exp.profile_edit')}}</a></div>
-              <div class="col-md-12">
-                  <h4>{{trans('user.biography')}}</h4>
-                  <span style="height: 90%; width: 90%;">{{$user->biography}}</span>
-                  <hr>
-              </div>
-              <div class="col-md-12">
-                  <h4>{{trans('user.review')}}</h4>
-                  <hr>
-              </div>
-
-          </div>
-      </div>
-
-      <div class="container-fluid" style="margin-top: 20px;">
-          @foreach ($myexps as $exp)
-          <div class="col-md-12" style="border: 1px solid #ccc; width: 90%;height: 120px; margin-top: 10px; padding-top: 10px; margin-left: 10px;">
-              <div class="col-md-3">
-                  <img src={{asset('uploads/exp/'.$exp->exp_photo)}} height="85px;">
-              </div>
-              <div class="col-md-9">
-                  <div class="col-md-6"><h4>{{$exp->exp_name}}</h4></div>
-                  <div class="col-md-6"><h5>{{$exp->cur_simbol}} {{$exp->exp_price}} {{$exp->cur_name}}</h5></div>
-                  <div class="btn btn-default" style="float:right;">{{trans('exp.detail')}}</div>
-              </div>
-              <h5>
-                  <span style="background: #ccc; padding: 3px; color: #000;">{{trans('user.reviews')}}</span>
-                  <span class="glyphicon glyphicon-star-empty"></span>
-                  <span class="glyphicon glyphicon-star-empty"></span>
-                  <span class="glyphicon glyphicon-star-empty"></span>
-                  <span class="glyphicon glyphicon-star-empty half"></span>
-              </h5>
-          </div>
-          @endforeach
-      </div>
-
-    </div>
-  </div>
-  {!! $myexps->render() !!}
-  </div>
-
-  <div id="payment" class="tab-pane">
-
-  </div>
-
-  <div id="Publish" class="tab-pane">
-
-  </div>
 
   <div class="form-group" style="background: #fbfbfb; padding: 10px; color:#000; margin-top: 0px; margin-bottom: 0px; height: 90px; padding-top: 30px;">
-      {!! Form::submit(Lang::get('experience.save'), array('class' => 'btn btn-success','style'=>'width: 180px;')) !!}
+    <span class="btn btn-success" style="height: 40PX; font-weight: bold;">{!! Form::submit('NEXT', array('class'=>'btn btn-success')) !!} <span class="glyphicon glyphicon-chevron-right"></span></span>
   </div>
+
+  
 
 </div>
 

@@ -5,7 +5,11 @@
 		[
 			[
 				"col",
-				"color\tproperty"
+				"col-md-3"
+			],
+			[
+				"col-",
+				"col-md-12"
 			],
 			[
 				"bt",
@@ -162,10 +166,6 @@
 			[
 				"publi",
 				"Publish"
-			],
-			[
-				"col-",
-				"col-md-8"
 			],
 			[
 				"col-md-",
@@ -529,10 +529,10 @@
 			}
 		},
 		{
-			"file": "resources/views/welcome.blade.php",
+			"file": "resources/views/experience/create.blade.php",
 			"settings":
 			{
-				"buffer_size": 8846,
+				"buffer_size": 13695,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -600,22 +600,26 @@
 		"/home/deduar/Projects/Coexperiences_v-2.0/app",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers",
+		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Experiences",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views"
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience"
 	],
 	"file_history":
 	[
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create_orig.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Experiences/ExperiencesController.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/edit.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/database/migrations/2018_05_26_100001_create_experience_table.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/app/Experiences.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/welcome.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Admin/AdminController.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Admin/ExperienceCategoryController.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Admin/CurrencyController.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Admin/DocumentTypeController.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create.blade.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Experiences/ExperiencesController.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/admin/experiences.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/myexps.blade.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/database/migrations/2018_05_26_100001_create_experience_table.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/app/Experiences.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/edit.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/index.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/show.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/database/migrations/2018_07_17_100001_create_experience_category_schedule_table.php",
@@ -632,7 +636,6 @@
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/admin/documentType.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/ExperiencesCategories.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Reservation/ReservationController.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/welcome.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/user/editProfile.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Users/UsersController.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/user/show.blade.php",
@@ -731,12 +734,11 @@
 		"/home/deduar/Projects/repo/UEMURA_scraping/plugins/uemura/destinations/models/Countries.php",
 		"/home/deduar/Projects/repo/UEMURA_scraping/plugins/uemura/destinations/models/Cities.php",
 		"/home/deduar/Projects/repo/UEMURA_scraping/themes/demo/pages/cities_old.htm",
-		"/home/deduar/Projects/repo/UEMURA_scraping/plugins/uemura/destinations/models/Languages.php",
-		"/home/deduar/Projects/repo/UEMURA_scraping/themes/demo/pages/home.htm"
+		"/home/deduar/Projects/repo/UEMURA_scraping/plugins/uemura/destinations/models/Languages.php"
 	],
 	"find":
 	{
-		"height": 38.0
+		"height": 22.0
 	},
 	"find_in_files":
 	{
@@ -957,7 +959,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 928.0,
+						"translation.y": 759.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -965,19 +967,19 @@
 				},
 				{
 					"buffer": 1,
-					"file": "resources/views/welcome.blade.php",
+					"file": "resources/views/experience/create.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8846,
+						"buffer_size": 13695,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5210,
-								5210
+								671,
+								671
 							]
 						],
 						"settings":
@@ -990,7 +992,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1598.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1088,7 +1090,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 247.0,
+	"side_bar_width": 187.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
