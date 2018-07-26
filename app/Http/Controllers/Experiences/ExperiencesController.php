@@ -117,8 +117,6 @@ class ExperiencesController extends Controller
                 'exp_name'=>'required',
                 'exp_location'=>'required',
                 'exp_summary'=>'required',
-                'exp_photo'=>'required',
-                'exp_summary'=>'required',
                 'exp_min_people'=>'required',
                 'exp_max_people'=>'required',
                 'exp_duration'=>'required',
@@ -126,8 +124,7 @@ class ExperiencesController extends Controller
                 'exp_price'=>'required',
                 'exp_currency'=>'required',
                 'exp_category',
-                'exp_private_note',
-                'exp_video',
+                'exp_private_note'
             ),
             array(
             )
@@ -160,7 +157,7 @@ class ExperiencesController extends Controller
         $exp->exp_flat = $request->exp_flat;
 
         $exp->save();
-
+/*
         if($request->hasFile('file'))
         {
             $files = $request->file('file');
@@ -178,8 +175,17 @@ class ExperiencesController extends Controller
             $user->group = "Guide";
             $user->update();
         }
-                
-        return redirect()->route('my_experience');
+*/                
+        //return redirect()->route('my_experience');
+
+        return redirect()->route('experience_create_photos',array('id'=>$exp->id));
+    }
+
+    public function createPhotos($id)
+    {
+        $user = Auth::user();
+        //$exp = Experiences::find($id);
+        return view('experience.create_photos', array('user'=>$user,'id'=>$id));
     }
 
     /**
