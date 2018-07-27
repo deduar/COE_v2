@@ -135,13 +135,13 @@ class ExperiencesController extends Controller
         
         $exp->exp_name = $request->exp_name;
         $exp->exp_guide_id = $user->id;
-        
+/*        
         if ($request->file('exp_photo')){
             $filename = time().'.'.$request->file('exp_photo')->getClientOriginalExtension();
             Image::make($request->file('exp_photo'))->resize(300,300)->save( public_path('uploads/exp/'.$filename));
             $exp->exp_photo = $filename;
         }
-
+*/
         $exp->exp_location = $request->exp_location;
         $exp->exp_summary = $request->exp_summary;
         $exp->exp_min_people = $request->exp_min_people;
@@ -187,6 +187,79 @@ class ExperiencesController extends Controller
         //$exp = Experiences::find($id);
         return view('experience.create_photos', array('user'=>$user,'id'=>$id));
     }
+
+    public function storePhotos(Request $request)
+    {
+        $exp = App\Experiences::find($request->id);
+
+        if ($request->file('exp_photo')){
+            $filename = time().'.'.$request->file('exp_photo')->getClientOriginalExtension();
+            Image::make($request->file('exp_photo'))->resize(300,300)->save( public_path('uploads/exp/'.$filename));
+            $exp->exp_photo = $filename;
+        }
+
+        if($request->hasFile('file'))
+        {
+            $files = $request->file('file');
+            foreach ($files as $file) {
+                $exp_photo = new ExperiencesPhotos;
+                $exp_photo->exp_id = $exp->id;
+                $filename = time().'.'.$file->getClientOriginalExtension();
+                $file->move(public_path().'/uploads/exp/', $filename);
+                $exp_photo->exp_photo = $filename;
+                $exp_photo->save();
+            }
+        }
+
+        $exp->update();
+        return redirect()->route('experience_create_schedule',array('id'=>$request->id));
+    }
+
+    public function createSchedule($id)
+    {
+        $user = Auth::user();
+        return view('experience.create_schedule', array('user'=>$user,'id'=>$id));
+    }
+
+    public function storeSchedule(Request $request)
+    {
+        $exp = App\Experiences::find($request->id);
+
+        //$exp->update(); // TO DO ALL *******
+        return redirect()->route('experience_create_payment',array('id'=>$request->id));
+    }
+
+    public function createPayment($id)
+    {
+        $user = Auth::user();
+        $exp = App\Experiences::find($id);
+        $docTypes = App\DocumentType::all(['id','documentType_name']);
+        $documentTypes = [];
+        foreach($docTypes as $docType){
+            $documentTypes[$docType->id] = $docType->documentType_name;
+        }
+        return view('experience.create_payment', array('user'=>$user,'id'=>$id,'exp'=>$exp ,'documentTypes'=>$documentTypes));
+    }
+
+    public function storePayment(Request $request)
+    {
+        $exp = App\Experiences::find($request->id);
+        $exp->update($request->all());
+        return redirect()->route('experience_create_publish',array('id'=>$request->id));
+    }
+
+    public function createPublish($id)
+    {
+        $user = Auth::user();
+        return view('experience.create_publish', array('user'=>$user,'id'=>$id));
+    }
+
+    public function storePublish(Request $request)
+    {
+        return redirect()->route('experience_show',array('id'=>$request->id));
+    }
+
+
 
     /**
      * Display the specified resource.

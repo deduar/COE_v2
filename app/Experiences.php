@@ -18,7 +18,7 @@ class Experiences extends Model
      *
      * @var array
      */
-    protected $fillable = ['exp_name', 'exp_guide_id', 'exp_photo', 'exp_location', 'exp_summary','exp_min_people', 'exp_max_people', 'exp_duration', 'exp_duration_h', 'exp_price','exp_currency', 'exp_category', 'exp_private_note', 'exp_video','exp_statys','exp_published','exp_flat'];
+    protected $fillable = ['exp_name', 'exp_guide_id', 'exp_photo', 'exp_location', 'exp_summary','exp_min_people', 'exp_max_people', 'exp_duration', 'exp_duration_h', 'exp_price','exp_currency', 'exp_category', 'exp_private_note', 'exp_video','exp_statys','exp_published','exp_flat','exp_paypal','exp_bank_name','exp_beneficiary','exp_account_number','exp_document_type','exp_document_number'];
 
     /**
      * The attributes excluded from the model's JSON form.

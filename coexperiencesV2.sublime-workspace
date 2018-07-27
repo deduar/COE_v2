@@ -4,16 +4,72 @@
 		"selected_items":
 		[
 			[
+				"marg",
+				"margin-bottom\tproperty"
+			],
+			[
+				"bt",
+				"btn"
+			],
+			[
 				"col",
-				"col-md-3"
+				"col-md-offset-2"
+			],
+			[
+				"pad",
+				"padding-bottom\tproperty"
+			],
+			[
+				"pa",
+				"padding\tproperty"
+			],
+			[
+				"create_",
+				"create_schedule"
+			],
+			[
+				"req",
+				"request-"
+			],
+			[
+				"exp_pho",
+				"exp_photo"
+			],
+			[
+				"re",
+				"request"
+			],
+			[
+				"for",
+				"form-group"
+			],
+			[
+				"Expe",
+				"Experiences"
+			],
+			[
+				"fon",
+				"font-weight\tproperty"
+			],
+			[
+				"gl",
+				"glyphicon"
+			],
+			[
+				"WH",
+				"width\tproperty"
+			],
+			[
+				"btN",
+				"btn-success"
+			],
+			[
+				"btn",
+				"btn-primary"
 			],
 			[
 				"col-",
 				"col-md-12"
-			],
-			[
-				"bt",
-				"btn-default"
 			],
 			[
 				"tab",
@@ -22,18 +78,6 @@
 			[
 				"experi",
 				"experiences"
-			],
-			[
-				"marg",
-				"margin-bottom\tproperty"
-			],
-			[
-				"pa",
-				"padding-bottom\tproperty"
-			],
-			[
-				"gl",
-				"glyphicon-plus-sign"
 			],
 			[
 				"cu",
@@ -58,10 +102,6 @@
 			[
 				"padd",
 				"padding-bottom\tproperty"
-			],
-			[
-				"pad",
-				"padding\tproperty"
 			],
 			[
 				"Docyme",
@@ -92,10 +132,6 @@
 				"font-size\tproperty"
 			],
 			[
-				"re",
-				"return"
-			],
-			[
 				"pub",
 				"public"
 			],
@@ -112,20 +148,8 @@
 				"exp_photos"
 			],
 			[
-				"Expe",
-				"ExperiencesPhotos"
-			],
-			[
-				"for",
-				"foreach\tforeach …"
-			],
-			[
 				"Ex",
 				"ExperiencesPhotos"
-			],
-			[
-				"exp_pho",
-				"exp_photos"
 			],
 			[
 				"has",
@@ -178,10 +202,6 @@
 			[
 				"margi",
 				"margin-left\tproperty"
-			],
-			[
-				"fon",
-				"font-size\tproperty"
 			],
 			[
 				"foint",
@@ -312,10 +332,6 @@
 				"myexps"
 			],
 			[
-				"btn",
-				"btn-primary"
-			],
-			[
 				"wi",
 				"width\tproperty"
 			],
@@ -338,10 +354,6 @@
 			[
 				"margin-",
 				"margin-right"
-			],
-			[
-				"req",
-				"request"
 			],
 			[
 				"bord",
@@ -502,18 +514,6 @@
 			[
 				"com",
 				"componet"
-			],
-			[
-				"book",
-				"booking_time1"
-			],
-			[
-				"revi",
-				"reviewCO2"
-			],
-			[
-				"rev",
-				"reviewCO2"
 			]
 		]
 	},
@@ -523,16 +523,25 @@
 			"file": "app/Http/routes.php",
 			"settings":
 			{
-				"buffer_size": 7523,
+				"buffer_size": 8803,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "resources/views/experience/create.blade.php",
+			"file": "app/Http/Controllers/Experiences/ExperiencesController.php",
 			"settings":
 			{
-				"buffer_size": 13695,
+				"buffer_size": 13894,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/experience/create_publish.blade.php",
+			"settings":
+			{
+				"buffer_size": 2323,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -601,18 +610,22 @@
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Experiences",
+		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Users",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience"
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/user"
 	],
 	"file_history":
 	[
+		"/home/deduar/Projects/Coexperiences_v-2.0/database/migrations/2018_05_26_100001_create_experience_table.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/app/Experiences.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create_orig.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create_schedule.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create_photos_old.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Experiences/ExperiencesController.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/edit.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create.blade.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/database/migrations/2018_05_26_100001_create_experience_table.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/app/Experiences.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/welcome.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Admin/AdminController.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Admin/ExperienceCategoryController.php",
@@ -732,13 +745,11 @@
 		"/home/deduar/Projects/repo/UEMURA_scraping/themes/demo/pages/cities.htm",
 		"/home/deduar/Projects/repo/UEMURA_scraping/themes/demo/pages/countries.htm",
 		"/home/deduar/Projects/repo/UEMURA_scraping/plugins/uemura/destinations/models/Countries.php",
-		"/home/deduar/Projects/repo/UEMURA_scraping/plugins/uemura/destinations/models/Cities.php",
-		"/home/deduar/Projects/repo/UEMURA_scraping/themes/demo/pages/cities_old.htm",
-		"/home/deduar/Projects/repo/UEMURA_scraping/plugins/uemura/destinations/models/Languages.php"
+		"/home/deduar/Projects/repo/UEMURA_scraping/plugins/uemura/destinations/models/Cities.php"
 	],
 	"find":
 	{
-		"height": 22.0
+		"height": 38.0
 	},
 	"find_in_files":
 	{
@@ -752,6 +763,22 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"update",
+			" >",
+			"\n    ",
+			"payment",
+			"photos",
+			"schedule",
+			"photos",
+			"phot",
+			"photos",
+			",\n",
+			"info-sign",
+			"red",
+			"gly",
+			"photo",
+			"{!! Form::submit(Lang::get('experience.save'), array('class' => 'btn btn-success','style'=>'width: 180px;')) !!}",
+			"Basic",
 			"experiences = DB",
 			"scheduler",
 			"experience",
@@ -863,23 +890,7 @@
 			"user",
 			"exp",
 			"admin",
-			"return ",
-			"waitin",
-			"experience",
-			"$us",
-			"us",
-			"admin",
-			"DB",
-			"transacctional_history",
-			"experie",
-			";",
-			"40px",
-			";",
-			"name",
-			"store",
-			"name",
-			"DB",
-			"user/profile"
+			"return "
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -887,6 +898,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"asterisk",
 			"$us_prof",
 			"$exp",
 			"exp",
@@ -939,15 +951,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7523,
+						"buffer_size": 8803,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5251,
-								5251
+								3922,
+								3922
 							]
 						],
 						"settings":
@@ -959,7 +971,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 759.0,
+						"translation.y": 948.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -967,19 +979,52 @@
 				},
 				{
 					"buffer": 1,
-					"file": "resources/views/experience/create.blade.php",
+					"file": "app/Http/Controllers/Experiences/ExperiencesController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 13695,
+						"buffer_size": 13894,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								671,
-								671
+								9123,
+								9123
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2989.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "resources/views/experience/create_publish.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2323,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2046,
+								2046
 							]
 						],
 						"settings":
@@ -992,10 +1037,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 481.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1090,7 +1135,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 187.0,
+	"side_bar_width": 254.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

@@ -32,6 +32,12 @@ class CreateExperienceTable extends Migration
             $table->enum('exp_status', ['Active', 'Inactive']->default('Active'));
             $table->enum('exp_published', ['Active', 'Inactive']->default('Active'));
             $table->tinyInteger('exp_flat');
+            $table->text('exp_paypal');
+            $table->text('exp_bank_name');
+            $table->text('exp_beneficiary');
+            $table->text('exp_account_number');
+            $table->integer('exp_document_type');
+            $table->text('exp_document_number');
         });
 
         Schema::table('experience', function ($table) {
