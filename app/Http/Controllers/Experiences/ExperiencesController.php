@@ -117,16 +117,10 @@ class ExperiencesController extends Controller
                 'exp_name'=>'required',
                 'exp_location'=>'required',
                 'exp_summary'=>'required',
-                'exp_min_people'=>'required',
-                'exp_max_people'=>'required',
+                'exp_min_people'=>'required | integer | min: 0',
+                'exp_max_people'=>'required | integer | min:'.$request->exp_min_people,
                 'exp_duration'=>'required',
-                'exp_duration_h'=>'required',
-                'exp_price'=>'required',
-                'exp_currency'=>'required',
-                'exp_category',
-                'exp_private_note'
-            ),
-            array(
+                'exp_price'=>'required'
             )
         );
 
@@ -135,13 +129,6 @@ class ExperiencesController extends Controller
         
         $exp->exp_name = $request->exp_name;
         $exp->exp_guide_id = $user->id;
-/*        
-        if ($request->file('exp_photo')){
-            $filename = time().'.'.$request->file('exp_photo')->getClientOriginalExtension();
-            Image::make($request->file('exp_photo'))->resize(300,300)->save( public_path('uploads/exp/'.$filename));
-            $exp->exp_photo = $filename;
-        }
-*/
         $exp->exp_location = $request->exp_location;
         $exp->exp_summary = $request->exp_summary;
         $exp->exp_min_people = $request->exp_min_people;
@@ -157,26 +144,6 @@ class ExperiencesController extends Controller
         $exp->exp_flat = $request->exp_flat;
 
         $exp->save();
-/*
-        if($request->hasFile('file'))
-        {
-            $files = $request->file('file');
-            foreach ($files as $file) {
-                $exp_photo = new ExperiencesPhotos;
-                $exp_photo->exp_id = $exp->id;
-                $filename = time().'.'.$file->getClientOriginalExtension();
-                $file->move(public_path().'/uploads/exp/', $filename);
-                $exp_photo->exp_photo = $filename;
-                $exp_photo->save();
-            }
-        }
-        
-        if ($user->guide != 'Guide') {
-            $user->group = "Guide";
-            $user->update();
-        }
-*/                
-        //return redirect()->route('my_experience');
 
         return redirect()->route('experience_create_photos',array('id'=>$exp->id));
     }
@@ -190,6 +157,11 @@ class ExperiencesController extends Controller
 
     public function storePhotos(Request $request)
     {
+        $validator = $this->validate($request,
+            array(
+                'exp_photo'=>'required',
+            )
+        );
         $exp = App\Experiences::find($request->id);
 
         if ($request->file('exp_photo')){
@@ -223,9 +195,13 @@ class ExperiencesController extends Controller
 
     public function storeSchedule(Request $request)
     {
+        $validator = $this->validate($request,
+            array(
+                'exp_begin_date'=>'required',
+                'exp_end_date'=>'required',
+            )
+        );
         $exp = App\Experiences::find($request->id);
-
-        //$exp->update(); // TO DO ALL *******
         return redirect()->route('experience_create_payment',array('id'=>$request->id));
     }
 
@@ -243,6 +219,10 @@ class ExperiencesController extends Controller
 
     public function storePayment(Request $request)
     {
+        $validator = $this->validate($request,
+            array(
+            )
+        );
         $exp = App\Experiences::find($request->id);
         $exp->update($request->all());
         return redirect()->route('experience_create_publish',array('id'=>$request->id));

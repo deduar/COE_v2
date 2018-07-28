@@ -7,12 +7,14 @@
 
 @if(count($errors))
   <div class="alert alert-danger">
-    <strong>Whoops!</strong> There were some problems with your input.
-    <br/>
-    <h3> {{ trans('experience.form_error') }}</h3>
+    <h4> {{ trans('experience.form_error') }}</h4>
+    <ul>
+      @if ($errors->has('exp_photo'))
+        <h5><strong>{{trans('experience.error_exp_photo')}}</strong></h5>
+      @endif
+    </ul>
   </div>
 @endif
-
 
 <hr>
 
@@ -32,7 +34,6 @@
     <li class="disabled"><a  href="#basic" data-toggle="tab">Basic</a></li>
     <li class="active"><a href="#photos">Photos</a></li>
     <li class="disabled"><a href="#scheduler" data-toggle="tab">Scheduler</a></li>
-    <li class="disabled"><a href="#profile" data-toggle="tab">Profile</a></li>
     <li class="disabled"><a href="#payment" data-toggle="tab">Payment</a></li>
     <li class="disabled"><a href="#publis" data-toggle="tab">Publish</a></li>
   </ul>
@@ -44,17 +45,17 @@
   <div class="tab-content clearfix">
   <div class="tab-pane active" id="photos">
 
-    <h1 style="background: #fbfbfb; padding: 10px; color:#000; margin-top: 0px; margin-bottom: 0px; height: 90px; padding-top: 30px;">The Basic <span class="btn btn-success" style="height: 40PX; float: right; font-weight: bold;">{!! Form::submit('NEXT', array('class'=>'btn btn-success')) !!} <span class="glyphicon glyphicon-chevron-right"></span></span></h1>
+    <h1 style="background: #fbfbfb; padding: 10px; color:#000; margin-top: 0px; margin-bottom: 0px; height: 90px; padding-top: 30px;">Photos <span class="btn btn-success" style="height: 40PX; float: right; font-weight: bold;">{!! Form::submit('NEXT', array('class'=>'btn btn-success')) !!} <span class="glyphicon glyphicon-chevron-right"></span></span></h1>
 
     <div class="container-fluid" style="margin-top: 0px; border:1px solid #ddd;">
     <br><br>
 
-    <div class="form-group">
+    <div class="form-group" style="padding-bottom: 0px; margin-bottom: 0px;">
       {!! Form::hidden('id',$id) !!}
     </div>
 
     <div class="form-group">
-      {!! Form::label('exp_photo', trans('experience.exp_photo')).' <span class="glyphicon glyphicon-info-sign" style="color: red" title="OBLIGATORIO/REQUIRED"></span>' !!}
+      {!! Form::label('exp_photo', trans('experience.exp_photo')).' <span class="glyphicon glyphicon-asterisk" style="color: red" title="OBLIGATORIO/REQUIRED"></span>' !!}
       {!! Form::file('exp_photo', null, array('class'=>'form-control')) !!}
     </div>
      <div class="form-group">

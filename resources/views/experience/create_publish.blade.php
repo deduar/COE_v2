@@ -49,7 +49,7 @@
     <div class="container-fluid" style="margin-top: 0px;padding-bottom: 20px; border:1px solid #ddd;">
     <br><br>
 
-    <div class="form-group">
+    <div class="form-group" style="padding-bottom: 0px; margin-bottom: 0px;">
       {!! Form::hidden('id',$id) !!}
     </div>
 

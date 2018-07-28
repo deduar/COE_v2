@@ -4,12 +4,35 @@
 
 @section('content')
 
-
 @if(count($errors))
   <div class="alert alert-danger">
-    <strong>Whoops!</strong> There were some problems with your input.
-    <br/>
-    <h3> {{ trans('experience.form_error') }}</h3>
+    <h4> {{ trans('experience.form_error') }}</h4>
+    <ul>
+      @if ($errors->has('exp_name'))
+        <h5><strong>{{trans('experience.error_exp_name')}}</strong></h5>
+      @endif
+      @if ($errors->has('exp_location'))
+        <h5><strong>{{trans('experience.error_exp_location')}}</strong></h5>
+      @endif
+      @if ($errors->has('exp_summary'))
+        <h5><strong>{{trans('experience.error_exp_summary')}}</strong></h5>
+      @endif
+      @if ($errors->has('exp_min_people'))
+        <h5><strong>{{trans('experience.error_exp_min_people')}}</strong></h5>
+      @endif
+      @if ($errors->has('exp_max_people'))
+        <h5><strong>{{trans('experience.error_exp_max_people')}}</strong></h5>
+      @endif
+      @if ($errors->has('exp_duration'))
+        <h5><strong>{{trans('experience.error_exp_duration')}}</strong></h5>
+      @endif
+      @if ($errors->has('exp_price'))
+        <h5><strong>{{trans('experience.error_exp_price')}}</strong></h5>
+      @endif
+      @if ($errors->has('exp_max_people'))
+        <h5><strong>{{trans('experience.error_max_people_minus')}}</strong></h5>
+      @endif
+    </ul>
   </div>
 @endif
 
@@ -32,7 +55,6 @@
     <li class="active"><a  href="#basic" data-toggle="tab">Basic</a></li>
     <li class="disabled"><a href="{{route('experience_create')}}">Photos</a></li>
     <li class="disabled"><a href="#scheduler" data-toggle="tab">Scheduler</a></li>
-    <li class="disabled"><a href="#profile" data-toggle="tab">Profile</a></li>
     <li class="disabled"><a href="#payment" data-toggle="tab">Payment</a></li>
     <li class="disabled"><a href="#publis" data-toggle="tab">Publish</a></li>
   </ul>
@@ -82,13 +104,13 @@
         {!! Form::label('exp_people', trans('experience.exp_people')).' <span class="glyphicon glyphicon-asterisk" style="color: red" title="OBLIGATORIO/REQUIRED"></span>' !!}
       </div>
       <div class="col-md-2">
-        {!! Form::number('exp_min_people', Input::old('exp_min_people'), array('placeholder'=>trans('experience.exp_min_people_placeHolder'), 'class'=>'form-control')) !!}
+        {!! Form::number('exp_min_people', Input::old('exp_min_people'), array('placeholder'=>trans('experience.exp_min_people_placeHolder'), 'class'=>'form-control','step'=>1,'min'=>1)) !!}
       </div>
       <div class="col-md-2">
         {!! Form::label('exp_min_people', trans('experience.exp_min_people')).' <span class="glyphicon glyphicon-asterisk" style="color: red" title="OBLIGATORIO/REQUIRED"></span>' !!}
       </div>
       <div class="col-md-2">
-        {!! Form::number('exp_max_people', Input::old('exp_max_people'), array('placeholder'=>trans('experience.exp_max_people_placeHolder'), 'class'=>'form-control')) !!}
+        {!! Form::number('exp_max_people', Input::old('exp_max_people'), array('placeholder'=>trans('experience.exp_max_people_placeHolder'), 'class'=>'form-control','step'=>1,'min'=>1)) !!}
       </div>
       <div class="col-md-2">
         {!! Form::label('exp_max_people', trans('experience.exp_max_people')).' <span class="glyphicon glyphicon-asterisk" style="color: red" title="OBLIGATORIO/REQUIRED"></span>' !!}
