@@ -310,6 +310,11 @@ class ExperiencesController extends Controller
         }
     }
 
+    public function editBasic($id)
+    {
+        dd($id);
+    }
+
     /**
      * Update the specified resource in storage.
      *
