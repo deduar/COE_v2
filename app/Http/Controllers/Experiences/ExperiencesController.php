@@ -59,6 +59,8 @@ class ExperiencesController extends Controller
             ->join('currency','experience.exp_currency','=','currency.id')
             ->select('experience.id as exp_id', 'users.id as user_id','exp_photo', 'exp_name', 'avatar', 'name', 'last_name', 'email', 'exp_price', 'cur_simbol', 'cur_name', 'cur_exchange', 'exp_guide_id')
             ->where('users.group','Guide')
+            ->where('experience.exp_status','Active')
+            ->where('experience.exp_published','Active')
             ->orderBy('experience.created_at','desc')
             ->paginate(6);
         return view('experience.index', array('user'=>$user, 'experiences'=>$experiences));
