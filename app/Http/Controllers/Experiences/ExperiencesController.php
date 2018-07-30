@@ -380,7 +380,8 @@ class ExperiencesController extends Controller
             $exp->exp_status = "Active";
         }
         $exp->save();
-        return redirect()->route('my_experience'); 
+        return redirect()->back();
+        //return redirect()->route('my_experience'); 
     }
 
     public function changePublisehd($id)

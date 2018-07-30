@@ -70,7 +70,22 @@
                     <h6>{{trans('experience.duration')}}: {{$exp->exp_duration}} {{$exp->exp_duration_h}}</h6>
                 </div>
                 <div class="col-md-2"><h5>{{$exp->cur_simbol}} {{$exp->exp_price}} <h6>{{$exp->cur_name}}</h6></h5></div>
-                <div class="col-md-2"><div class="btn btn-default" style="float:right;"><a style="text-decoration: none;" href="{{route('experience_show',array('id'=>$exp->exp_id))}}">{{trans('user.exp_detail')}}</a></div></div>
+                <div class="col-md-2">
+                    <div class="btn btn-default" style="float:right;">
+                        <a style="text-decoration: none;" href="{{route('experience_show',array('id'=>$exp->exp_id))}}">{{trans('user.exp_detail')}}</a>
+                    </div>
+
+                    @if($exp->exp_status == 'Active')
+                        <div class="btn btn-primary" style="float:right; width: 75px;">
+                          <a style="text-decoration: none; color: #fff;" href="{{route('change_status_experience',array('id'=>$exp->id))}}">Active</a>
+                        </div>
+                    @else
+                        <div class="btn btn-danger" style="float:right; width: 75px;">
+                          <a style="text-decoration: none; color: #fff;" href="{{route('change_status_experience',array('id'=>$exp->id))}}">Inactive</a>
+                        </div>
+                    @endif
+
+                </div>
             </div>
             <div class="col-md-3">
                 <span style="background: #ccc; padding: 3px; color: #000;">{{trans('user.reviews')}}</span>
