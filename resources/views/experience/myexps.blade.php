@@ -25,12 +25,11 @@
         <div class="col-md-12">
           <h3 style="color: #000;">{{strtoupper($exp->exp_name)}}</h3>    
         </div>
-        <div class="col-md-6" style="color: #000;">
+        <div class="col-md-5" style="color: #000;">
           {{$exp->exp_location}}
         </div>
-        <div class="col-md-6">
-          {{number_format($exp->exp_price,2,',','.')}} {{$exp->cur_name}} [{{$exp->cur_simbol}}]
-          <h6>Nota: person/flat !!!!</h6>
+        <div class="col-md-7">
+          {{number_format($exp->exp_price,2,',','.')}} {{$exp->cur_name}} [{{$exp->cur_simbol}}] / @if($exp->exp_flat) {{trans('experience.flat')}} @else {{trans('experience.byperson')}} @endif
         </div>
 
     </div>

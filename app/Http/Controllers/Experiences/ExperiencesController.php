@@ -72,7 +72,7 @@ class ExperiencesController extends Controller
             $user = Auth::user();   
             $myexps = DB::table('experience')
                 ->join('currency','experience.exp_currency','=','currency.id')
-                ->select('experience.id', 'experience.exp_photo','experience.exp_name','experience.exp_location', 'experience.exp_price', 'experience.exp_status','experience.exp_published','currency.cur_name','currency.cur_simbol')
+                ->select('experience.id', 'experience.exp_photo','experience.exp_name','experience.exp_location', 'experience.exp_price', 'experience.exp_status','experience.exp_published','currency.cur_name','currency.cur_simbol','experience.exp_flat')
                 ->where('experience.exp_guide_id',$user->id)
                 ->orderBy('experience.created_at','desc')
                 ->paginate(6);
