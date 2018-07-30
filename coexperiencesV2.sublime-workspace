@@ -523,7 +523,25 @@
 			"file": "app/Http/routes.php",
 			"settings":
 			{
-				"buffer_size": 8803,
+				"buffer_size": 8924,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/experience/create_photos.blade.php",
+			"settings":
+			{
+				"buffer_size": 3187,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/Experiences/ExperiencesController.php",
+			"settings":
+			{
+				"buffer_size": 13354,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -593,7 +611,8 @@
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Experiences",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views"
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience"
 	],
 	"file_history":
 	[
@@ -742,6 +761,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"basic",
 			"sched",
 			"basic",
 			"update",
@@ -868,8 +888,7 @@
 			"id",
 			"sort",
 			"','",
-			"user",
-			"exp"
+			"user"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -921,7 +940,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -930,15 +949,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8803,
+						"buffer_size": 8924,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4363,
-								4363
+								4038,
+								4038
 							]
 						],
 						"settings":
@@ -950,7 +969,73 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 883.0,
+						"translation.y": 637.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "resources/views/experience/create_photos.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3187,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								762,
+								762
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 231.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/Http/Controllers/Experiences/ExperiencesController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13354,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5710,
+								5710
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1585.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,

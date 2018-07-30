@@ -152,9 +152,12 @@ class ExperiencesController extends Controller
 
     public function createPhotos($id)
     {
-        $user = Auth::user();
-        //$exp = Experiences::find($id);
-        return view('experience.create_photos', array('user'=>$user,'id'=>$id));
+        if (Auth::check()){
+            $user = Auth::user();
+            return view('experience.create_photos', array('user'=>$user,'id'=>$id));
+        } else {
+            return redirect('auth/login');
+        }
     }
 
     public function storePhotos(Request $request)
