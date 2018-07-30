@@ -155,7 +155,10 @@ class ExperiencesController extends Controller
         if (Auth::check()){
             $user = Auth::user();
             $exp = App\Experiences::find($id);
-            return view('experience.create_photos', array('user'=>$user,'id'=>$id,'exp'=>$exp));
+            $exp_galleries = DB::table('experience_photos')
+                ->where('experience_photos.exp_id',$id)
+                ->get();
+            return view('experience.create_photos', array('user'=>$user,'id'=>$id,'exp'=>$exp,'exp_galleries'=>$exp_galleries));
         } else {
             return redirect('auth/login');
         }
@@ -165,7 +168,6 @@ class ExperiencesController extends Controller
     {
         $validator = $this->validate($request,
             array(
-                'exp_photo'=>'required',
             )
         );
         $exp = App\Experiences::find($request->id);
@@ -179,10 +181,10 @@ class ExperiencesController extends Controller
         if($request->hasFile('file'))
         {
             $files = $request->file('file');
-            foreach ($files as $file) {
+            foreach ($files as $key=>$file) {
                 $exp_photo = new ExperiencesPhotos;
                 $exp_photo->exp_id = $exp->id;
-                $filename = time().'.'.$file->getClientOriginalExtension();
+                $filename = time().$key.'.'.$file->getClientOriginalExtension();
                 $file->move(public_path().'/uploads/exp/', $filename);
                 $exp_photo->exp_photo = $filename;
                 $exp_photo->save();
@@ -369,7 +371,8 @@ class ExperiencesController extends Controller
         $exp_img = DB::table('experience_photos')
             ->where('id',$id)
             ->delete();
-        return back()->withInput(['tab-pane'=>'photos']);
+        return redirect()->back();   
+        //return back()->withInput(['tab-pane'=>'photos']);
     }
 
     public function changeStatus($id)

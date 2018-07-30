@@ -56,20 +56,18 @@
 
     <div class="col-md-12">
     <div class="form-group">
-      @if ($exp->exp_photo != "default_photo.png")
-        <div class="col-md-6">
-          <img src={{asset('uploads/exp/'.$exp->exp_photo)}} >
-          {{asset('uploads/exp/'.$exp->exp_photo)}}
-        </div>
-      @endif
-      <div class="col-md-6">
+      <div class="col-md-12">
+        <img style="height: 400px; float: center;" src={{asset('uploads/exp/'.$exp->exp_photo)}} >
+      </div>
+      <div class="col-md-12">
         {!! Form::label('exp_photo', trans('experience.exp_photo')).' <span class="glyphicon glyphicon-asterisk" style="color:#00b1e5" title="OBLIGATORIO/REQUIRED"></span>' !!}
-        {!! Form::file('exp_photo', file(asset('uploads/exp/'.$exp->exp_photo)), array('class'=>'form-control')) !!}
+        {!! Form::file('exp_photo', null, array('class'=>'form-control')) !!}
       </div>
     </div>
     </div>
-
+    
     <div class="col-md-12" style="margin-top: 20px;">
+      <hr style="border-top: 1px solid red; border: 1px solid #eee;">
       <div class="form-group">
         <div class="col-md-4">
           {!! Form::label('exp_video', trans('experience.exp_video')) !!}
@@ -80,14 +78,30 @@
       </div>
     </div>
 
-    <div class="form-group">
-    {!! Form::label('exp_more_photo_label', trans('experience.exp_more_photos_label')) !!}
-      <div class="col-md-4">
-        {!! Form::label('exp_more_photo', trans('experience.exp_more_potos')) !!}
-      </div>
-      <div class="col-md-3">
-        <input type="file" name="file[]" multiple>
-      </div>
+    
+    <div class="col-md-12" style="margin-top: 20px;">
+      <hr style="border-top: 1px solid red; border: 1px solid #eee;">
+      @if($exp_galleries)
+        <div class="row">
+        @foreach($exp_galleries as $e_p)
+          <div class="col-md-4" style="margin-bottom: 15px;">
+            <div class="col-md-12 text-center">
+              <div class="btn btn-success"><a href="{{route('remove_img', array('id'=>$e_p->id))}}" style="text-decoration: none; color: #fff;">{{ trans('experience.delete_exp') }} <span class="glyphicon glyphicon-remove-circle"></span></a></div>
+              <img src={{asset('uploads/exp/'.$e_p->exp_photo)}} height="140px;">
+            </div>
+          </div>
+        @endforeach
+        </div>
+      @endif
+      <div class="form-group">
+        <div class="col-md-4">
+          {!! Form::label('exp_more_photo_label', trans('experience.exp_more_photos_label')) !!}
+        </div>
+        <div class="col-md-8">
+          <span>{{ trans('experience.exp_more_potos') }}</span>
+          <input type="file" name="file[]" multiple>
+        </div>
+    </div>
     </div>
 
     </div>
