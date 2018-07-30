@@ -29,12 +29,11 @@
 <div class="row">
   <div class="col-md-offset-2 col-md-8" style="padding-left: 0px; padding-right: 0px;">
   <ul class="nav nav-tabs">
-    <li class="disabled"><a  href="#basic" data-toggle="tab">Basic</a></li>
-    <li class="disabled"><a href="#photos" data-toggle="tab">Photos</a></li>
-    <li class="disabled"><a href="#scheduler" data-toggle="tab">Scheduler</a></li>
-    <li class="disabled"><a href="#profile" data-toggle="tab">Profile</a></li>
-    <li class="disabled"><a href="#payment" data-toggle="tab">Payment</a></li>
-    <li class="active"><a href="#publish" data-toggle="tab">Publish</a></li>
+    <li><a  href="{{route('experience_edit_basic',array('id'=>$id))}}" >Basic</a></li>
+    <li><a  href="{{route('experience_create_photos',array('id'=>$id))}}" >Photos</a></li>
+    <li><a  href="{{route('experience_create_schedule',array('id'=>$id))}}" >Scheduler</a></li>
+    <li><a  href="{{route('experience_create_payment',array('id'=>$id))}}" >Payment</a></li>
+    <li class="active"><a href="#publish">Publish</a></li>
   </ul>
   <hr style="margin-bottom: 0px;">
 

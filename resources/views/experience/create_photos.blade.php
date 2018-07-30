@@ -33,9 +33,9 @@
   <ul class="nav nav-tabs">
     <li><a  href="{{route('experience_edit_basic',array('id'=>$id))}}" >Basic</a></li>
     <li class="active"><a href="">Photos</a></li>
-    <li class="disabled"><a href="#scheduler" data-toggle="tab">Scheduler</a></li>
-    <li class="disabled"><a href="#payment" data-toggle="tab">Payment</a></li>
-    <li class="disabled"><a href="#publis" data-toggle="tab">Publish</a></li>
+    <li class="disabled"><a href="">Scheduler</a></li>
+    <li class="disabled"><a href="">Payment</a></li>
+    <li class="disabled"><a href="">Publish</a></li>
   </ul>
   <hr style="margin-bottom: 0px;">
 
@@ -54,17 +54,34 @@
       {!! Form::hidden('id',$id) !!}
     </div>
 
+    <div class="col-md-12">
     <div class="form-group">
-      {!! Form::label('exp_photo', trans('experience.exp_photo')).' <span class="glyphicon glyphicon-asterisk" style="color: red" title="OBLIGATORIO/REQUIRED"></span>' !!}
-      {!! Form::file('exp_photo', null, array('class'=>'form-control')) !!}
+      @if ($exp->exp_photo != "default_photo.png")
+        <div class="col-md-6">
+          <img src={{asset('uploads/exp/'.$exp->exp_photo)}} >
+          {{asset('uploads/exp/'.$exp->exp_photo)}}
+        </div>
+      @endif
+      <div class="col-md-6">
+        {!! Form::label('exp_photo', trans('experience.exp_photo')).' <span class="glyphicon glyphicon-asterisk" style="color:#00b1e5" title="OBLIGATORIO/REQUIRED"></span>' !!}
+        {!! Form::file('exp_photo', file(asset('uploads/exp/'.$exp->exp_photo)), array('class'=>'form-control')) !!}
+      </div>
     </div>
-     <div class="form-group">
-      {!! Form::label('exp_photo', trans('experience.exp_video')) !!}
-      {!! Form::text('exp_video', Input::old('exp_video'), array('placeholder'=>trans('experience.exp_video_placeHolder'), 'class'=>'form-control')) !!}
     </div>
 
+    <div class="col-md-12" style="margin-top: 20px;">
+      <div class="form-group">
+        <div class="col-md-4">
+          {!! Form::label('exp_video', trans('experience.exp_video')) !!}
+        </div>
+        <div class="col-md-8">
+          {!! Form::text('exp_video', Input::old('exp_video'), array('placeholder'=>trans('experience.exp_video_placeHolder'), 'class'=>'form-control')) !!}
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
     {!! Form::label('exp_more_photo_label', trans('experience.exp_more_photos_label')) !!}
-    <div class="form-group">  
       <div class="col-md-4">
         {!! Form::label('exp_more_photo', trans('experience.exp_more_potos')) !!}
       </div>
@@ -73,8 +90,8 @@
       </div>
     </div>
 
-
     </div>
+
   </div>
 
 
@@ -82,9 +99,7 @@
     <span class="btn btn-success" style="height: 40PX; font-weight: bold;">{!! Form::submit('NEXT', array('class'=>'btn btn-success')) !!} <span class="glyphicon glyphicon-chevron-right"></span></span>
   </div>
 
-  
-
-</div>
+  </div>
 
 {!! Form::close() !!}
 

@@ -154,7 +154,8 @@ class ExperiencesController extends Controller
     {
         if (Auth::check()){
             $user = Auth::user();
-            return view('experience.create_photos', array('user'=>$user,'id'=>$id));
+            $exp = App\Experiences::find($id);
+            return view('experience.create_photos', array('user'=>$user,'id'=>$id,'exp'=>$exp));
         } else {
             return redirect('auth/login');
         }
