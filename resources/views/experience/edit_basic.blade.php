@@ -132,7 +132,7 @@
             'Days' => trans('experience.exp_days'),
             'Hours' => trans('experience.exp_hours'),
             'Minutes' => trans('experience.exp_minutes'))
-            ,null, array('class'=>'form-control'))
+            ,$exp->exp_duration_h, array('class'=>'form-control'))
       !!}
       </div>
     </div>
@@ -145,7 +145,7 @@
         {!! Form::number('exp_price', $exp->exp_price, array('placeholder'=>trans('experience.exp_price_placeHolder'), 'class'=>'form-control','step' => '0.01','min'=>'0')) !!}
       </div>
       <div class="col-md-4">
-        {!! Form::select('exp_currency', $cur, null, array('class'=>'form-control')) !!}
+        {!! Form::select('exp_currency', $cur, $exp->exp_currency, array('class'=>'form-control')) !!}
       </div>
       <div class="col-md-2">
         <div class="col-md-12">
@@ -172,7 +172,7 @@
         {!! Form::label('exp_category', trans('experience.exp_category')).' <span class="glyphicon glyphicon-asterisk" style="color:#00b1e5" title="OBLIGATORIO/REQUIRED"></span>' !!}
       </div>
       <div class="col-md-8">
-        {!! Form::select('exp_category', $cat, null, array('class'=>'form-control')) !!}
+        {!! Form::select('exp_category', $cat, $exp->exp_category, array('class'=>'form-control')) !!}
       </div>
     </div>
 
