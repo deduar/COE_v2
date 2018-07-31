@@ -53,6 +53,8 @@ Route::get('/experiences', 'Experiences\ExperiencesController@index')->name('exp
 Route::get('/experience', 'Experiences\ExperiencesController@myexps')->name('my_experience');
 Route::get('/experience/create', 'Experiences\ExperiencesController@create')->name('experience_create');
 Route::post('/experience/create', 'Experiences\ExperiencesController@store')->name('experience_store');
+Route::get('/experience/edit_basic/{id}', 'Experiences\ExperiencesController@editBasic')->name('experience_edit_basic');
+Route::post('/experience/edit_basic', 'Experiences\ExperiencesController@updateBasic')->name('experience_update_basic');
 Route::get('/experience/create_photos/{id}', 'Experiences\ExperiencesController@createPhotos')->name('experience_create_photos');
 Route::post('/experience/create_photos/{id}', 'Experiences\ExperiencesController@storePhotos')->name('experience_store_photos');
 Route::get('/experience/create_schedule/{id}', 'Experiences\ExperiencesController@createSchedule')->name('experience_create_schedule');
@@ -62,7 +64,7 @@ Route::post('/experience/create_payment/{id}', 'Experiences\ExperiencesControlle
 Route::get('/experience/create_publish/{id}', 'Experiences\ExperiencesController@createPublish')->name('experience_create_publish');
 Route::post('/experience/create_publish/{id}', 'Experiences\ExperiencesController@storePublish')->name('experience_store_publish');
 Route::get('/experience/edit/{id}', 'Experiences\ExperiencesController@edit')->name('experience_edit');
-Route::get('/experience/edit_basic/{id}', 'Experiences\ExperiencesController@editBasic')->name('experience_edit_basic');
+//Route::get('/experience/edit_basic/{id}', 'Experiences\ExperiencesController@editBasic')->name('experience_edit_basic');
 Route::get('/experience/{id}', 'Experiences\ExperiencesController@show')->name('experience_show');
 Route::post('/experience/update', 'Experiences\ExperiencesController@update')->name('experience_update');
 Route::get('/experience/remove_img/{id}', 'Experiences\ExperiencesController@remove_img')->name('remove_img');

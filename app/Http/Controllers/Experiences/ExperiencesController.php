@@ -195,6 +195,44 @@ class ExperiencesController extends Controller
         return redirect()->route('experience_create_schedule',array('id'=>$request->id));
     }
 
+    public function updateBasic(Request $request)
+    {
+        $validator = $this->validate($request,
+            array(
+                'exp_name'=>'required',
+                'exp_location'=>'required',
+                'exp_summary'=>'required',
+                'exp_min_people'=>'required | integer | min: 0',
+                'exp_max_people'=>'required | integer | min:'.$request->exp_min_people,
+                'exp_duration'=>'required',
+                'exp_price'=>'required'
+            )
+        );
+
+        $user = Auth::user();
+        $exp = App\Experiences::find($request->id);
+        
+        $exp->exp_name = $request->exp_name;
+        $exp->exp_guide_id = $user->id;
+        $exp->exp_location = $request->exp_location;
+        $exp->exp_summary = $request->exp_summary;
+        $exp->exp_min_people = $request->exp_min_people;
+        $exp->exp_max_people = $request->exp_max_people;
+        $exp->exp_duration = $request->exp_duration;
+        $exp->exp_duration_h = $request->exp_duration_h;
+        $exp->exp_price = $request->exp_price;
+        $exp->exp_currency = $request->exp_currency;
+        $exp->exp_category = $request->exp_category;
+        $exp->exp_private_notes = $request->exp_private_notes;
+        $exp->exp_video = $request->exp_video;
+        $exp->exp_published = 'Inactive';
+        $exp->exp_flat = $request->exp_flat;
+
+        $exp->save();
+
+        return redirect()->route('experience_create_photos',array('id'=>$exp->id));
+    }
+
     public function createSchedule($id)
     {
         $user = Auth::user();
@@ -318,7 +356,23 @@ class ExperiencesController extends Controller
 
     public function editBasic($id)
     {
-        dd($id);
+        $exp = App\Experiences::find($id);
+        $user = Auth::user();
+
+        $currencies = App\Currency::all(['id','cur_name','cur_simbol']);
+        $cur = [];
+        foreach($currencies as $currency){
+           $cur[$currency->id] = $currency->cur_name.' ['.$currency->cur_simbol.']';
+        }
+
+        $experienceCategory = App\ExperiencesCategories::all(['id','category_name']);        
+        $cat = [];
+        foreach($experienceCategory as $category){
+           $cat[$category->id] = $category->category_name;
+        }
+
+        return view('experience.edit_basic',array('user'=>$user,'id'=>$id, 'exp'=>$exp,'cur'=>$cur, 'cat'=>$cat));
+
     }
 
     /**
