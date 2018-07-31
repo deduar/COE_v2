@@ -52,11 +52,11 @@
 <div class="row">
   <div class="col-md-offset-2 col-md-8" style="padding-left: 0px; padding-right: 0px;">
   <ul class="nav nav-tabs">
-    <li class="active"><a  href="" data-toggle="tab">Basic</a></li>
-    <li class="disabled"><a href="{{route('experience_create')}}">Photos</a></li>
-    <li class="disabled"><a href="">Scheduler</a></li>
-    <li class="disabled"><a href="">Payment</a></li>
-    <li class="disabled"><a href="">Publish</a></li>
+    <li class="active"><a href="">Basic</a></li>
+    <li class="disabled"><a href="{{route('experience_create_photos',array('id'=>$id))}}">Photos</a></li>
+    <li class="disabled"><a href="{{route('experience_create_schedule',array('id'=>$id))}}">Scheduler</a></li>
+    <li class="disabled"><a href="{{route('experience_create_payment',array('id'=>$id))}}">Payment</a></li>
+    <li class="disabled"><a href="{{route('experience_create_publish',array('id'=>$id))}}">Publish</a></li>
   </ul>
   <hr style="margin-bottom: 0px;">
 

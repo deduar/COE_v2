@@ -38,7 +38,7 @@
           <div class="btn btn-info" style="width: 90%;"><a href="{{route('experience_show',array('id'=>$exp->id))}}"><span class="glyphicon glyphicon-eye-open"> View</span></a></div>
         </div>
         <div class="col-md-6 col-xs-4">
-          <div class="btn btn-info" style="width: 90%;"><a href="{{route('experience_edit',array('id'=>$exp->id))}}"><span class="glyphicon glyphicon-pencil"> Edit</span></a></div>
+          <div class="btn btn-info" style="width: 90%;"><a href="{{route('experience_edit_basic',array('id'=>$exp->id))}}"><span class="glyphicon glyphicon-pencil"> Edit</span></a></div>
         </div>
         
         <div class="col-md-6 col-xs-4">
