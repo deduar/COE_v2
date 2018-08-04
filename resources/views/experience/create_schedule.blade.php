@@ -1,9 +1,8 @@
-@extends('layouts.master')
+@extends('layouts.master_datepicker')
 
 @section('title', 'Coesperiences: Create Experience')
 
 @section('content')
-
 
 @if(count($errors))
   <div class="alert alert-danger">
@@ -53,12 +52,9 @@
     <div class="form-group" style="padding-bottom: 0px; margin-bottom: 0px;">
       {!! Form::hidden('id',$id) !!}
     </div>
-
-    <div class="form-group {{ $errors->has('exp_name') ? 'has-error' : '' }}">
-      <div class="col-md-2 col-md-offset-1">
-        {!! Form::label('exp_schedule_type', trans('experience.schedule_type')) !!}
-      </div>
-      <div class="col-md-8">
+    
+    <div class="row">
+      <div class="col-md-3">
         {!! Form::select('exp_schedule_type',
               array(
                 'Unavaible' => trans('experience.unavaible'),
@@ -67,23 +63,28 @@
             )
         !!}
       </div>
+        <div class='col-md-4'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker6'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class='col-md-4'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker7'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="form-group {{ $errors->has('exp_name') ? 'has-error' : '' }}">
-      <div class="col-md-2 col-md-offset-1">
-        {!! Form::label('exp_begin_date', trans('experience.schedule_begin' )) !!}
-      </div>
-      <div class="col-md-8">
-       {!! Form::datetime('exp_begin_date', \Carbon\Carbon::now()->format('d/m/Y H:i'), Input::old('exp_begin_date'), array('placeholder'=>trans('experience.exp_begin_schedule_placeHolder'), 'class'=>'form-control')) !!}
-      </div>
-    </div>
-    <div class="form-group {{ $errors->has('exp_name') ? 'has-error' : '' }}">
-      <div class="col-md-2 col-md-offset-1">
-        {!! Form::label('exp_end_date', trans('experience.schedule_end' )) !!}
-      </div>
-      <div class="col-md-8">
-       {!! Form::datetime('exp_end_date', \Carbon\Carbon::now()->format('d/m/Y H:i'), Input::old('exp_end_date'), array('placeholder'=>trans('experience.exp_end_schedule_placeHolder'), 'class'=>'form-control')) !!}
-      </div>
-    </div>
+    
     <div class="form-group">
       <div class="btn btn-success glyphicon glyphicon-plus-sign" style="float: right;">
         <a style="text-decoration: none; color:#fff;" ref="#">
@@ -91,16 +92,14 @@
         </a>
       </div>
     </div>
-    
+
     </div>
   </div>
-
+  </div>
 
   <div class="form-group" style="background: #fbfbfb; padding: 10px; color:#000; margin-top: 0px; margin-bottom: 0px; height: 90px; padding-top: 30px;">
     <span class="btn btn-success" style="height: 40PX; font-weight: bold;">{!! Form::submit('NEXT', array('class'=>'btn btn-success')) !!} <span class="glyphicon glyphicon-chevron-right"></span></span>
   </div>
-
-  
 
 </div>
 
@@ -108,5 +107,20 @@
 
   </div>
 </div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker6').datetimepicker();
+        $('#datetimepicker7').datetimepicker({
+            useCurrent: false //Important! See issue #1075
+        });
+        $("#datetimepicker6").on("dp.change", function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker7").on("dp.change", function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        });
+    });
+</script>
 
 @endsection

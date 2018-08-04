@@ -4,20 +4,24 @@
 		"selected_items":
 		[
 			[
+				"marg",
+				"margin-bottom\tproperty"
+			],
+			[
+				"padd",
+				"padding\tproperty"
+			],
+			[
+				"col",
+				"col-md-12"
+			],
+			[
 				"mar",
 				"margin-left\tproperty"
 			],
 			[
 				"pad",
 				"padding\tproperty"
-			],
-			[
-				"marg",
-				"margin-bottom\tproperty"
-			],
-			[
-				"col",
-				"col-xs-12"
 			],
 			[
 				"btn",
@@ -98,10 +102,6 @@
 			[
 				"Experi",
 				"experienceCategories"
-			],
-			[
-				"padd",
-				"padding-bottom\tproperty"
 			],
 			[
 				"Docyme",
@@ -523,16 +523,16 @@
 			"file": "app/Http/routes.php",
 			"settings":
 			{
-				"buffer_size": 8924,
+				"buffer_size": 9168,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "resources/views/experience/create.blade.php",
+			"file": "resources/views/layouts/master.blade.php",
 			"settings":
 			{
-				"buffer_size": 12247,
+				"buffer_size": 9864,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -600,26 +600,28 @@
 		"/home/deduar/Projects/Coexperiences_v-2.0/app",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers",
+		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Experiences",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience"
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/layouts"
 	],
 	"file_history":
 	[
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/myexps.blade.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/user/show.blade.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Users/UsersController.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Experiences/ExperiencesController.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/edit_basic.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create_photos.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/edit.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create_schedule.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create_payment.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create_publish.blade.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/user/show.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Users/UsersController.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/database/migrations/2018_05_26_100001_create_experience_table.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Experiences.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create_orig.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create_photos_old.blade.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/edit.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/welcome.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Admin/AdminController.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Admin/ExperienceCategoryController.php",
@@ -732,12 +734,11 @@
 		"/home/deduar/Projects/Coexperiences_v-2.0/composer.json",
 		"/home/deduar/Projects/repo/UEMURA_scraping/themes/demo/pages/city.htm",
 		"/home/deduar/Projects/repo/UEMURA_scraping/themes/demo/pages/county.htm",
-		"/home/deduar/Projects/repo/UEMURA_scraping/themes/demo/assets/css/app.css",
-		"/home/deduar/Projects/repo/UEMURA_scraping/themes/demo/pages/cities.htm"
+		"/home/deduar/Projects/repo/UEMURA_scraping/themes/demo/assets/css/app.css"
 	],
 	"find":
 	{
-		"height": 38.0
+		"height": 22.0
 	},
 	"find_in_files":
 	{
@@ -751,6 +752,18 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"create_photos",
+			"experience_update_basic",
+			"basic",
+			"photo",
+			"img",
+			"avatar",
+			"img",
+			"geolocate",
+			"autocomplete",
+			"local",
+			"locali",
+			"google",
 			"location",
 			": red",
 			"schedule",
@@ -866,19 +879,7 @@
 			"123",
 			"asset",
 			"curren",
-			"\n    ",
-			"png",
-			"                \n",
-			" >",
-			"activity",
-			"80px",
-			"Lato",
-			"user_id",
-			"_prof",
-			"$user",
-			"user",
-			"users.id",
-			"User"
+			"\n    "
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -940,15 +941,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8924,
+						"buffer_size": 9168,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2385,
-								2385
+								544,
+								544
 							]
 						],
 						"settings":
@@ -960,7 +961,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 330.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -968,19 +969,19 @@
 				},
 				{
 					"buffer": 1,
-					"file": "resources/views/experience/create.blade.php",
+					"file": "resources/views/layouts/master.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 12247,
+						"buffer_size": 9864,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								12236,
-								12236
+								1119,
+								1119
 							]
 						],
 						"settings":
@@ -989,11 +990,11 @@
 							"remote_loading": false,
 							"synced": false,
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 2,
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3951.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1053,7 +1054,7 @@
 	"project": "coexperiencesV2.sublime-project",
 	"replace":
 	{
-		"height": 68.0
+		"height": 40.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1091,7 +1092,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 202.0,
+	"side_bar_width": 209.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

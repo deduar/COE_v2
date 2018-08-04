@@ -1,21 +1,19 @@
     <html>
     <head>
         <title>@yield('title')</title>
-        {!! Html::style('assets/css/bootstrap.css') !!}
-        {!! Html::style('assets/css/app.css') !!}
+    
+        <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}" />
+        <link rel="stylesheet" href="{{asset('assets/css/bootstrap-datetimepicker.min.css')}}" />
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
         <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/images/Favicon.png')}}">
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-
-<!-- Isolated Version of Bootstrap, not needed if your site already uses Bootstrap -->
-<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
-
-<!-- Bootstrap Date-Picker Plugin -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+        <script type="text/javascript" src="{{asset('assets/js/jquery.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('assets/js/moment.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('assets/js/transition.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('assets/js/jquery.collapsible.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('assets/js/bootstrap-datetimepicker.min.js')}}"></script>
 
     </head>
     <body>
@@ -184,6 +182,6 @@
         </div>
 
         <!-- Scripts -->
-        {!! Html::script('assets/js/bootstrap.min.js') !!}
+
     </body>
 </html>
