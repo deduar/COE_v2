@@ -9,11 +9,16 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
         <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/images/Favicon.png')}}">
 
-        <script type="text/javascript" src="{{asset('assets/js/jquery.min.js')}}"></script>
+        <!--script type="text/javascript" src="{{asset('assets/js/jquery.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('assets/js/moment.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('assets/js/transition.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('assets/js/jquery.collapsible.min.js')}}"></script>
-        <script type="text/javascript" src="{{asset('assets/js/bootstrap-datetimepicker.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('assets/js/bootstrap-datetimepicker.min.js')}}"></script-->
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
     </head>
     <body>

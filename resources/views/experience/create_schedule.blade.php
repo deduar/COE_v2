@@ -63,24 +63,10 @@
             )
         !!}
       </div>
-        <div class='col-md-4'>
+        <div class='col-md-6'>
             <div class="form-group">
-                <div class='input-group date' id='datetimepicker6'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class='col-md-4'>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker7'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
+              {!! Form::text('datetimes', Input::old('exp_private_notes'), array('placeholder'=>trans('experience.exp_scheduler'), 'class'=>'form-control')) !!}
+              <!--input type="text" name="datetimes" /-->
             </div>
         </div>
     </div>
@@ -109,17 +95,15 @@
 </div>
 
 <script type="text/javascript">
-    $(function () {
-        $('#datetimepicker6').datetimepicker();
-        $('#datetimepicker7').datetimepicker({
-            useCurrent: false //Important! See issue #1075
-        });
-        $("#datetimepicker6").on("dp.change", function (e) {
-            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
-        });
-        $("#datetimepicker7").on("dp.change", function (e) {
-            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
-        });
+  $(function() {
+      $('input[name="datetimes"]').daterangepicker({
+        timePicker: true,
+        startDate: moment().startOf('hour'),
+        endDate: moment().startOf('hour').add(36, 'hour'),
+        locale: {
+          format: 'M/DD/YYYY hh:mm A'
+        }
+      });
     });
 </script>
 

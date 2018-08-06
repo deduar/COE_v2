@@ -243,10 +243,9 @@ class ExperiencesController extends Controller
     {
         $validator = $this->validate($request,
             array(
-                'exp_begin_date'=>'required',
-                'exp_end_date'=>'required',
             )
         );
+        //dd($request->datetimes);
         $exp = App\Experiences::find($request->id);
         return redirect()->route('experience_create_payment',array('id'=>$request->id));
     }
