@@ -101,7 +101,7 @@
         startDate: moment().startOf('hour'),
         endDate: moment().startOf('hour').add(36, 'hour'),
         locale: {
-          format: 'M/DD/YYYY hh:mm A'
+          format: 'YYYY-MM-DD HH:mm '
         }
       });
     });

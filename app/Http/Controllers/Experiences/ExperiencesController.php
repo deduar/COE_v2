@@ -11,10 +11,13 @@ use App;
 use Session;
 use App\User;
 use App\Experiences;
+use App\ExperiencesSchedules;
 use App\ExperiencesPhotos;
 use Image;
 use Auth;
 use DB;
+
+use Carbon\Carbon;
 
 class ExperiencesController extends Controller
 {
@@ -241,13 +244,21 @@ class ExperiencesController extends Controller
 
     public function storeSchedule(Request $request)
     {
-        $validator = $this->validate($request,
-            array(
-            )
-        );
-        //dd($request->datetimes);
-        $exp = App\Experiences::find($request->id);
-        return redirect()->route('experience_create_payment',array('id'=>$request->id));
+        if (Auth::check()){
+            $validator = $this->validate($request,
+                array(
+                )
+            );
+            $exp_schedule = new ExperiencesSchedules;
+            $exp_schedule->exp_id = $request->id;
+            $exp_schedule->exp_begin_date = Carbon::parse(explode(" - ", $request->datetimes)[0]);
+            $exp_schedule->exp_end_date = Carbon::parse(explode(" - ", $request->datetimes)[1]);
+            $exp_schedule->exp_schedule_type = $request->exp_schedule_type;
+            $exp_schedule->save();
+            return redirect()->route('experience_create_payment',array('id'=>$request->id));
+        } else {
+            return redirect('auth/login');
+        }
     }
 
     public function createPayment($id)
