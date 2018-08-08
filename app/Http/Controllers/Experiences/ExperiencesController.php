@@ -250,6 +250,7 @@ class ExperiencesController extends Controller
                 array(
                 )
             );
+            if($request->exp_schedule_type){
             foreach ($request->exp_schedule_type as $key => $exp_schedule_type) {
                 $exp_schedule = new ExperiencesSchedules;
                 $exp_schedule->exp_id = $request->id;
@@ -257,6 +258,7 @@ class ExperiencesController extends Controller
                 $exp_schedule->exp_end_date = Carbon::parse(explode(" - ", $request->datetimes[$key])[1]);
                 $exp_schedule->exp_schedule_type = $exp_schedule_type;
                 $exp_schedule->save();
+            }
             }
             return redirect()->route('experience_create_payment',array('id'=>$request->id));
         } else {

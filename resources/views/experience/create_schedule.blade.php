@@ -48,7 +48,7 @@
     <div class="container-fluid" style="margin-top: 0px; border:1px solid #ddd;">
     <br><br>
 
-    @if($exp_schedule)
+    @if($exp_schedule->count() > 0)
       <table class="table table-striped">
         <thead>
           <tr>
@@ -78,7 +78,7 @@
     </div>
     
     <div id="add">
-    <div class="row">
+    <!--div class="row">
       <div class="col-md-3">
         {!! Form::select('exp_schedule_type[]',
               array(
@@ -91,10 +91,9 @@
         <div class='col-md-6'>
             <div class="form-group">
               {!! Form::text('datetimes[]', Input::old('exp_private_notes'), array('placeholder'=>trans('experience.exp_scheduler'), 'class'=>'form-control')) !!}
-              <!--input type="text" name="datetimes" /-->
             </div>
         </div>
-    </div>
+    </div-->
     </div>
     
     <div class="form-group">
@@ -138,8 +137,8 @@
 var rowNum = 0;
 $(document).ready(function(){
     $("#add_schedule").click(function(){
-        rowNum++; 
         var html = "<div class='row'><div class='col-md-3'><select class='form-control' name=exp_schedule_type[]><option value='Unavaible'>{{trans('experience.unavaible')}}</option><option value='InstanBook'>{{trans('experience.instan_book')}}</option></select></div> <div class='col-md-6'><div class='form-group'><input class='form-control' type='text' name='datetimes["+rowNum+"]'/></div></div></div>"
+        rowNum++;
         $("#add").append(html);
         $("input[name^='datetimes']").daterangepicker({
         timePicker: true,
