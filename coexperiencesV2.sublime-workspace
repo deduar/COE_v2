@@ -4,8 +4,52 @@
 		"selected_items":
 		[
 			[
+				"ba",
+				"back"
+			],
+			[
+				"Expe",
+				"ExperiencesSchedules"
+			],
+			[
+				"ExperienceS",
+				"ExperiencesSchedules"
+			],
+			[
+				"for",
+				"foreach\tforeach …"
+			],
+			[
+				"In",
+				"InstanBook"
+			],
+			[
+				"form",
+				"form-control"
+			],
+			[
+				"nu",
+				"rowNum"
+			],
+			[
+				"exp",
+				"exp_schedule_type"
+			],
+			[
 				"col",
-				"col-md-offset-2"
+				"col-md-6"
+			],
+			[
+				"add",
+				"add_schedule"
+			],
+			[
+				"Exp",
+				"ExperiencesSchedules"
+			],
+			[
+				"date",
+				"datetimes"
 			],
 			[
 				"fun",
@@ -56,14 +100,6 @@
 				"exp_photo"
 			],
 			[
-				"for",
-				"form-group"
-			],
-			[
-				"Expe",
-				"Experiences"
-			],
-			[
 				"fon",
 				"font-weight\tproperty"
 			],
@@ -94,10 +130,6 @@
 			[
 				"cu",
 				"currency"
-			],
-			[
-				"exp",
-				"exp_galleries"
 			],
 			[
 				"experie",
@@ -444,10 +476,6 @@
 				"Session"
 			],
 			[
-				"add",
-				"addDay"
-			],
-			[
 				"to",
 				"today"
 			],
@@ -486,34 +514,6 @@
 			[
 				"rep",
 				"reply2"
-			],
-			[
-				"repl",
-				"reply2"
-			],
-			[
-				"in",
-				"inbox"
-			],
-			[
-				"reply",
-				"reply2"
-			],
-			[
-				"mess",
-				"message"
-			],
-			[
-				"sub",
-				"submit"
-			],
-			[
-				"ac",
-				"action\tAttr"
-			],
-			[
-				"booking",
-				"booking_type"
 			]
 		]
 	},
@@ -523,25 +523,7 @@
 			"file": "app/Http/routes.php",
 			"settings":
 			{
-				"buffer_size": 9168,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/layouts/master_datepicker.blade.php",
-			"settings":
-			{
-				"buffer_size": 10793,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/experience/create_schedule.blade.php",
-			"settings":
-			{
-				"buffer_size": 3562,
+				"buffer_size": 9293,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -550,8 +532,25 @@
 			"file": "app/Http/Controllers/Experiences/ExperiencesController.php",
 			"settings":
 			{
-				"buffer_size": 15719,
+				"buffer_size": 16667,
 				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/experience/create_schedule.blade.php",
+			"settings":
+			{
+				"buffer_size": 5289,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/admin/users.blade.php",
+			"settings":
+			{
+				"buffer_size": 2705,
 				"line_ending": "Unix"
 			}
 		}
@@ -619,24 +618,24 @@
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Experiences",
-		"/home/deduar/Projects/Coexperiences_v-2.0/public",
-		"/home/deduar/Projects/Coexperiences_v-2.0/public/assets",
-		"/home/deduar/Projects/Coexperiences_v-2.0/public/assets/js",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/admin",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/layouts"
 	],
 	"file_history":
 	[
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/layouts/master.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/myexps.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/database/migrations/2018_07_02_100001_create_experience_schedule_table.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/layouts/master_datepicker.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create_schedule.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Experiences/ExperiencesController.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/layouts/master.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/edit_basic.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create_photos.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/edit.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create.blade.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create_schedule.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create_payment.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create_publish.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/user/show.blade.php",
@@ -698,7 +697,6 @@
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/User.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/database/migrations/2014_10_12_000000_create_users_table.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/ExperiencesSchedules.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/database/migrations/2018_07_02_100001_create_experience_schedule_table.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/ExperiencesPhotos.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/ExperiencesPhotos_old.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/es/validation.php",
@@ -755,8 +753,7 @@
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/UserController.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/composer.json",
 		"/home/deduar/Projects/repo/UEMURA_scraping/themes/demo/pages/city.htm",
-		"/home/deduar/Projects/repo/UEMURA_scraping/themes/demo/pages/county.htm",
-		"/home/deduar/Projects/repo/UEMURA_scraping/themes/demo/assets/css/app.css"
+		"/home/deduar/Projects/repo/UEMURA_scraping/themes/demo/pages/county.htm"
 	],
 	"find":
 	{
@@ -774,6 +771,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"schedule",
+			"daterange",
+			"range",
+			";\n",
 			"date",
 			"datepi",
 			"create_photos",
@@ -897,11 +898,7 @@
 			"creat",
 			"create",
 			"experince",
-			"exp_name",
-			"link_register",
-			"div",
-			"123",
-			"asset"
+			"exp_name"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -954,7 +951,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -963,15 +960,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9168,
+						"buffer_size": 9293,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3400,
-								3400
+								3409,
+								3409
 							]
 						],
 						"settings":
@@ -983,27 +980,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 395.0,
+						"translation.y": 590.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "resources/views/layouts/master_datepicker.blade.php",
+					"file": "app/Http/Controllers/Experiences/ExperiencesController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10793,
+						"buffer_size": 16667,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								9150,
+								9150
 							]
 						],
 						"settings":
@@ -1016,10 +1013,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3250.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -1028,15 +1025,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3562,
+						"buffer_size": 5289,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3502,
-								3502
+								4536,
+								4536
 							]
 						],
 						"settings":
@@ -1049,27 +1046,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 884.0,
+						"translation.y": 1599.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "app/Http/Controllers/Experiences/ExperiencesController.php",
-					"semi_transient": false,
+					"file": "resources/views/admin/users.blade.php",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 15719,
+						"buffer_size": 2705,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8916,
-								8916
+								918,
+								918
 							]
 						],
 						"settings":
@@ -1078,14 +1075,14 @@
 							"remote_loading": false,
 							"synced": false,
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2839.0,
+						"translation.y": 207.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -1180,7 +1177,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 228.0,
+	"side_bar_width": 244.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

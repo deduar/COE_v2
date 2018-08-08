@@ -1,21 +1,12 @@
     <html>
     <head>
         <title>@yield('title')</title>
-        {!! Html::style('assets/css/bootstrap.css') !!}
+        {!! Html::style('assets/css/bootstrap.min.css') !!}
         {!! Html::style('assets/css/app.css') !!}
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
         <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/images/Favicon.png')}}">
-
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-
-<!-- Isolated Version of Bootstrap, not needed if your site already uses Bootstrap -->
-<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
-
-<!-- Bootstrap Date-Picker Plugin -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
     </head>
     <body>
@@ -44,6 +35,7 @@
                 </li>
                 <li>
                 @if(Auth::check())
+                    <div class="btn-group">
                     <button class="menu btn btn-default dropdown-toggle" type="button" id="user" data-toggle="dropdown" style="font-family: Lato; font-size: 13px; font-weight: 700; color:#000;" >
                         {{ $user['name']}} {{ $user['last_name']}}
                         <span class="caret"></span>
@@ -119,6 +111,7 @@
                             </a>
                         </li>
                     </ul>
+                    </div>
                 @else
                     <li>
                         <a class="menu" href="{{ route('login') }}" style="font-family: 'Lato'; font-size: 13px; font-weight: 700; color:#000">
@@ -131,6 +124,7 @@
                         </a>
                     </li>
                 @endif
+
                 </li>
                 <li>
                     <a href="{{ route('experience_index') }}" />
@@ -184,6 +178,8 @@
         </div>
 
         <!-- Scripts -->
-        {!! Html::script('assets/js/bootstrap.min.js') !!}
+        {!! Html::script('assets/js/jquery.min.js') !!}
+        {!! Html::script('assets/js/bootstrap_3.3.7.min.js') !!}
+
     </body>
 </html>
