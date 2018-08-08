@@ -42,7 +42,7 @@
         </div>
         
         <div class="col-md-6 col-xs-4">
-          <div class="btn btn-info" style="width: 90%;"><span class="glyphicon glyphicon-calendar"> Schedule</span></div>
+          <div class="btn btn-info" style="width: 90%;"><a href="{{route('experience_create_schedule',array('id'=>$exp->id))}}"><span class="glyphicon glyphicon-calendar"> Schedule</span></a></div>
         </div>
         <div class="col-md-6 col-xs-4">
           <div class="btn btn-info" style="width: 90%;"><span class="glyphicon glyphicon-list-alt"> Publish</span></div>

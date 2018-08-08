@@ -24,7 +24,6 @@
   .form-group{
     padding-bottom: 40px;
   }
-
 </style>
 
 <div class="row">
@@ -49,13 +48,39 @@
     <div class="container-fluid" style="margin-top: 0px; border:1px solid #ddd;">
     <br><br>
 
+    @if($exp_schedule)
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>{{ trans('experience.ext_type') }}</th>
+            <th>{{ trans('experience.begin_date') }}</th>
+            <th>{{ trans('experience.end_date') }}</th>
+            <th>{{ trans('experience.actions') }}</th>
+          </tr>
+        </thead>
+        @foreach ($exp_schedule as $schedule)
+        <tbody>
+          <tr>
+              <th>{{ $schedule->exp_schedule_type }}</th>
+              <th>{{ $schedule->exp_begin_date }}</th>
+              <th>{{ $schedule->exp_end_date }}</th>
+              <th><a href="{{route('remove_schedule',array('id'=>$schedule->id))}}"><div class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle"> Remove</span></div></a></th>
+          </tr>
+        </tbody>
+        @endforeach
+      </table>
+    @endif
+
+    <hr>
+
     <div class="form-group" style="padding-bottom: 0px; margin-bottom: 0px;">
       {!! Form::hidden('id',$id) !!}
     </div>
     
+    <div id="add">
     <div class="row">
       <div class="col-md-3">
-        {!! Form::select('exp_schedule_type',
+        {!! Form::select('exp_schedule_type[]',
               array(
                 'Unavaible' => trans('experience.unavaible'),
                 'InstanBook' => trans('experience.instan_book')),
@@ -65,14 +90,15 @@
       </div>
         <div class='col-md-6'>
             <div class="form-group">
-              {!! Form::text('datetimes', Input::old('exp_private_notes'), array('placeholder'=>trans('experience.exp_scheduler'), 'class'=>'form-control')) !!}
+              {!! Form::text('datetimes[]', Input::old('exp_private_notes'), array('placeholder'=>trans('experience.exp_scheduler'), 'class'=>'form-control')) !!}
               <!--input type="text" name="datetimes" /-->
             </div>
         </div>
     </div>
+    </div>
     
     <div class="form-group">
-      <div class="btn btn-success glyphicon glyphicon-plus-sign" style="float: right;">
+      <div class="btn btn-success glyphicon glyphicon-plus-sign" style="float: right;" id="add_schedule">
         <a style="text-decoration: none; color:#fff;" ref="#">
           {{trans('experience.add_schedule')}}
         </a>
@@ -94,9 +120,10 @@
   </div>
 </div>
 
+
 <script type="text/javascript">
   $(function() {
-      $('input[name="datetimes"]').daterangepicker({
+      $("input[name^='datetimes']").daterangepicker({
         timePicker: true,
         startDate: moment().startOf('hour'),
         endDate: moment().startOf('hour').add(36, 'hour'),
@@ -106,5 +133,26 @@
       });
     });
 </script>
+
+<script>
+var rowNum = 0;
+$(document).ready(function(){
+    $("#add_schedule").click(function(){
+        rowNum++; 
+        var html = "<div class='row'><div class='col-md-3'><select class='form-control' name=exp_schedule_type[]><option value='Unavaible'>{{trans('experience.unavaible')}}</option><option value='InstanBook'>{{trans('experience.instan_book')}}</option></select></div> <div class='col-md-6'><div class='form-group'><input class='form-control' type='text' name='datetimes["+rowNum+"]'/></div></div></div>"
+        $("#add").append(html);
+        $("input[name^='datetimes']").daterangepicker({
+        timePicker: true,
+        startDate: moment().startOf('hour'),
+        endDate: moment().startOf('hour').add(36, 'hour'),
+        locale: {
+          format: 'YYYY-MM-DD HH:mm '
+        }
+      });
+    });
+});
+
+</script>
+
 
 @endsection

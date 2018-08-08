@@ -239,7 +239,8 @@ class ExperiencesController extends Controller
     public function createSchedule($id)
     {
         $user = Auth::user();
-        return view('experience.create_schedule', array('user'=>$user,'id'=>$id));
+        $exp_schedule = App\ExperiencesSchedules::where('exp_id',$id)->get();
+        return view('experience.create_schedule', array('user'=>$user,'id'=>$id,'exp_schedule'=>$exp_schedule));
     }
 
     public function storeSchedule(Request $request)
@@ -249,16 +250,25 @@ class ExperiencesController extends Controller
                 array(
                 )
             );
-            $exp_schedule = new ExperiencesSchedules;
-            $exp_schedule->exp_id = $request->id;
-            $exp_schedule->exp_begin_date = Carbon::parse(explode(" - ", $request->datetimes)[0]);
-            $exp_schedule->exp_end_date = Carbon::parse(explode(" - ", $request->datetimes)[1]);
-            $exp_schedule->exp_schedule_type = $request->exp_schedule_type;
-            $exp_schedule->save();
+            foreach ($request->exp_schedule_type as $key => $exp_schedule_type) {
+                $exp_schedule = new ExperiencesSchedules;
+                $exp_schedule->exp_id = $request->id;
+                $exp_schedule->exp_begin_date = Carbon::parse(explode(" - ", $request->datetimes[$key])[0]);
+                $exp_schedule->exp_end_date = Carbon::parse(explode(" - ", $request->datetimes[$key])[1]);
+                $exp_schedule->exp_schedule_type = $exp_schedule_type;
+                $exp_schedule->save();
+            }
             return redirect()->route('experience_create_payment',array('id'=>$request->id));
         } else {
             return redirect('auth/login');
         }
+    }
+
+    public function removeSchedule($id)
+    {
+        $user = Auth::user();
+        App\ExperiencesSchedules::destroy($id);
+        return redirect()->back();
     }
 
     public function createPayment($id)
