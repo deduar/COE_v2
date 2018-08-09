@@ -4,16 +4,22 @@
 
 @section('content')
 
-  <h1>Experience Detail</h1>
+<style type="text/css">
+  .carousel-content {
+    position: absolute;
+    bottom: -10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,.6);
+  }
+</style>
 
 <div clas="row">
 
-  <!--img src={{asset('uploads/exp/'.$exp->exp_photo)}} height="400px;" style="display: block; margin-left: auto; margin-right: auto;"-->
-  <br>
-  <span style="padding-left: 30px; font-size: 28px; color: #000;">{{ strtoupper($exp->exp_name) }}</span>
-  <hr>
 
-  @if(count($exp_galleries) > 0))
+  @if(count($exp_galleries) > 0)
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
 
@@ -27,20 +33,18 @@
   <div class="carousel-inner">
     @foreach ($exp_galleries as $key=>$exp_gal)
     <div class="item @if($key==0) active @endif" >
-      <img src="{{asset('uploads/exp/'.$exp_gal->exp_photo)}}" style="width: 100%; height: 350px;">
+      <img src="{{asset('uploads/exp/'.$exp_gal->exp_photo)}}" style="width: 100%; height: 450px;">
+      <div class="carousel-content">
+        <h3 style="text-align: center;">{{ $exp->exp_location }}</h3>
+        <h2 style="text-align: center;">{{ $exp->exp_name }}</h2>
+        <h2 style="text-align: center;"> <a style="text-decoration: none; color: #fff;" href="{{route('user_profile')}}">{{trans('experience.with')}} {{$user->name}} {{$user->last_name}}</a></h2>
+        <h3 style="text-align: center;"> 00 {{trans('experience.reviews')}}</h3>
+        <a style="text-decoration: none; color: #fff;" href="{{route('user_profile')}}"><img style="margin-left: 40%; border: 4px solid #fff; height: 80px; border-radius: 50px; " src="{{asset('uploads/avatars/'.$user->avatar)}}"></a>
+      </div>
     </div>
     @endforeach
   </div>
 
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-    <span class="sr-only">Next</span>
-  </a>
   </div>
   @else
     <img src={{asset('uploads/exp/'.$exp->exp_photo)}} height="400px;" style="display: block; margin-left: auto; margin-right: auto;">

@@ -11,20 +11,21 @@
   @foreach($experiences as $exp)
     <div class="col-md-4" style="margin-bottom: 30px;">
       
-      <div class="col-md-12">
+      <div class="col-md-12" style="padding: 0px;">
         <a href="{{route('experience_show',array('id'=>$exp->exp_id))}}">
-          <img style="display: block; width: 100%; height: 300px; margin-left: auto; margin-right: auto;" src={{asset('uploads/exp/'.$exp->exp_photo)}} >
+          <img style="display: block; width: 100%; height: 278px; margin-left: auto; margin-right: auto;" src="{{asset('uploads/exp/'.$exp->exp_photo)}}" >
         </a>
       </div>
-      <div class="col-md-12">
+
+      <div class="col-md-12" style="border: 1px solid #000; border-bottom: 0px;">
         <h3 style="color: #000; margin-top: 0px;">{{ strtoupper($exp->exp_name) }}</h3>
       </div>
-      <div class="col-md-12">
+      <div class="col-md-12" style="border-left: 1px solid #000; border-right: 1px solid #000;">
         {{ $exp->name }} {{ $exp->last_name }}
         <span><br>{{ number_format($exp->exp_price, 2, '.', ',') }} {{ $exp->cur_simbol }} ({{ $exp->cur_name }})</span>
         <span><br>{{ number_format($exp->exp_price/$exp->cur_exchange, 2, '.', ',') }} US$ (American Dollar)</span>
       </div>
-      <div class="col-md-12">
+      <div class="col-md-12" style="border: 1px solid #000; border-top: 0px;">
         @if(Auth::user())
           <a href="{{ route('user_show',array('id'=>$exp->user_id)) }}">
             <img src={{asset('uploads/avatars/'.$exp->avatar)}} height="40px;" style="float: right; border-radius: 50%;">
@@ -40,6 +41,7 @@
           </div>
         @endif
       </div>
+
     </div>
   @endforeach
   </div>
