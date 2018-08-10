@@ -178,8 +178,10 @@
         </div>
 
         <!-- Scripts -->
-        {!! Html::script('assets/js/jquery-1.11.3.min.js') !!}
-        {!! Html::script('assets/js/bootstrap-2.3.2.min.js') !!}
+        {!! Html::script('assets/js/jquery-3.3.1.min.js') !!}
+        {!! Html::script('assets/js/bootstrap_3.3.7.min.js') !!}
+        {!! Html::script('assets/js/moment.min.js') !!}
+        {!! Html::script('assets/js/bootstrap-datetimepicker.min.js') !!}
 
     </body>
 </html>

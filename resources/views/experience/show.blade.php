@@ -74,9 +74,10 @@
         </h4>
         <h4>{{$exp->exp_duration}} {{$exp->exp_duration_h}}</h4>
         <div class="row">
-        <div class="col-md-6"><input class="datepicker form-control" type="text" placeholder="Date & Time" name="datepicker" id="datepicker"></div>
+        <div class="col-md-12"><input class="form-control datepick" type="text" placeholder="Date & Time" name="datepick"></div>
 
-        <div class="col-md-6" style="margin-bottom: 30px;">
+
+        <div class="col-md-12" style="margin-bottom: 30px;">
         <select style="float: right;" class="form-control" >
           <option value="0" selected>{{trans('experience.num_people')}}</option>
           @for($i=$exp->exp_min_people; $i <= $exp->exp_max_people; $i++)
@@ -112,11 +113,18 @@
   <h2> Reviews here ....</h2>
 </div> 
 
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('.datepick').datetimepicker({
+      showSecond: true,
+        dateFormat: 'dd/mm/yy',
+      timeFormat: 'hh:mm:ss',
+      stepHour: 2,
+      stepMinute: 10,
+      stepSecond: 10
+    });
+  });
+</script>
 
 @endsection
-
-<script>
-$(function(){
- $('#datepicker').datepicker(); 
-});
-</script>
