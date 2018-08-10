@@ -48,13 +48,49 @@
   </div>
   @else
     <img src={{asset('uploads/exp/'.$exp->exp_photo)}} height="400px;" style="display: block; margin-left: auto; margin-right: auto;">
+    <div class="carousel-content">
+        <h3 style="text-align: center;">{{ $exp->exp_location }}</h3>
+        <h2 style="text-align: center;">{{ $exp->exp_name }}</h2>
+        <h2 style="text-align: center;"> <a style="text-decoration: none; color: #fff;" href="{{route('user_profile')}}">{{trans('experience.with')}} {{$user->name}} {{$user->last_name}}</a></h2>
+        <h3 style="text-align: center;"> 00 {{trans('experience.reviews')}}</h3>
+        <a style="text-decoration: none; color: #fff;" href="{{route('user_profile')}}"><img style="margin-left: 40%; border: 4px solid #fff; height: 80px; border-radius: 50px; " src="{{asset('uploads/avatars/'.$user->avatar)}}"></a>
+      </div>
   @endif
 
   <hr>
-  <a href="{{ route('user_show',array('id'=>$exp->exp_guide_id)) }}">
-    <img src={{asset('uploads/avatars/'.$exp->avatar)}} height="40px;" style="float: right; border-radius: 50%;">
-  </a>
-  {{ $exp->name }} {{ $exp->last_name }} <br>
+  <div class="content-fluid">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="col-md-8">
+        {{ $exp->exp_summary }}
+      </div>
+      <div class="col-md-4">
+        <h3>{{trans('experience.make_reseravtion')}}</h3>
+        <h4>{{$exp->exp_price}} {{$exp->cur_simbol}} [{{$exp->cur_name}}]</h4>
+        <h4>
+          @if($exp->exp_flat)
+            {{trans('experience.flat')}}
+          @else
+            {{trans('experiemce.by_person')}}
+          @endif
+        </h4>
+        <h4>{{$exp->exp_duration}} {{$exp->exp_duration_h}}</h4>
+        <div class="row">
+        <div class="col-md-6"><input type="text" placeholder="Date & Time" name="date"></div>
+        <div class="col-md-6">
+        <select>
+            <option value="0" selected>{{trans('experience.num_people')}}</option>
+          @for($i=$exp->exp_min_people; $i <= $exp->exp_max_people; $i++)
+            <option value="{{$i}}">{{$i}}</option>
+          @endfor
+        </select>
+        </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <br>
   {{ $exp->email }}
   <hr>
   Summary: {{ $exp->exp_summary }}
