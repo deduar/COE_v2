@@ -25,5 +25,6 @@ return [
 	'exp_more_photos_label' => 'Photo Gallery',
 	'add_schedule' => 'Add other Schedule',
 	'people' => 'People',
-	'duration' => 'Duration'
+	'duration' => 'Duration',
+	'num_people' => 'People'
 ];

@@ -26,5 +26,6 @@ return [
 	'exp_more_photos_label' => 'Galería de Fotos',
 	'add_schedule' => 'Agregar otro esquema de tiempo',
 	'people' => 'Personas',
-	'duration' => 'Duracion'
+	'duration' => 'Duracion',
+	'num_people' => 'Viajeros'
 ];

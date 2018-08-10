@@ -57,13 +57,12 @@
       </div>
   @endif
 
-  <hr>
-  <div class="content-fluid">
+  <div style="margin-top: 30px;" class="content-fluid">
     <div class="col-md-10 col-md-offset-1">
       <div class="col-md-8">
         {{ $exp->exp_summary }}
       </div>
-      <div class="col-md-4">
+      <div style="border: 1px solid #efefef; color: #000;" class="col-md-4">
         <h3>{{trans('experience.make_reseravtion')}}</h3>
         <h4>{{$exp->exp_price}} {{$exp->cur_simbol}} [{{$exp->cur_name}}]</h4>
         <h4>
@@ -75,10 +74,11 @@
         </h4>
         <h4>{{$exp->exp_duration}} {{$exp->exp_duration_h}}</h4>
         <div class="row">
-        <div class="col-md-6"><input type="text" placeholder="Date & Time" name="date"></div>
-        <div class="col-md-6">
-        <select>
-            <option value="0" selected>{{trans('experience.num_people')}}</option>
+        <div class="col-md-6"><input class="datepicker form-control" type="text" placeholder="Date & Time" name="datepicker" id="datepicker"></div>
+
+        <div class="col-md-6" style="margin-bottom: 30px;">
+        <select style="float: right;" class="form-control" >
+          <option value="0" selected>{{trans('experience.num_people')}}</option>
           @for($i=$exp->exp_min_people; $i <= $exp->exp_max_people; $i++)
             <option value="{{$i}}">{{$i}}</option>
           @endfor
@@ -112,4 +112,11 @@
   <h2> Reviews here ....</h2>
 </div> 
 
+
 @endsection
+
+<script>
+$(function(){
+ $('#datepicker').datepicker(); 
+});
+</script>
