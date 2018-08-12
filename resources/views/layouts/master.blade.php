@@ -2,6 +2,7 @@
     <head>
         <title>@yield('title')</title>
         {!! Html::style('assets/css/bootstrap.min.css') !!}
+        {!! Html::style('assets/css/bootstrap-datetimepicker.min.css') !!}
         {!! Html::style('assets/css/app.css') !!}
 
         <!-- Fonts -->

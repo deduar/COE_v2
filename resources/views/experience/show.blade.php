@@ -16,9 +16,14 @@
   }
 </style>
 
+<style type="text/css">
+  .datetimepicker table {
+    color: #000;
+  }
+</style>
+
+
 <div clas="row">
-
-
   @if(count($exp_galleries) > 0)
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
@@ -76,7 +81,6 @@
         <div class="row">
         <div class="col-md-12"><input class="form-control datepick" type="text" placeholder="Date & Time" name="datepick"></div>
 
-
         <div class="col-md-12" style="margin-bottom: 30px;">
         <select style="float: right;" class="form-control" >
           <option value="0" selected>{{trans('experience.num_people')}}</option>
@@ -113,16 +117,20 @@
   <h2> Reviews here ....</h2>
 </div> 
 
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+{!! Html::script('assets/js/jquery-1.11.1.min.js') !!}
 <script>
   $(document).ready(function() {
+    var todayDate = new Date().getDate();
     $('.datepick').datetimepicker({
       showSecond: true,
-        dateFormat: 'dd/mm/yy',
+      dateFormat: 'dd/mm/YYYY',
       timeFormat: 'hh:mm:ss',
-      stepHour: 2,
+      stepHour: 1,
       stepMinute: 10,
-      stepSecond: 10
+      stepSecond: 10,
+      pickTime: false,
+      startDate : new Date(new Date().setDate(todayDate)),
+      datesDisabled: ['2018-08-27']
     });
   });
 </script>
