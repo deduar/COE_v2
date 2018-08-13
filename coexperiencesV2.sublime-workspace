@@ -532,16 +532,7 @@
 			"file": "resources/views/experience/show.blade.php",
 			"settings":
 			{
-				"buffer_size": 4929,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/layouts/master.blade.php",
-			"settings":
-			{
-				"buffer_size": 10157,
+				"buffer_size": 5169,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -615,10 +606,10 @@
 	],
 	"file_history":
 	[
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/layouts/master.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Experiences/ExperiencesController.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/layouts/master_datepicker.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/show.blade.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/layouts/master.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/public/assets/js/jquery.min.js",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/es/experience.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/en/experience.php",
@@ -760,6 +751,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"date",
+			">\n",
 			"bootstrap",
 			"        \n",
 			"scrip",
@@ -885,9 +878,7 @@
 			"Profile",
 			"border",
 			"myexp",
-			"        \n",
-			"user.show",
-			"show"
+			"        \n"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -972,7 +963,7 @@
 						"translation.y": 546.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -981,15 +972,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4929,
+						"buffer_size": 5169,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4666,
-								4666
+								398,
+								398
 							]
 						],
 						"settings":
@@ -1002,43 +993,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1261.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "resources/views/layouts/master.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 10157,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								10062,
-								10062
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2171.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
 					"type": "text"
 				}
 			]

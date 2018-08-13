@@ -115,22 +115,30 @@
       @endif
   <hr>
   <h2> Reviews here ....</h2>
-</div> 
+</div>
+
+<?php 
+  $exp_s = null;
+  foreach ($exp_schedule as $key => $exp_sch) {
+    $exp_s = explode(' ','"'.$exp_sch->exp_begin_date)[0].'",'.$exp_s;
+  }
+?>
 
 {!! Html::script('assets/js/jquery-1.11.1.min.js') !!}
 <script>
   $(document).ready(function() {
     var todayDate = new Date().getDate();
+    var datesForDisable = [<?php echo $exp_s; ?>];
     $('.datepick').datetimepicker({
       showSecond: true,
-      dateFormat: 'dd/mm/YYYY',
-      timeFormat: 'hh:mm:ss',
+      dateFormat: 'dd/mm/YYYY hh:mm',
+      timeFormat: 'hh:mm',
       stepHour: 1,
       stepMinute: 10,
       stepSecond: 10,
       pickTime: false,
       startDate : new Date(new Date().setDate(todayDate)),
-      datesDisabled: ['2018-08-27']
+      datesDisabled: datesForDisable,
     });
   });
 </script>

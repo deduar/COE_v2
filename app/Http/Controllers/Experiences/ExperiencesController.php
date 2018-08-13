@@ -321,19 +321,21 @@ class ExperiencesController extends Controller
             $user = null;
         } else {
             $user = Auth::user();
-        } 
+        }
         $exp = DB::table('experience')
                 ->join('users','users.id','=','experience.exp_guide_id')
                 ->join('currency','experience.exp_currency','=','currency.id')
                 ->select('experience.id as exp_id', 'exp_photo', 'exp_name', 'exp_location','exp_summary','exp_min_people','exp_max_people','exp_duration','exp_duration_h','exp_category','exp_flat','avatar', 'name', 'last_name', 'email', 'exp_price', 'cur_simbol', 'cur_name', 'cur_exchange', 'exp_guide_id')
                 ->where('experience.id',$id)
                 ->first();
-
+        $exp_schedule = DB::table('experience_schedules')
+                ->where('experience_schedules.exp_id',$id)
+                ->get();
         $exp_galleries = DB::table('experience_photos')
                 ->where('experience_photos.exp_id',$id)
                 ->get();
 
-        return view('experience.show', array('user'=>$user,'exp'=>$exp,'exp_galleries'=>$exp_galleries));
+        return view('experience.show', array('user'=>$user,'exp'=>$exp,'exp_schedule'=>$exp_schedule,'exp_galleries'=>$exp_galleries));
     }
 
     /**
