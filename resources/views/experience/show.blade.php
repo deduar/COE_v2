@@ -66,11 +66,14 @@
       <div class="col-md-8">
         {{ $exp->exp_summary }}
       </div>
+      @if ($exp->exp_guide_id != $user->id)
       <div style="border: 1px solid #efefef; color: #000;" class="col-md-4">
+        {!! Form::open(['route' => 'reservation_store', 'files' => true]) !!}
+        <input type="hidden" name="exp_id" value="{{$exp->exp_id}}">
         <h3 style="text-align: center;">{{trans('experience.make_reservation')}}</h3><hr style="border: 1px solid #000;">
         <div class="col-md-4"><h4>{{trans('experience.price')}}</h4></div>
-        <div class="col-md-8"><h4 style="float: right;">{{$exp->exp_price}} {{$exp->cur_simbol}} [{{$exp->cur_name}}]</h4></div>
-        <div class="col-md-4"></div>
+        <div class="col-md-8"><h4 style="float: right;">{{number_format($exp->exp_price,2,',','.')}} {{$exp->cur_simbol}} </h4></div>
+        <div class="col-md-4">[{{$exp->cur_name}}]</div>
         <div class="col-md-8">
           <h4 style="float: right;">
           @if($exp->exp_flat)
@@ -86,7 +89,7 @@
         <div class="col-md-12"><input style="margin-top: 10px; margin-bottom: 10px;" class="form-control datepick" type="text" placeholder="Date & Time" name="datepick"></div>
 
         <div class="col-md-12" style="margin-bottom: 30px;">
-        <select style="float: right;" class="form-control" >
+        <select style="float: right;" class="form-control" name="pax">
           <option value="0" selected>{{trans('experience.num_people')}}</option>
           @for($i=$exp->exp_min_people; $i <= $exp->exp_max_people; $i++)
             <option value="{{$i}}">{{$i}}
@@ -96,10 +99,12 @@
         </select>
         </div>
         </div>
-      <div class="col-md-12">
-        <div style="margin-bottom: 10px; width: 100%;" class="btn btn-primary">{{trans('experience.reservar')}}</div>
+        <div class="col-md-12">
+            <button style="margin-bottom: 10px; width: 100%;" type="submit" class="btn btn-primary">{{trans('experience.reservar')}}</button>
+        </div>
+        {!! Form::close() !!}
       </div>
-      </div>
+      @endif
     </div>
   </div>
 
@@ -109,19 +114,7 @@
   Summary: {{ $exp->exp_summary }}
   <br><span> Price: {{ number_format($exp->exp_price, 2, '.', ',') }} {{ $exp->cur_simbol }} ({{ $exp->cur_name }})</span>
   <span><br>{{ number_format($exp->exp_price/$exp->cur_exchange, 2, '.', ',') }} US$ (American Dollar)</span>
-  <!--hr>
-  @if ($user == null)
-        <div>
-          <a class="btn btn-success" style="float: right;" href="{{ route('reservation_create',array('id'=>$exp->exp_id)) }}">{{ trans('experience.reservation') }}</a>
-        </div>
-      @else
-        @if($exp->exp_guide_id != $user->id)
-          <div>
-            <a class="btn btn-success" style="float: right;" href="{{ route('reservation_create',array('id'=>$exp->exp_id)) }}">{{ trans('experience.reservation') }}</a>
-          </div>
-        @endif
-      @endif
-  <hr-->
+  
   <h2> Reviews here ....</h2>
 </div>
 

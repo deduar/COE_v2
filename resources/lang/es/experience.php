@@ -27,6 +27,7 @@ return [
 	'add_schedule' => 'Agregar otro esquema de tiempo',
 	'people' => 'Viajeros',
 	'person' => 'Viajero',
+	'flat' => 'Precio Fijo',
 	'duration' => 'Duracion',
 	'num_people' => 'Número de Viajeros',
 	'with' => 'Experiencia con: ',

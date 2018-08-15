@@ -26,6 +26,7 @@ return [
 	'add_schedule' => 'Add other Schedule',
 	'people' => 'People',
 	'person' => 'Person',
+	'flat' => 'Flat Price',
 	'duration' => 'Duration',
 	'num_people' => 'Amount of Peoples',
 	'with' => 'Experience with: ',

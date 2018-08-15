@@ -122,6 +122,7 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
         if (Auth::user()){
             $user = Auth::user();
             $reservation = new Reservation();
