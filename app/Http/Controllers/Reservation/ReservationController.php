@@ -120,18 +120,40 @@ class ReservationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function confirm(Request $request)
+    {
+        $user = Auth::user();
+        $data = array();
+        $exp = App\Experiences::find($request->exp_id);
+        $guide = App\User::find($exp->exp_guide_id);
+        //$data['date'] = Carbon\Carbon::parse($request->datepick)->format('Y-m-d H:i');
+        $data['date'] = $request->datepick;
+        $data['exp_id'] = $request->exp_id;
+        $data['user_id'] = $user->id;
+        $data['guide_id'] = $exp->exp_guide_id;
+        $data['flat'] = $exp->exp_flat;
+        $data['price'] = $exp->exp_price;
+        $data['pax'] = $request->pax;
+        if ($exp->exp_flat){
+            $data['amount'] = $exp->exp_price;
+        }else{
+            $data['amount'] = $exp->exp_price * $request->pax;
+        }
+        return view('reservation.confirm', array('user'=>Auth::user(),'data'=>$data,'exp'=>$exp,'guide'=>$guide));
+    }
+
     public function store(Request $request)
     {
         dd($request->all());
         if (Auth::user()){
             $user = Auth::user();
             $reservation = new Reservation();
-            $reservation->res_date = Carbon\Carbon::parse($request->res_date.' '.$request->res_time)->format('Y-m-d H:i');
-            $reservation->res_exp_id = $request->res_exp_id;
+            $reservation->res_date = Carbon\Carbon::parse($request->datepick)->format('Y-m-d H:i');
+            $reservation->res_exp_id = $request->exp_id;
             $reservation->res_user_id = $user->id;
             $reservation->res_guide_id = $request->res_guide_id;
             $reservation->status = "Waiting";
-            $reservation->save();
+            //$reservation->save();
             return redirect()->route('reservation');
         } else {
             return redirect('auth/login');

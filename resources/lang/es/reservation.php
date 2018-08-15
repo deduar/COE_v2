@@ -1,5 +1,6 @@
 <?php
 
 return [
-	'save' => 'Reservar'
+	'save' => 'Reservar',
+	'confirmation' => 'Confirmacion de Reserva'
 ];

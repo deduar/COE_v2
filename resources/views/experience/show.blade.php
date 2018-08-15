@@ -68,7 +68,7 @@
       </div>
       @if ($exp->exp_guide_id != $user->id)
       <div style="border: 1px solid #efefef; color: #000;" class="col-md-4">
-        {!! Form::open(['route' => 'reservation_store', 'files' => true]) !!}
+        {!! Form::open(['route' => 'reservation_confirm', 'files' => true]) !!}
         <input type="hidden" name="exp_id" value="{{$exp->exp_id}}">
         <h3 style="text-align: center;">{{trans('experience.make_reservation')}}</h3><hr style="border: 1px solid #000;">
         <div class="col-md-4"><h4>{{trans('experience.price')}}</h4></div>
@@ -86,11 +86,11 @@
         <div class="col-md-4"><h4>{{trans('experience.duration')}}</h4></div>
         <div class="col-md-8"><h4 style="float: right;">{{$exp->exp_duration}} {{$exp->exp_duration_h}}</h4></div>
         <div class="row">
-        <div class="col-md-12"><input style="margin-top: 10px; margin-bottom: 10px;" class="form-control datepick" type="text" placeholder="Date & Time" name="datepick"></div>
+        <div class="col-md-12"><input style="margin-top: 10px; margin-bottom: 10px;" class="form-control datepick" type="text" placeholder="Date & Time" name="datepick" required></div>
 
         <div class="col-md-12" style="margin-bottom: 30px;">
-        <select style="float: right;" class="form-control" name="pax">
-          <option value="0" selected>{{trans('experience.num_people')}}</option>
+        <select style="float: right;" class="form-control" name="pax" required >
+          <option value="" selected>{{trans('experience.num_people')}}</option>
           @for($i=$exp->exp_min_people; $i <= $exp->exp_max_people; $i++)
             <option value="{{$i}}">{{$i}}
               @if($i==1){{trans('experience.person')}}@else{{trans('experience.people')}}@endif
@@ -131,13 +131,9 @@
     var todayDate = new Date().getDate();
     var datesForDisable = [<?php echo $exp_s; ?>];
     $('.datepick').datetimepicker({
-      showSecond: true,
-      dateFormat: 'dd/mm/YYYY hh:mm',
-      timeFormat: 'hh:mm',
-      stepHour: 1,
-      stepMinute: 10,
-      stepSecond: 10,
-      pickTime: false,
+      todayBtn: true,
+      minuteStep: 5,
+      format: "mm/dd/yyyy hh:ii",
       startDate : new Date(new Date().setDate(todayDate)),
       datesDisabled: datesForDisable,
     });
