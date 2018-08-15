@@ -25,6 +25,13 @@ return [
 	'exp_more_photos_label' => 'Photo Gallery',
 	'add_schedule' => 'Add other Schedule',
 	'people' => 'People',
+	'person' => 'Person',
 	'duration' => 'Duration',
-	'num_people' => 'People'
+	'num_people' => 'Amount of Peoples',
+	'with' => 'Experience with: ',
+	'reviews' => 'Reviewss',
+	'make_reservation' => 'Make Reservation',
+	'price' => 'Precio',
+	'by_person' => 'By Person',
+	'reservar' => 'MAKE RESERVATION'
 ];

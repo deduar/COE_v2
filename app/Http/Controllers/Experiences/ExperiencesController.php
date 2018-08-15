@@ -319,7 +319,7 @@ class ExperiencesController extends Controller
     {
         if(Auth::guest()){
             $user = null;
-            return redirect('auth/login');
+            //return redirect('auth/login');
         } else {
             $user = Auth::user();
         }

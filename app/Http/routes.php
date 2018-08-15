@@ -38,6 +38,7 @@ Route::post('password/reset', 'Auth\PasswordController@postReset')->name('postre
 
 // UsersController routes
 Route::get('/user/profile', 'Users\UsersController@showProfile')->name('user_profile');
+Route::get('/user/profileGuide/{id}', 'Users\UsersController@showProfileGuide')->name('user_profile_guide');
 Route::get('/user/editProfile', 'Users\UsersController@editProfile')->name('edit_profile');
 Route::post('/user/updateProfile','Users\UsersController@updateProfile')->name('update_profile');
 Route::post('/user/uploadAvatar', 'Users\UsersController@uploadAvatar')->name('upload_avatar');

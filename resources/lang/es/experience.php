@@ -25,7 +25,14 @@ return [
 	'exp_more_potos' => 'Selecciones, de forma simultanea, todas las imagenes a subir',
 	'exp_more_photos_label' => 'Galería de Fotos',
 	'add_schedule' => 'Agregar otro esquema de tiempo',
-	'people' => 'Personas',
+	'people' => 'Viajeros',
+	'person' => 'Viajero',
 	'duration' => 'Duracion',
-	'num_people' => 'Viajeros'
+	'num_people' => 'Número de Viajeros',
+	'with' => 'Experiencia con: ',
+	'reviews' => 'Comentarios',
+	'make_reservation' => 'Reservar',
+	'price' => 'Price',
+	'by_person' => 'Por Viajero',
+	'reservar' => 'RESERVAR'
 ];

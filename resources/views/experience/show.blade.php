@@ -41,9 +41,9 @@
       <img src="{{asset('uploads/exp/'.$exp_gal->exp_photo)}}" style="width: 100%; height: 450px;">
       <div class="carousel-content">
         <h3 style="text-align: center;">{{ $exp->exp_location }}</h3>
-        <h2 style="text-align: center;"> <a style="text-decoration: none; color: #fff;" href="{{route('user_profile')}}">{{trans('experience.with')}} {{strtoupper($exp->user_name)}} {{strtoupper($exp->user_last_name)}}</a></h2>
+        <h2 style="text-align: center;"> <a style="text-decoration: none; color: #fff;" href="{{route('user_profile_guide',$exp->exp_guide_id)}}">{{trans('experience.with')}} {{strtoupper($exp->user_name)}} {{strtoupper($exp->user_last_name)}}</a></h2>
         <h3 style="text-align: center;"> 00 {{trans('experience.reviews')}}</h3>
-        <a style="text-decoration: none; color: #fff;" href="{{route('user_profile')}}"><img style="margin-left: 40%; border: 4px solid #fff; height: 80px; border-radius: 50px; " src="{{asset('uploads/avatars/'.$exp->user_avatar)}}"></a>
+        <a style="text-decoration: none; color: #fff;" href="{{route('user_profile_guide',$exp->exp_guide_id)}}"><img style="margin-left: 40%; border: 4px solid #fff; height: 80px; border-radius: 50px; " src="{{asset('uploads/avatars/'.$exp->user_avatar)}}"></a>
       </div>
     </div>
     @endforeach
@@ -67,29 +67,38 @@
         {{ $exp->exp_summary }}
       </div>
       <div style="border: 1px solid #efefef; color: #000;" class="col-md-4">
-        <h3>{{trans('experience.make_reseravtion')}}</h3>
-        <h4>{{$exp->exp_price}} {{$exp->cur_simbol}} [{{$exp->cur_name}}]</h4>
-        <h4>
+        <h3 style="text-align: center;">{{trans('experience.make_reservation')}}</h3><hr style="border: 1px solid #000;">
+        <div class="col-md-4"><h4>{{trans('experience.price')}}</h4></div>
+        <div class="col-md-8"><h4 style="float: right;">{{$exp->exp_price}} {{$exp->cur_simbol}} [{{$exp->cur_name}}]</h4></div>
+        <div class="col-md-4"></div>
+        <div class="col-md-8">
+          <h4 style="float: right;">
           @if($exp->exp_flat)
             {{trans('experience.flat')}}
           @else
-            {{trans('experiemce.by_person')}}
-          @endif
-        </h4>
-        <h4>{{$exp->exp_duration}} {{$exp->exp_duration_h}}</h4>
+            {{trans('experience.by_person')}}
+          @endif          
+          </h4>
+        </div>
+        <div class="col-md-4"><h4>{{trans('experience.duration')}}</h4></div>
+        <div class="col-md-8"><h4 style="float: right;">{{$exp->exp_duration}} {{$exp->exp_duration_h}}</h4></div>
         <div class="row">
-        <div class="col-md-12"><input class="form-control datepick" type="text" placeholder="Date & Time" name="datepick"></div>
+        <div class="col-md-12"><input style="margin-top: 10px; margin-bottom: 10px;" class="form-control datepick" type="text" placeholder="Date & Time" name="datepick"></div>
 
         <div class="col-md-12" style="margin-bottom: 30px;">
         <select style="float: right;" class="form-control" >
           <option value="0" selected>{{trans('experience.num_people')}}</option>
           @for($i=$exp->exp_min_people; $i <= $exp->exp_max_people; $i++)
-            <option value="{{$i}}">{{$i}}</option>
+            <option value="{{$i}}">{{$i}}
+              @if($i==1){{trans('experience.person')}}@else{{trans('experience.people')}}@endif
+            </option>
           @endfor
         </select>
         </div>
-
         </div>
+      <div class="col-md-12">
+        <div style="margin-bottom: 10px; width: 100%;" class="btn btn-primary">{{trans('experience.reservar')}}</div>
+      </div>
       </div>
     </div>
   </div>
@@ -100,7 +109,7 @@
   Summary: {{ $exp->exp_summary }}
   <br><span> Price: {{ number_format($exp->exp_price, 2, '.', ',') }} {{ $exp->cur_simbol }} ({{ $exp->cur_name }})</span>
   <span><br>{{ number_format($exp->exp_price/$exp->cur_exchange, 2, '.', ',') }} US$ (American Dollar)</span>
-  <hr>
+  <!--hr>
   @if ($user == null)
         <div>
           <a class="btn btn-success" style="float: right;" href="{{ route('reservation_create',array('id'=>$exp->exp_id)) }}">{{ trans('experience.reservation') }}</a>
@@ -112,7 +121,7 @@
           </div>
         @endif
       @endif
-  <hr>
+  <hr-->
   <h2> Reviews here ....</h2>
 </div>
 
