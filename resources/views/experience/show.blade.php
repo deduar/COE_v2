@@ -41,10 +41,9 @@
       <img src="{{asset('uploads/exp/'.$exp_gal->exp_photo)}}" style="width: 100%; height: 450px;">
       <div class="carousel-content">
         <h3 style="text-align: center;">{{ $exp->exp_location }}</h3>
-        <h2 style="text-align: center;">{{ $exp->exp_name }}</h2>
-        <h2 style="text-align: center;"> <a style="text-decoration: none; color: #fff;" href="{{route('user_profile')}}">{{trans('experience.with')}} {{$user->name}} {{$user->last_name}}</a></h2>
+        <h2 style="text-align: center;"> <a style="text-decoration: none; color: #fff;" href="{{route('user_profile')}}">{{trans('experience.with')}} {{strtoupper($exp->user_name)}} {{strtoupper($exp->user_last_name)}}</a></h2>
         <h3 style="text-align: center;"> 00 {{trans('experience.reviews')}}</h3>
-        <a style="text-decoration: none; color: #fff;" href="{{route('user_profile')}}"><img style="margin-left: 40%; border: 4px solid #fff; height: 80px; border-radius: 50px; " src="{{asset('uploads/avatars/'.$user->avatar)}}"></a>
+        <a style="text-decoration: none; color: #fff;" href="{{route('user_profile')}}"><img style="margin-left: 40%; border: 4px solid #fff; height: 80px; border-radius: 50px; " src="{{asset('uploads/avatars/'.$exp->user_avatar)}}"></a>
       </div>
     </div>
     @endforeach
@@ -56,7 +55,7 @@
     <div class="carousel-content">
         <h3 style="text-align: center;">{{ $exp->exp_location }}</h3>
         <h2 style="text-align: center;">{{ $exp->exp_name }}</h2>
-        <h2 style="text-align: center;"> <a style="text-decoration: none; color: #fff;" href="{{route('user_profile')}}">{{trans('experience.with')}} {{$user->name}} {{$user->last_name}}</a></h2>
+        <h2 style="text-align: center;"> <a style="text-decoration: none; color: #fff;" href="{{route('user_profile')}}">{{trans('experience.with')}} {{strtoupper($exp->user_name)}} {{strtoupper($exp->user_last_name)}}</a></h2>
         <h3 style="text-align: center;"> 00 {{trans('experience.reviews')}}</h3>
         <a style="text-decoration: none; color: #fff;" href="{{route('user_profile')}}"><img style="margin-left: 40%; border: 4px solid #fff; height: 80px; border-radius: 50px; " src="{{asset('uploads/avatars/'.$user->avatar)}}"></a>
       </div>

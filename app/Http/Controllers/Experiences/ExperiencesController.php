@@ -319,17 +319,19 @@ class ExperiencesController extends Controller
     {
         if(Auth::guest()){
             $user = null;
+            return redirect('auth/login');
         } else {
             $user = Auth::user();
         }
         $exp = DB::table('experience')
                 ->join('users','users.id','=','experience.exp_guide_id')
                 ->join('currency','experience.exp_currency','=','currency.id')
-                ->select('experience.id as exp_id', 'exp_photo', 'exp_name', 'exp_location','exp_summary','exp_min_people','exp_max_people','exp_duration','exp_duration_h','exp_category','exp_flat','avatar', 'name', 'last_name', 'email', 'exp_price', 'cur_simbol', 'cur_name', 'cur_exchange', 'exp_guide_id')
+                ->select('experience.id as exp_id', 'exp_photo', 'exp_name', 'exp_location','exp_summary','exp_min_people','exp_max_people','exp_duration','exp_duration_h','exp_category','exp_flat','users.name as user_name','users.last_name as user_last_name','users.avatar as user_avatar', 'users.email', 'exp_price', 'cur_simbol', 'cur_name', 'cur_exchange', 'exp_guide_id')
                 ->where('experience.id',$id)
                 ->first();
         $exp_schedule = DB::table('experience_schedules')
                 ->where('experience_schedules.exp_id',$id)
+                ->where('experience_schedules.exp_schedule_type','Unavaible')
                 ->get();
         $exp_galleries = DB::table('experience_photos')
                 ->where('experience_photos.exp_id',$id)

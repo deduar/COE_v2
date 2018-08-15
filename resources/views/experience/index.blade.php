@@ -17,15 +17,15 @@
         </a>
       </div>
 
-      <div class="col-md-12" style="border: 1px solid #000; border-bottom: 0px;">
+      <div class="col-md-12" style="border: 1px solid #000; border-bottom: 0px; height: 70px;">
         <h3 style="color: #000; margin-top: 0px;">{{ strtoupper($exp->exp_name) }}</h3>
       </div>
-      <div class="col-md-12" style="border-left: 1px solid #000; border-right: 1px solid #000;">
+      <div class="col-md-12" style="border-left: 1px solid #000; border-right: 1px solid #000; height: 80px;">
         {{ $exp->name }} {{ $exp->last_name }}
         <span><br>{{ number_format($exp->exp_price, 2, '.', ',') }} {{ $exp->cur_simbol }} ({{ $exp->cur_name }})</span>
         <span><br>{{ number_format($exp->exp_price/$exp->cur_exchange, 2, '.', ',') }} US$ (American Dollar)</span>
       </div>
-      <div class="col-md-12" style="border: 1px solid #000; border-top: 0px;">
+      <div class="col-md-12" style="border: 1px solid #000; border-top: 0px; height: 60px;">
         @if(Auth::user())
           <a href="{{ route('user_show',array('id'=>$exp->user_id)) }}">
             <img src={{asset('uploads/avatars/'.$exp->avatar)}} height="40px;" style="float: right; border-radius: 50%;">

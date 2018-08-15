@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"expe",
+				"experience_schedules"
+			],
+			[
+				"dateFo",
+				"datesForDisable"
+			],
+			[
 				"mar",
 				"margin-top\tproperty"
 			],
@@ -360,10 +368,6 @@
 				"reservation_date"
 			],
 			[
-				"expe",
-				"experiences"
-			],
-			[
 				"experience",
 				"experience_id"
 			],
@@ -510,10 +514,6 @@
 			[
 				"navbar",
 				"navbar-nav"
-			],
-			[
-				"reg",
-				"register_code"
 			]
 		]
 	},
@@ -529,10 +529,19 @@
 			}
 		},
 		{
+			"file": "app/Http/Controllers/Experiences/ExperiencesController.php",
+			"settings":
+			{
+				"buffer_size": 17037,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "resources/views/experience/show.blade.php",
 			"settings":
 			{
-				"buffer_size": 5169,
+				"buffer_size": 5377,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -599,6 +608,8 @@
 		"/home/deduar/Projects/Coexperiences_v-2.0",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http",
+		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers",
+		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Experiences",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience",
@@ -606,6 +617,7 @@
 	],
 	"file_history":
 	[
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/index.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/layouts/master.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Experiences/ExperiencesController.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/layouts/master_datepicker.blade.php",
@@ -613,7 +625,6 @@
 		"/home/deduar/Projects/Coexperiences_v-2.0/public/assets/js/jquery.min.js",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/es/experience.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/en/experience.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/index.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create_schedule.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/myexps.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/database/migrations/2018_07_02_100001_create_experience_schedule_table.php",
@@ -751,6 +762,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"list",
 			"date",
 			">\n",
 			"bootstrap",
@@ -877,8 +889,7 @@
 			"edit_profile",
 			"Profile",
 			"border",
-			"myexp",
-			"        \n"
+			"myexp"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -963,24 +974,57 @@
 						"translation.y": 546.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "resources/views/experience/show.blade.php",
+					"file": "app/Http/Controllers/Experiences/ExperiencesController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5169,
+						"buffer_size": 17037,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								398,
-								398
+								12307,
+								12307
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4081.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "resources/views/experience/show.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5377,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2267,
+								2267
 							]
 						],
 						"settings":
@@ -993,10 +1037,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 447.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
