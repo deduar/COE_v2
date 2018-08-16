@@ -24,6 +24,9 @@
     </div>
     <div class="col-md-4">
       Confirmar
+      <button style="margin-bottom: 10px; width: 100%;" name="reservar" value="confirm" type="submit" class="btn btn-primary">{{trans('experience.confirm')}}</button>
+      <button style="margin-bottom: 10px; width: 100%;" name="reservar" value="paypal" type="submit" class="btn btn-primary">{{trans('experience.payPal')}}</button>
+      <button style="margin-bottom: 10px; width: 100%;" name="reservar" value="bank" type="submit" class="btn btn-primary">{{trans('experience.payBank')}}</button>
     </div>
   </div>
   {!! Form::close() !!}
