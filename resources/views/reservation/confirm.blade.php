@@ -1,3 +1,10 @@
+<style type="text/css">
+  .container{
+    background: #f0f0f0;
+    width: 100% !important;
+  }
+</style>
+
 @extends('layouts.master')
 
 @section('title', 'Coesperiences: Create Reservation')
@@ -18,9 +25,51 @@
   {!! Form::hidden('amount', $data['amount']) !!}
   <div class="col-md-12">
 
-    <div class="col-md-6 col-md-offset-1" style="border: 1px solid #000;"></div>
+    <div class="col-md-6 col-md-offset-1" style="border: 1px solid #000; background: #fff; padding-top: 10px; padding-bottom: 10px;">
+      <h4>{{trans('reservation.pay_msg')}}</h4>
+      <ul class="nav nav-tabs">
+        <li class="active"><a  href="#PayPal" data-toggle="tab">PayPal</a></li>
+        <li><a href="#BankTransfer" data-toggle="tab">Bank Transfer</a></li>
+      </ul>
+
+      <div class="tab-content clearfix" style="margin-top: 20px;">
+        <div class="tab-pane active" id="PayPal">
+          <div class="form-group" style="padding-top: 10px; padding-bottom: 30px;">
+            <div class="col-md-4">
+              {!! Form::label('postal_code', trans('reservation.postal_code')) !!}  
+            </div>
+            <div class="col-md-8">
+              {!! Form::text('postal_code', Input::old('postl_code'), array('placeholder'=>trans('reservation.palce_code_placeHolder'), 'class'=>'form-control')) !!}
+            </div>
+          </div>
+          <div class="form-group" style="padding-top: 10px; padding-bottom: 30px;">
+            <div class="col-md-4">
+              {!! Form::label('mobile_nomber', trans('reservation.mobile_number')) !!}  
+            </div>
+            <div class="col-md-8">
+              {!! Form::text('mobile_nomber', Input::old('mobile_nomber'), array('placeholder'=>trans('reservation.mobile_nomber_placeHolder'), 'class'=>'form-control')) !!}
+            </div>
+          </div>
+          <div class="form-group" style="padding-top: 10px; padding-bottom: 30px;">
+            <div class="col-md-4">
+              {!! Form::label('message', trans('reservation.message')) !!}  
+            </div>
+            <div class="col-md-8">
+              {!! Form::textarea('message', Input::old('message'), array('placeholder'=>trans('reservation.message_placeHolder'), 'class'=>'form-control', 'style'=>'overflow:hidden;')) !!}
+            </div>
+          </div>
+          <div class="form-group">
+            <button style="margin-top: 30px; margin-bottom: 10px; width: 100%;" name="acction" value="paypal" type="submit" class="btn btn-primary">{{trans('experience.paypal_btn')}}</button>
+          </div>
+        </div>
+        <div class="tab-pane" id="BankTransfer">
+          
+        </div>
+      </div>
+    </div>
+
     <div class="col-md-3 col-md-offset-1">
-      <div class="row" style="border: 1px solid #000; margin-bottom: 10px;">
+      <div class="row" style="border: 1px solid #000; margin-bottom: 10px; background: #fff;">
         <div class="col-md-12"><img style="height: 220px; width: 220px; padding: 10px;" src="{{asset('uploads/exp/'.$exp->exp_photo)}}"> </div>
         <div class="col-md-12"><h4 style="color: #000; text-align: center;">{{$exp->exp_name}}</h4></div>
         <div class="col-md-12"><h6 style="color: #000; text-align: center;">{{trans('reservation.with')}} {{$guide->name}} {{$guide->last_name}}, {{$exp->exp_location}}</h6></div>
@@ -33,7 +82,7 @@
         <div class="col-md-12">{{trans('reservation.sub_total')}}{{$data['amount']}} {{$exp->exp_currency}}</div>
         <div class="col-md-12" style="margin-bottom: 10px;">{{trans('reservation.total')}}{{$data['amount']}} {{$exp->exp_currency}}</div>
       </div>
-      <div class="row" style="border: 1px solid #000; margin-bottom: 10px;">
+      <div class="row" style="border: 1px solid #000; margin-bottom: 10px; background: #fff;">
         <hr style="width: 90%;">
         <div class="col-md-12">{{trans('reservation.how_work')}}</div>
         <hr style="width: 90%;">
