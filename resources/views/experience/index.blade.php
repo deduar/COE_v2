@@ -32,7 +32,7 @@
           </a>
           @if($exp->exp_guide_id != $user->id)
             <div>
-              <a class="btn btn-success" href="{{route('reservation_create',array('id'=>$exp->exp_id)) }}">{{ trans('experience.reservation') }}</a>
+              <a class="btn btn-success" href="{{route('experience_show',array('id'=>$exp->exp_id)) }}">{{ trans('experience.reservation') }}</a>
             </div>
           @endif
         @else
