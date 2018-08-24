@@ -73,7 +73,7 @@ class ReservationController extends Controller
 
     public function Cancel($id)
     {
-        $user = Auth::user();
+        //$user = Auth::user();
         $res = Reservation::find($id);
         $res->status = "Canceled";
         $res->update();
@@ -162,7 +162,12 @@ class ReservationController extends Controller
             $reservation->res_exp_id = $request->exp_id;
             $reservation->res_user_id = $user->id;
             $reservation->res_guide_id = $request->guide_id;
-            $reservation->status = "Waiting";
+            if ($request->acction == "paypal") {
+                $reservation->status = "Accepted";
+            } else {
+                $reservation->status = "Waiting";
+            }
+            
             $reservation->save();
             return redirect()->route('reservation');
         } else {

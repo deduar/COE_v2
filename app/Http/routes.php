@@ -83,7 +83,7 @@ Route::post('/reservation/store', 'Reservation\ReservationController@store')->na
 Route::get('/reservation/waiting', 'Reservation\ReservationController@waiting')->name('reservation_waiting');
 Route::get('/reservation/collection', 'Reservation\ReservationController@collection')->name('collection');
 Route::get('/reservation/transacionLog', 'Reservation\ReservationController@transactionLog')->name('transaction_log');
-Route::get('/reservation/cancel/{id}', 'Reservation\ReservationController@Cancel')->name('reservation_canceed');
+Route::get('/reservation/cancel/{id}', 'Reservation\ReservationController@Cancel')->name('reservation_canceled');
 Route::get('/reservation/reject/{id}', 'Reservation\ReservationController@Reject')->name('reservation_rejected');
 Route::get('/reservation/accept/{id}', 'Reservation\ReservationController@Accept')->name('reservation_accepted');
 Route::get('/reservation/pay_tansfer/{id}', 'Reservation\ReservationController@PayTransfer')->name('reservation_payTransfer');

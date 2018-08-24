@@ -100,23 +100,6 @@
       </div>
     </div>
 
-    <!--div class="col-md-8">
-      <div class="col-md-12"> {{ $exp->exp_name }} </div>
-      <div class="col-md-4"> {{ $guide->name }}</div>
-      <div class="col-md-8"> <img style="margin-left: 40%; border: 4px solid #fff; height: 80px; border-radius: 50px; " src="{{asset('uploads/avatars/'.$guide->avatar)}}"> </div>
-      <div class="col-md-4"> Fecha de la reserva</div>
-      <div class="col-md-8"> {{ $data['date'] }}</div>
-      <div class="col-md-4"> Número de viajeros</div>
-      <div class="col-md-8"> {{ $data['pax'] }} Viajeros</div>
-      <div class="col-md-4"> Costo</div>
-      <div class="col-md-8"> {{ $data['amount'] }} {{$exp->exp_currency}}</div>
-    </div>
-    <div class="col-md-4">
-      Confirmar
-      <button style="margin-bottom: 10px; width: 100%;" name="reserv" value="confirm" type="submit" class="btn btn-primary">{{trans('experience.confirm')}}</button>
-      <button style="margin-bottom: 10px; width: 100%;" name="reserv" value="paypal" type="submit" class="btn btn-primary">{{trans('experience.payPal')}}</button>
-      <button style="margin-bottom: 10px; width: 100%;" name="reserv" value="bank" type="submit" class="btn btn-primary">{{trans('experience.payBank')}}</button>
-    </div-->
   </div>
   {!! Form::close() !!}
   </div>
