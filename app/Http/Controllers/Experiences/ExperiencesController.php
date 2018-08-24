@@ -36,7 +36,7 @@ class ExperiencesController extends Controller
         $experiences = DB::table('experience')
                 ->join('users','users.id','=','experience.exp_guide_id')
                 ->join('currency','experience.exp_currency','=','currency.id')
-                ->select('experience.id as exp_id', 'users.id as user_id','exp_photo', 'exp_name', 'avatar', 'name', 'last_name', 'email', 'exp_location','exp_price', 'cur_simbol', 'cur_name', 'cur_exchange', 'exp_guide_id')
+                ->select('experience.id as exp_id', 'users.id as user_id','exp_photo', 'exp_name', 'avatar', 'name', 'last_name', 'email', 'exp_location','exp_price', 'cur_simbol', 'cur_name', 'cur_exchange', 'exp_guide_id', 'exp_summary')
                 ->where('users.group','Guide')
                 ->where('experience.exp_status','Active')
                 ->where('experience.exp_published','Active')
@@ -60,7 +60,7 @@ class ExperiencesController extends Controller
         $experiences = DB::table('experience')
             ->join('users','users.id','=','experience.exp_guide_id')
             ->join('currency','experience.exp_currency','=','currency.id')
-            ->select('experience.id as exp_id', 'users.id as user_id','exp_photo', 'exp_name', 'avatar', 'name', 'last_name', 'email', 'exp_price', 'cur_simbol', 'cur_name', 'cur_exchange', 'exp_guide_id')
+            ->select('experience.id as exp_id', 'users.id as user_id','exp_photo', 'exp_name', 'avatar', 'name', 'last_name', 'email', 'exp_price', 'cur_simbol', 'cur_name', 'cur_exchange', 'exp_guide_id','exp_summary','exp_location')
             ->where('users.group','Guide')
             ->where('experience.exp_status','Active')
             ->where('experience.exp_published','Active')
@@ -319,7 +319,7 @@ class ExperiencesController extends Controller
     {
         if(Auth::guest()){
             $user = null;
-            //return redirect('auth/login');
+            return redirect('auth/login');
         } else {
             $user = Auth::user();
         }

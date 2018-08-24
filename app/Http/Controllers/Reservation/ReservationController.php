@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App;
+use Session;
 use Auth;
 
 use App\Reservation;
@@ -17,6 +18,11 @@ use Illuminate\Support\Facades\DB;
 
 class ReservationController extends Controller
 {
+    public function __construct()
+    {
+        App::setLocale(Session::get('locale'));
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -125,6 +131,8 @@ class ReservationController extends Controller
         $user = Auth::user();
         $data = array();
         $exp = App\Experiences::find($request->exp_id);
+        $currency = App\Currency::find($exp->exp_currency);
+
         $guide = App\User::find($exp->exp_guide_id);
         //$data['date'] = Carbon\Carbon::parse($request->datepick)->format('Y-m-d H:i');
         $data['date'] = $request->datepick;
@@ -139,7 +147,7 @@ class ReservationController extends Controller
         }else{
             $data['amount'] = $exp->exp_price * $request->pax;
         }
-        return view('reservation.confirm', array('user'=>Auth::user(),'data'=>$data,'exp'=>$exp,'guide'=>$guide));
+        return view('reservation.confirm', array('user'=>Auth::user(),'data'=>$data,'exp'=>$exp,'guide'=>$guide, 'currency'=>$currency));
     }
 
     public function store(Request $request)

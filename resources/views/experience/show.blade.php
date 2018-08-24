@@ -131,8 +131,9 @@
     var todayDate = new Date().getDate();
     var datesForDisable = [<?php echo $exp_s; ?>];
     $('.datepick').datetimepicker({
+      autoclose: true,
       todayBtn: true,
-      minuteStep: 5,
+      minuteStep: 30,
       format: "mm/dd/yyyy hh:ii",
       startDate : new Date(new Date().setDate(todayDate)),
       datesDisabled: datesForDisable,

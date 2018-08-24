@@ -34,5 +34,6 @@ return [
 	'make_reservation' => 'Make Reservation',
 	'price' => 'Precio',
 	'by_person' => 'By Person',
-	'reservar' => 'MAKE RESERVATION'
+	'reservar' => 'MAKE RESERVATION',
+	'load_more' => 'LOAD MORE'
 ];

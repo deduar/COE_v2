@@ -25,7 +25,7 @@
   {!! Form::hidden('amount', $data['amount']) !!}
   <div class="col-md-12">
 
-    <div class="col-md-6 col-md-offset-1" style="border: 1px solid #000; background: #fff; padding-top: 10px; padding-bottom: 10px;">
+    <div class="col-md-6 col-md-offset-1" style="border: 1px solid #000; background: #fff; padding-top: 10px; padding-bottom: 10px; margin-top: 10px;">
       <h4>{{trans('reservation.pay_msg')}}</h4>
       <ul class="nav nav-tabs">
         <li class="active"><a  href="#PayPal" data-toggle="tab">PayPal</a></li>
@@ -63,24 +63,29 @@
           </div>
         </div>
         <div class="tab-pane" id="BankTransfer">
-          
+          <div class="col-md-12">{{trans('reservation.bank_message')}}</div>
+          <div class="form-group">
+            <button style="margin-top: 30px; margin-bottom: 10px; width: 100%;" name="acction" value="bak" type="submit" class="btn btn-primary">{{trans('experience.paypal_btn')}}</button>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="col-md-3 col-md-offset-1">
+    <div class="col-md-3 col-md-offset-1" style="margin-top: 10px;">
       <div class="row" style="border: 1px solid #000; margin-bottom: 10px; background: #fff;">
         <div class="col-md-12"><img style="height: 220px; width: 220px; padding: 10px;" src="{{asset('uploads/exp/'.$exp->exp_photo)}}"> </div>
         <div class="col-md-12"><h4 style="color: #000; text-align: center;">{{$exp->exp_name}}</h4></div>
         <div class="col-md-12"><h6 style="color: #000; text-align: center;">{{trans('reservation.with')}} {{$guide->name}} {{$guide->last_name}}, {{$exp->exp_location}}</h6></div>
         <hr style="border: 1px solid #cecece; width: 90%;">
-        <div class="col-md-12">{{trans('reservation.for')}} {{$data['pax']}} @if($data['pax']>1){{trans('experience.people')}}@else{{trans('reservation.person')}}@endif , {{trans('reservation.on_date')}} {{$data['date']}}</div>
+        <div class="col-md-12">{{trans('reservation.for')}} {{$data['pax']}} @if($data['pax']>1){{trans('experience.people')}}@else{{trans('reservation.person')}}@endif</div>
+        <div class="col-md-12">{{trans('reservation.on_date')}} {{$data['date']}}</div>
         <hr style="width: 90%;">
-        <div class="col-md-12">{{trans('reservation.rate')}} {{$data['price']}} {{$exp->exp_currency}} {{trans('reservation.by_person')}} {{trans('reservation.by')}} {{$exp->exp_duration}}  {{$exp->exp_duration_h}}</div>
+        <div class="col-md-12">{{trans('reservation.rate')}} {{$currency->cur_simbol}} {{number_format($data['price'],2,',','.')}} [{{$currency->cur_name}}]</div>
+        <div class="col-md-12">{{trans('reservation.by_person')}} {{trans('reservation.by')}} {{$exp->exp_duration}}  {{$exp->exp_duration_h}}</div>
         <br>
         <hr style="width: 90%;">
-        <div class="col-md-12">{{trans('reservation.sub_total')}}{{$data['amount']}} {{$exp->exp_currency}}</div>
-        <div class="col-md-12" style="margin-bottom: 10px;">{{trans('reservation.total')}}{{$data['amount']}} {{$exp->exp_currency}}</div>
+        <div class="col-md-12"><div class="col-md-6">{{trans('reservation.sub_total')}}</div><div class="col-md-6">{{$currency->cur_simbol}} {{number_format($data['amount'],2,',','.')}} </div></div>
+        <div class="col-md-12" style="margin-bottom: 10px;"><div class="col-md-6">{{trans('reservation.total')}}</div><div class="col-md-6">{{$currency->cur_simbol}} {{number_format($data['amount'],2,',','.')}} </div></div>
       </div>
       <div class="row" style="border: 1px solid #000; margin-bottom: 10px; background: #fff;">
         <hr style="width: 90%;">

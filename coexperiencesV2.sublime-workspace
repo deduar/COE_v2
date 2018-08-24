@@ -4,8 +4,60 @@
 		"selected_items":
 		[
 			[
+				"font",
+				"font-size\tproperty"
+			],
+			[
 				"col",
-				"col-md-4"
+				"color\tproperty"
+			],
+			[
+				"foin",
+				"font-size\tproperty"
+			],
+			[
+				"pa",
+				"padding\tproperty"
+			],
+			[
+				"marg",
+				"margin\tproperty"
+			],
+			[
+				"fon",
+				"font-style\tproperty"
+			],
+			[
+				"padd",
+				"padding\tproperty"
+			],
+			[
+				"bt",
+				"btn-primary"
+			],
+			[
+				"pad",
+				"padding-left\tproperty"
+			],
+			[
+				"mar",
+				"margin-right\tproperty"
+			],
+			[
+				"Cu",
+				"currency"
+			],
+			[
+				"for",
+				"form-group"
+			],
+			[
+				"Bank",
+				"BankTransfer"
+			],
+			[
+				"margi",
+				"margin-top\tproperty"
 			],
 			[
 				"exp",
@@ -16,24 +68,12 @@
 				"input\tTag"
 			],
 			[
-				"mar",
-				"margin-bottom\tproperty"
-			],
-			[
-				"fon",
-				"font-size\tproperty"
-			],
-			[
 				"expe",
 				"experience_schedules"
 			],
 			[
 				"dateFo",
 				"datesForDisable"
-			],
-			[
-				"marg",
-				"margin-bottom\tproperty"
 			],
 			[
 				"op",
@@ -68,10 +108,6 @@
 				"ExperiencesSchedules"
 			],
 			[
-				"for",
-				"foreach\tforeach …"
-			],
-			[
 				"In",
 				"InstanBook"
 			],
@@ -100,14 +136,6 @@
 				"function"
 			],
 			[
-				"padd",
-				"padding\tproperty"
-			],
-			[
-				"pad",
-				"padding\tproperty"
-			],
-			[
 				"btn",
 				"btn-default"
 			],
@@ -118,14 +146,6 @@
 			[
 				"req",
 				"request"
-			],
-			[
-				"bt",
-				"btn"
-			],
-			[
-				"pa",
-				"padding\tproperty"
 			],
 			[
 				"create_",
@@ -186,10 +206,6 @@
 			[
 				"Doc",
 				"documentType"
-			],
-			[
-				"font",
-				"font-size\tproperty"
 			],
 			[
 				"pub",
@@ -258,10 +274,6 @@
 			[
 				"curr",
 				"currency"
-			],
-			[
-				"margi",
-				"margin-left\tproperty"
 			],
 			[
 				"foint",
@@ -502,18 +514,6 @@
 			[
 				"creta",
 				"created_at"
-			],
-			[
-				"paddi",
-				"padding-right"
-			],
-			[
-				"set",
-				"setlocale"
-			],
-			[
-				"nav",
-				"navbar-right"
 			]
 		]
 	},
@@ -529,28 +529,10 @@
 			}
 		},
 		{
-			"file": "app/Http/Controllers/Reservation/ReservationController.php",
+			"file": "app/Http/Controllers/Auth/AuthController.php",
 			"settings":
 			{
-				"buffer_size": 7840,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/reservation/confirm.blade.php",
-			"settings":
-			{
-				"buffer_size": 1953,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/experience/show.blade.php",
-			"settings":
-			{
-				"buffer_size": 5880,
+				"buffer_size": 2806,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -618,24 +600,24 @@
 		"/home/deduar/Projects/Coexperiences_v-2.0/app",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers",
-		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Reservation",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/reservation"
+		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Auth"
 	],
 	"file_history":
 	[
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/index.blade.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/en/reservation.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/es/reservation.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/reservation/create.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Experiences/ExperiencesController.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/index.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/welcome.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/es/experience.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/en/experience.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Reservation/ReservationController.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/reservation/confirm.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/es/reservation.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/en/reservation.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/en/welcome.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/show.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/reservation/create.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/layouts/master.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/layouts/master_datepicker.blade.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/show.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/public/assets/js/jquery.min.js",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create_schedule.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/myexps.blade.php",
@@ -652,7 +634,6 @@
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Experiences.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create_orig.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/experience/create_photos_old.blade.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/welcome.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Admin/AdminController.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Admin/ExperienceCategoryController.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Admin/CurrencyController.php",
@@ -671,7 +652,6 @@
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/admin/currency.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/admin/documentType.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/ExperiencesCategories.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Reservation/ReservationController.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/user/editProfile.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/DocumentType.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/database/migrations/2018_07_14_100001_create_document_type_schedule_table.php",
@@ -711,7 +691,6 @@
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/es/login.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Currency.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/database/migrations/2018_06_18_100001_create_currency_table.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/en/welcome.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/es/welcome.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Reservation.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/layouts/master_mdb.blade.php",
@@ -752,8 +731,7 @@
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/User/UsersController.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Usuario/UsuarioController.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/UserController.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/composer.json",
-		"/home/deduar/Projects/repo/UEMURA_scraping/themes/demo/pages/city.htm"
+		"/home/deduar/Projects/Coexperiences_v-2.0/composer.json"
 	],
 	"find":
 	{
@@ -771,6 +749,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"60px",
+			"<div class=\"col-md-12\" style=\"padding: 0px;\">\n            <a href=\"{{route('experience_show',array('id'=>$exp->exp_id))}}\">\n              <img width=\"100%\" height=\"300px;\" src={{asset('uploads/exp/'.$exp->exp_photo)}} >\n            </a>\n          </div>",
 			")}}\"> ",
 			"btn",
 			"img",
@@ -896,9 +876,7 @@
 			"last",
 			"age",
 			"update",
-			"hr",
-			"        <hr/>",
-			"edit_profile"
+			"hr"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -951,7 +929,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -967,8 +945,8 @@
 						"selection":
 						[
 							[
-								5530,
-								5530
+								0,
+								0
 							]
 						],
 						"settings":
@@ -980,27 +958,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1065.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "app/Http/Controllers/Reservation/ReservationController.php",
+					"file": "app/Http/Controllers/Auth/AuthController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7840,
+						"buffer_size": 2806,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4243,
-								4243
+								1001,
+								1001
 							]
 						],
 						"settings":
@@ -1013,76 +991,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1559.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "resources/views/reservation/confirm.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1953,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1792,
-								1792
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "resources/views/experience/show.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5880,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4856,
-								4856
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 980.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1177,7 +1089,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 232.0,
+	"side_bar_width": 272.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

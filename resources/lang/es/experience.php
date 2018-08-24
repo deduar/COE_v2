@@ -35,5 +35,6 @@ return [
 	'make_reservation' => 'Reservar',
 	'price' => 'Price',
 	'by_person' => 'Por Viajero',
-	'reservar' => 'RESERVAR'
+	'reservar' => 'RESERVAR',
+	'load_more' => 'CARGAR MAS EXPERIENCIAS'
 ];
