@@ -39,7 +39,7 @@
               {!! Form::label('postal_code', trans('reservation.postal_code')) !!}  
             </div>
             <div class="col-md-8">
-              {!! Form::text('postal_code', Input::old('postl_code'), array('placeholder'=>trans('reservation.palce_code_placeHolder'), 'class'=>'form-control')) !!}
+              {!! Form::text('postal_code', Input::old('postal_code'), array('placeholder'=>trans('reservation.postal_code_placeHolder'), 'class'=>'form-control')) !!}
             </div>
           </div>
           <div class="form-group" style="padding-top: 10px; padding-bottom: 30px;">
@@ -47,7 +47,7 @@
               {!! Form::label('mobile_nomber', trans('reservation.mobile_number')) !!}  
             </div>
             <div class="col-md-8">
-              {!! Form::text('mobile_nomber', Input::old('mobile_nomber'), array('placeholder'=>trans('reservation.mobile_nomber_placeHolder'), 'class'=>'form-control')) !!}
+              {!! Form::text('mobile_number', Input::old('mobile_number'), array('placeholder'=>trans('reservation.mobile_number_placeHolder'), 'class'=>'form-control')) !!}
             </div>
           </div>
           <div class="form-group" style="padding-top: 10px; padding-bottom: 30px;">
@@ -59,13 +59,13 @@
             </div>
           </div>
           <div class="form-group">
-            <button style="margin-top: 30px; margin-bottom: 10px; width: 100%;" name="acction" value="paypal" type="submit" class="btn btn-primary">{{trans('experience.paypal_btn')}}</button>
+            <button style="margin-top: 30px; margin-bottom: 10px; width: 100%;" name="acction" value="paypal" type="submit" class="btn btn-primary">{{trans('reservation.paypal_btn')}}</button>
           </div>
         </div>
         <div class="tab-pane" id="BankTransfer">
           <div class="col-md-12">{{trans('reservation.bank_message')}}</div>
           <div class="form-group">
-            <button style="margin-top: 30px; margin-bottom: 10px; width: 100%;" name="acction" value="bak" type="submit" class="btn btn-primary">{{trans('experience.paypal_btn')}}</button>
+            <button style="margin-top: 30px; margin-bottom: 10px; width: 100%;" name="acction" value="bak" type="submit" class="btn btn-primary">{{trans('reservation.bank_btn')}}</button>
           </div>
         </div>
       </div>

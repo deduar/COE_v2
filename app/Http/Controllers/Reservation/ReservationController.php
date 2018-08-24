@@ -152,16 +152,18 @@ class ReservationController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->all());
         if (Auth::user()){
             $user = Auth::user();
             $reservation = new Reservation();
-            $reservation->res_date = Carbon\Carbon::parse($request->datepick)->format('Y-m-d H:i');
+            //$reservation->res_date = Carbon\Carbon::parse($request->datepick)->format('Y-m-d H:i');
+            $date = $request->date;
+            $explode_date = explode('/',explode(' ',$date)[0]);
+            $reservation->res_date = $explode_date[2]."-".$explode_date[0].'-'.$explode_date[1].' '.explode(' ',$date)[1];
             $reservation->res_exp_id = $request->exp_id;
             $reservation->res_user_id = $user->id;
-            $reservation->res_guide_id = $request->res_guide_id;
+            $reservation->res_guide_id = $request->guide_id;
             $reservation->status = "Waiting";
-            //$reservation->save();
+            $reservation->save();
             return redirect()->route('reservation');
         } else {
             return redirect('auth/login');

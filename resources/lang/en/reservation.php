@@ -19,5 +19,12 @@ return [
 	'mail_to_guide' => 'Contact To Guide',
 	'guide_name' => 'Guide Name',
 	'status' => 'Status',
-	'actions' => 'Actions'
+	'actions' => 'Actions',
+	'postal_code' => 'Postal Code',
+	'postal_code_placeHolder' => 'Your postal code here',
+	'mobile_number' => 'Mobile Number',
+	'mobile_number_placeHolder' => 'Your Mobile Number',
+	'message' => 'A Message to Guide',
+	'paypal_btn' => 'Pay with Paypal',
+	'bank_btn' => 'Pay With Bank Transfer'
 ];

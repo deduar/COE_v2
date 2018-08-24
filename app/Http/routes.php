@@ -78,7 +78,6 @@ Route::post('/experience/create', 'Experiences\ExperiencesController@store')->na
 
 // Reservation
 Route::get('/reservation', 'Reservation\ReservationController@index')->name('reservation');
-//Route::get('/reservation/add/{id}', 'Reservation\ReservationController@create')->name('reservation_create');
 Route::post('/reservation/confirm', 'Reservation\ReservationController@confirm')->name('reservation_confirm');
 Route::post('/reservation/store', 'Reservation\ReservationController@store')->name('reservation_store');
 Route::get('/reservation/waiting', 'Reservation\ReservationController@waiting')->name('reservation_waiting');
