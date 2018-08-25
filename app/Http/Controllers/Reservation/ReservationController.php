@@ -38,6 +38,7 @@ class ReservationController extends Controller
                     'users.last_name','users.email','users.avatar','reservation.status', 
                     'reservation.id as res_id','reservation.res_exp_id', 'reservation.res_user_id', 'reservation.res_guide_id',
                     'reservation.created_at','reservation.res_date')
+            ->where('reservation.status','!=','Waiting')
             ->orderBy('reservation.res_date', 'desc')
             ->paginate(10);
             //->get();
@@ -226,10 +227,10 @@ class ReservationController extends Controller
         $reservations = DB::table('reservation')
             ->join('experience','reservation.res_exp_id','=','experience.id')
             ->join('users','users.id','=','reservation.res_user_id')
-            ->select('experience.id', 'experience.exp_name as exp_name','users.name as user_name',
-                    'users.last_name','users.email','users.avatar','reservation.status', 
-                    'reservation.id as res_id','reservation.res_exp_id', 'reservation.res_user_id', 'reservation.res_guide_id',
-                    'reservation.created_at','reservation.res_date')
+            ->select('experience.id','experience.exp_name as exp_name','users.name as user_name',
+                    'users.last_name','users.email','users.avatar','reservation.status','reservation.id as res_id','reservation.res_exp_id','reservation.res_user_id','reservation.res_guide_id','reservation.created_at','reservation.res_date')
+            ->where('reservation.status','=','Waiting')
+            ->orderBy('reservation.res_date', 'desc')
             ->paginate(5);
         
         $now = Carbon\Carbon::now();

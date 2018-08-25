@@ -9,55 +9,51 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col">Experience</th>
-      <th scope="col">Fecha de Reserva</th>
-      <th scope="col">Viajero</th>
-      <th scope="col">Viajero email</th>
-      <th scope="col">Viajero Avatar</th>
-      <th scope="col">Status</th>
-      <th style="text-align: center;" scope="col">Actions</th>
+      <th scope="col">{{trans('reservation.experience_name')}}</th>
+      <th scope="col">{{trans('reservation.reservation_date')}}</th>
+      <th scope="col">{{trans('reservation.contact_guide')}}</th>
+      <th colspan="2" scope="col" style="text-align: center;">{{trans('reservation.guide_name')}}</th>
+      <th scope="col">{{trans('reservation.status')}}</th>
+      <th scope="col" style="text-align: center;">{{trans('reservation.action')}}</th>
     </tr>
   </thead>
   <tbody>
-  <?php 
-    foreach ($reservations as $res) {
-      ?>@if($res->res_guide_id === $user->id)<?php
-      echo "<tr>";
-      echo "<th scope='col'>$res->exp_name</th>";
-      echo "<th scope='col'>$res->res_date</th>";
-      echo "<th scope='col'>$res->user_name $res->last_name</th>";
-      echo "<th scope='col'>$res->email</th>";
-      echo "<th scope='col'>"?>
+    @foreach($reservations as $res)
+      @if($res->res_user_id === $user->id)
+      <tr>
+      <th scope='col'>{{$res->exp_name}}</th>
+      @if(Session::get('locale') == "es")
+        <th scope='col'>{{ \Carbon\Carbon::parse($res->res_date)->format('d/m/Y H:i') }}</th>
+      @else
+        <th scope='col'>{{ \Carbon\Carbon::parse($res->res_date)->format('m/d/Y H:i') }}</th>
+      @endif
+      <th scope='col'><a href="{{route('messages')}}"><div class="btn btn-success">{{trans('reservation.mail_to_guide')}}</div></a></th>
+      <th scope='col'>{{$res->user_name}} {{$res->last_name}}</th>
+      <th scope='col'>
         <img src={{asset('uploads/avatars/'.$res->avatar)}} height="40px" style="border-radius: 50%">
-      <?php "</th>";
-      ?> @if($res->status === "Waiting" or $res->status === "Waiting Pay") <?php
-      echo "<th scope='col'><button class='btn btn-primary'>$res->status</button</th>";
-      echo "<th scope='col'>
-        <button class='btn btn-danger'><a style='text-decoration:none; color:fff;' href='../../reservation/reject/$res->res_id'>Rejected</a></button>
-        <button class='btn btn-primary'><a style='text-decoration:none; color:fff;' href='../../reservation/accept/$res->res_id'>Accepted</a></button>
-      </th>";
-      ?> @else <?php
-      ?> @if($res->status === "Accepted") <?php
-      echo "<th scope='col'><button class='btn btn-success'>$res->status</button</th>";
-      echo "<th></th>"
-      ?> @endif <?php
-      ?> @if($res->status === "Canceled") <?php
-      echo "<th scope='col'><button class='btn btn-danger'>$res->status</button</th>";
-      echo "<th></th>"
-      ?> @endif <?php
-      ?> @if($res->status === "Rejected") <?php
-      echo "<th scope='col'><button class='btn btn-danger'>$res->status</button</th>";
-      echo "<th></th>"
-      ?> @endif <?php
-      echo "<th></th>"
-      ?> @endif <?php
-      echo "</tr>";
-      ?> @endif <?php
-
-    }
-  ?>
+      </th>
+      @if($res->status === "Waiting")
+        <th scope='col'><button class='btn btn-success'>{{$res->status}}</button</th>
+        <th scope='col'>
+          <button class='btn btn-danger'><a style='text-decoration:none; color:fff;' href="{{route('reservation_canceled',array('id'=>$res->res_id))}}">Cancel</a></button>
+          <button class='btn btn-info'><a style='text-decoration:none; color:fff;' href='./reservation/pay_tansfer/$res->res_id'>Pay Transfer</a></button>
+          <button class='btn btn-info'>Pay PayPal</button>
+        </th>
+      @endif
+      @if($res->status === "Canceled")
+        <th scope='col'><button class='btn btn-danger'>{{$res->status}}</button</th>
+        <th></th>
+      @endif
+      @if($res->status === "Accepted")
+        <th scope='col'><button class='btn btn-primary'>{{$res->status}}</button</th>
+        <th></th>
+      @endif
+      </tr>
+      @endif
+    @endforeach
   </tbody>
 </table>
+
 
 <a class="btn btn-info" href="{{ route('reservation') }}" style="float: right;"></span>  {{ trans('experience.my_reservations') }}</a>
 
