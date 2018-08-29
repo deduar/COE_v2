@@ -35,5 +35,6 @@ return [
 	'price' => 'Precio',
 	'by_person' => 'By Person',
 	'reservar' => 'MAKE RESERVATION',
-	'load_more' => 'LOAD MORE'
+	'load_more' => 'LOAD MORE',
+	'search' => 'Search'
 ];

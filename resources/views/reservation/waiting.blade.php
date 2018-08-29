@@ -4,7 +4,22 @@
 
 @section('content')
 
-  <h1>Reservations Waiting<h5>{{ \Carbon\Carbon::parse($now)->format('d/m/Y H:m:s') }}</h5></h1>
+  <!--h1>Reservations Waiting<h5>{{ \Carbon\Carbon::parse($now)->format('d/m/Y H:m:s') }}</h5></h1-->
+
+<div class="container-fluid" style="margin-bottom: 10px;">
+  <div class="col-md-8">
+    <div class="col-md-6 vcenter">
+      <h1>{{trans('reservation.my_reservation')}}</h1>
+    </div>
+    <div class="col-md-4 vcenter">
+      <h4>{{ \Carbon\Carbon::parse($now)->format('d/m/Y H:m') }}</h4>
+    </div>
+  </div>
+  <div class="col-md-4">
+    @if($user->group == 'Guide')
+      <a class="btn btn-info" href="{{ route('reservation') }}" style="float: right; margin-top: 20px;">{{ trans('experience.my_reservations') }}</a>
+    @endif
+  </div>
 
 <table class="table table-striped">
   <thead>
@@ -54,8 +69,11 @@
   </tbody>
 </table>
 
+@if($user->group == 'Guide')
+  <a class="btn btn-info" href="{{ route('reservation') }}" style="float: right; margin-top: 20px;">{{ trans('experience.my_reservations') }}</a>
+@endif
 
-<a class="btn btn-info" href="{{ route('reservation') }}" style="float: right;"></span>  {{ trans('experience.my_reservations') }}</a>
+</div>
 
 {!! $reservations->render() !!}
 

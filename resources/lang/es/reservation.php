@@ -26,6 +26,11 @@ return [
 	'mobile_number_placeHolder' => 'Su Número de telefono',
 	'message' => 'Un Mensaje al Guía',
 	'paypal_btn' => 'Pagar con Paypal',
-	'bank_btn' => 'Pagar con Transferencia Bancaria'
-
+	'bank_btn' => 'Pagar con Transferencia Bancaria',
+	'reservation_list' => 'Lista de Reservas',
+	'contact_travel' => 'Contactar Viajero',
+	'mail_to_travel' => 'Contactar Viajero',
+	'travel_name' => 'Nombre del Viajero',
+	'action' => 'Acciones',
+	'list_waiting' => 'Lista de Reservas en Espera'
 ];

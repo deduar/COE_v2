@@ -36,5 +36,6 @@ return [
 	'price' => 'Price',
 	'by_person' => 'Por Viajero',
 	'reservar' => 'RESERVAR',
-	'load_more' => 'CARGAR MAS EXPERIENCIAS'
+	'load_more' => 'CARGAR MAS EXPERIENCIAS',
+	'search' => 'Buscar'
 ];

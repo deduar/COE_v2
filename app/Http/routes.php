@@ -78,9 +78,13 @@ Route::post('/experience/create', 'Experiences\ExperiencesController@store')->na
 
 // Reservation
 Route::get('/reservation', 'Reservation\ReservationController@index')->name('reservation');
+Route::get('/reservation/waiting', 'Reservation\ReservationController@waiting')->name('reservation_waiting');
+
+Route::get('/reservation_list', 'Reservation\ReservationController@reservationList')->name('reservation_list');
+Route::get('/reservation_list/waiting', 'Reservation\ReservationController@reservationListWaiting')->name('reservation_list_waiting');
+
 Route::post('/reservation/confirm', 'Reservation\ReservationController@confirm')->name('reservation_confirm');
 Route::post('/reservation/store', 'Reservation\ReservationController@store')->name('reservation_store');
-Route::get('/reservation/waiting', 'Reservation\ReservationController@waiting')->name('reservation_waiting');
 Route::get('/reservation/collection', 'Reservation\ReservationController@collection')->name('collection');
 Route::get('/reservation/transacionLog', 'Reservation\ReservationController@transactionLog')->name('transaction_log');
 Route::get('/reservation/cancel/{id}', 'Reservation\ReservationController@Cancel')->name('reservation_canceled');

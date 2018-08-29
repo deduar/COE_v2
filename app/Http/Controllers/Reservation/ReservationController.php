@@ -30,6 +30,9 @@ class ReservationController extends Controller
      */
     public function index()
     {   
+        if(Auth::guest()){
+            return redirect('auth/login');
+        } else {
         $user = Auth::user();
         $myreservations = DB::table('reservation')
             ->join('experience','reservation.res_exp_id','=','experience.id')
@@ -41,7 +44,6 @@ class ReservationController extends Controller
             ->where('reservation.status','!=','Waiting')
             ->orderBy('reservation.res_date', 'desc')
             ->paginate(10);
-            //->get();
         $now = Carbon\Carbon::now();
         foreach ($myreservations as $key => $reservation) {
             if($reservation->status == "Waiting"){
@@ -56,6 +58,7 @@ class ReservationController extends Controller
             }
         }
         return view('reservation.index', array('user'=>$user, 'myreservations'=>$myreservations, 'now'=>$now));
+        }
     }
 
     public function Canceled($id)
@@ -65,11 +68,50 @@ class ReservationController extends Controller
         $res->update();
     }
 
+    public function reservationList ()
+    {
+        if(Auth::guest()){
+            return redirect('auth/login');
+        } else {
+            $user = Auth::user();
+            $reservations_list = DB::table('reservation')
+                ->join('experience','reservation.res_exp_id','=','experience.id')
+                ->join('users','reservation.res_user_id','=','users.id')
+                ->select('experience.id', 'experience.exp_name as exp_name','users.name as user_name','users.last_name','users.email','users.avatar','reservation.status','reservation.id as res_id','reservation.res_exp_id', 'reservation.res_user_id', 'reservation.res_guide_id','reservation.created_at','reservation.res_date')
+                ->where('reservation.res_guide_id',$user->id)
+                ->where('reservation.status','!=','Waiting')
+                ->orderBy('reservation.res_date', 'desc')
+                ->paginate(10);
+            $now = Carbon\Carbon::now();
+            return view('reservation.reservation_list', array('user'=>$user, 'reservations_list'=>$reservations_list, 'now'=>$now));
+        }
+    }
+
+    public function reservationListWaiting()
+    {
+    	if(Auth::guest()){
+            return redirect('auth/login');
+        } else {
+            $user = Auth::user();
+            $reservations_list_waiting = DB::table('reservation')
+                ->join('experience','reservation.res_exp_id','=','experience.id')
+                ->join('users','reservation.res_user_id','=','users.id')
+                ->select('experience.id', 'experience.exp_name as exp_name','users.name as user_name','users.last_name','users.email','users.avatar','reservation.status','reservation.id as res_id','reservation.res_exp_id', 'reservation.res_user_id', 'reservation.res_guide_id','reservation.created_at','reservation.res_date')
+                ->where('reservation.res_guide_id',$user->id)
+                ->where('reservation.status','=','Waiting')
+                ->orderBy('reservation.res_date', 'desc')
+                ->paginate(10);
+            $now = Carbon\Carbon::now();
+            return view('reservation.reservation_list_waiting', array('user'=>$user, 'reservations_list_waiting'=>$reservations_list_waiting, 'now'=>$now));
+        }
+    }
+
     public function Rejected($id)
     {
         $res = Reservation::find($id);
         $res->status = "Rejected";
         $res->update();
+        return redirect()->back();
     }
 
     public function Cancel($id)
@@ -87,7 +129,7 @@ class ReservationController extends Controller
         $res = Reservation::find($id);
         $res->status = "Rejected";
         $res->update();
-        return redirect()->route('reservation_waiting');
+        return redirect()->back();
     }
 
     public function Accept($id)
@@ -223,15 +265,18 @@ class ReservationController extends Controller
 
     public function waiting()
     {
+        if(Auth::guest()){
+            return redirect('auth/login');
+        } else {
         $user = Auth::user();
         $reservations = DB::table('reservation')
             ->join('experience','reservation.res_exp_id','=','experience.id')
-            ->join('users','users.id','=','reservation.res_user_id')
+            ->join('users','users.id','=','experience.exp_guide_id')
             ->select('experience.id','experience.exp_name as exp_name','users.name as user_name',
                     'users.last_name','users.email','users.avatar','reservation.status','reservation.id as res_id','reservation.res_exp_id','reservation.res_user_id','reservation.res_guide_id','reservation.created_at','reservation.res_date')
             ->where('reservation.status','=','Waiting')
             ->orderBy('reservation.res_date', 'desc')
-            ->paginate(5);
+            ->paginate(10);
         
         $now = Carbon\Carbon::now();
         foreach ($reservations as $key => $reservation) {
@@ -250,6 +295,7 @@ class ReservationController extends Controller
         }
 
         return view('reservation.waiting', array('user'=>$user, 'reservations'=>$reservations, 'now'=>$now));
+        }
     }
 
     public function collection()

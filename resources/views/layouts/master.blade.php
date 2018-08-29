@@ -83,7 +83,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="menu_profile" href="{{ route('my_experience') }}" >
+                            <a class="menu_profile" href="{{ route('reservation_list') }}" >
                                 {{ trans("welcome.exp_reserve_list") }}
                             </a>
                         </li>

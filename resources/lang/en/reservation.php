@@ -26,5 +26,11 @@ return [
 	'mobile_number_placeHolder' => 'Your Mobile Number',
 	'message' => 'A Message to Guide',
 	'paypal_btn' => 'Pay with Paypal',
-	'bank_btn' => 'Pay With Bank Transfer'
+	'bank_btn' => 'Pay With Bank Transfer',
+	'reservation_list' => 'Reservation List',
+	'contact_travel' => 'Cantac Travel',
+	'mail_to_travel' => 'Contact To Travel',
+	'travel_name' => 'Travel Name',
+	'action' => 'Actions',
+	'list_waiting' => 'Reservation List Waiting'
 ];
