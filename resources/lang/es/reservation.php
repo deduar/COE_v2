@@ -32,5 +32,6 @@ return [
 	'mail_to_travel' => 'Contactar Viajero',
 	'travel_name' => 'Nombre del Viajero',
 	'action' => 'Acciones',
-	'list_waiting' => 'Lista de Reservas en Espera'
+	'list_waiting' => 'Lista de Reservas en Espera',
+	'list' => 'Lista de Reservas'
 ];

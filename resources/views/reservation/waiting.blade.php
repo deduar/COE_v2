@@ -16,9 +16,7 @@
     </div>
   </div>
   <div class="col-md-4">
-    @if($user->group == 'Guide')
-      <a class="btn btn-info" href="{{ route('reservation') }}" style="float: right; margin-top: 20px;">{{ trans('experience.my_reservations') }}</a>
-    @endif
+    <a class="btn btn-info" href="{{ route('reservation') }}" style="float: right; margin-top: 20px;">{{ trans('experience.my_reservations') }}</a>
   </div>
 
 <table class="table table-striped">
@@ -69,9 +67,7 @@
   </tbody>
 </table>
 
-@if($user->group == 'Guide')
-  <a class="btn btn-info" href="{{ route('reservation') }}" style="float: right; margin-top: 20px;">{{ trans('experience.my_reservations') }}</a>
-@endif
+<a class="btn btn-info" href="{{ route('reservation') }}" style="float: right; margin-top: 20px;">{{ trans('experience.my_reservations') }}</a>
 
 </div>
 

@@ -58,12 +58,12 @@
         <th scope='col'><button class='btn btn-danger'>{{$res->status}}</button</th>
         <th></th>
       @endif
-      @if($res->status === "Rejected")
-        <th scope='col'><button class='btn btn-danger'>{{$res->status}}</button</th>
-        <th></th>
-      @endif
       @if($res->status === "Accepted")
         <th scope='col'><button class='btn btn-primary'>{{$res->status}}</button</th>
+        <th></th>
+      @endif
+      @if($res->status === "Rejected")
+        <th scope='col'><button class='btn btn-danger'>{{$res->status}}</button</th>
         <th></th>
       @endif
   		</tr>

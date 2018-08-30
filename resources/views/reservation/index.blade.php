@@ -22,9 +22,7 @@
     </div>
   </div>
   <div class="col-md-4">
-    @if($user->group == 'Guide')
-      <a class="btn btn-info" href="{{ route('reservation_waiting') }}" style="float: right; margin-top: 20px;">{{ trans('experience.waiting') }}</a>
-    @endif
+    <a class="btn btn-info" href="{{ route('reservation_waiting') }}" style="float: right; margin-top: 20px;">{{ trans('experience.waiting') }}</a>
   </div>
 
 
@@ -70,15 +68,17 @@
         <th scope='col'><button class='btn btn-primary'>{{$res->status}}</button</th>
         <th></th>
       @endif
+      @if($res->status === "Rejected")
+        <th scope='col'><button class='btn btn-danger'>{{$res->status}}</button</th>
+        <th></th>
+      @endif
   		</tr>
       @endif
   	@endforeach
   </tbody>
 </table>
 
-@if($user->group == 'Guide')
-  <a class="btn btn-info" href="{{ route('reservation_waiting') }}" style="float: right; margin-bottom: 20px;">{{ trans('experience.waiting') }}</a>
-@endif
+<a class="btn btn-info" href="{{ route('reservation_waiting') }}" style="float: right; margin-bottom: 20px;">{{ trans('experience.waiting') }}</a>
 
 </div>
 

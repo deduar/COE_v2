@@ -41,6 +41,7 @@ class ReservationController extends Controller
                     'users.last_name','users.email','users.avatar','reservation.status', 
                     'reservation.id as res_id','reservation.res_exp_id', 'reservation.res_user_id', 'reservation.res_guide_id',
                     'reservation.created_at','reservation.res_date')
+            ->where('reservation.res_user_id','=',$user->id)
             ->where('reservation.status','!=','Waiting')
             ->orderBy('reservation.res_date', 'desc')
             ->paginate(10);
@@ -50,14 +51,50 @@ class ReservationController extends Controller
                 $res_date = Carbon\Carbon::parse($reservation->res_date);
                 $created_at = Carbon\Carbon::parse($reservation->created_at);
                 if ($now->gt($res_date)){
-                    $this->Canceled($reservation->res_id);
+                    $this->Rejected($reservation->res_id);
                 }
                 if ($now->diff($created_at)->d > 3){
-                    $this->Canceled($reservation->res_id);
+                    $this->Rejected($reservation->res_id);
                 }
             }
         }
         return view('reservation.index', array('user'=>$user, 'myreservations'=>$myreservations, 'now'=>$now));
+        }
+    }
+
+    public function waiting()
+    {
+        if(Auth::guest()){
+            return redirect('auth/login');
+        } else {
+        $user = Auth::user();
+        $reservations = DB::table('reservation')
+            ->join('experience','reservation.res_exp_id','=','experience.id')
+            ->join('users','users.id','=','experience.exp_guide_id')
+            ->select('experience.id','experience.exp_name as exp_name','users.name as user_name',
+                    'users.last_name','users.email','users.avatar','reservation.status','reservation.id as res_id','reservation.res_exp_id','reservation.res_user_id','reservation.res_guide_id','reservation.created_at','reservation.res_date')
+            ->where('reservation.res_user_id','=',$user->id)
+            ->where('reservation.status','=','Waiting')
+            ->orderBy('reservation.res_date', 'desc')
+            ->paginate(10);
+        
+        $now = Carbon\Carbon::now();
+        foreach ($reservations as $key => $reservation) {
+            if($reservation->status == "Waiting"){
+                $res_date = Carbon\Carbon::parse($reservation->res_date);
+                $created_at = Carbon\Carbon::parse($reservation->created_at);
+                if ($now->gt($res_date)){
+                    //echo $reservation->res_id. "Canceled Res > Now <br>";
+                    $this->Rejected($reservation->res_id);
+                }
+                if ($now->diff($created_at)->d > 3){
+                    //echo $reservation->res_id. "Canceled Creat > 3D <br>";
+                    $this->Rejected($reservation->res_id);
+                }
+            }
+        }
+
+        return view('reservation.waiting', array('user'=>$user, 'reservations'=>$reservations, 'now'=>$now));
         }
     }
 
@@ -78,7 +115,7 @@ class ReservationController extends Controller
                 ->join('experience','reservation.res_exp_id','=','experience.id')
                 ->join('users','reservation.res_user_id','=','users.id')
                 ->select('experience.id', 'experience.exp_name as exp_name','users.name as user_name','users.last_name','users.email','users.avatar','reservation.status','reservation.id as res_id','reservation.res_exp_id', 'reservation.res_user_id', 'reservation.res_guide_id','reservation.created_at','reservation.res_date')
-                ->where('reservation.res_guide_id',$user->id)
+                ->where('reservation.res_user_id','=',$user->id)
                 ->where('reservation.status','!=','Waiting')
                 ->orderBy('reservation.res_date', 'desc')
                 ->paginate(10);
@@ -261,41 +298,6 @@ class ReservationController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function waiting()
-    {
-        if(Auth::guest()){
-            return redirect('auth/login');
-        } else {
-        $user = Auth::user();
-        $reservations = DB::table('reservation')
-            ->join('experience','reservation.res_exp_id','=','experience.id')
-            ->join('users','users.id','=','experience.exp_guide_id')
-            ->select('experience.id','experience.exp_name as exp_name','users.name as user_name',
-                    'users.last_name','users.email','users.avatar','reservation.status','reservation.id as res_id','reservation.res_exp_id','reservation.res_user_id','reservation.res_guide_id','reservation.created_at','reservation.res_date')
-            ->where('reservation.status','=','Waiting')
-            ->orderBy('reservation.res_date', 'desc')
-            ->paginate(10);
-        
-        $now = Carbon\Carbon::now();
-        foreach ($reservations as $key => $reservation) {
-            if($reservation->status == "Waiting"){
-                $res_date = Carbon\Carbon::parse($reservation->res_date);
-                $created_at = Carbon\Carbon::parse($reservation->created_at);
-                if ($now->gt($res_date)){
-                    //echo $reservation->res_id. "Canceled Res > Now <br>";
-                    $this->Rejected($reservation->res_id);
-                }
-                if ($now->diff($created_at)->d > 3){
-                    //echo $reservation->res_id. "Canceled Creat > 3D <br>";
-                    $this->Rejected($reservation->res_id);
-                }
-            }
-        }
-
-        return view('reservation.waiting', array('user'=>$user, 'reservations'=>$reservations, 'now'=>$now));
-        }
     }
 
     public function collection()
