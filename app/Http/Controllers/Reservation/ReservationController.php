@@ -115,7 +115,7 @@ class ReservationController extends Controller
                 ->join('experience','reservation.res_exp_id','=','experience.id')
                 ->join('users','reservation.res_user_id','=','users.id')
                 ->select('experience.id', 'experience.exp_name as exp_name','users.name as user_name','users.last_name','users.email','users.avatar','reservation.status','reservation.id as res_id','reservation.res_exp_id', 'reservation.res_user_id', 'reservation.res_guide_id','reservation.created_at','reservation.res_date')
-                ->where('reservation.res_user_id','=',$user->id)
+                ->where('reservation.res_guide_id','=',$user->id)
                 ->where('reservation.status','!=','Waiting')
                 ->orderBy('reservation.res_date', 'desc')
                 ->paginate(10);

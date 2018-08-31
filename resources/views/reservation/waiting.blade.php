@@ -4,7 +4,13 @@
 
 @section('content')
 
-  <!--h1>Reservations Waiting<h5>{{ \Carbon\Carbon::parse($now)->format('d/m/Y H:m:s') }}</h5></h1-->
+<style type="text/css">
+  .vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+  }
+</style>
 
 <div class="container-fluid" style="margin-bottom: 10px;">
   <div class="col-md-8">

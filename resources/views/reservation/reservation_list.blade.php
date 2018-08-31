@@ -66,6 +66,10 @@
         <th scope='col'><button class='btn btn-danger'>{{$res->status}}</button</th>
         <th></th>
       @endif
+      @if($res->status === "Defered")
+        <th scope='col'><button class='btn btn-danger'>{{$res->status}}</button</th>
+        <th></th>
+      @endif
   		</tr>
   	@endforeach
   </tbody>
