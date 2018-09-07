@@ -100,7 +100,7 @@ class ExperiencesController extends Controller
            $cur[$currency->id] = $currency->cur_name.' ['.$currency->cur_simbol.']';
         }
         
-        $experienceCategory = App\ExperiencesCategories::all(['id','category_name']);        
+        $experienceCategory = App\ExperiencesCategories::all(['id','category_name']);
         $cat = [];
         foreach($experienceCategory as $category){
            $cat[$category->id] = $category->category_name;

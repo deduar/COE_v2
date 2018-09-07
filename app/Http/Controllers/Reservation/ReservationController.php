@@ -37,10 +37,7 @@ class ReservationController extends Controller
         $myreservations = DB::table('reservation')
             ->join('experience','reservation.res_exp_id','=','experience.id')
             ->join('users','users.id','=','experience.exp_guide_id')
-            ->select('experience.id', 'experience.exp_name as exp_name','users.name as user_name',
-                    'users.last_name','users.email','users.avatar','reservation.status', 
-                    'reservation.id as res_id','reservation.res_exp_id', 'reservation.res_user_id', 'reservation.res_guide_id',
-                    'reservation.created_at','reservation.res_date')
+            ->select('experience.id', 'experience.exp_name as exp_name','users.name as user_name','users.last_name','users.email','users.avatar','reservation.status','reservation.id as res_id','reservation.res_exp_id', 'reservation.res_user_id','reservation.res_guide_id','reservation.created_at','reservation.res_date','reservation.paid')
             ->where('reservation.res_user_id','=',$user->id)
             ->where('reservation.status','!=','Waiting')
             ->orderBy('reservation.res_date', 'desc')
@@ -71,8 +68,7 @@ class ReservationController extends Controller
         $reservations = DB::table('reservation')
             ->join('experience','reservation.res_exp_id','=','experience.id')
             ->join('users','users.id','=','experience.exp_guide_id')
-            ->select('experience.id','experience.exp_name as exp_name','users.name as user_name',
-                    'users.last_name','users.email','users.avatar','reservation.status','reservation.id as res_id','reservation.res_exp_id','reservation.res_user_id','reservation.res_guide_id','reservation.created_at','reservation.res_date')
+            ->select('experience.id','experience.exp_name as exp_name','users.name as user_name','users.last_name','users.email','users.avatar','reservation.status','reservation.id as res_id','reservation.res_exp_id','reservation.res_user_id','reservation.res_guide_id','reservation.created_at','reservation.res_date','reservation.paid')
             ->where('reservation.res_user_id','=',$user->id)
             ->where('reservation.status','=','Waiting')
             ->orderBy('reservation.res_date', 'desc')
@@ -114,7 +110,7 @@ class ReservationController extends Controller
             $reservations_list = DB::table('reservation')
                 ->join('experience','reservation.res_exp_id','=','experience.id')
                 ->join('users','reservation.res_user_id','=','users.id')
-                ->select('experience.id', 'experience.exp_name as exp_name','users.name as user_name','users.last_name','users.email','users.avatar','reservation.status','reservation.id as res_id','reservation.res_exp_id', 'reservation.res_user_id', 'reservation.res_guide_id','reservation.created_at','reservation.res_date')
+                ->select('experience.id', 'experience.exp_name as exp_name','users.name as user_name','users.last_name','users.email','users.avatar','reservation.status','reservation.id as res_id','reservation.res_exp_id', 'reservation.res_user_id', 'reservation.res_guide_id','reservation.created_at','reservation.res_date','reservation.paid')
                 ->where('reservation.res_guide_id','=',$user->id)
                 ->where('reservation.status','!=','Waiting')
                 ->orderBy('reservation.res_date', 'desc')
@@ -133,7 +129,7 @@ class ReservationController extends Controller
             $reservations_list_waiting = DB::table('reservation')
                 ->join('experience','reservation.res_exp_id','=','experience.id')
                 ->join('users','reservation.res_user_id','=','users.id')
-                ->select('experience.id', 'experience.exp_name as exp_name','users.name as user_name','users.last_name','users.email','users.avatar','reservation.status','reservation.id as res_id','reservation.res_exp_id', 'reservation.res_user_id', 'reservation.res_guide_id','reservation.created_at','reservation.res_date')
+                ->select('experience.id', 'experience.exp_name as exp_name','users.name as user_name','users.last_name','users.email','users.avatar','reservation.status','reservation.id as res_id','reservation.res_exp_id', 'reservation.res_user_id', 'reservation.res_guide_id','reservation.created_at','reservation.res_date','reservation.paid')
                 ->where('reservation.res_guide_id',$user->id)
                 ->where('reservation.status','=','Waiting')
                 ->orderBy('reservation.res_date', 'desc')
@@ -146,7 +142,7 @@ class ReservationController extends Controller
     public function Rejected($id)
     {
         $res = Reservation::find($id);
-        $res->status = "Rejected";
+        $res->status = "Expired";
         $res->update();
         return redirect()->back();
     }
@@ -175,14 +171,25 @@ class ReservationController extends Controller
         $res = Reservation::find($id);
         $res->status = "Accepted";
         $res->update();
-        return redirect()->route('reservation_waiting');
+        return redirect()->back();
     }
 
     public function PayTransfer($id)
     {
         $user = Auth::user();
         $res = Reservation::find($id);
-        $res->status = "Waiting Pay";
+        $res->status = "Waiting";
+        $res->paid = "WaitingConfirm";
+        $res->update();
+        return redirect()->route('reservation');
+    }
+
+    public function PayPaypal($id)
+    {
+        $user = Auth::user();
+        $res = Reservation::find($id);
+        $res->status = "Waiting";
+        $res->paid = "Paid";
         $res->update();
         return redirect()->route('reservation');
     }
@@ -242,10 +249,12 @@ class ReservationController extends Controller
             $reservation->res_exp_id = $request->exp_id;
             $reservation->res_user_id = $user->id;
             $reservation->res_guide_id = $request->guide_id;
-            if ($request->acction == "paypal") {
-                $reservation->status = "Accepted";
-            } else {
-                $reservation->status = "Waiting";
+            $reservation->status = "Waiting";
+            if ($request->acction === "paypal") {
+                $reservation->paid = "Paid";
+            } 
+            if ($request->acction === "bank") {
+                $reservation->paid = "Unpaid";
             }
             
             $reservation->save();

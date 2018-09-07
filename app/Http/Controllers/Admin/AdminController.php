@@ -139,8 +139,7 @@ class AdminController extends Controller
         $experiences = DB::table('users')
                 ->join('experience','users.id','=','experience.exp_guide_id')
                 ->orderBy('experience.created_at','desc')
-                ->paginate(3);
-                //->get();
+                ->paginate(10);
         //$experiences = Experiences::all();
         return view ('admin.experiences', array('user'=>Auth::user(),'experiences'=>$experiences));
     }

@@ -18,7 +18,7 @@ class Reservation extends Model
      *
      * @var array
      */
-    protected $fillable = ['reservation_date','res_user_id','res_guide_id','status'];
+    protected $fillable = ['reservation_date','res_user_id','res_guide_id','status','paid'];
 
     /**
      * The attributes excluded from the model's JSON form.

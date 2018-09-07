@@ -12,7 +12,8 @@ return [
 	'cur_simbol' => 'Signo de la Momnenda',
 	'cur_exchange' => 'Tasa de Cambio',
 	'cur_update' => 'Actualizar',
-	'exp_category' => 'Categoria en Experiencia',
+	'exp_category' => 'Categorias Exp',
 	'document_type' => 'Tipo de Documento',
-	'create_documentType' => 'Crear Nuevo Tipo de Documento'
+	'create_documentType' => 'Crear Nuevo Tipo de Documento',
+	'reservations' => 'Reservaciones'
 ];

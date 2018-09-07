@@ -31,6 +31,12 @@ return [
 	'contact_travel' => 'Cantac Travel',
 	'mail_to_travel' => 'Contact To Travel',
 	'travel_name' => 'Travel Name',
-	'action' => 'Actions',
-	'list_waiting' => 'Reservation List Waiting'
+	'action' => 'Acctions',
+	'list_waiting' => 'Reservation List Waiting',
+	'paid' => 'Paid',
+	'unpaid' => 'Unpaid',
+	'cancel' => 'Cancel',
+	'reject' => 'Reject',
+	'verify' => 'Verify',
+	'accepted' => 'Acepted'
 ];

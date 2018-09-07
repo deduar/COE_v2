@@ -14,5 +14,6 @@ return [
 	'cur_update' => 'Update',
 	'exp_category' => 'Experience Category',
 	'document_type' => 'Document Type',
-	'create_documentType' => 'Create Document Type'
+	'create_documentType' => 'Create Document Type',
+	'reservation' => 'Reservations'
 ];

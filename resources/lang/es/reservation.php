@@ -33,5 +33,11 @@ return [
 	'travel_name' => 'Nombre del Viajero',
 	'action' => 'Acciones',
 	'list_waiting' => 'Lista de Reservas en Espera',
-	'list' => 'Lista de Reservas'
+	'list' => 'Lista de Reservas',
+	'paid' => 'Pagado',
+	'unpaid' => 'Pendiente',
+	'cancel' => 'Cancelar',
+	'reject' => 'Rechazar',
+	'verify' => 'Verificar',
+	'accepted' => 'Aceptar'
 ];

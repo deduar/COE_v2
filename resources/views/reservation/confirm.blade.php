@@ -65,7 +65,7 @@
         <div class="tab-pane" id="BankTransfer">
           <div class="col-md-12">{{trans('reservation.bank_message')}}</div>
           <div class="form-group">
-            <button style="margin-top: 30px; margin-bottom: 10px; width: 100%;" name="acction" value="bak" type="submit" class="btn btn-primary">{{trans('reservation.bank_btn')}}</button>
+            <button style="margin-top: 30px; margin-bottom: 10px; width: 100%;" name="acction" value="bank" type="submit" class="btn btn-primary">{{trans('reservation.bank_btn')}}</button>
           </div>
         </div>
       </div>

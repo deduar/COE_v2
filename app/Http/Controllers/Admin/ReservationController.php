@@ -8,13 +8,13 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\User;
-use App\ExperiencesCategories;
+use App\Reservation;
 use Auth;
 use DB;
 use App;
 use Session;
 
-class ExperienceCategoryController extends Controller
+class ReservationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,10 +25,13 @@ class ExperienceCategoryController extends Controller
     {
         $user = Auth::user();
         if ($user->admin) {
-            $experienceCategories = DB::table('experience_category')
-                ->orderBy('experience_category.created_at','asc')
+            $reservations = DB::table('reservation')
+                ->join('experience','experience.id','=','reservation.res_exp_id')
+                ->join('users','users.id','=','reservation.res_user_id')
+                ->select('reservation.id as id','reservation.res_exp_id','users.name','users.last_name','users.avatar','reservation.status','reservation.paid','reservation.res_date')
+                ->orderBy('reservation.created_at','desc')
                 ->paginate(10);
-            return view('admin.experienceCategory', array('user'=>Auth::user(),'experienceCategories'=>$experienceCategories));
+            return view('admin.reservation', array('user'=>Auth::user(),'reservations'=>$reservations));
         } else {
             return view('experiences.index', array('user'=>Auth::user()));
         }
@@ -41,8 +44,7 @@ class ExperienceCategoryController extends Controller
      */
     public function create()
     {
-        $user = Auth::user();
-        return view('admin.experienceCategory_create', array('user'=>Auth::user()));
+        //
     }
 
     /**
@@ -53,11 +55,7 @@ class ExperienceCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $experienceCategory = new ExperiencesCategories;
-        $experienceCategory->category_name = $request->category_name;
-        $experienceCategory->save();        
-        
-        return redirect()->route('admin_experience_category');
+        //
     }
 
     /**
@@ -79,9 +77,7 @@ class ExperienceCategoryController extends Controller
      */
     public function edit($id)
     {
-        $user = Auth::user();
-        $experienceCategory = ExperiencesCategories::find($id);
-        return view('admin.experienceCategory_edit', array('user'=>Auth::user(), 'experienceCategory'=>$experienceCategory));
+        //
     }
 
     /**
@@ -91,11 +87,9 @@ class ExperienceCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $experienceCategory = ExperiencesCategories::find($request->id);
-        $experienceCategory->update($request->all());
-        return redirect()->route('admin_experience_category');
+        //
     }
 
     /**
@@ -109,16 +103,11 @@ class ExperienceCategoryController extends Controller
         //
     }
 
-    public function changeStatusExperienceCategory($id)
+    public function checkPaid($id)
     {
-        $experienceCategory = ExperiencesCategories::find($id);
-        if ($experienceCategory->category_status == "Active"){
-            $experienceCategory->category_status = "Inactive";
-        } else {
-            $experienceCategory->category_status = "Active";
-        }
-        $experienceCategory->save();
-        return redirect()->route('admin_experience_category'); 
+        $res = App\Reservation::find($id);
+        $res->paid = "Paid";
+        $res->save();
+        return redirect()->back();
     }
-
 }

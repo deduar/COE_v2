@@ -27,7 +27,6 @@
     @endif
   </div>
 
-
 <table class="table table-striped">
   <thead>
     <tr>
@@ -35,14 +34,13 @@
       <th scope="col">{{trans('reservation.reservation_date')}}</th>
       <th scope="col">{{trans('reservation.contact_travel')}}</th>
       <th colspan="2" scope="col" style="text-align: center;">{{trans('reservation.travel_name')}}</th>
-      <th scope="col">{{trans('reservation.status')}}</th>
-      <th scope="col" style="text-align: center;">{{trans('reservation.action')}}</th>
+      <th scope="col" style="text-align: center;">{{trans('reservation.status')}}</th>
+      <th scope="col" style="text-align: center;">{{trans('reservation.paid')}}</th>
     </tr>
   </thead>
   <tbody>
     @foreach($reservations_list as $res)
-
-  		<tr>
+  	<tr>
   		<th scope='col'>{{$res->exp_name}}</th>
       @if(Session::get('locale') == "es")
         <th scope='col'>{{ \Carbon\Carbon::parse($res->res_date)->format('d/m/Y H:i') }}</th>
@@ -54,23 +52,28 @@
   		<th scope='col'>
 				<img src={{asset('uploads/avatars/'.$res->avatar)}} height="40px" style="border-radius: 50%">
   		</th>
-      @if($res->status === "Canceled")
-        <th scope='col'><button class='btn btn-danger'>{{$res->status}}</button</th>
-        <th></th>
+      @if($res->status == "Canceled")
+        <th scope='col'>
+          <button class='btn btn-danger'>{{$res->status}}</button>
+        </th>
       @endif
-      @if($res->status === "Accepted")
-        <th scope='col'><button class='btn btn-primary'>{{$res->status}}</button</th>
-        <th></th>
+      @if($res->status == "Accepted")
+        <th scope='col'><button class='btn btn-primary'>{{$res->status}}</button></th>
       @endif
-      @if($res->status === "Rejected")
-        <th scope='col'><button class='btn btn-danger'>{{$res->status}}</button</th>
-        <th></th>
+      @if($res->status == "Rejected")
+        <th scope='col'>
+          <button class='btn btn-warning'>{{$res->status}}</button>
+        </th>
       @endif
-      @if($res->status === "Defered")
-        <th scope='col'><button class='btn btn-danger'>{{$res->status}}</button</th>
-        <th></th>
+      @if($res->status == "Expired")
+        <th scope='col'><button class='btn btn-secondary'>{{$res->status}}</button></th>
       @endif
-  		</tr>
+      @if ($res->paid == "Paid")
+        <th><button class='btn btn-primary'>{{trans('reservation.paid')}}</button></th>
+      @else
+        <th><button class='btn btn-info'>{{trans('reservation.unpaid')}}</button></th>
+      @endif
+  	</tr>
   	@endforeach
   </tbody>
 </table>

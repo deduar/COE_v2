@@ -91,6 +91,9 @@ Route::get('/reservation/cancel/{id}', 'Reservation\ReservationController@Cancel
 Route::get('/reservation/reject/{id}', 'Reservation\ReservationController@Reject')->name('reservation_rejected');
 Route::get('/reservation/accept/{id}', 'Reservation\ReservationController@Accept')->name('reservation_accepted');
 Route::get('/reservation/pay_tansfer/{id}', 'Reservation\ReservationController@PayTransfer')->name('reservation_payTransfer');
+Route::get('/reservation/pay_paypal/{id}', 'Reservation\ReservationController@PayPaypal')->name('reservation_payPaypal');
+Route::get('/reservation/accept/{id}', 'Reservation\ReservationController@Accept')->name('reservation_accepted');
+
 
 // Messages
 Route::get('/messages', 'Messages\MessagesController@index')->name('messages');
@@ -128,3 +131,6 @@ Route::get('/admin/experienceCategory/changeStatus/{id}', 'Admin\ExperienceCateg
 Route::get('/admin/experienceCategory/edit/{id}', 'Admin\ExperienceCategoryController@edit')->name('admin_editExperienceCategory');
 Route::post('/admin/experienceCategory/update', 'Admin\ExperienceCategoryController@update')->name('admin_updateExperienceCategory');
 
+// Admin (backend) - RESERVATIONS
+Route::get('/admin/reservations', 'Admin\ReservationController@index')->name('admin_reservations');
+Route::get('/admin/reservation_checkpaid/{id}', 'Admin\ReservationController@checkPaid')->name('admin_reservationCheckPaid');
