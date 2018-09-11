@@ -18,7 +18,7 @@
       <h1>{{trans('reservation.my_reservation')}}</h1>
     </div>
     <div class="col-md-4 vcenter">
-      <h4>{{ \Carbon\Carbon::parse($now)->format('d/m/Y H:m') }}</h4>
+      <h4 style="margin-top: 28px;">{{trans('reservation.today')}}: {{ \Carbon\Carbon::parse($now)->format('d/m/Y H:i') }}</h4>
     </div>
   </div>
   <div class="col-md-4">
@@ -30,6 +30,7 @@
     <tr>
       <th scope="col">{{trans('reservation.experience_name')}}</th>
       <th scope="col">{{trans('reservation.reservation_date')}}</th>
+      <th scope="col">{{trans('reservation.expired')}}</th>
       <th scope="col">{{trans('reservation.contact_guide')}}</th>
       <th colspan="2" scope="col" style="text-align: center;">{{trans('reservation.guide_name')}}</th>
       <th scope="col" style="text-align: center;">{{trans('reservation.status')}}</th>
@@ -47,6 +48,9 @@
         @else
           <th scope='col'>{{ \Carbon\Carbon::parse($res->res_date)->format('m/d/Y H:i') }}</th>
         @endif
+        <th>
+          <p id="demo" style="color: #E82C0C;"></p>
+        </th>
         <th scope='col'><a href="{{route('messages')}}"><div class="btn btn-success">{{trans('reservation.mail_to_guide')}}</div></a></th>
         <th scope='col'>{{$res->user_name}} {{$res->last_name}}</th>
         <th scope='col'>
@@ -86,5 +90,39 @@
 </div>
 
 {!! $reservations->render() !!}
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date('<?php echo $res->created_at; ?>').getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get todays date and time
+  //var now = new Date().getTime();
+  var now = new Date();
+  // add a day
+  now.setDate(now.getDate() + 3);
+
+  // Find the distance between now and the count down date
+  var distance = now - countDownDate;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
 
 @endsection

@@ -38,5 +38,7 @@ return [
 	'cancel' => 'Cancel',
 	'reject' => 'Reject',
 	'verify' => 'Verify',
-	'accepted' => 'Acepted'
+	'accepted' => 'Acepted',
+	'expired' => 'Time remaining',
+	'today' => 'Today'
 ];

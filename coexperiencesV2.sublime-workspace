@@ -523,7 +523,25 @@
 			"file": "app/Http/routes.php",
 			"settings":
 			{
-				"buffer_size": 10036,
+				"buffer_size": 10150,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/Reservation/ReservationController.php",
+			"settings":
+			{
+				"buffer_size": 11395,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/reservation/reservation_list_waiting.blade.php",
+			"settings":
+			{
+				"buffer_size": 3744,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -591,15 +609,25 @@
 		"/home/deduar/Projects/Coexperiences_v-2.0/app",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers",
+		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Reservation",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views"
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/en",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/es",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/reservation"
 	],
 	"file_history":
 	[
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/es/reservation.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/en/reservation.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/reservation/reservation_list_waiting.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/admin/reservation.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/reservation/index.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/reservation/waiting.blade.php",
+		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/reservation/reservation_list.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Admin/ReservationController.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Experiences/ExperiencesController.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/reservation/index.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/admin/experienceCategory.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/admin/documentType_edit.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/admin/documentType_create.blade.php",
@@ -616,13 +644,8 @@
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/admin/index.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/es/admin.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/en/admin.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/en/reservation.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/es/reservation.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/database/migrations/2018_05_28_100001_create_reservation_table.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Reservation/ReservationController.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/reservation/waiting.blade.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/reservation/reservation_list.blade.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/reservation/reservation_list_waiting.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/reservation/confirm.blade.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Reservation.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/es/experience.php",
@@ -727,7 +750,7 @@
 	],
 	"find":
 	{
-		"height": 22.0
+		"height": 38.0
 	},
 	"find_in_files":
 	{
@@ -741,6 +764,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Defere",
+			"Rejected(",
+			"paid",
 			"index",
 			"exper",
 			"admin",
@@ -865,10 +891,7 @@
 			"Type",
 			"cur",
 			"curr",
-			"user",
-			"}}</",
-			"show",
-			"profile"
+			"user"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -921,7 +944,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -930,15 +953,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10036,
+						"buffer_size": 10150,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9911,
-								9911
+								6947,
+								6947
 							]
 						],
 						"settings":
@@ -950,10 +973,76 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1858.0,
+						"translation.y": 1325.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/Http/Controllers/Reservation/ReservationController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11395,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7052,
+								7052
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2131.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "resources/views/reservation/reservation_list_waiting.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3744,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3402,
+								3402
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 876.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
