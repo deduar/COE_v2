@@ -39,8 +39,9 @@
     </tr>
   </thead>
   <tbody>
-    @foreach($reservations as $res)
+    @foreach($reservations as $key => $res)
       @if($res->res_user_id === $user->id)
+
       <tr>
         <th scope='col'>{{$res->exp_name}}</th>
         @if(Session::get('locale') == "es")
@@ -49,7 +50,12 @@
           <th scope='col'>{{ \Carbon\Carbon::parse($res->res_date)->format('m/d/Y H:i') }}</th>
         @endif
         <th>
-          <p id="demo" style="color: #E82C0C;"></p>
+            <!--p id="demo_" style="color: #E82C0C;"></p-->
+            <?php
+              $res_date = Carbon\Carbon::parse($res->res_date);
+              $created_at = Carbon\Carbon::parse($res->created_at)->addDays(3);
+            ?>
+            <p id="demo"></p>
         </th>
         <th scope='col'><a href="{{route('messages')}}"><div class="btn btn-success">{{trans('reservation.mail_to_guide')}}</div></a></th>
         <th scope='col'>{{$res->user_name}} {{$res->last_name}}</th>
@@ -80,6 +86,7 @@
       <th><a href="{{route('reservation_canceled',array('id'=>$res->res_id))}}"><button class='btn btn-danger'>{{trans('reservation.cancel')}}</button></a></th>
       
       </tr>
+
       @endif
     @endforeach
   </tbody>
@@ -89,20 +96,35 @@
 
 </div>
 
-{!! $reservations->render() !!}
+
 
 <script>
+var deadline = new Date("<?php echo $created_at; ?>").getTime();
+var x = setInterval(function() {
+var now = new Date().getTime();
+var t = deadline - now;
+var days = Math.floor(t / (1000 * 60 * 60 * 24));
+var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60));
+var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((t % (1000 * 60)) / 1000);
+document.getElementById("demo").innerHTML = days + "d " 
++ hours + "h " + minutes + "m " + seconds + "s ";
+    if (t < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+    }
+}, 1000);
+</script>
+
+<!--script>
 // Set the date we're counting down to
-var countDownDate = new Date('<?php echo $res->created_at; ?>').getTime();
+var countDownDate = new Date("<?php echo $res->created_at; ?>").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
 
   // Get todays date and time
-  //var now = new Date().getTime();
-  var now = new Date();
-  // add a day
-  now.setDate(now.getDate() + 3);
+  var now = new Date().getTime();
 
   // Find the distance between now and the count down date
   var distance = now - countDownDate;
@@ -114,7 +136,7 @@ var x = setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // Display the result in the element with id="demo"
-  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  document.getElementById("demo_").innerHTML = days + "d " + hours + "h "
   + minutes + "m " + seconds + "s ";
 
   // If the count down is finished, write some text 
@@ -123,6 +145,8 @@ var x = setInterval(function() {
     document.getElementById("demo").innerHTML = "EXPIRED";
   }
 }, 1000);
-</script>
+</script-->
+
+{!! $reservations->render() !!}
 
 @endsection

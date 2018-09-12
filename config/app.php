@@ -40,7 +40,8 @@ return [
     |
     */
 
-    'timezone' => 'Europe/Madrid',
+    //'timezone' => 'Europe/Madrid',
+    'timezone' => 'America/Caracas',
 
     /*
     |--------------------------------------------------------------------------
