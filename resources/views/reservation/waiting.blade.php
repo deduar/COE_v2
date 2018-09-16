@@ -39,9 +39,9 @@
     </tr>
   </thead>
   <tbody>
+    <?php $k=0; ?>
     @foreach($reservations as $key => $res)
       @if($res->res_user_id === $user->id)
-
       <tr>
         <th scope='col'>{{$res->exp_name}}</th>
         @if(Session::get('locale') == "es")
@@ -50,12 +50,31 @@
           <th scope='col'>{{ \Carbon\Carbon::parse($res->res_date)->format('m/d/Y H:i') }}</th>
         @endif
         <th>
-            <!--p id="demo_" style="color: #E82C0C;"></p-->
             <?php
-              $res_date = Carbon\Carbon::parse($res->res_date);
-              $created_at = Carbon\Carbon::parse($res->created_at)->addDays(3);
+                $res_date = Carbon\Carbon::parse($res->res_date);
+                $created_at = Carbon\Carbon::parse($res->created_at)->addDays(3);
+                $k++;
             ?>
-            <p id="demo"></p>
+            <p id="demo_<?php echo $k; ?>" style="color: #E82C0C;"></p>
+            <script>
+              var deadline = new Date("<?php if(isset($created_at)) echo $created_at; else $created_at=""; ?>").getTime();
+              var x = setInterval(function() {
+              var now = new Date().getTime();
+              var t = deadline - now;
+              var days = Math.floor(t / (1000 * 60 * 60 * 24));
+              var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60));
+              var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+              var seconds = Math.floor((t % (1000 * 60)) / 1000);
+              //document.getElementById("demo_1").innerHTML = days + "d "
+              document.querySelector('[id="demo_<?php echo $k;?>"]').innerHTML = days + "d "
+              + hours + "h " + minutes + "m " + seconds + "s ";
+                  if (t < 0) {
+                      clearInterval(x);
+                      //document.getElementById("demo_<?php echo $k;?>").innerHTML = "EXPIRED";
+                      document.querySelector('[id^="demo_"]').innerHTML = "EXPIRED";
+                  }
+              }, 1000);
+            </script>
         </th>
         <th scope='col'><a href="{{route('messages')}}"><div class="btn btn-success">{{trans('reservation.mail_to_guide')}}</div></a></th>
         <th scope='col'>{{$res->user_name}} {{$res->last_name}}</th>
@@ -96,10 +115,8 @@
 
 </div>
 
-
-
-<script>
-var deadline = new Date("<?php echo $created_at; ?>").getTime();
+<!--script>
+var deadline = new Date("<?php if(isset($created_at)) echo $created_at; else $created_at=""; ?>").getTime();
 var x = setInterval(function() {
 var now = new Date().getTime();
 var t = deadline - now;
@@ -107,6 +124,9 @@ var days = Math.floor(t / (1000 * 60 * 60 * 24));
 var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60));
 var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
 var seconds = Math.floor((t % (1000 * 60)) / 1000);
+
+
+
 document.getElementById("demo").innerHTML = days + "d " 
 + hours + "h " + minutes + "m " + seconds + "s ";
     if (t < 0) {
@@ -114,11 +134,12 @@ document.getElementById("demo").innerHTML = days + "d "
         document.getElementById("demo").innerHTML = "EXPIRED";
     }
 }, 1000);
-</script>
+
+</script-->
 
 <!--script>
 // Set the date we're counting down to
-var countDownDate = new Date("<?php echo $res->created_at; ?>").getTime();
+var countDownDate = new Date("<?php //echo $res->created_at; ?>").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {

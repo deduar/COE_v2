@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"creta",
+				"created_at"
+			],
+			[
 				"dat",
 				"date_create"
 			],
@@ -510,10 +514,6 @@
 			[
 				"headers",
 				"headers_sent"
-			],
-			[
-				"transactions",
-				"transactions_id"
 			]
 		]
 	},
@@ -540,7 +540,7 @@
 			"file": "resources/views/reservation/waiting.blade.php",
 			"settings":
 			{
-				"buffer_size": 4734,
+				"buffer_size": 5723,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -624,6 +624,7 @@
 	],
 	"file_history":
 	[
+		"/home/deduar/Projects/Coexperiences_v-2.0/config/app.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/es/reservation.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/en/reservation.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/views/reservation/reservation_list_waiting.blade.php",
@@ -727,7 +728,6 @@
 		"/home/deduar/Projects/Coexperiences_v-2.0/resources/lang/en/profile.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/routes.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Auth/PasswordController.php",
-		"/home/deduar/Projects/Coexperiences_v-2.0/config/app.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Kernel.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Controllers/Controller.php",
 		"/home/deduar/Projects/Coexperiences_v-2.0/app/Http/Middleware/Locale.php",
@@ -755,7 +755,7 @@
 	],
 	"find":
 	{
-		"height": 38.0
+		"height": 22.0
 	},
 	"find_in_files":
 	{
@@ -769,6 +769,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"});",
+			"13",
 			"demo",
 			"Defere",
 			"Rejected(",
@@ -894,9 +896,7 @@
 			"cur",
 			"create",
 			"currency",
-			"Type",
-			"cur",
-			"curr"
+			"Type"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -997,8 +997,8 @@
 						"selection":
 						[
 							[
-								2732,
-								2732
+								3282,
+								3282
 							]
 						],
 						"settings":
@@ -1011,7 +1011,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 564.0,
+						"translation.y": 265.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -1023,15 +1023,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4734,
+						"buffer_size": 5723,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2001,
-								2001
+								3876,
+								3876
 							]
 						],
 						"settings":
@@ -1044,7 +1044,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 402.0,
+						"translation.y": 1196.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1063,8 +1063,8 @@
 						"selection":
 						[
 							[
-								5289,
-								5289
+								4439,
+								4439
 							]
 						],
 						"settings":
@@ -1077,7 +1077,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1625.0,
+						"translation.y": 1624.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
