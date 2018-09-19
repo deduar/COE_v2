@@ -3,7 +3,6 @@
 @section('title', 'Coesperiences: My Experiences')
 
 @section('content')
-
 <style type="text/css">
   .carousel-content {
     position: absolute;

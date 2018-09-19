@@ -19,6 +19,8 @@ use DB;
 
 use Carbon\Carbon;
 
+use App\Libraries\ConsumerPaypal;
+
 class ExperiencesController extends Controller
 {
     public function __construct()
@@ -317,6 +319,10 @@ class ExperiencesController extends Controller
      */
     public function show($id)
     {
+        $paypal = new ConsumerPaypal();
+        $approvalUrl = $paypal->savePaymentWithPaypal();
+        echo "<a href='".$approvalUrl."'>Pagar con paypal</a>";
+        die();
         if(Auth::guest()){
             $user = null;
             return redirect('auth/login');

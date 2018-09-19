@@ -184,14 +184,13 @@ class ReservationController extends Controller
         return redirect()->route('reservation');
     }
 
-    public function PayPaypal($id)
+    public function payPaypal($id)
     {
-        $user = Auth::user();
-        $res = Reservation::find($id);
-        $res->status = "Waiting";
-        $res->paid = "Paid";
-        $res->update();
-        return redirect()->route('reservation');
+        //$user = Auth::user();
+        //$res = Reservation::find($id);
+
+        
+        //return redirect()->route('reservation');
     }
 
     /**
@@ -251,13 +250,15 @@ class ReservationController extends Controller
             $reservation->res_guide_id = $request->guide_id;
             $reservation->status = "Waiting";
             if ($request->acction === "paypal") {
-                $reservation->paid = "Paid";
+                $reservation->paid = "Paid";              
             } 
             if ($request->acction === "bank") {
                 $reservation->paid = "Unpaid";
             }
-            
             $reservation->save();
+            if ($request->acction === "paypal") {
+                $this->payPayPal($reservation->id);
+            }
             return redirect()->route('reservation');
         } else {
             return redirect('auth/login');
