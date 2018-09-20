@@ -169,25 +169,25 @@ class ConsumerPaypal {
 * genera un pedido sin procesar que devuelve una url para hacer el redirect
 *
 */
-public function savePaymentWithPaypal() 
+public function savePaymentWithPaypal($price) 
 {
     $payer = new Payer();
     $payer->setPaymentMethod("paypal");
  
     $item1 = new Item();
-    $item1->setName('Curso de Socket.IO')
+    $item1->setName('Coexperiences')
         ->setCurrency('USD')
         ->setQuantity(1)
         ->setSku("1")
-        ->setPrice(1.30);
+        ->setPrice($price);
  
     $itemList = new ItemList();
     $itemList->setItems(array($item1));
     $details = new Details();
-    $details->setShipping(0)->setTax(0)->setSubtotal(1.30);
+    $details->setShipping(0)->setTax(0)->setSubtotal($price);
  
     $amount = new Amount();
-    $amount->setCurrency("USD")->setTotal(1.30)->setDetails($details);
+    $amount->setCurrency("USD")->setTotal($price)->setDetails($details);
  
     $transaction = new Transaction();
     $transaction->setAmount($amount)
@@ -197,8 +197,8 @@ public function savePaymentWithPaypal()
  
  
     $redirectUrls = new RedirectUrls();
-    $redirectUrls->setReturnUrl($this->_baseUrl . "home/paypal_payment_response/success")
-        ->setCancelUrl($this->_baseUrl . "home/paypal_payment_response/error");
+    $redirectUrls->setReturnUrl(url()."/reservation/executepaypal")
+        ->setCancelUrl(url() . "paypal_payment_response/error");
  
     $payment = new Payment();
     $payment->setIntent("authorize")
@@ -217,7 +217,7 @@ public function savePaymentWithPaypal()
 
 public function getPaymentWithPayPal()
 {
-	$authorizationId = "7G389687WU1457508";
+	//$authorizationId = "7G389687WU1457508";
 	try {
 		$authorization = Authorization::get($authorizationId, $this->_apiContext);
 
@@ -239,7 +239,7 @@ public function getPaymentWithPayPal()
 
 public function refundPaymentWithPayPal()
 {
-	$captureId = "98159733X27599831";
+	//$captureId = "98159733X27599831";
 
 	$refund = new Refund();
 	$refund->setId($captureId);
@@ -257,7 +257,7 @@ public function refundPaymentWithPayPal()
 
 public function voidPaymentWithPayPal()
 {
-	$authorizationId = "51A461164S445760W";
+	//$authorizationId = "51A461164S445760W";
 	try {
 		 $authorization = Authorization::get($authorizationId, $this->_apiContext);
 		 $voidedAuth = $authorization->void($this->_apiContext);

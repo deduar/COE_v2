@@ -85,6 +85,7 @@ Route::get('/reservation_list/waiting', 'Reservation\ReservationController@reser
 
 Route::post('/reservation/confirm', 'Reservation\ReservationController@confirm')->name('reservation_confirm');
 Route::post('/reservation/store', 'Reservation\ReservationController@store')->name('reservation_store');
+Route::get('/reservation/executepaypal', 'Reservation\ReservationController@executePayPal')->name('reservation_execute_paypal');
 Route::get('/reservation/collection', 'Reservation\ReservationController@collection')->name('collection');
 Route::get('/reservation/transacionLog', 'Reservation\ReservationController@transactionLog')->name('transaction_log');
 Route::get('/reservation/cancel/{id}', 'Reservation\ReservationController@Cancel')->name('reservation_canceled');

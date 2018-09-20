@@ -16,6 +16,8 @@ use Carbon;
 
 use Illuminate\Support\Facades\DB;
 
+use App\Libraries\ConsumerPaypal;
+
 class ReservationController extends Controller
 {
     public function __construct()
@@ -228,12 +230,17 @@ class ReservationController extends Controller
         $data['flat'] = $exp->exp_flat;
         $data['price'] = $exp->exp_price;
         $data['pax'] = $request->pax;
+        
         if ($exp->exp_flat){
             $data['amount'] = $exp->exp_price;
         }else{
             $data['amount'] = $exp->exp_price * $request->pax;
         }
-        return view('reservation.confirm', array('user'=>Auth::user(),'data'=>$data,'exp'=>$exp,'guide'=>$guide, 'currency'=>$currency));
+
+        $paypal = new ConsumerPaypal();
+        $approvalUrl = $paypal->savePaymentWithPaypal($data['amount']);
+
+        return view('reservation.confirm', array('user'=>Auth::user(),'data'=>$data,'exp'=>$exp,'guide'=>$guide, 'currency'=>$currency, 'approvalUrl'=>$approvalUrl));
     }
 
     public function store(Request $request)
@@ -248,21 +255,41 @@ class ReservationController extends Controller
             $reservation->res_exp_id = $request->exp_id;
             $reservation->res_user_id = $user->id;
             $reservation->res_guide_id = $request->guide_id;
+            $reservation->amount = $request->amount;
+            $reservation->pax = $request->pax;
             $reservation->status = "Waiting";
-            if ($request->acction === "paypal") {
-                $reservation->paid = "Paid";              
-            } 
-            if ($request->acction === "bank") {
-                $reservation->paid = "Unpaid";
-            }
+            $reservation->paid = "Unpaid";
             $reservation->save();
             if ($request->acction === "paypal") {
                 $this->payPayPal($reservation->id);
             }
-            return redirect()->route('reservation');
+            $appUrl = redirect()->to($request->approvalUrl)->send();
         } else {
             return redirect('auth/login');
         }
+    }
+
+    public function executePayPal(Request $request)
+    {
+        $user = Auth::user();
+        
+        $res = App\Reservation:: where('res_user_id','=',auth()->user()->id)
+                ->orderBy('id', 'DESC')
+                ->first();
+
+        $paypal = new ConsumerPaypal();
+        $payment = $paypal->execute_payment($request->paymentId, $request->PayerID);
+
+        $tId=$payment->toArray()['transactions'][0]['related_resources'][0]['authorization']['id'];
+        
+        $res->paymentId = $request->paymentId;
+        $res->token = $request->token;
+        $res->PayerID = $request->PayerID;
+        $res->transactionID = $tId;
+        $res->paid = "Paid";
+        $res->update();
+
+        return redirect('/reservation/waiting');
     }
 
     /**

@@ -22,6 +22,12 @@ class CreateReservationTable extends Migration
             $table->enum('status', ['Waiting', 'Rejected', 'Canceled', 'Defered', 'Accepted'])->default('Waiting');
             $table->enum('paid', ['Paid', 'Unpaid'])->default('Unpaid');
             $table->boolean('paid')->default(0);
+            $table->string('paymentId',20)->default('NULL');
+            $table->string('token',20)->default('NULL');
+            $table->string('PayerID',20)->default('NULL');
+            $table->string('transactionID',20)->default('NULL');
+            $table->decimal('amount',10,2);
+            $table->integer('pax');
         });
 
         Schema::table('reservation', function ($table) {

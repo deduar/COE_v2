@@ -23,6 +23,8 @@
   {!! Form::hidden('price', $data['price']) !!}
   {!! Form::hidden('pax', $data['pax']) !!}
   {!! Form::hidden('amount', $data['amount']) !!}
+  {!! Form::hidden('approvalUrl', $approvalUrl) !!}
+
   <div class="col-md-12">
 
     <div class="col-md-6 col-md-offset-1" style="border: 1px solid #000; background: #fff; padding-top: 10px; padding-bottom: 10px; margin-top: 10px;">
