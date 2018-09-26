@@ -75,15 +75,19 @@
       @if($res->status == "Expired")
         <th scope='col'><button class='btn btn-secondary'>{{$res->status}}</button></th>
       @endif
-      @if ($res->paid == "Paid")
-        <th><button class='btn btn-primary'>{{trans('reservation.paid')}}</button></th>
-      @else
+      @if ($res->paid == "Authorized")
+        <th><button class='btn btn-primary'>{{trans('reservation.authorized')}}</button></th>
+      @endif
+      @if ($res->paid == "Take")
+          <th><button class='btn btn-success'>{{trans('reservation.taked')}}</button></th>
+      @endif
+      @if ($res->paid == "Unpaid")
         <th><button class='btn btn-info'>{{trans('reservation.unpaid')}}</button></th>
       @endif
       <th>
         <a href="{{route('reservation_rejected',array('id'=>$res->res_id))}}"><button class='btn btn-warning'>{{trans('reservation.reject')}}</button></a>
-        @if($res->paid == "Paid")
-          <a href="{{route('reservation_accepted',array('id'=>$res->res_id))}}"><button class='btn btn-success'>{{trans('reservation.accepted')}}</button></a>
+        @if($res->paid == "Authorized")
+          <a href="{{route('reservation_accepted',array('id'=>$res->res_id))}}"><button class='btn btn-success'>{{trans('reservation.take')}}</button></a>
         @endif
       </th>
   		</tr>

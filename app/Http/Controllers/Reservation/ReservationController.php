@@ -164,6 +164,8 @@ class ReservationController extends Controller
         $res = Reservation::find($id);
         $res->status = "Rejected";
         $res->update();
+        $paypal = new ConsumerPaypal();
+        $payment = $paypal->voidPaymentWithPayPal($res->transactionID);
         return redirect()->back();
     }
 
@@ -171,8 +173,14 @@ class ReservationController extends Controller
     {
         $user = Auth::user();
         $res = Reservation::find($id);
+
+        $paypal = new ConsumerPaypal();
+        $payment = $paypal->getPaymentWithPayPal($res->transactionID);
+        
         $res->status = "Accepted";
+        $res->paid = "Take";
         $res->update();
+        
         return redirect()->back();
     }
 
@@ -286,7 +294,7 @@ class ReservationController extends Controller
         $res->token = $request->token;
         $res->PayerID = $request->PayerID;
         $res->transactionID = $tId;
-        $res->paid = "Paid";
+        $res->paid = "Authorized";
         $res->update();
 
         return redirect('/reservation/waiting');

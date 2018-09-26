@@ -41,5 +41,8 @@ return [
 	'verify' => 'Verificar',
 	'accepted' => 'Aceptar',
 	'expired' => 'Tiempo Restante',
-	'today' => 'Hoy'
+	'today' => 'Hoy',
+	'authorized' => 'Autorizado',
+	'take' => 'Tomar Pago',
+	'taked' => 'Tomado'
 ];

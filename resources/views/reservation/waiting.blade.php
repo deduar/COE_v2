@@ -52,7 +52,7 @@
         <th>
             <?php
                 $res_date = Carbon\Carbon::parse($res->res_date);
-                $created_at = Carbon\Carbon::parse($res->created_at)->addDays(3);
+                $created_at = Carbon\Carbon::parse($res->created_at)->addDays(2);
                 $k++;
             ?>
             <p id="demo_<?php echo $k; ?>" style="color: #E82C0C;"></p>
@@ -95,8 +95,11 @@
           <th scope='col'><button class='btn btn-secondary'>{{$res->status}}</button></th>
         @endif
 
-        @if($res->paid == "Paid")
-          <th><button class='btn btn-primary'>{{trans('reservation.paid')}}</button></th>
+        @if($res->paid == "Authorized")
+          <th><button class='btn btn-primary'>{{trans('reservation.authorized')}}</button></th>
+        @endif
+        @if ($res->paid == "Take")
+          <th><button class='btn btn-success'>{{trans('reservation.taked')}}</button></th>
         @endif
         @if($res->paid == "Unpaid")
           <th><button class='btn btn-info'>{{trans('reservation.unpaid')}}</button></th>

@@ -40,5 +40,8 @@ return [
 	'verify' => 'Verify',
 	'accepted' => 'Acepted',
 	'expired' => 'Time remaining',
-	'today' => 'Today'
+	'today' => 'Today',
+	'authorized' => 'Authorized',
+	'take' => 'Take',
+	'taked' => 'Taked'
 ];

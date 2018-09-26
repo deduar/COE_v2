@@ -215,7 +215,7 @@ public function savePaymentWithPaypal($price)
     }
 }
 
-public function getPaymentWithPayPal()
+public function getPaymentWithPayPal($authorizationId)
 {
 	//$authorizationId = "7G389687WU1457508";
 	try {
@@ -223,7 +223,7 @@ public function getPaymentWithPayPal()
 
 	    $amt = new Amount();
 	    $amt->setCurrency("USD")
-	        ->setTotal(1.30);
+	        ->setTotal(1.12);
 
 	    ### Capture
 	    $capture = new Capture();
@@ -255,7 +255,7 @@ public function refundPaymentWithPayPal()
 
 }
 
-public function voidPaymentWithPayPal()
+public function voidPaymentWithPayPal($authorizationId)
 {
 	//$authorizationId = "51A461164S445760W";
 	try {

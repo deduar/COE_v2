@@ -70,8 +70,11 @@
         @if($res->status == "Expired")
           <th scope='col'><button class='btn btn-secondary'>{{$res->status}}</button></th>
         @endif
-        @if ($res->paid == "Paid")
-          <th><button class='btn btn-primary'>{{trans('reservation.paid')}}</button></th>
+        @if ($res->paid == "Authorized")
+          <th><button class='btn btn-primary'>{{trans('reservation.authorized')}}</button></th>
+        @endif
+        @if ($res->paid == "Take")
+          <th><button class='btn btn-success'>{{trans('reservation.taked')}}</button></th>
         @endif
         @if ($res->paid == "Unpaid")
           <th><button class='btn btn-info'>{{trans('reservation.unpaid')}}</button></th>
