@@ -175,7 +175,7 @@ class ReservationController extends Controller
         $res = Reservation::find($id);
 
         $paypal = new ConsumerPaypal();
-        $payment = $paypal->getPaymentWithPayPal($res->transactionID);
+        $payment = $paypal->getPaymentWithPayPal($res->transactionID, $res->amount, "USD");
         
         $res->status = "Accepted";
         $res->paid = "Take";

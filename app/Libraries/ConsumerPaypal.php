@@ -215,15 +215,15 @@ public function savePaymentWithPaypal($price)
     }
 }
 
-public function getPaymentWithPayPal($authorizationId)
+public function getPaymentWithPayPal($authorizationId, $total, $currecny)
 {
 	//$authorizationId = "7G389687WU1457508";
 	try {
 		$authorization = Authorization::get($authorizationId, $this->_apiContext);
 
 	    $amt = new Amount();
-	    $amt->setCurrency("USD")
-	        ->setTotal(1.12);
+	    $amt->setCurrency($currecny)
+	        ->setTotal($total);
 
 	    ### Capture
 	    $capture = new Capture();
