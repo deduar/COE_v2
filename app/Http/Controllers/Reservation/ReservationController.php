@@ -154,7 +154,10 @@ class ReservationController extends Controller
         //$user = Auth::user();
         $res = Reservation::find($id);
         $res->status = "Canceled";
+        $res->paid = "Void";
         $res->update();
+        $paypal = new ConsumerPaypal();
+        $payment = $paypal->voidPaymentWithPayPal($res->transactionID);
         return redirect()->route('reservation');
     }
 
@@ -163,10 +166,12 @@ class ReservationController extends Controller
         $user = Auth::user();
         $res = Reservation::find($id);
         $res->status = "Rejected";
+        $res->paid = "Void";
         $res->update();
         $paypal = new ConsumerPaypal();
         $payment = $paypal->voidPaymentWithPayPal($res->transactionID);
-        return redirect()->back();
+        //return redirect()->back();
+        return redirect()->route('reservation_list');
     }
 
     public function Accept($id)
@@ -180,8 +185,9 @@ class ReservationController extends Controller
         $res->status = "Accepted";
         $res->paid = "Take";
         $res->update();
-        
-        return redirect()->back();
+     
+        return redirect()->route('reservation_list');   
+        //return redirect()->back();
     }
 
     public function PayTransfer($id)

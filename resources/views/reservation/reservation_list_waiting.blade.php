@@ -87,7 +87,7 @@
       <th>
         <a href="{{route('reservation_rejected',array('id'=>$res->res_id))}}"><button class='btn btn-warning'>{{trans('reservation.reject')}}</button></a>
         @if($res->paid == "Authorized")
-          <a href="{{route('reservation_accepted',array('id'=>$res->res_id))}}"><button class='btn btn-success'>{{trans('reservation.take')}}</button></a>
+          <a href="{{route('reservation_accepted',array('id'=>$res->res_id))}}"><button class='btn btn-success'>{{trans('reservation.accepted')}}</button></a>
         @endif
       </th>
   		</tr>

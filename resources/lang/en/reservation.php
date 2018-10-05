@@ -43,5 +43,6 @@ return [
 	'today' => 'Today',
 	'authorized' => 'Authorized',
 	'take' => 'Take',
-	'taked' => 'Taked'
+	'taked' => 'Taked',
+	'void' => 'Void'
 ];

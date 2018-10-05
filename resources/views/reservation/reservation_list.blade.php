@@ -74,6 +74,9 @@
       @if ($res->paid == "Take")
           <th><button class='btn btn-success'>{{trans('reservation.paid')}}</button></th>
       @endif
+      @if ($res->paid == "Void")
+          <th><button class='btn btn-warning'>{{trans('reservation.void')}}</button></th>
+        @endif
       @if ($res->paid == "Unpaid")
         <th><button class='btn btn-info'>{{trans('reservation.unpaid')}}</button></th>
       @endif

@@ -44,5 +44,6 @@ return [
 	'today' => 'Hoy',
 	'authorized' => 'Autorizado',
 	'take' => 'Tomar Pago',
-	'taked' => 'Tomado'
+	'taked' => 'Tomado',
+	'void' => 'Void'
 ];
