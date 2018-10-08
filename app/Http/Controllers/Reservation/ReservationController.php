@@ -192,6 +192,19 @@ class ReservationController extends Controller
         //return redirect()->back();
     }
 
+    public function Refund($id)
+    {
+        $user = Auth::user();
+        $res = Reservation::find($id);
+
+        $paypal = new ConsumerPaypal();
+        $payment = $paypal->refundPaymentWithPayPal($res->transactionID);
+        $res->paid = "Refund";
+        $res->update();
+        return redirect()->route('admin_reservations');   
+        //return redirect()->back();
+    }
+
     public function PayTransfer($id)
     {
         $user = Auth::user();

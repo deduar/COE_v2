@@ -45,5 +45,6 @@ return [
 	'authorized' => 'Autorizado',
 	'take' => 'Tomar Pago',
 	'taked' => 'Tomado',
-	'void' => 'Void'
+	'void' => 'Void',
+	'refund' => 'Refund'
 ];

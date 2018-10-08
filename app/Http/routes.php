@@ -94,6 +94,7 @@ Route::get('/reservation/accept/{id}', 'Reservation\ReservationController@Accept
 Route::get('/reservation/pay_tansfer/{id}', 'Reservation\ReservationController@PayTransfer')->name('reservation_payTransfer');
 Route::get('/reservation/pay_paypal/{id}', 'Reservation\ReservationController@PayPaypal')->name('reservation_payPaypal');
 Route::get('/reservation/accept/{id}', 'Reservation\ReservationController@Accept')->name('reservation_accepted');
+Route::get('/reservation/refund/{id}', 'Reservation\ReservationController@Refund')->name('reservation_refundPaid');
 
 
 // Messages

@@ -62,6 +62,9 @@
                 @if ($res->paid == "Take")
                   <th><button class='btn btn-success' style="width: 100px; height: 33px;">{{trans('reservation.paid')}}</button></th>
                 @endif
+                @if ($res->paid == "Refund")
+                  <th><button class='btn btn-danger' style="width: 100px; height: 33px;">{{trans('reservation.refund')}}</button></th>
+                @endif
                 @if ($res->paid == "Void")
                   <th><button class='btn btn-warning' style="width: 100px; height: 33px;">{{trans('reservation.void')}}</button></th>
                 @endif
@@ -80,7 +83,11 @@
 
                 <th>RedDate</th>
                 
-                <th>Actions</th>
+                <th>
+                  @if($res->paid == "Take")
+                    <button class='btn btn-danger'><a style='text-decoration:none; color:fff;' href="{{route('reservation_refundPaid',array('id'=>$res->id))}}">Refund Paid</a></button>
+                  @endif
+                </th>
 
             @endforeach
 

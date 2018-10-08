@@ -237,16 +237,15 @@ public function getPaymentWithPayPal($authorizationId, $total, $currecny)
 	return $getCapture;    
 }
 
-public function refundPaymentWithPayPal()
+public function refundPaymentWithPayPal($authorizationId)
 {
 	//$captureId = "98159733X27599831";
 
 	$refund = new Refund();
-	$refund->setId($captureId);
+	$refund->setId($authorizationId);
 
 	try {
-		$refundResponse = Refund::get($captureId, $this->_apiContext);
-
+		$refundResponse = Refund::get($authorizationId, $this->_apiContext);
 	} catch (Exception $ex) {
         ResultPrinter::printError("Get Payment", "Payment", null, null, $ex);
         exit(1);
