@@ -50,10 +50,10 @@ class ReservationController extends Controller
                 $res_date = Carbon\Carbon::parse($reservation->res_date);
                 $created_at = Carbon\Carbon::parse($reservation->created_at);
                 if ($now->gt($res_date)){
-                    $this->Rejected($reservation->res_id);
+                    $this->Expired($reservation->res_id);
                 }
                 if ($now->diff($created_at)->d > 3){
-                    $this->Rejected($reservation->res_id);
+                    $this->Expired($reservation->res_id);
                 }
             }
         }
@@ -83,11 +83,11 @@ class ReservationController extends Controller
                 $created_at = Carbon\Carbon::parse($reservation->created_at);
                 if ($now->gt($res_date)){
                     //echo $reservation->res_id. "Canceled Res > Now <br>";
-                    $this->Rejected($reservation->res_id);
+                    $this->Expired($reservation->res_id);
                 }
-                if ($now->diff($created_at)->d > 3){
+                if ($now->diff($created_at)->d > 2){
                     //echo $reservation->res_id. "Canceled Creat > 3D <br>";
-                    $this->Rejected($reservation->res_id);
+                    $this->Expired($reservation->res_id);
                 }
             }
         }
@@ -141,11 +141,13 @@ class ReservationController extends Controller
         }
     }
 
-    public function Rejected($id)
+    public function Expired($id)
     {
         $res = Reservation::find($id);
         $res->status = "Expired";
         $res->update();
+        $paypal = new ConsumerPaypal();
+        $payment = $paypal->voidPaymentWithPayPal($res->transactionID);
         return redirect()->back();
     }
 

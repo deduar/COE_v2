@@ -72,13 +72,13 @@
         <th><button class='btn btn-primary'>{{trans('reservation.authorized')}}</button></th>
       @endif
       @if ($res->paid == "Take")
-          <th><button class='btn btn-success'>{{trans('reservation.paid')}}</button></th>
+          <th><button class='btn btn-success' style="width: 80px; height: 33px;">{{trans('reservation.paid')}}</button></th>
       @endif
       @if ($res->paid == "Void")
-          <th><button class='btn btn-warning'>{{trans('reservation.void')}}</button></th>
+          <th><button class='btn btn-warning' style="width: 80px; height: 33px;">{{trans('reservation.void')}}</button></th>
         @endif
       @if ($res->paid == "Unpaid")
-        <th><button class='btn btn-info'>{{trans('reservation.unpaid')}}</button></th>
+        <th><button class='btn btn-info' style="width: 80px; height: 33px;">{{trans('reservation.unpaid')}}</button></th>
       @endif
   	</tr>
   	@endforeach

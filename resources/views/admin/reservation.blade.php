@@ -27,6 +27,7 @@
                 <th scope="col">Status</th>
                 <th scope="col">Paid</th>
                 <th scope="col">Reservation Date</th>
+                <th scope="col">Remaing Time</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
@@ -41,40 +42,46 @@
                   <img src={{asset('uploads/avatars/'.$res->avatar)}} height="40px" style="border-radius: 50%">
                 </th>
 
-                <th scope='col'>
-                  @if($res->status == "Waiting")
-                  <button class='btn btn-primary'>{{$res->status}}</button>
-                @endif
+
                 @if($res->status == "Canceled")
-                  <button class='btn btn-danger'>{{$res->status}}</button>
+                  <th scope='col'><button class='btn btn-danger'>{{$res->status}}</button></th>
                 @endif
                 @if($res->status == "Accepted")
-                  <button class='btn btn-info'>{{$res->status}}</button>
+                  <th scope='col'><button class='btn btn-primary'>{{$res->status}}</button></th>
                 @endif
                 @if($res->status == "Rejected")
-                  <button class='btn btn-warning'>{{$res->status}}</button>
+                  <th scope='col'><button class='btn btn-warning'>{{$res->status}}</button></th>
                 @endif
                 @if($res->status == "Expired")
-                  <button class='btn btn-secondary'>{{$res->status}}</button>
+                  <th scope='col'><button class='btn btn-secondary' style="width: 80px; height: 33px;">{{$res->status}}</button></th>
                 @endif
-                </th>
 
-                <th  scope='col'>
-                @if ($res->paid == "Paid")
-                  <button class='btn btn-primary'>{{trans('reservation.paid')}}</button>
+                @if ($res->paid == "Authorized")
+                  <th><button class='btn btn-primary' style="width: 100px; height: 33px;">{{trans('reservation.authorized')}}</button></th>
+                @endif
+                @if ($res->paid == "Take")
+                  <th><button class='btn btn-success' style="width: 100px; height: 33px;">{{trans('reservation.paid')}}</button></th>
+                @endif
+                @if ($res->paid == "Void")
+                  <th><button class='btn btn-warning' style="width: 100px; height: 33px;">{{trans('reservation.void')}}</button></th>
                 @endif
                 @if ($res->paid == "Unpaid")
-                  <button class='btn btn-info'>{{trans('reservation.unpaid')}}</button>
+                  <th><button class='btn btn-info' style="width: 100px; height: 33px;">{{trans('reservation.unpaid')}}</button></th>
                 @endif
-                </th>
-                
-                <th  scope='col'>{{ $res->res_date }} </th>
-                <th>
                 @if($res->paid == "Unpaid")
-                  <button class='btn btn-info'><a style='text-decoration:none; color:fff;' href="{{route('admin_reservationCheckPaid',array('id'=>$res->id))}}">Check Paid</a></button>
+                  <th><button class='btn btn-info'><a style='text-decoration:none; color:fff;' href="{{route('admin_reservationCheckPaid',array('id'=>$res->id))}}">Check Paid</a></button></th>
                 @endif
-                </th>
-              </tr>
+
+                @if(Session::get('locale') == "es")
+                  <th scope='col'>{{ \Carbon\Carbon::parse($res->res_date)->format('d/m/Y H:i') }}</th>
+                @else
+                  <th scope='col'>{{ \Carbon\Carbon::parse($res->res_date)->format('m/d/Y H:i') }}</th>
+                @endif
+
+                <th>RedDate</th>
+                
+                <th>Actions</th>
+
             @endforeach
 
             </tbody>
