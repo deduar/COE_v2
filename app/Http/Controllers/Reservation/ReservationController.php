@@ -262,12 +262,14 @@ class ReservationController extends Controller
         
         if ($exp->exp_flat){
             $data['amount'] = $exp->exp_price;
+            $data['amount_us'] = $exp->exp_price / $currency->cur_exchange;
         }else{
             $data['amount'] = $exp->exp_price * $request->pax;
+            $data['amount_us'] = $exp->exp_price * $request->pax / $currency->cur_exchange;
         }
 
         $paypal = new ConsumerPaypal();
-        $approvalUrl = $paypal->savePaymentWithPaypal($data['amount']);
+        $approvalUrl = $paypal->savePaymentWithPaypal($data['amount_us']);
 
         return view('reservation.confirm', array('user'=>Auth::user(),'data'=>$data,'exp'=>$exp,'guide'=>$guide, 'currency'=>$currency, 'approvalUrl'=>$approvalUrl));
     }
@@ -285,6 +287,7 @@ class ReservationController extends Controller
             $reservation->res_user_id = $user->id;
             $reservation->res_guide_id = $request->guide_id;
             $reservation->amount = $request->amount;
+            //$reservation->amount_us = $request->amount_us;
             $reservation->pax = $request->pax;
             $reservation->status = "Waiting";
             $reservation->paid = "Unpaid";

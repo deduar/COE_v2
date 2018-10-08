@@ -23,6 +23,7 @@
   {!! Form::hidden('price', $data['price']) !!}
   {!! Form::hidden('pax', $data['pax']) !!}
   {!! Form::hidden('amount', $data['amount']) !!}
+  {!! Form::hidden('amount_us', $data['amount_us']) !!}
   {!! Form::hidden('approvalUrl', $approvalUrl) !!}
 
   <div class="col-md-12">

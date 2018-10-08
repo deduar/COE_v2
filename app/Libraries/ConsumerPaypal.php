@@ -240,7 +240,6 @@ public function getPaymentWithPayPal($authorizationId, $total, $currecny)
 public function refundPaymentWithPayPal($authorizationId)
 {
 	//$captureId = "98159733X27599831";
-
 	$refund = new Refund();
 	$refund->setId($authorizationId);
 

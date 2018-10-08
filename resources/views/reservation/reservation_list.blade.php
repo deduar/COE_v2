@@ -74,6 +74,9 @@
       @if ($res->paid == "Take")
           <th><button class='btn btn-success' style="width: 80px; height: 33px;">{{trans('reservation.paid')}}</button></th>
       @endif
+      @if ($res->paid == "Refund")
+          <th><button class='btn btn-danger' style="width: 80px; height: 33px;">{{trans('reservation.refund')}}</button></th>
+      @endif
       @if ($res->paid == "Void")
           <th><button class='btn btn-warning' style="width: 80px; height: 33px;">{{trans('reservation.void')}}</button></th>
         @endif
