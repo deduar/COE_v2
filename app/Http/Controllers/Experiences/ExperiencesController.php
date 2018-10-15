@@ -327,7 +327,7 @@ class ExperiencesController extends Controller
         $exp = DB::table('experience')
                 ->join('users','users.id','=','experience.exp_guide_id')
                 ->join('currency','experience.exp_currency','=','currency.id')
-                ->select('experience.id as exp_id', 'exp_photo', 'exp_name', 'exp_location','exp_summary','exp_min_people','exp_max_people','exp_duration','exp_duration_h','exp_category','exp_flat','users.name as user_name','users.last_name as user_last_name','users.avatar as user_avatar', 'users.email', 'exp_price', 'cur_simbol', 'cur_name', 'cur_exchange', 'exp_guide_id')
+                ->select('experience.id as exp_id', 'exp_photo', 'exp_name', 'exp_location','experience.exp_summary','exp_min_people','exp_max_people','exp_duration','exp_duration_h','exp_category','exp_flat','users.name as user_name','users.last_name as user_last_name','users.avatar as user_avatar', 'users.email', 'exp_price', 'cur_simbol', 'cur_name', 'cur_exchange', 'exp_guide_id')
                 ->where('experience.id',$id)
                 ->first();
         $exp_schedule = DB::table('experience_schedules')

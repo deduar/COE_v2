@@ -55,7 +55,7 @@
                 $created_at = Carbon\Carbon::parse($res->created_at)->addDays(2);
                 $k++;
             ?>
-            <p id="demo_<?php echo $k; ?>" style="color: #E82C0C;"></p>
+            <p id="demo<?php echo $k; ?>" style="color: #E82C0C;"></p>
             <script>
               var deadline = new Date("<?php if(isset($created_at)) echo $created_at; else $created_at=""; ?>").getTime();
               var x = setInterval(function() {
@@ -65,17 +65,16 @@
               var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60));
               var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
               var seconds = Math.floor((t % (1000 * 60)) / 1000);
-              //document.getElementById("demo_1").innerHTML = days + "d "
-              document.querySelector('[id="demo_<?php echo $k;?>"]').innerHTML = days + "d "
+              document.querySelector('[id="demo<?php echo $k; ?>"]').innerHTML = days + "d "
               + hours + "h " + minutes + "m " + seconds + "s ";
                   if (t < 0) {
                       clearInterval(x);
-                      //document.getElementById("demo_<?php echo $k;?>").innerHTML = "EXPIRED";
-                      document.querySelector('[id^="demo_"]').innerHTML = "EXPIRED";
+                      document.querySelector('[id="demo<?php echo $k; ?>"]').innerHTML = "EXPIRED";
                   }
               }, 1000);
             </script>
         </th>
+
         <th scope='col'><a href="{{route('messages')}}"><div class="btn btn-success">{{trans('reservation.mail_to_guide')}}</div></a></th>
         <th scope='col'>{{$res->user_name}} {{$res->last_name}}</th>
         <th scope='col'>

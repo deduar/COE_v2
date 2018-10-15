@@ -48,17 +48,17 @@
     @endforeach
   </div>
 
-  </div>
   @else
-    <img src={{asset('uploads/exp/'.$exp->exp_photo)}} height="400px;" style="display: block; margin-left: auto; margin-right: auto;">
-    <div class="carousel-content">
-        <h3 style="text-align: center;">{{ $exp->exp_location }}</h3>
-        <h2 style="text-align: center;">{{ $exp->exp_name }}</h2>
-        <h2 style="text-align: center;"> <a style="text-decoration: none; color: #fff;" href="{{route('user_profile')}}">{{trans('experience.with')}} {{strtoupper($exp->user_name)}} {{strtoupper($exp->user_last_name)}}</a></h2>
-        <h3 style="text-align: center;"> 00 {{trans('experience.reviews')}}</h3>
-        <a style="text-decoration: none; color: #fff;" href="{{route('user_profile')}}"><img style="margin-left: 40%; border: 4px solid #fff; height: 80px; border-radius: 50px; " src="{{asset('uploads/avatars/'.$user->avatar)}}"></a>
-      </div>
+    <img src="{{asset('uploads/exp/'.$exp->exp_photo)}}" style="width: 100%; height: 450px;" >
+    <div class="carousel-content" style="top:450px;">
+      <h3 style="text-align: center;">{{ $exp->exp_location }}</h3>
+      <h2 style="text-align: center;">{{ $exp->exp_name }}</h2>
+      <h2 style="text-align: center;"> <a style="text-decoration: none; color: #fff;" href="{{route('user_profile')}}">{{trans('experience.with')}} {{strtoupper($exp->user_name)}} {{strtoupper($exp->user_last_name)}}</a></h2>
+      <h3 style="text-align: center;"> 00 {{trans('experience.reviews')}}</h3>
+      <a style="text-decoration: none; color: #fff;" href="{{route('user_profile')}}"><img style="margin-left: 40%; border: 4px solid #fff; height: 80px; border-radius: 50px; " src="{{asset('uploads/avatars/'.$user->avatar)}}"></a>
+    </div>
   @endif
+  </div>
 
   <div style="margin-top: 30px;" class="content-fluid">
     <div class="col-md-10 col-md-offset-1">
